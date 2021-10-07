@@ -14,13 +14,19 @@ class _ReelsState extends State<Reels> {
     return SafeArea(
 
       child: Scaffold(
-        backgroundColor: Colors.black,
+        //backgroundColor: Colors.black,
         body: Container(
+          decoration: BoxDecoration(
+            image: new DecorationImage(image: AssetImage("assets/images/demo3.jpg"),fit:BoxFit.cover)
+          ),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top:15,left: 20,right: 20),
+                width: double.infinity,
+                height: 475,
+                margin: EdgeInsets.only(top:15,left: 20,right: 15),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Container(
@@ -32,7 +38,68 @@ class _ReelsState extends State<Reels> {
                     )
                   ],
                 ),
+              ),
+              Container(
+                width: double.infinity,
+                  height: 170,
+                  color: Colors.pink,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      child: Icon(Icons.favorite_outline,color: Colors.white,),
+                    ),
+                    Container(
+                      child: Icon(Icons.chat_bubble_outline_rounded,color: Colors.white,),
+                    ),
+                    Container(
+                      child: Icon(Icons.share,color: Colors.white,),
+                    )
+                  ],
+                )
               )
+              // Container(
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.end,
+              //     children: [
+              //       Row(
+              //         children: [
+              //           Container(
+              //             decoration: BoxDecoration(
+              //               image: DecorationImage(
+              //                   image: AssetImage(
+              //                     "assets/images/demo.JPG",
+              //                   ),
+              //                   fit: BoxFit.cover),
+              //               shape: BoxShape.circle,
+              //             ),
+              //             height: 30,
+              //             width: 30,
+              //           ),
+              //           Container(
+              //             child: RichText(
+              //               text: TextSpan(
+              //                 text: "Jigli Khajur ",
+              //                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+              //                 children: [
+              //                   TextSpan(
+              //                     text: "2w  ",
+              //                     style: TextStyle(color: Colors.white54,fontWeight: FontWeight.normal)
+              //                   ),
+              //                   TextSpan(
+              //                     text: "Follow",
+              //                     style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)
+              //                   ),
+              //                 ]
+              //               ),
+              //             )
+              //           ),
+              //         ],
+              //       ),
+              //     ],
+              //   ),
+              // )
             ],
           ),
         ),

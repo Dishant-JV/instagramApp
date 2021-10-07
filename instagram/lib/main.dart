@@ -27,7 +27,6 @@ class Insta extends StatefulWidget {
 class _InstaState extends State<Insta> {
   List<Widget> pageList = [
     Home(),
-    Chat(),
     Search(),
     Reels(),
     Activity(),
