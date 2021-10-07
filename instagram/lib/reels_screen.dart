@@ -12,6 +12,7 @@ class _ReelsState extends State<Reels> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Scaffold(
         backgroundColor: Colors.black,
         body: Container(
@@ -23,7 +24,7 @@ class _ReelsState extends State<Reels> {
                   children: [
                     Expanded(
                       child: Container(
-                        child: Text("Reels",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize: 22),),
+                        child: Text("Reels",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize: 23),),
                       ),
                     ),
                     Container(
