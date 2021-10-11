@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\DISHANT\\AppData\\Roaming\\Google\\AndroidStudio2020.3\\plugins\\flutter-intellij\\instagram\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "D:\\flutter\\main\\instagramApp\\instagram\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DISHANT\\AppData\\Roaming\\Google\\AndroidStudio2020.3\\plugins\\flutter-intellij\\instagram\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "D:\\flutter\\main\\instagramApp\\instagram\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

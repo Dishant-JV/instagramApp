@@ -3,7 +3,10 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <type id="android" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+=======
+>>>>>>> 18b4653f64fae757540d21b12e82540026a45fef
 </project>
