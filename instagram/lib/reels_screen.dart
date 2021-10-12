@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Reels extends StatefulWidget {
   const Reels({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _ReelsState extends State<Reels> {
         //backgroundColor: Colors.black,
         body: Container(
           decoration: BoxDecoration(
-            image: new DecorationImage(image: AssetImage("assets/images/demo4.jpg"),fit:BoxFit.cover)
+            image: new DecorationImage(image: NetworkImage("https://1.bp.blogspot.com/-8xf3CTMYgOs/XpwJgVCizyI/AAAAAAAAC4o/_bL0Uu_zlpkzIonHXRRgitqyRJIuN7okwCLcBGAsYHQ/s1600/Nitin%2Bjani%2B-%2BKhajur%2Bbhai.jpg"),fit: BoxFit.cover),
           ),
           child: Column(
             children: [
@@ -87,23 +88,23 @@ class _ReelsState extends State<Reels> {
                              fit: BoxFit.cover),
                          shape: BoxShape.circle,
                        ),
-                       height: 35,
-                       width: 35,
+                       height: 38,
+                       width: 38,
                      ),
                      Container(
                        margin: EdgeInsets.only(left: 8),
                        child: Column(
-                         mainAxisAlignment: MainAxisAlignment.start,
+                         crossAxisAlignment: CrossAxisAlignment.start,
                        children: [
                          Container(
                            child: Text("Jigli Khajur ",
-                           style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 13),
+                           style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),
                          ),
                            margin: EdgeInsets.only(bottom: 2),
                          ),
                          Container(
                            child: Text("See all remix ",
-                             style: TextStyle(color: Colors.white,fontSize: 12),
+                             style: TextStyle(color: Colors.white,fontSize: 13),
                            ),),
                        ],
                        ),
@@ -115,11 +116,11 @@ class _ReelsState extends State<Reels> {
                            children: [
                              TextSpan(
                                text: "2w  ",
-                               style: TextStyle(color: Colors.white54,fontWeight: FontWeight.normal)
+                               style: TextStyle(color: Colors.white54,fontWeight: FontWeight.normal,fontSize: 15)
                              ),
                              TextSpan(
                                text: "Follow",
-                               style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500)
+                               style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15)
                              ),
                            ]
                          ),
