@@ -23,7 +23,7 @@ class _ReelsState extends State<Reels> {
             children: [
               Container(
                 width: double.infinity,
-                height: 495,
+                height: 470,
                 margin: EdgeInsets.only(top:15,left: 20,right: 15),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +129,7 @@ class _ReelsState extends State<Reels> {
                  ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 15),
+                margin: EdgeInsets.only(left: 15,bottom:10 ,top: 10),
                 child: Row(
                   children: [
                     Expanded(child: Text("clinton_857... Original Audio",style: TextStyle(color: Colors.white),)),
