@@ -17,7 +17,7 @@ class _ReelsState extends State<Reels> {
         //backgroundColor: Colors.black,
         body: Container(
           decoration: BoxDecoration(
-            image: new DecorationImage(image: AssetImage("assets/images/demo4.jpg"),fit:BoxFit.cover)
+            image: new DecorationImage(image: NetworkImage("https://cdnb.artstation.com/p/assets/images/images/028/187/293/large/shenaaz-suliman-black-jaguarsmall.jpg?1593716005"),fit:BoxFit.cover)
           ),
           child: Column(
             children: [

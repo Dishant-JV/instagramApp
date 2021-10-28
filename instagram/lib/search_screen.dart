@@ -67,8 +67,8 @@ class _SearchState extends State<Search> {
                             width: 2.5, color: Colors.black),)),
                   ),
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo5.jpg",
+                    child: Image.network(
+                      "https://images.news18.com/ibnlive/uploads/2021/08/1628511415_lion.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -84,8 +84,8 @@ class _SearchState extends State<Search> {
                   Column(
                     children: [
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo3.jpg",
+                    child: Image.network(
+                      "https://i.pinimg.com/474x/f3/74/ec/f374ecc7910923c8d3b49b4933164457.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -98,8 +98,8 @@ class _SearchState extends State<Search> {
                               width: 2.5, color: Colors.black),)),
                   ),
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo4.jpg",
+                    child: Image.network(
+                      "https://cdn.sharechat.com/heroen_4d615b05-0015-4fd9-9ab1-d5dab3ee0f5e-b466fa6b-ce53-4a61-bdd8-5440ccbb01de_cmprsd_40.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -116,8 +116,8 @@ class _SearchState extends State<Search> {
                   Column(
                     children: [
                       Container(
-                        child: Image.asset(
-                          "assets/images/demo.JPG",
+                        child: Image.network(
+                          "https://cdn.britannica.com/29/150929-050-547070A1/lion-Kenya-Masai-Mara-National-Reserve.jpg",
                           fit: BoxFit.cover,
                         ),
                         height: 270,
@@ -140,8 +140,8 @@ class _SearchState extends State<Search> {
                 children: [
                   Container(
 
-                    child: Image.asset(
-                      "assets/images/demo3.jpg",
+                    child: Image.network(
+                      "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -157,8 +157,8 @@ class _SearchState extends State<Search> {
                   ),
                   Container(
 
-                    child: Image.asset(
-                      "assets/images/demo3.jpg",
+                    child: Image.network(
+                      "https://images.hindustantimes.com/img/2021/10/24/550x309/kohli-t20-wc-new-getty_1635068337484_1635068341564.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -172,8 +172,8 @@ class _SearchState extends State<Search> {
                   ),
 
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo3.jpg",
+                    child: Image.network(
+                      "https://5.imimg.com/data5/SELLER/Default/2020/10/PX/KF/AW/20193325/ink-pen-500x500.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -192,8 +192,8 @@ class _SearchState extends State<Search> {
                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo5.jpg",
+                    child: Image.network(
+                      "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202103/sanjanaganesanphoto3-x1349.jpg?NpRedFCnLtEJQL6Qk3h6MpIW2vmVM6qT",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -209,8 +209,8 @@ class _SearchState extends State<Search> {
                   ),
                   
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo3.jpg",
+                    child: Image.network(
+                      "https://c.ndtvimg.com/2020-03/bthb68ug_virat-kohli-afp_625x300_27_March_20.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -224,8 +224,8 @@ class _SearchState extends State<Search> {
                   ),
                   Container(
 
-                    child: Image.asset(
-                      "assets/images/demo4.jpg",
+                    child: Image.network(
+                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
                       fit: BoxFit.cover,
                     ),
                     height: 135,
@@ -242,8 +242,8 @@ class _SearchState extends State<Search> {
               Row(
                 children: [
                   Container(
-                    child: Image.asset(
-                      "assets/images/demo5.jpg",
+                    child: Image.network(
+                      "https://nationalzoo.si.edu/sites/default/files/styles/1400_scale/public/animals/exhibit/africanlion-005.jpg?itok=6wA745g_",
                       fit: BoxFit.cover,
                     ),
                     height: 270,
@@ -260,8 +260,8 @@ class _SearchState extends State<Search> {
                   Column(
                     children: [
                       Container(
-                        child: Image.asset(
-                          "assets/images/demo2.JPG",
+                        child: Image.network(
+                          "https://b.zmtcdn.com/data/pictures/7/3800017/ba50a5176f9b3abf84a4b734543474a2.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*",
                           fit: BoxFit.cover,
                         ),
                         height: 135,

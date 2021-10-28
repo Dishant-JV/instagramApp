@@ -38,7 +38,6 @@ class _InstaState extends State<Insta> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-
       body: Container(
         child: Column(
           children: [

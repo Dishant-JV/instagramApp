@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.grey[900],
         // foregroundColor: Colors.black26,
         toolbarHeight: 50,
-        title: Text("Instagram"),
+        title:Image.asset("assets/images/insta_text.png",height: 60,width: 130,color: Colors.white,),
         centerTitle: true,
         leading: Icon(Icons.camera_alt),
         actions: [
@@ -62,8 +62,8 @@ class _HomeState extends State<Home> {
                                             fit: BoxFit.cover),
                                         shape: BoxShape.circle,
                                       ),
-                                      height: 60,
-                                      width: 60,
+                                      height: 65,
+                                      width: 65,
                                       margin: EdgeInsets.only(left: 10),
                                     ),
                                     Container(
@@ -94,8 +94,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -106,8 +106,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -136,8 +136,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -148,8 +148,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -178,8 +178,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -191,8 +191,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -221,8 +221,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -234,8 +234,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -264,8 +264,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -276,8 +276,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -306,8 +306,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -318,8 +318,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
@@ -348,8 +348,8 @@ class _HomeState extends State<Home> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                        height: 65,
+                                        width: 65,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -360,8 +360,8 @@ class _HomeState extends State<Home> {
                                         border: Border.all(
                                             color: Colors.white10, width: 2),
                                       ),
-                                      height: 65,
-                                      width: 65,
+                                      height: 70,
+                                      width: 70,
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),

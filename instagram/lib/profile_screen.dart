@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/profile/mprofile.dart';
+import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
 
 class Profile extends StatefulWidget {
@@ -49,10 +50,20 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     Container(
-                      child: Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                        size: 30,
+                      child: InkWell(
+                        onTap: (){
+                          showModalBottomSheet(context: context, builder: (BuildContext context){
+                            return Container(
+                              child: Setting(),
+                            );
+                          }
+                          );
+                        },
+                        child: Icon(
+                          Icons.menu,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
                     )
                   ],
@@ -504,20 +515,28 @@ class _ProfileState extends State<Profile> {
                                     currentindex = 0;
                                   });
                                 },
-                                child: Icon(
+                                child:currentindex == 0 ? Icon(
                                   Icons.pages_outlined,
                                   color: Colors.white,
                                   size: 30,
-                                )),
+                                ) :Icon(
+                                  Icons.pages_outlined,
+                                  color: Colors.grey,
+                                  size: 30,
+                                ) ),
                             InkWell(
                                 onTap: () {
                                   setState(() {
                                     currentindex = 1;
                                   });
                                 },
-                                child: Icon(
+                                child: currentindex == 1 ? Icon(
                                   Icons.person,
                                   color: Colors.white,
+                                  size: 30,
+                                ) : Icon(
+                                  Icons.person,
+                                  color: Colors.grey,
                                   size: 30,
                                 ))
                           ],
