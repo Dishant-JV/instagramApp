@@ -55,17 +55,13 @@ class _InstaState extends State<Insta> {
                         currentIndex=0;
                       });
                     },
-                    child: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                      size: 32,
-                    ),
+                    child: Image.asset("assets/images/main_home.png",color: Colors.white,height: 36,width: 36,)
                   ),
                   InkWell(
                     child: Icon(
                       Icons.search,
                       color: Colors.white,
-                      size: 32,
+                      size: 29,
                     ),
                     onTap: () {
                       setState(() {
@@ -79,11 +75,7 @@ class _InstaState extends State<Insta> {
                         currentIndex=2;
                       });
                     },
-                    child: Icon(
-                      Icons.play_circle,
-                      color: Colors.white,
-                      size: 32,
-                    ),
+                    child: Container(child: Image.asset("assets/images/home_reels.png",color: Colors.white,fit: BoxFit.cover,),height: 27,width: 27)
                   ),
                   InkWell(
                     onTap: () {

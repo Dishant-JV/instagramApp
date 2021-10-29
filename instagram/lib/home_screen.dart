@@ -16,6 +16,9 @@ class _HomeState extends State<Home> {
   int index =0;
   int index1=0;
   int index2=0;
+  int bindex =0;
+  int bindex1 =0;
+  int bindex2 =0;
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -51,10 +54,33 @@ class _HomeState extends State<Home> {
                         ),
                         child: Icon(Icons.add,color: Colors.white,size: 20,),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 25,right: 20),
-                        child: Icon(Icons.message_sharp,color: Colors.white,),
+                      Stack(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Chat()));
+                            },
+                            child: Container(
+                                height: 26,
+                                width: 26,
+                                margin: EdgeInsets.only(left: 25,right: 20),
+                                child: Image.asset("assets/images/home_chat.png",color: Colors.white,fit: BoxFit.cover,)
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 40),
+                            height: 14,
+                            width: 14,
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle
+                            ),
+                            child: Text("8",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 11),)
+                          ),
+                        ],
                       )
+
                     ],
                   ),
                 ),
@@ -454,12 +480,8 @@ class _HomeState extends State<Home> {
                                               ),
                                             ),
                                             Container(
-                                              child: Icon(
-                                                Icons.chat_bubble_outline,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
                                               child: Icon(
@@ -467,18 +489,30 @@ class _HomeState extends State<Home> {
                                                 size: 29,
                                                 color: Colors.white,
                                               ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.file_download,
-                                          size: 29,
-                                          color: Colors.white,
-                                        ),
-                                        margin: EdgeInsets.only(right: 15),
+                                      InkWell(
+                                        onTap: (){
+                                          bindex = 1 ;
+                                        },
+                                        child: bindex == 0 ? Container(
+                                          child: Icon(
+                                            Icons.bookmark_outline,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(right: 15),
+                                        ) : Container(
+                                          child: Icon(
+                                            Icons.image,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(right: 15),
+                                        )
                                       ),
                                     ],
                                   ),
@@ -709,12 +743,8 @@ class _HomeState extends State<Home> {
                                               ),
                                             ),
                                             Container(
-                                              child: Icon(
-                                                Icons.chat_bubble_outline,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
                                               child: Icon(
@@ -722,14 +752,14 @@ class _HomeState extends State<Home> {
                                                 size: 29,
                                                 color: Colors.white,
                                               ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                           ],
                                         ),
                                       ),
                                       Container(
                                         child: Icon(
-                                          Icons.file_download,
+                                          Icons.bookmark_outline,
                                           size: 29,
                                           color: Colors.white,
                                         ),
@@ -964,12 +994,8 @@ class _HomeState extends State<Home> {
                                               ),
                                             ),
                                             Container(
-                                              child: Icon(
-                                                Icons.chat_bubble_outline,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
                                               child: Icon(
@@ -977,14 +1003,14 @@ class _HomeState extends State<Home> {
                                                 size: 29,
                                                 color: Colors.white,
                                               ),
-                                              margin: EdgeInsets.only(left: 15),
+                                              margin: EdgeInsets.only(left: 13),
                                             ),
                                           ],
                                         ),
                                       ),
                                       Container(
                                         child: Icon(
-                                          Icons.file_download,
+                                          Icons.bookmark_outline,
                                           size: 29,
                                           color: Colors.white,
                                         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/home_screen.dart';
+import 'package:instagram/main.dart';
 import 'package:instagram/profile/login.dart';
 import 'package:instagram/profile/signup.dart';
 
@@ -56,16 +58,24 @@ class _LogoutState extends State<Logout> {
                             ],
                           ),
                         ),
-                        Container(
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              Navigator.pop(context);
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Insta()));
+                            });
+                          },
                           child: Container(
-                            height: 30,
-                            width: 65,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(color: Colors.white,width: 1)
+                            child: Container(
+                              height: 30,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(color: Colors.white,width: 1)
+                              ),
+                              alignment: Alignment.center,
+                              child: Text("Log in",style: TextStyle(color: Colors.white),),
                             ),
-                            alignment: Alignment.center,
-                            child: Text("Log in",style: TextStyle(color: Colors.white),),
                           ),
                         ),
                         Container(
