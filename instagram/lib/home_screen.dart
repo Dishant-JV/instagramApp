@@ -496,7 +496,9 @@ class _HomeState extends State<Home> {
                                       ),
                                       InkWell(
                                         onTap: (){
-                                          bindex = 1 ;
+                                          setState(() {
+                                            bindex=1;
+                                          });
                                         },
                                         child: bindex == 0 ? Container(
                                           child: Icon(
@@ -507,7 +509,7 @@ class _HomeState extends State<Home> {
                                           margin: EdgeInsets.only(right: 15),
                                         ) : Container(
                                           child: Icon(
-                                            Icons.image,
+                                            Icons.bookmark,
                                             size: 29,
                                             color: Colors.white,
                                           ),
