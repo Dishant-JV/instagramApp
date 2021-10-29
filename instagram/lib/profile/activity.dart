@@ -145,6 +145,33 @@ links()
                 )
               ],
             ),
+          ),
+          Container(height: 300,
+            width: 300,
+            margin: EdgeInsets.only(top: 50),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 50,top: 45),
+                  height: 20,
+                  width: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle
+                  ),
+                  child: Icon(Icons.add,color: Colors.white,size: 19,),
+                ),
+              ],
+            ),
           )
         ],
       ),

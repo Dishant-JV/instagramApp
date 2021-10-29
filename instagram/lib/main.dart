@@ -5,7 +5,6 @@ import 'package:instagram/home_screen.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
-
 import 'activity_screen.dart';
 
 void main() {
@@ -45,7 +44,7 @@ class _InstaState extends State<Insta> {
               child: pageList[currentIndex],
             ),
             Container(
-              height: 45,
+              height: 48,
               color: Colors.black,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

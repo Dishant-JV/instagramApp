@@ -124,8 +124,6 @@ class _MprofileState extends State<Mprofile> {
             ],
           ),
           Row(
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
 
@@ -159,7 +157,156 @@ class _MprofileState extends State<Mprofile> {
                       bottom: BorderSide(
                           width: 2.5, color: Colors.black),)),
               ),
+              Container(
+                child: Image.asset(
+                  "assets/images/demo5.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Container(
 
+                child: Image.asset(
+                  "assets/images/demo7.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      left:
+                      BorderSide(width: 2.5, color: Colors.black),
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+              Container(
+
+                child: Image.asset(
+                  "assets/images/demo6.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+              Container(
+                child: Image.asset(
+                  "assets/images/demo5.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+
+                child: Image.asset(
+                  "assets/images/demo7.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      left:
+                      BorderSide(width: 2.5, color: Colors.black),
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+              Container(
+
+                child: Image.asset(
+                  "assets/images/demo6.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+              Container(
+                child: Image.asset(
+                  "assets/images/demo5.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+
+                child: Image.asset(
+                  "assets/images/demo7.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      left:
+                      BorderSide(width: 2.5, color: Colors.black),
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
+              Container(
+
+                child: Image.asset(
+                  "assets/images/demo6.jpg",
+                  fit: BoxFit.cover,
+                ),
+                height: 135,
+                width: 130,
+                decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                          width: 2.5, color: Colors.black),
+                      bottom: BorderSide(
+                          width: 2.5, color: Colors.black),)),
+              ),
               Container(
                 child: Image.asset(
                   "assets/images/demo5.jpg",

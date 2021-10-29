@@ -12,6 +12,14 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final itemKey =GlobalKey();
+  Future scrollToItem() async{
+    final context = itemKey.currentContext!;
+    await Scrollable.ensureVisible(context,
+      alignment: 0,
+      duration: Duration(seconds:1)
+    );
+}
   int currentindex = 0;
 
   @override
@@ -90,29 +98,34 @@ class _ProfileState extends State<Profile> {
                               height: 85,
                               width: 85,
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      "14",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18),
+                            InkWell(
+                              onTap: (){
+                                scrollToItem();
+                              },
+                              child: Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Text(
+                                        "14",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 3),
-                                    child: Text(
-                                      "Posts",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 3),
+                                      child: Text(
+                                        "Posts",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             Container(
@@ -505,6 +518,7 @@ class _ProfileState extends State<Profile> {
                         color: Colors.black,
                       ),
                       Container(
+                        key: itemKey,
                         margin: EdgeInsets.only(top: 15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
