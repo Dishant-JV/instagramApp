@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/profile/change_profile.dart';
 import 'package:instagram/profile/mprofile.dart';
 import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
-import 'globals.dart' as globals;
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -23,6 +23,7 @@ class _ProfileState extends State<Profile> {
   }
 
   int currentindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -135,7 +136,8 @@ class _ProfileState extends State<Profile> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Followers()));
+                                        builder: (context) =>
+                                            Followers(index: 0)));
                               },
                               child: Container(
                                 child: Column(
@@ -168,10 +170,9 @@ class _ProfileState extends State<Profile> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Followers()));
-                                setState(() {
-                                  globals.follow =1;
-                                });
+                                        builder: (context) => Followers(
+                                              index: 1,
+                                            )));
                               },
                               child: Container(
                                 child: Column(
@@ -251,20 +252,25 @@ class _ProfileState extends State<Profile> {
                         margin: EdgeInsets.only(left: 20, top: 13),
                         child: Row(
                           children: [
-                            Container(
-                                height: 31,
-                                width: 312,
-                                // color: Colors.pink,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Edit Profile",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.circular(4))),
+                            InkWell(
+                              child: Container(
+                                  height: 31,
+                                  width: 312,
+                                  // color: Colors.pink,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "Edit Profile",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.grey),
+                                      borderRadius: BorderRadius.circular(4))),
+                              onTap:(){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Changeprofile()));
+                              },
+                            ),
                             Container(
                               alignment: Alignment.center,
                               margin: EdgeInsets.only(left: 7, right: 20),

@@ -114,9 +114,17 @@ class _ArchivesState extends State<Archives> {
                 child: SingleChildScrollView(
                   reverse: true,
                   scrollDirection: Axis.vertical,
-                  child: curindex == 0 ? archive() : Container()
+                  child:  curindex == 0 ? archive() : curindex == 1 ?  Container(
+                    width: double.infinity,
+                    height: 700,
+                    child: Image.network("https://newsfeed.org/wp-content/uploads/blur-cartography-close-up-concept-408503.jpg",fit: BoxFit.cover,),
+                  ) : Container(
+                    width: double.infinity,
+                    height: 700,
+                    child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCG9LgIKaIrIwFO1a-L3i115rucMrftT3VIw&usqp=CAU",fit: BoxFit.contain,),
+                  ) ,
                 ),
-              )
+              ),
             ],
           ),
         ),

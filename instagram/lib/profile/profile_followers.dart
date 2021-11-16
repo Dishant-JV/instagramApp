@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
 import '../profile_screen.dart';
 
-
 class Followers extends StatefulWidget {
-  const Followers({Key? key}) : super(key: key);
+  final int index;
+
+  const Followers({Key? key, this.index = 0}) : super(key: key);
 
   @override
   _FollowersState createState() => _FollowersState();
 }
 
 class _FollowersState extends State<Followers> {
+  int ?index ;
+
+  //int? index;
+
   @override
-  int index =0;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    index = widget.index;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -20,7 +31,7 @@ class _FollowersState extends State<Followers> {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 15, left: 15,bottom: 20),
+                margin: EdgeInsets.only(top: 15, left: 15, bottom: 20),
                 child: Row(
                   children: [
                     InkWell(
@@ -52,60 +63,85 @@ class _FollowersState extends State<Followers> {
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
-                          index=0;
+                          index = 0;
                         });
                       },
-                      child: index == 0 ? Container(
-                        decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: Colors.white))
-                        ),
-                        alignment: Alignment.center,
-                        width: 196,
-                        child: Text("512 Followers",style: TextStyle(color: Colors.white,fontSize: 16),),
-                      ) : Container(
-                        decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: Colors.grey.shade600.withOpacity(0.5)))
-                        ),
-                        alignment: Alignment.center,
-                        width: 196,
-                        child: Text("512 Followers",style: TextStyle(color: Colors.grey.withOpacity(0.9),fontSize: 16),),
-                      ),
+                      child: index == 0
+                          ? Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.white))),
+                              alignment: Alignment.center,
+                              width: 196,
+                              child: Text(
+                                "512 Followers",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                            )
+                          : Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                          color: Colors.grey.shade600
+                                              .withOpacity(0.5)))),
+                              alignment: Alignment.center,
+                              width: 196,
+                              child: Text(
+                                "512 Followers",
+                                style: TextStyle(
+                                    color: Colors.grey.withOpacity(0.9),
+                                    fontSize: 16),
+                              ),
+                            ),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
-                          index=1;
+                          index = 1;
                         });
                       },
-                      child: index == 1 ? Container(
-                        decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: Colors.white))
-                        ),
-                        alignment: Alignment.center,
-                        width: 196,
-                        child: Text("412 Following",style: TextStyle(color: Colors.white,fontSize: 16),),
-                      ): Container(
-                        decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: Colors.grey.shade600.withOpacity(0.5)))
-                        ),
-                        alignment: Alignment.center,
-                        width: 196,
-                        child: Text("412 Following",style: TextStyle(color: Colors.grey.withOpacity(0.9),fontSize: 16),),
-                      ),
+                      child: index == 1
+                          ? Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.white))),
+                              alignment: Alignment.center,
+                              width: 196,
+                              child: Text(
+                                "412 Following",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                            )
+                          : Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                          color: Colors.grey.shade600
+                                              .withOpacity(0.5)))),
+                              alignment: Alignment.center,
+                              width: 196,
+                              child: Text(
+                                "412 Following",
+                                style: TextStyle(
+                                    color: Colors.grey.withOpacity(0.9),
+                                    fontSize: 16),
+                              ),
+                            ),
                     ),
                   ],
                 ),
               ),
               Expanded(
-                  child: 
-              SingleChildScrollView(
+                  child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Container(
-                      margin:
-                      EdgeInsets.only(top: 12, left: 15, right: 15, bottom: 25),
+                      margin: EdgeInsets.only(
+                          top: 12, left: 15, right: 15, bottom: 25),
                       width: double.infinity,
                       height: 38,
                       decoration: BoxDecoration(
@@ -124,18 +160,19 @@ class _FollowersState extends State<Followers> {
                           Container(
                             child: Text(
                               "Search",
-                              style: TextStyle(color: Colors.white54, fontSize: 17),
+                              style: TextStyle(
+                                  color: Colors.white54, fontSize: 17),
                             ),
                             margin: EdgeInsets.only(left: 17),
                           )
                         ],
                       ),
                     ),
-                    index == 0? followers() : following(),
+                    // index == 0? followers() : following(),
+          index==0?followers():following(),
                   ],
                 ),
               )),
-              
             ],
           ),
         ),
@@ -143,8 +180,8 @@ class _FollowersState extends State<Followers> {
     );
   }
 }
- followers()
-{
+
+followers() {
   return Container(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,10 +189,10 @@ class _FollowersState extends State<Followers> {
         Container(
           padding: EdgeInsets.only(bottom: 6),
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey.shade600.withOpacity(0.2)))
-          ),
+              border: Border(
+                  bottom: BorderSide(
+                      color: Colors.grey.shade600.withOpacity(0.2)))),
           height: 57,
-
           child: Row(
             children: [
               Stack(
@@ -176,15 +213,18 @@ class _FollowersState extends State<Followers> {
                   ),
                   Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 43,top: 2),
+                      margin: EdgeInsets.only(left: 43, top: 2),
                       height: 17,
                       width: 17,
                       decoration: BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle
-                      ),
-                      child: Text("18",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 11),)
-                  ),
+                          color: Colors.red, shape: BoxShape.circle),
+                      child: Text(
+                        "18",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11),
+                      )),
                 ],
               ),
               Container(
@@ -196,7 +236,8 @@ class _FollowersState extends State<Followers> {
                     Container(
                       child: Text(
                         "Follow Requests",
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       margin: EdgeInsets.only(right: 13),
                     ),
@@ -205,7 +246,7 @@ class _FollowersState extends State<Followers> {
                         "Approve or ignore requests",
                         style: TextStyle(color: Colors.white54),
                       ),
-                      margin: EdgeInsets.only(top:3),
+                      margin: EdgeInsets.only(top: 3),
                     ),
                   ],
                 ),
@@ -214,8 +255,12 @@ class _FollowersState extends State<Followers> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 20,left: 15),
-          child: Text("Categories",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+          margin: EdgeInsets.only(top: 20, left: 15),
+          child: Text(
+            "Categories",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+          ),
         ),
         Container(
           margin: EdgeInsets.only(top: 18),
@@ -239,7 +284,7 @@ class _FollowersState extends State<Followers> {
                     // margin: EdgeInsets.only(left: 10),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 24,top: 8),
+                    margin: EdgeInsets.only(left: 24, top: 8),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
@@ -263,7 +308,8 @@ class _FollowersState extends State<Followers> {
                     Container(
                       child: Text(
                         "Accounts You Don't follow back",
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       margin: EdgeInsets.only(right: 13),
                     ),
@@ -272,7 +318,7 @@ class _FollowersState extends State<Followers> {
                         "Kevik9090_@ and 178 others",
                         style: TextStyle(color: Colors.white54),
                       ),
-                      margin: EdgeInsets.only(top:3),
+                      margin: EdgeInsets.only(top: 3),
                     ),
                   ],
                 ),
@@ -282,10 +328,11 @@ class _FollowersState extends State<Followers> {
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey.shade600.withOpacity(0.2)))
-          ),
+              border: Border(
+                  bottom: BorderSide(
+                      color: Colors.grey.shade600.withOpacity(0.2)))),
           margin: EdgeInsets.only(top: 10),
-         padding: EdgeInsets.only(bottom: 5),
+          padding: EdgeInsets.only(bottom: 5),
           height: 70,
           child: Row(
             children: [
@@ -306,7 +353,7 @@ class _FollowersState extends State<Followers> {
                     // margin: EdgeInsets.only(left: 10),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 24,top: 8),
+                    margin: EdgeInsets.only(left: 24, top: 8),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
@@ -330,7 +377,8 @@ class _FollowersState extends State<Followers> {
                     Container(
                       child: Text(
                         "Least interacted with",
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       margin: EdgeInsets.only(right: 13),
                     ),
@@ -339,7 +387,7 @@ class _FollowersState extends State<Followers> {
                         "Bhavik_patel and 49 others",
                         style: TextStyle(color: Colors.white54),
                       ),
-                      margin: EdgeInsets.only(top:3),
+                      margin: EdgeInsets.only(top: 3),
                     ),
                   ],
                 ),
@@ -348,11 +396,15 @@ class _FollowersState extends State<Followers> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 20,left: 15),
-          child: Text("All Followers",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+          margin: EdgeInsets.only(top: 20, left: 15),
+          child: Text(
+            "All Followers",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+          ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top: 20,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 20, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -389,7 +441,7 @@ class _FollowersState extends State<Followers> {
                               "MB...Vaghasiya",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -401,19 +453,21 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
-                ),
+                    border: Border.all(color: Colors.white70)),
               )
             ],
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top: 4,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 4, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -450,7 +504,7 @@ class _FollowersState extends State<Followers> {
                               "Raj makrubiya",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -462,19 +516,21 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
-                ),
+                    border: Border.all(color: Colors.white70)),
               )
             ],
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top: 4,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 4, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -511,7 +567,7 @@ class _FollowersState extends State<Followers> {
                               "Keyur koladiya",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -523,19 +579,21 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
-                ),
+                    border: Border.all(color: Colors.white70)),
               )
             ],
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top: 4,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 4, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -572,7 +630,7 @@ class _FollowersState extends State<Followers> {
                               "Jay Saradar",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -584,19 +642,21 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
-                ),
+                    border: Border.all(color: Colors.white70)),
               )
             ],
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top: 4,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 4, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -633,7 +693,7 @@ class _FollowersState extends State<Followers> {
                               "Dax Ghoghari",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -645,19 +705,21 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
-                ),
+                    border: Border.all(color: Colors.white70)),
               )
             ],
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left:15,top:4,bottom: 12),
+          margin: EdgeInsets.only(left: 15, top: 4, bottom: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -694,7 +756,7 @@ class _FollowersState extends State<Followers> {
                               "Dishant",
                               style: TextStyle(color: Colors.white54),
                             ),
-                            margin: EdgeInsets.only(top:3),
+                            margin: EdgeInsets.only(top: 3),
                           ),
                         ],
                       ),
@@ -706,12 +768,663 @@ class _FollowersState extends State<Followers> {
                 margin: EdgeInsets.only(right: 15),
                 height: 28,
                 width: 73,
-
                 alignment: Alignment.center,
-                child: Text("Remove",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white70)
+                    border: Border.all(color: Colors.white70)),
+              )
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+following() {
+  return Container(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 2, left: 15),
+          child: Text(
+            "Categories",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 18),
+          height: 57,
+          child: Row(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/demo4.jpg",
+                          ),
+                          fit: BoxFit.cover),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 44,
+                    width: 44,
+                    // margin: EdgeInsets.only(left: 10),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 24, top: 8),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/demo5.jpg",
+                          ),
+                          fit: BoxFit.cover),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 44,
+                    width: 44,
+                    // margin: EdgeInsets.only(left: 10),
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Least interacted With",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      ),
+                      margin: EdgeInsets.only(right: 13),
+                    ),
+                    Container(
+                      child: Text(
+                        "nikunj_rr34 and 50 others",
+                        style: TextStyle(color: Colors.white54),
+                      ),
+                      margin: EdgeInsets.only(top: 3),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                      color: Colors.grey.shade600.withOpacity(0.2)))),
+          margin: EdgeInsets.only(top: 10),
+          padding: EdgeInsets.only(bottom: 5),
+          height: 70,
+          child: Row(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/demo6.jpg",
+                          ),
+                          fit: BoxFit.cover),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 44,
+                    width: 44,
+                    // margin: EdgeInsets.only(left: 10),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 24, top: 8),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/demo7.jpg",
+                          ),
+                          fit: BoxFit.cover),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 45,
+                    width: 45,
+                    // margin: EdgeInsets.only(left: 10),
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Most Shown in Feed",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      ),
+                      margin: EdgeInsets.only(right: 13),
+                    ),
+                    Container(
+                      child: Text(
+                        "gamdiyo and 59 others",
+                        style: TextStyle(color: Colors.white54),
+                      ),
+                      margin: EdgeInsets.only(top: 3),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 20, left: 15),
+          child: Text(
+            "Sorted by Default",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo.JPG",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Kitan Shah",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "kk koladiya",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo4.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Kiara_advani",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "kyarra",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo5.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Dhavani Bhanushali",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "Dhhavanni",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo6.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Ketrina kaif",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "kaif of shafe",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo7.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Boni Kapoor",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "Love of kapoor family",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo5.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Dhavani Bhanushali",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "Dhhavanni",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 15, bottom: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo4.jpg",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 55,
+                      width: 55,
+                      // margin: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Kiara_advani",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            margin: EdgeInsets.only(right: 13),
+                          ),
+                          Container(
+                            child: Text(
+                              "kyarra",
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                            margin: EdgeInsets.only(top: 3),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                height: 28,
+                width: 120,
+                alignment: Alignment.center,
+                child: Text(
+                  "Following",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.white70)),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 5),
+                child: Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
                 ),
               )
             ],
@@ -720,608 +1433,4 @@ class _FollowersState extends State<Followers> {
       ],
     ),
   );
-
-}
-following()
-{
-      return Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.only(top:2,left: 15),
-              child: Text("Categories",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 18),
-              height: 57,
-              child: Row(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 15),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                "assets/images/demo4.jpg",
-                              ),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle,
-                        ),
-                        height: 44,
-                        width: 44,
-                        // margin: EdgeInsets.only(left: 10),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 24,top: 8),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                "assets/images/demo5.jpg",
-                              ),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle,
-                        ),
-                        height: 44,
-                        width: 44,
-                        // margin: EdgeInsets.only(left: 10),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Least interacted With",
-                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
-                          ),
-                          margin: EdgeInsets.only(right: 13),
-                        ),
-                        Container(
-                          child: Text(
-                            "nikunj_rr34 and 50 others",
-                            style: TextStyle(color: Colors.white54),
-                          ),
-                          margin: EdgeInsets.only(top:3),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey.shade600.withOpacity(0.2)))
-              ),
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.only(bottom: 5),
-              height: 70,
-              child: Row(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 15),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                "assets/images/demo6.jpg",
-                              ),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle,
-                        ),
-                        height: 44,
-                        width: 44,
-                        // margin: EdgeInsets.only(left: 10),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 24,top: 8),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                "assets/images/demo7.jpg",
-                              ),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle,
-                        ),
-                        height: 45,
-                        width: 45,
-                        // margin: EdgeInsets.only(left: 10),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Most Shown in Feed",
-                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
-                          ),
-                          margin: EdgeInsets.only(right: 13),
-                        ),
-                        Container(
-                          child: Text(
-                            "gamdiyo and 59 others",
-                            style: TextStyle(color: Colors.white54),
-                          ),
-                          margin: EdgeInsets.only(top:3),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 20,left: 15),
-              child: Text("Sorted by Default",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo.JPG",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Kitan Shah",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "kk koladiya",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo4.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Kiara_advani",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "kyarra",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo5.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Dhavani Bhanushali",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "Dhhavanni",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo6.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Ketrina kaif",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "kaif of shafe",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo7.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Boni Kapoor",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "Love of kapoor family",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo5.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Dhavani Bhanushali",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "Dhhavanni",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left:15,top: 15,bottom: 15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/demo4.jpg",
-                                ),
-                                fit: BoxFit.cover),
-                            shape: BoxShape.circle,
-                          ),
-                          height: 55,
-                          width: 55,
-                          // margin: EdgeInsets.only(left: 10),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Kiara_advani",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                margin: EdgeInsets.only(right: 13),
-                              ),
-                              Container(
-                                child: Text(
-                                  "kyarra",
-                                  style: TextStyle(color: Colors.white54),
-                                ),
-                                margin: EdgeInsets.only(top:3),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 28,
-                    width: 120,
-
-                    alignment: Alignment.center,
-                    child: Text("Following",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Colors.white70)
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(Icons.more_vert,color: Colors.white,),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
 }
