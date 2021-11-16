@@ -112,8 +112,8 @@ class _HomeState extends State<Home> {
                                             Container(
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo.JPG",
+                                                    image: NetworkImage(
+                                                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -152,8 +152,8 @@ class _HomeState extends State<Home> {
                                           child: Container(
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo2.JPG",
+                                                    image: NetworkImage(
+                                                      "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -185,7 +185,7 @@ class _HomeState extends State<Home> {
                                       ],
                                       mainAxisAlignment: MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 15,top: 13),
+                                    margin: EdgeInsets.only(left: 11,top: 13),
                                   ),
                                   Container(
                                     child: Column(
@@ -195,7 +195,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: AssetImage(
-                                                      "assets/images/demo2.JPG",
+                                                      "assets/images/demo3.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -219,7 +219,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
-                                            "piyush12_",
+                                            "Ayush561_.",
                                             style: TextStyle(
                                                 color: Colors.white, fontSize: 12),
                                           ),
@@ -227,7 +227,7 @@ class _HomeState extends State<Home> {
                                       ],
                                       mainAxisAlignment: MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 15,top: 13),
+                                    margin: EdgeInsets.only(left: 11,top: 13),
                                   ),
                                   Container(
                                     child: Column(
@@ -237,7 +237,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: AssetImage(
-                                                      "assets/images/demo2.JPG",
+                                                      "assets/images/demo4.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -261,7 +261,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
-                                            "piyush12_",
+                                            "heena67@1",
                                             style: TextStyle(
                                                 color: Colors.white, fontSize: 12),
                                           ),
@@ -269,7 +269,7 @@ class _HomeState extends State<Home> {
                                       ],
                                       mainAxisAlignment: MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 15,top: 13),
+                                    margin: EdgeInsets.only(left: 11,top: 13),
                                   ),
                                   Container(
                                     child: Column(
@@ -279,7 +279,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: AssetImage(
-                                                      "assets/images/demo2.JPG",
+                                                      "assets/images/demo5.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -303,7 +303,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
-                                            "piyush12_",
+                                            "jenil0909",
                                             style: TextStyle(
                                                 color: Colors.white, fontSize: 12),
                                           ),
@@ -311,7 +311,7 @@ class _HomeState extends State<Home> {
                                       ],
                                       mainAxisAlignment: MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 15,top: 13),
+                                    margin: EdgeInsets.only(left: 11,top: 13),
                                   ),
                                   Container(
                                     child: Column(
@@ -321,7 +321,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: AssetImage(
-                                                      "assets/images/demo2.JPG",
+                                                      "assets/images/demo7.jpg",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -353,7 +353,7 @@ class _HomeState extends State<Home> {
                                       ],
                                       mainAxisAlignment: MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 15,top: 13),
+                                    margin: EdgeInsets.only(left: 11,top: 13),
                                   ),
                                 ],
                               ),
@@ -376,8 +376,8 @@ class _HomeState extends State<Home> {
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       image: DecorationImage(
-                                                          image: AssetImage(
-                                                            "assets/images/demo.JPG",
+                                                          image: NetworkImage(
+                                                            "https://images.hindustantimes.com/img/2021/10/24/550x309/kohli-t20-wc-new-getty_1635068337484_1635068341564.jpg",
                                                           ),
                                                           fit: BoxFit.cover),
                                                       shape: BoxShape.circle,
@@ -426,8 +426,8 @@ class _HomeState extends State<Home> {
                                 Container(
                                   width: double.infinity,
                                   height: 380,
-                                  child: Image.asset(
-                                    "assets/images/demo5.jpg",
+                                  child: Image.network(
+                                    "https://images.news18.com/ibnlive/uploads/2021/08/1628511415_lion.jpg",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -507,13 +507,27 @@ class _HomeState extends State<Home> {
                                             color: Colors.white,
                                           ),
                                           margin: EdgeInsets.only(right: 15),
-                                        ) : Container(
-                                          child: Icon(
-                                            Icons.bookmark,
-                                            size: 29,
-                                            color: Colors.white,
+                                        ) : InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              bindex =0;
+                                            });
+                                          },
+                                          child: bindex == 1 ? Container(
+                                            child: Icon(
+                                              Icons.bookmark,
+                                              size: 29,
+                                              color: Colors.white,
+                                            ),
+                                            margin: EdgeInsets.only(right: 15),
+                                          ): Container(
+                                            child: Icon(
+                                              Icons.bookmark,
+                                              size: 29,
+                                              color: Colors.white,
+                                            ),
+                                            margin: EdgeInsets.only(right: 15),
                                           ),
-                                          margin: EdgeInsets.only(right: 15),
                                         )
                                       ),
                                     ],
@@ -642,7 +656,7 @@ class _HomeState extends State<Home> {
                                                   decoration: BoxDecoration(
                                                       image: DecorationImage(
                                                           image: AssetImage(
-                                                            "assets/images/demo.JPG",
+                                                            "assets/images/demo5.jpg",
                                                           ),
                                                           fit: BoxFit.cover),
                                                       shape: BoxShape.circle,
@@ -666,7 +680,7 @@ class _HomeState extends State<Home> {
                                               Container(
                                                 margin: EdgeInsets.only(left: 11),
                                                 child: Text(
-                                                  "gamdiyo",
+                                                  "Sanjna_Ganeshan",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
@@ -691,8 +705,8 @@ class _HomeState extends State<Home> {
                                 Container(
                                   width: double.infinity,
                                   height: 380,
-                                  child: Image.asset(
-                                    "assets/images/demo5.jpg",
+                                  child: Image.network(
+                                    "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202103/sanjanaganesanphoto3-x1349.jpg?NpRedFCnLtEJQL6Qk3h6MpIW2vmVM6qT",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -759,13 +773,41 @@ class _HomeState extends State<Home> {
                                           ],
                                         ),
                                       ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.bookmark_outline,
-                                          size: 29,
-                                          color: Colors.white,
-                                        ),
-                                        margin: EdgeInsets.only(right: 15),
+                                      InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              bindex1=1;
+                                            });
+                                          },
+                                          child: bindex1 == 0 ? Container(
+                                            child: Icon(
+                                              Icons.bookmark_outline,
+                                              size: 29,
+                                              color: Colors.white,
+                                            ),
+                                            margin: EdgeInsets.only(right: 15),
+                                          ) : InkWell(
+                                            onTap: (){
+                                              setState(() {
+                                                bindex1=0;
+                                              });
+                                            },
+                                            child: bindex1 == 1 ? Container(
+                                              child: Icon(
+                                                Icons.bookmark,
+                                                size: 29,
+                                                color: Colors.white,
+                                              ),
+                                              margin: EdgeInsets.only(right: 15),
+                                            ): Container(
+                                              child: Icon(
+                                                Icons.bookmark,
+                                                size: 29,
+                                                color: Colors.white,
+                                              ),
+                                              margin: EdgeInsets.only(right: 15),
+                                            ),
+                                          )
                                       ),
                                     ],
                                   ),
@@ -777,6 +819,7 @@ class _HomeState extends State<Home> {
                                   child: Row(
                                     children: [
                                       Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             margin: EdgeInsets.only(left: 18),
@@ -788,7 +831,7 @@ class _HomeState extends State<Home> {
                                                     ),
                                                     children: [
                                                       TextSpan(
-                                                          text: "dishant_8171..",
+                                                          text: "dishant_8171.. and thousand's of others",
                                                           style: TextStyle(
                                                               color: Colors.white,
                                                               fontWeight: FontWeight.bold)),
@@ -1010,13 +1053,41 @@ class _HomeState extends State<Home> {
                                           ],
                                         ),
                                       ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.bookmark_outline,
-                                          size: 29,
-                                          color: Colors.white,
-                                        ),
-                                        margin: EdgeInsets.only(right: 15),
+                                      InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              bindex2=1;
+                                            });
+                                          },
+                                          child: bindex2 == 0 ? Container(
+                                            child: Icon(
+                                              Icons.bookmark_outline,
+                                              size: 29,
+                                              color: Colors.white,
+                                            ),
+                                            margin: EdgeInsets.only(right: 15),
+                                          ) : InkWell(
+                                            onTap: (){
+                                              setState(() {
+                                                bindex2 =0;
+                                              });
+                                            },
+                                            child: bindex2 == 1 ? Container(
+                                              child: Icon(
+                                                Icons.bookmark,
+                                                size: 29,
+                                                color: Colors.white,
+                                              ),
+                                              margin: EdgeInsets.only(right: 15),
+                                            ): Container(
+                                              child: Icon(
+                                                Icons.bookmark,
+                                                size: 29,
+                                                color: Colors.white,
+                                              ),
+                                              margin: EdgeInsets.only(right: 15),
+                                            ),
+                                          )
                                       ),
                                     ],
                                   ),

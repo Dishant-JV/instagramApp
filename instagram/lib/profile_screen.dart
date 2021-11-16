@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/profile/mprofile.dart';
+import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
+import 'globals.dart' as globals;
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -12,16 +14,15 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final itemKey =GlobalKey();
-  Future scrollToItem() async{
+  final itemKey = GlobalKey();
+
+  Future scrollToItem() async {
     final context = itemKey.currentContext!;
     await Scrollable.ensureVisible(context,
-      alignment: 0,
-      duration: Duration(seconds:1)
-    );
-}
-  int currentindex = 0;
+        alignment: 0, duration: Duration(seconds: 1));
+  }
 
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,13 +60,14 @@ class _ProfileState extends State<Profile> {
                     ),
                     Container(
                       child: InkWell(
-                        onTap: (){
-                          showModalBottomSheet(context: context, builder: (BuildContext context){
-                            return Container(
-                              child: Setting(),
-                            );
-                          }
-                          );
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  child: Setting(),
+                                );
+                              });
                         },
                         child: Icon(
                           Icons.menu,
@@ -89,8 +91,8 @@ class _ProfileState extends State<Profile> {
                             Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/images/demo2.JPG",
+                                    image: NetworkImage(
+                                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
                                     ),
                                     fit: BoxFit.cover),
                                 shape: BoxShape.circle,
@@ -99,7 +101,7 @@ class _ProfileState extends State<Profile> {
                               width: 85,
                             ),
                             InkWell(
-                              onTap: (){
+                              onTap: () {
                                 scrollToItem();
                               },
                               child: Container(
@@ -128,54 +130,73 @@ class _ProfileState extends State<Profile> {
                                 ),
                               ),
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      "512",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Followers()));
+                              },
+                              child: Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Text(
+                                        "512",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 3),
-                                    child: Text(
-                                      "Followers",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 3),
+                                      child: Text(
+                                        "Followers",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      "412",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Followers()));
+                                setState(() {
+                                  globals.follow =1;
+                                });
+                              },
+                              child: Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      child: Text(
+                                        "412",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 3),
-                                    child: Text(
-                                      "Following",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 3),
+                                      child: Text(
+                                        "Following",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             )
                           ],
@@ -293,7 +314,8 @@ class _ProfileState extends State<Profile> {
                                       width: 65,
                                     ),
                                     Container(
-                                        margin: EdgeInsets.only(top: 8, left: 5),
+                                        margin:
+                                            EdgeInsets.only(top: 8, left: 5),
                                         child: Row(
                                           children: [
                                             Icon(
@@ -529,30 +551,34 @@ class _ProfileState extends State<Profile> {
                                     currentindex = 0;
                                   });
                                 },
-                                child:currentindex == 0 ? Icon(
-                                  Icons.pages_outlined,
-                                  color: Colors.white,
-                                  size: 30,
-                                ) :Icon(
-                                  Icons.pages_outlined,
-                                  color: Colors.grey,
-                                  size: 30,
-                                ) ),
+                                child: currentindex == 0
+                                    ? Icon(
+                                        Icons.pages_outlined,
+                                        color: Colors.white,
+                                        size: 30,
+                                      )
+                                    : Icon(
+                                        Icons.pages_outlined,
+                                        color: Colors.grey,
+                                        size: 30,
+                                      )),
                             InkWell(
                                 onTap: () {
                                   setState(() {
                                     currentindex = 1;
                                   });
                                 },
-                                child: currentindex == 1 ? Icon(
-                                  Icons.person,
-                                  color: Colors.white,
-                                  size: 30,
-                                ) : Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                  size: 30,
-                                ))
+                                child: currentindex == 1
+                                    ? Icon(
+                                        Icons.person,
+                                        color: Colors.white,
+                                        size: 30,
+                                      )
+                                    : Icon(
+                                        Icons.person,
+                                        color: Colors.grey,
+                                        size: 30,
+                                      ))
                           ],
                         ),
                       ),
