@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(
-                                                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
+                                                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
@@ -423,12 +423,19 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 380,
-                                  child: Image.network(
-                                    "https://images.news18.com/ibnlive/uploads/2021/08/1628511415_lion.jpg",
-                                    fit: BoxFit.cover,
+                                InkWell(
+                                  onDoubleTap: (){
+                                    setState(() {
+                                      index1 =1;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 380,
+                                    child: Image.network(
+                                      "https://images.news18.com/ibnlive/uploads/2021/08/1628511415_lion.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -702,12 +709,19 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 380,
-                                  child: Image.network(
-                                    "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202103/sanjanaganesanphoto3-x1349.jpg?NpRedFCnLtEJQL6Qk3h6MpIW2vmVM6qT",
-                                    fit: BoxFit.cover,
+                                InkWell(
+                                  onDoubleTap: (){
+                                    setState(() {
+                                      index2 =1;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 380,
+                                    child: Image.network(
+                                      "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202103/sanjanaganesanphoto3-x1349.jpg?NpRedFCnLtEJQL6Qk3h6MpIW2vmVM6qT",
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -982,12 +996,19 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 380,
-                                  child: Image.asset(
-                                    "assets/images/demo5.jpg",
-                                    fit: BoxFit.cover,
+                                InkWell(
+                                  onDoubleTap: (){
+                                    setState(() {
+                                      index =1;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 380,
+                                    child: Image.asset(
+                                      "assets/images/demo5.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                                 Container(

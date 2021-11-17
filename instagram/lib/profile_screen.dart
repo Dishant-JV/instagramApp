@@ -40,20 +40,121 @@ class _ProfileState extends State<Profile> {
                     Expanded(
                       child: Row(
                         children: [
-                          Container(
-                            child: Text(
-                              "dishant_7181",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22),
-                            ),
-                          ),
-                          Container(
-                            child: Icon(
-                              Icons.arrow_drop_down_sharp,
-                              color: Colors.white,
-                              size: 25,
+                          InkWell(
+                            onTap: () {
+                              showModalBottomSheet(
+                                backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.shade900,
+                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))
+                                      ),
+                                      height: 180,
+                                      width: double.infinity,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.only(top: 25,left: 20,right: 20),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Row(
+                                                      children: [
+                                                        Container(
+                                                          decoration: BoxDecoration(
+                                                            image: DecorationImage(
+                                                                image: NetworkImage(
+                                                                  "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
+                                                                ),
+                                                                fit: BoxFit.cover),
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          height: 55,
+                                                          width: 55,
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets.only(left: 15),
+                                                          child: Text("dishant_8171",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.5),),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    alignment: Alignment.center,
+                                                    height: 25,
+                                                    width: 25,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.blue
+                                                    ),
+                                                    child: Container(
+                                                      height: 7,
+                                                      width: 7,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        color: Colors.black,
+                                                      ),
+                                                    )
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Container(
+                                                margin: EdgeInsets.only(top: 15,left: 20,right: 20),
+                                                child: Row(
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Container(
+                                                          height: 55,
+                                                          width: 55,
+                                                          decoration: BoxDecoration(
+                                                              shape: BoxShape.circle,
+                                                              border: Border.all(color: Colors.grey.withOpacity(0.5))
+                                                          ),
+                                                          child: Icon(Icons.add,color: Colors.white,size: 45,),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Container(
+                                                      margin: EdgeInsets.only(left: 15),
+                                                      child: Text("Add Account",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.5),),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      "dishant_7181",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Icon(
+                                      Icons.arrow_drop_down_sharp,
+                                      color: Colors.white,
+                                      size: 25,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           )
                         ],
@@ -93,7 +194,7 @@ class _ProfileState extends State<Profile> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
-                                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
+                                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
                                     ),
                                     fit: BoxFit.cover),
                                 shape: BoxShape.circle,
@@ -267,8 +368,11 @@ class _ProfileState extends State<Profile> {
                                   decoration: BoxDecoration(
                                       border: Border.all(color: Colors.grey),
                                       borderRadius: BorderRadius.circular(4))),
-                              onTap:(){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Changeprofile()));
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Changeprofile()));
                               },
                             ),
                             Container(

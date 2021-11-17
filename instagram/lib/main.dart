@@ -108,7 +108,7 @@ class _InstaState extends State<Insta> {
                     border: Border.all(color: Colors.white,width: 2),
                   image: DecorationImage(
                     image: NetworkImage(
-                      "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
+                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
                   ),
           fit: BoxFit.cover),
       shape: BoxShape.circle,
@@ -119,7 +119,7 @@ class _InstaState extends State<Insta> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(
-                              "https://pbs.twimg.com/profile_images/1314858644622647303/-6z-iDDV_400x400.jpg",
+                              "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
                             ),
                             fit: BoxFit.cover),
                         shape: BoxShape.circle,
