@@ -3,6 +3,7 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
+import 'package:photo_view/photo_view.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
           backgroundColor: Colors.black,
           body: Container(
+            color: Colors.transparent,
             child: Column(
               children: [
                 Container(
@@ -430,13 +432,14 @@ class _HomeState extends State<Home> {
                                     });
                                   },
                                   child: Container(
-                                    width: double.infinity,
                                     height: 380,
-                                    child: Image.network(
-                                      "https://images.news18.com/ibnlive/uploads/2021/08/1628511415_lion.jpg",
-                                      fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    child: PhotoView(
+                                      imageProvider: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",),
+                                      minScale: PhotoViewComputedScale.contained*0.8,
+                                      maxScale: PhotoViewComputedScale.contained*0.9,
                                     ),
-                                  ),
+                                  )
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(top: 5),
@@ -576,6 +579,7 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Container(
+                                  color: Colors.black,
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -636,7 +640,10 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(right: 293, top: 3),
+                                  width: double.infinity,
+                                  height: 20,
+                                  color: Colors.black,
+                                  padding: EdgeInsets.only(left: 20),
                                   child: Text(
                                     "2 hours ago",
                                     style: TextStyle(color: Colors.white60, fontSize: 11),

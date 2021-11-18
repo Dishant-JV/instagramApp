@@ -27,9 +27,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                         children: [
                           InkWell(
                             onTap: (){
-                              Navigator.pop(context);
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile()));
-
+                              Navigator.pop(context, MaterialPageRoute(builder: (context)=> Profile()));
                             },
                             child: Container(
                               child: Icon(
@@ -54,7 +52,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                     ),
                     InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile()));
+                        Navigator.pop(context, MaterialPageRoute(builder: (context)=> Profile()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(right: 15),
