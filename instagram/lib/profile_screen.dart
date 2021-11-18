@@ -164,6 +164,7 @@ class _ProfileState extends State<Profile> {
                       child: InkWell(
                         onTap: () {
                           showModalBottomSheet(
+                              backgroundColor: Colors.transparent,
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(

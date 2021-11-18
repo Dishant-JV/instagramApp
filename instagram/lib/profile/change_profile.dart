@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/profile_screen.dart';
 
 class Changeprofile extends StatefulWidget {
   const Changeprofile({Key? key}) : super(key: key);
@@ -24,13 +25,20 @@ class _ChangeprofileState extends State<Changeprofile> {
                     Expanded(
                       child: Row(
                         children: [
-                          Container(
-                            child: Icon(
-                              Icons.cancel_outlined,
-                              color: Colors.white,
-                              size: 32,
+                          InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile()));
+
+                            },
+                            child: Container(
+                              child: Icon(
+                                Icons.cancel_outlined,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              margin: EdgeInsets.only(left: 15, right: 25),
                             ),
-                            margin: EdgeInsets.only(left: 15, right: 25),
                           ),
                           Container(
                             child: Text(
@@ -44,12 +52,17 @@ class _ChangeprofileState extends State<Changeprofile> {
                         ],
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(right: 15),
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.blue,
-                        size: 34,
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile()));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 15),
+                        child: Icon(
+                          Icons.check,
+                          color: Colors.blue,
+                          size: 34,
+                        ),
                       ),
                     ),
                   ],
