@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
+import 'package:instagram/show_image.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
@@ -13,13 +15,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final imageList = [
+    'assets/images/demo3.jpg',
+    'assets/images/demo4.jpg',
+    'assets/images/demo5.jpg'
+  ];
   @override
-  int index =0;
-  int index1=0;
-  int index2=0;
-  int bindex =0;
-  int bindex1 =0;
-  int bindex2 =0;
+  int index = 0;
+  int index1 = 0;
+  int index2 = 0;
+  int bindex = 0;
+  int bindex1 = 0;
+  int bindex2 = 0;
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -36,53 +44,68 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                           child: Row(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(top: 5,left: 20),
-                                height: 38,
-                                width: 122,
-                                child: Image.asset("assets/images/insta_text.png",color: Colors.white,fit: BoxFit.cover,),
-                              ),
-                            ],
-                          )
-                      ),
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 5, left: 20),
+                            height: 38,
+                            width: 122,
+                            child: Image.asset(
+                              "assets/images/insta_text.png",
+                              color: Colors.white,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      )),
                       Container(
                         alignment: Alignment.center,
                         height: 23,
                         width: 23,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.white,width: 1.5)
+                            border:
+                                Border.all(color: Colors.white, width: 1.5)),
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 20,
                         ),
-                        child: Icon(Icons.add,color: Colors.white,size: 20,),
                       ),
                       Stack(
                         children: [
                           InkWell(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Chat()));
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Chat()));
                             },
                             child: Container(
                                 height: 26,
                                 width: 26,
-                                margin: EdgeInsets.only(left: 25,right: 20),
-                                child: Image.asset("assets/images/home_chat.png",color: Colors.white,fit: BoxFit.cover,)
-                            ),
+                                margin: EdgeInsets.only(left: 25, right: 20),
+                                child: Image.asset(
+                                  "assets/images/home_chat.png",
+                                  color: Colors.white,
+                                  fit: BoxFit.cover,
+                                )),
                           ),
                           Container(
-                            alignment: Alignment.center,
-                            margin: EdgeInsets.only(left: 40),
-                            height: 14,
-                            width: 14,
-                            decoration: BoxDecoration(
-                                color: Colors.red,
-                                shape: BoxShape.circle
-                            ),
-                            child: Text("8",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 11),)
-                          ),
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.only(left: 40),
+                              height: 14,
+                              width: 14,
+                              decoration: BoxDecoration(
+                                  color: Colors.red, shape: BoxShape.circle),
+                              child: Text(
+                                "8",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11),
+                              )),
                         ],
                       )
-
                     ],
                   ),
                 ),
@@ -99,14 +122,16 @@ class _HomeState extends State<Home> {
                             decoration: BoxDecoration(
                               color: Colors.black,
                               border: Border(
-                                bottom: BorderSide(color: Colors.white24, width: 0),
-                              ),),
+                                bottom:
+                                    BorderSide(color: Colors.white24, width: 0),
+                              ),
+                            ),
                             child: SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(top: 15,left: 6),
+                                    margin: EdgeInsets.only(top: 15, left: 6),
                                     child: Column(
                                       children: [
                                         Stack(
@@ -125,23 +150,30 @@ class _HomeState extends State<Home> {
                                               margin: EdgeInsets.only(left: 10),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.only(left: 55,top: 46),
+                                              margin: EdgeInsets.only(
+                                                  left: 55, top: 46),
                                               height: 18,
                                               width: 18,
                                               decoration: BoxDecoration(
-                                                  color: Colors.blue.shade600.withOpacity(0.9),
-                                                  shape: BoxShape.circle
+                                                  color: Colors.blue.shade600
+                                                      .withOpacity(0.9),
+                                                  shape: BoxShape.circle),
+                                              child: Icon(
+                                                Icons.add,
+                                                color: Colors.white,
+                                                size: 19,
                                               ),
-                                              child: Icon(Icons.add,color: Colors.white,size: 19,),
                                             ),
                                           ],
                                         ),
                                         Container(
-                                          margin: EdgeInsets.only(top: 7, left: 5),
+                                          margin:
+                                              EdgeInsets.only(top: 7, left: 5),
                                           child: Text(
                                             "Your story",
-                                            style:
-                                            TextStyle(color: Colors.white, fontSize: 12),
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         ),
                                       ],
@@ -150,212 +182,297 @@ class _HomeState extends State<Home> {
                                   Container(
                                     child: Column(
                                       children: [
-                                        Container(
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Images(
+                                                          img: "",
+                                                          nimg:
+                                                              "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
+                                                        )));
+                                          },
                                           child: Container(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: NetworkImage(
+                                                        "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
+                                                      ),
+                                                      fit: BoxFit.cover),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3)),
+                                              height: 65,
+                                              width: 65,
+                                            ),
                                             decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: NetworkImage(
-                                                      "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                    color: Colors.black, width: 3)),
-                                            height: 65,
-                                            width: 65,
+                                              shape: BoxShape.circle,
+                                              gradient: LinearGradient(colors: [
+                                                Colors.yellow,
+                                                Colors.red,
+                                              ]),
+                                              border: Border.all(
+                                                  color: Colors.white10,
+                                                  width: 2),
+                                            ),
+                                            height: 70,
+                                            width: 70,
                                           ),
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(colors: [
-                                              Colors.yellow,
-                                              Colors.red,
-                                            ]),
-                                            border: Border.all(
-                                                color: Colors.white10, width: 2),
-                                          ),
-                                          height: 70,
-                                          width: 70,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
                                             "piyush12_",
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 12),
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         )
                                       ],
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 11,top: 13),
+                                    margin: EdgeInsets.only(left: 11, top: 13),
                                   ),
                                   Container(
                                     child: Column(
                                       children: [
-                                        Container(
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Images(
+                                                          img:
+                                                              "assets/images/demo3.jpg",
+                                                          nimg: "",
+                                                        )));
+                                          },
                                           child: Container(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                        "assets/images/demo3.jpg",
+                                                      ),
+                                                      fit: BoxFit.cover),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3)),
+                                              height: 65,
+                                              width: 65,
+                                            ),
                                             decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo3.jpg",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                    color: Colors.black, width: 3)),
-                                            height: 65,
-                                            width: 65,
+                                              shape: BoxShape.circle,
+                                              gradient: LinearGradient(colors: [
+                                                Colors.yellow,
+                                                Colors.red,
+                                              ]),
+                                              border: Border.all(
+                                                  color: Colors.white10,
+                                                  width: 2),
+                                            ),
+                                            height: 70,
+                                            width: 70,
                                           ),
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(colors: [
-                                              Colors.yellow,
-                                              Colors.red,
-                                            ]),
-                                            border: Border.all(
-                                                color: Colors.white10, width: 2),
-                                          ),
-                                          height: 70,
-                                          width: 70,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
                                             "Ayush561_.",
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 12),
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         )
                                       ],
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 11,top: 13),
+                                    margin: EdgeInsets.only(left: 11, top: 13),
                                   ),
                                   Container(
                                     child: Column(
                                       children: [
-                                        Container(
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Images(
+                                                          img:
+                                                              "assets/images/demo4.jpg",
+                                                          nimg: "",
+                                                        )));
+                                          },
                                           child: Container(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                        "assets/images/demo4.jpg",
+                                                      ),
+                                                      fit: BoxFit.cover),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3)),
+                                              height: 65,
+                                              width: 65,
+                                            ),
                                             decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo4.jpg",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                    color: Colors.black, width: 3)),
-                                            height: 65,
-                                            width: 65,
+                                              shape: BoxShape.circle,
+                                              gradient: LinearGradient(colors: [
+                                                Colors.yellow,
+                                                Colors.red,
+                                              ]),
+                                              border: Border.all(
+                                                  color: Colors.white10,
+                                                  width: 2),
+                                            ),
+                                            height: 70,
+                                            width: 70,
                                           ),
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(colors: [
-                                              Colors.yellow,
-                                              Colors.red,
-                                            ]),
-                                            border: Border.all(
-                                                color: Colors.white10, width: 2),
-                                          ),
-                                          height: 70,
-                                          width: 70,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
                                             "heena67@1",
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 12),
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         )
                                       ],
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 11,top: 13),
+                                    margin: EdgeInsets.only(left: 11, top: 13),
                                   ),
                                   Container(
                                     child: Column(
                                       children: [
-                                        Container(
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Images(
+                                                          img:
+                                                              "assets/images/demo5.jpg",
+                                                          nimg: "",
+                                                        )));
+                                          },
                                           child: Container(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                        "assets/images/demo5.jpg",
+                                                      ),
+                                                      fit: BoxFit.cover),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3)),
+                                              height: 65,
+                                              width: 65,
+                                            ),
                                             decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo5.jpg",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                    color: Colors.black, width: 3)),
-                                            height: 65,
-                                            width: 65,
+                                              shape: BoxShape.circle,
+                                              gradient: LinearGradient(colors: [
+                                                Colors.yellow,
+                                                Colors.red,
+                                              ]),
+                                              border: Border.all(
+                                                  color: Colors.white10,
+                                                  width: 2),
+                                            ),
+                                            height: 70,
+                                            width: 70,
                                           ),
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(colors: [
-                                              Colors.yellow,
-                                              Colors.red,
-                                            ]),
-                                            border: Border.all(
-                                                color: Colors.white10, width: 2),
-                                          ),
-                                          height: 70,
-                                          width: 70,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
                                             "jenil0909",
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 12),
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         )
                                       ],
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 11,top: 13),
+                                    margin: EdgeInsets.only(left: 11, top: 13),
                                   ),
                                   Container(
                                     child: Column(
                                       children: [
-                                        Container(
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Images(
+                                                          img:
+                                                              "assets/images/demo7.jpg",
+                                                          nimg: "",
+                                                        )));
+                                          },
                                           child: Container(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                        "assets/images/demo7.jpg",
+                                                      ),
+                                                      fit: BoxFit.cover),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: Colors.black,
+                                                      width: 3)),
+                                              height: 65,
+                                              width: 65,
+                                            ),
                                             decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "assets/images/demo7.jpg",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                    color: Colors.black, width: 3)),
-                                            height: 65,
-                                            width: 65,
+                                              shape: BoxShape.circle,
+                                              gradient: LinearGradient(colors: [
+                                                Colors.yellow,
+                                                Colors.red,
+                                              ]),
+                                              border: Border.all(
+                                                  color: Colors.white10,
+                                                  width: 2),
+                                            ),
+                                            height: 70,
+                                            width: 70,
                                           ),
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(colors: [
-                                              Colors.yellow,
-                                              Colors.red,
-                                            ]),
-                                            border: Border.all(
-                                                color: Colors.white10, width: 2),
-                                          ),
-                                          height: 70,
-                                          width: 70,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 4),
                                           child: Text(
                                             "piyush12_",
                                             style: TextStyle(
-                                                color: Colors.white, fontSize: 12),
+                                                color: Colors.white,
+                                                fontSize: 12),
                                           ),
                                         )
                                       ],
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                     ),
-                                    margin: EdgeInsets.only(left: 11,top: 13),
+                                    margin: EdgeInsets.only(left: 11, top: 13),
                                   ),
                                 ],
                               ),
@@ -384,7 +501,8 @@ class _HomeState extends State<Home> {
                                                           fit: BoxFit.cover),
                                                       shape: BoxShape.circle,
                                                       border: Border.all(
-                                                          color: Colors.black, width: 2)),
+                                                          color: Colors.black,
+                                                          width: 2)),
                                                   height: 30,
                                                   width: 31,
                                                 ),
@@ -392,22 +510,29 @@ class _HomeState extends State<Home> {
                                                   shape: BoxShape.circle,
                                                   color: Colors.black,
                                                   gradient: LinearGradient(
-                                                      colors: [Colors.yellow, Colors.red]),
+                                                      colors: [
+                                                        Colors.yellow,
+                                                        Colors.red
+                                                      ]),
                                                   border: Border.all(
-                                                      color: Colors.white10, width: 2),
+                                                      color: Colors.white10,
+                                                      width: 2),
                                                 ),
                                                 height: 35,
                                                 width: 35,
-                                                margin: EdgeInsets.only(left: 13),
+                                                margin:
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
-                                                margin: EdgeInsets.only(left: 11),
+                                                margin:
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.w500),
+                                                      fontWeight:
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -426,72 +551,92 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 InkWell(
-                                  onDoubleTap: (){
-                                    setState(() {
-                                      index1 =1;
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 380,
-                                    width: double.infinity,
-                                    child: PhotoView(
-                                      imageProvider: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",),
-                                      minScale: PhotoViewComputedScale.contained*0.8,
-                                      maxScale: PhotoViewComputedScale.contained*0.8,
-
-                                    ),
-                                  )
-                                ),
+                                    onDoubleTap: () {
+                                      setState(() {
+                                        index1 = 1;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 380,
+                                      width: double.infinity,
+                                      child: PhotoView(
+                                        imageProvider: NetworkImage(
+                                          "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                        ),
+                                        minScale:
+                                            PhotoViewComputedScale.contained *
+                                                0.8,
+                                        maxScale:
+                                            PhotoViewComputedScale.contained *
+                                                0.8,
+                                      ),
+                                    )),
                                 Container(
                                   margin: EdgeInsets.only(top: 5),
                                   height: 39,
                                   color: Colors.black,
                                   width: double.infinity,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  index1 =1;
+                                                  index1 = 1;
                                                 });
                                               },
-                                              child: index1 == 0 ? Container(
-                                                child: Icon(
-                                                  Icons.favorite_outline_rounded,
-                                                  size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(left: 15),
-                                              ) :
-                                              InkWell(
-                                                onTap: (){
-                                                  setState(() {
-                                                    index1 = 0;
-                                                  });
-                                                },
-                                                child: index1 == 1 ? Container(
-                                                  child: Icon(
-                                                    Icons.favorite,
-                                                    size: 29,
-                                                    color: Colors.red,
-                                                  ),
-                                                  margin: EdgeInsets.only(left: 15),
-                                                ) : Container(
-                                                  child: Icon(
-                                                    Icons.favorite_outline_rounded,
-                                                    size: 29,
-                                                    color: Colors.white,
-                                                  ),
-                                                  margin: EdgeInsets.only(left: 15),
-                                                )
-                                              ),
+                                              child: index1 == 0
+                                                  ? Container(
+                                                      child: Icon(
+                                                        Icons
+                                                            .favorite_outline_rounded,
+                                                        size: 29,
+                                                        color: Colors.white,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    )
+                                                  : InkWell(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          index1 = 0;
+                                                        });
+                                                      },
+                                                      child: index1 == 1
+                                                          ? Container(
+                                                              child: Icon(
+                                                                Icons.favorite,
+                                                                size: 29,
+                                                                color:
+                                                                    Colors.red,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )
+                                                          : Container(
+                                                              child: Icon(
+                                                                Icons
+                                                                    .favorite_outline_rounded,
+                                                                size: 29,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )),
                                             ),
                                             Container(
-                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              child: Image.asset(
+                                                "assets/images/main_comment.png",
+                                                color: Colors.white,
+                                                fit: BoxFit.cover,
+                                              ),
                                               margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
@@ -506,41 +651,49 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: (){
-                                          setState(() {
-                                            bindex=1;
-                                          });
-                                        },
-                                        child: bindex == 0 ? Container(
-                                          child: Icon(
-                                            Icons.bookmark_outline,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(right: 15),
-                                        ) : InkWell(
-                                          onTap: (){
+                                          onTap: () {
                                             setState(() {
-                                              bindex =0;
+                                              bindex = 1;
                                             });
                                           },
-                                          child: bindex == 1 ? Container(
-                                            child: Icon(
-                                              Icons.bookmark,
-                                              size: 29,
-                                              color: Colors.white,
-                                            ),
-                                            margin: EdgeInsets.only(right: 15),
-                                          ): Container(
-                                            child: Icon(
-                                              Icons.bookmark,
-                                              size: 29,
-                                              color: Colors.white,
-                                            ),
-                                            margin: EdgeInsets.only(right: 15),
-                                          ),
-                                        )
-                                      ),
+                                          child: bindex == 0
+                                              ? Container(
+                                                  child: Icon(
+                                                    Icons.bookmark_outline,
+                                                    size: 29,
+                                                    color: Colors.white,
+                                                  ),
+                                                  margin: EdgeInsets.only(
+                                                      right: 15),
+                                                )
+                                              : InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bindex = 0;
+                                                    });
+                                                  },
+                                                  child: bindex == 1
+                                                      ? Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        )
+                                                      : Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        ),
+                                                )),
                                     ],
                                   ),
                                 ),
@@ -561,18 +714,21 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text: "dishant_8171..",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight: FontWeight.bold)),
-                                                    ])),
+                                                  TextSpan(
+                                                      text: "dishant_8171..",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ])),
                                           ),
                                           Container(
-                                              margin: EdgeInsets.only(top: 4, left: 16),
+                                              margin: EdgeInsets.only(
+                                                  top: 4, left: 16),
                                               child: Text(
                                                 "View all 100 comments",
-                                                style: TextStyle(color: Colors.white60),
+                                                style: TextStyle(
+                                                    color: Colors.white60),
                                               )),
                                         ],
                                       )
@@ -583,8 +739,10 @@ class _HomeState extends State<Home> {
                                   color: Colors.black,
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -607,7 +765,8 @@ class _HomeState extends State<Home> {
                                               child: Text(
                                                 "Add a comment...",
                                                 style: TextStyle(
-                                                    color: Colors.white60, fontSize: 15),
+                                                    color: Colors.white60,
+                                                    fontSize: 15),
                                               ),
                                             ),
                                           ],
@@ -647,7 +806,8 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(left: 20),
                                   child: Text(
                                     "2 hours ago",
-                                    style: TextStyle(color: Colors.white60, fontSize: 11),
+                                    style: TextStyle(
+                                        color: Colors.white60, fontSize: 11),
                                   ),
                                 ),
                               ],
@@ -676,7 +836,8 @@ class _HomeState extends State<Home> {
                                                           fit: BoxFit.cover),
                                                       shape: BoxShape.circle,
                                                       border: Border.all(
-                                                          color: Colors.black, width: 2)),
+                                                          color: Colors.black,
+                                                          width: 2)),
                                                   height: 30,
                                                   width: 31,
                                                 ),
@@ -684,22 +845,29 @@ class _HomeState extends State<Home> {
                                                   shape: BoxShape.circle,
                                                   color: Colors.black,
                                                   gradient: LinearGradient(
-                                                      colors: [Colors.yellow, Colors.red]),
+                                                      colors: [
+                                                        Colors.yellow,
+                                                        Colors.red
+                                                      ]),
                                                   border: Border.all(
-                                                      color: Colors.white10, width: 2),
+                                                      color: Colors.white10,
+                                                      width: 2),
                                                 ),
                                                 height: 35,
                                                 width: 35,
-                                                margin: EdgeInsets.only(left: 13),
+                                                margin:
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
-                                                margin: EdgeInsets.only(left: 11),
+                                                margin:
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "Sanjna_Ganeshan",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.w500),
+                                                      fontWeight:
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -718,19 +886,23 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 InkWell(
-                                  onDoubleTap: (){
+                                  onDoubleTap: () {
                                     setState(() {
-                                      index2 =1;
+                                      index2 = 1;
                                     });
                                   },
                                   child: Container(
-                                    width: double.infinity,
-                                    height: 380,
-                                    child: Image.network(
-                                      "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202103/sanjanaganesanphoto3-x1349.jpg?NpRedFCnLtEJQL6Qk3h6MpIW2vmVM6qT",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                                      width: double.infinity,
+                                      height: 380,
+                                      child: PhotoViewGallery.builder(
+                                          itemCount: imageList.length,
+                                          builder: (context, index) {
+                                            return PhotoViewGalleryPageOptions(
+                                                imageProvider: AssetImage(
+                                                    imageList[index]),
+                                              minScale: PhotoViewComputedScale.contained * 0.8,
+                                              maxScale: PhotoViewComputedScale.covered * 0.8,);
+                                          })),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(top: 6),
@@ -738,50 +910,66 @@ class _HomeState extends State<Home> {
                                   color: Colors.black,
                                   width: double.infinity,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  index2 =1;
+                                                  index2 = 1;
                                                 });
                                               },
-                                              child: index2 == 0 ? Container(
-                                                child: Icon(
-                                                  Icons.favorite_outline_rounded,
-                                                  size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(left: 15),
-                                              ) :
-                                              InkWell(
-                                                  onTap: (){
-                                                    setState(() {
-                                                      index2 = 0;
-                                                    });
-                                                  },
-                                                  child: index2 == 1 ? Container(
-                                                    child: Icon(
-                                                      Icons.favorite,
-                                                      size: 29,
-                                                      color: Colors.red,
-                                                    ),
-                                                    margin: EdgeInsets.only(left: 15),
-                                                  ) : Container(
-                                                    child: Icon(
-                                                      Icons.favorite_outline_rounded,
-                                                      size: 29,
-                                                      color: Colors.white,
-                                                    ),
-                                                    margin: EdgeInsets.only(left: 15),
-                                                  )
-                                              ),
+                                              child: index2 == 0
+                                                  ? Container(
+                                                      child: Icon(
+                                                        Icons
+                                                            .favorite_outline_rounded,
+                                                        size: 29,
+                                                        color: Colors.white,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    )
+                                                  : InkWell(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          index2 = 0;
+                                                        });
+                                                      },
+                                                      child: index2 == 1
+                                                          ? Container(
+                                                              child: Icon(
+                                                                Icons.favorite,
+                                                                size: 29,
+                                                                color:
+                                                                    Colors.red,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )
+                                                          : Container(
+                                                              child: Icon(
+                                                                Icons
+                                                                    .favorite_outline_rounded,
+                                                                size: 29,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )),
                                             ),
                                             Container(
-                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              child: Image.asset(
+                                                "assets/images/main_comment.png",
+                                                color: Colors.white,
+                                                fit: BoxFit.cover,
+                                              ),
                                               margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
@@ -796,41 +984,49 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                          onTap: (){
+                                          onTap: () {
                                             setState(() {
-                                              bindex1=1;
+                                              bindex1 = 1;
                                             });
                                           },
-                                          child: bindex1 == 0 ? Container(
-                                            child: Icon(
-                                              Icons.bookmark_outline,
-                                              size: 29,
-                                              color: Colors.white,
-                                            ),
-                                            margin: EdgeInsets.only(right: 15),
-                                          ) : InkWell(
-                                            onTap: (){
-                                              setState(() {
-                                                bindex1=0;
-                                              });
-                                            },
-                                            child: bindex1 == 1 ? Container(
-                                              child: Icon(
-                                                Icons.bookmark,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(right: 15),
-                                            ): Container(
-                                              child: Icon(
-                                                Icons.bookmark,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(right: 15),
-                                            ),
-                                          )
-                                      ),
+                                          child: bindex1 == 0
+                                              ? Container(
+                                                  child: Icon(
+                                                    Icons.bookmark_outline,
+                                                    size: 29,
+                                                    color: Colors.white,
+                                                  ),
+                                                  margin: EdgeInsets.only(
+                                                      right: 15),
+                                                )
+                                              : InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bindex1 = 0;
+                                                    });
+                                                  },
+                                                  child: bindex1 == 1
+                                                      ? Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        )
+                                                      : Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        ),
+                                                )),
                                     ],
                                   ),
                                 ),
@@ -841,7 +1037,8 @@ class _HomeState extends State<Home> {
                                   child: Row(
                                     children: [
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             margin: EdgeInsets.only(left: 18),
@@ -852,18 +1049,22 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text: "dishant_8171.. and thousand's of others",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight: FontWeight.bold)),
-                                                    ])),
+                                                  TextSpan(
+                                                      text:
+                                                          "dishant_8171.. and thousand's of others",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ])),
                                           ),
                                           Container(
-                                              margin: EdgeInsets.only(top: 4, left: 16),
+                                              margin: EdgeInsets.only(
+                                                  top: 4, left: 16),
                                               child: Text(
                                                 "View all 100 comments",
-                                                style: TextStyle(color: Colors.white60),
+                                                style: TextStyle(
+                                                    color: Colors.white60),
                                               )),
                                         ],
                                       )
@@ -873,8 +1074,10 @@ class _HomeState extends State<Home> {
                                 Container(
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -897,7 +1100,8 @@ class _HomeState extends State<Home> {
                                               child: Text(
                                                 "Add a comment...",
                                                 style: TextStyle(
-                                                    color: Colors.white60, fontSize: 15),
+                                                    color: Colors.white60,
+                                                    fontSize: 15),
                                               ),
                                             ),
                                           ],
@@ -934,7 +1138,8 @@ class _HomeState extends State<Home> {
                                   margin: EdgeInsets.only(right: 293, top: 3),
                                   child: Text(
                                     "2 hours ago",
-                                    style: TextStyle(color: Colors.white60, fontSize: 11),
+                                    style: TextStyle(
+                                        color: Colors.white60, fontSize: 11),
                                   ),
                                 ),
                               ],
@@ -963,7 +1168,8 @@ class _HomeState extends State<Home> {
                                                           fit: BoxFit.cover),
                                                       shape: BoxShape.circle,
                                                       border: Border.all(
-                                                          color: Colors.black, width: 2)),
+                                                          color: Colors.black,
+                                                          width: 2)),
                                                   height: 30,
                                                   width: 31,
                                                 ),
@@ -971,22 +1177,29 @@ class _HomeState extends State<Home> {
                                                   shape: BoxShape.circle,
                                                   color: Colors.black,
                                                   gradient: LinearGradient(
-                                                      colors: [Colors.yellow, Colors.red]),
+                                                      colors: [
+                                                        Colors.yellow,
+                                                        Colors.red
+                                                      ]),
                                                   border: Border.all(
-                                                      color: Colors.white10, width: 2),
+                                                      color: Colors.white10,
+                                                      width: 2),
                                                 ),
                                                 height: 35,
                                                 width: 35,
-                                                margin: EdgeInsets.only(left: 13),
+                                                margin:
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
-                                                margin: EdgeInsets.only(left: 11),
+                                                margin:
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.w500),
+                                                      fontWeight:
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -1005,9 +1218,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 InkWell(
-                                  onDoubleTap: (){
+                                  onDoubleTap: () {
                                     setState(() {
-                                      index =1;
+                                      index = 1;
                                     });
                                   },
                                   child: Container(
@@ -1025,50 +1238,66 @@ class _HomeState extends State<Home> {
                                   color: Colors.black,
                                   width: double.infinity,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  index =1;
+                                                  index = 1;
                                                 });
                                               },
-                                              child: index == 0 ? Container(
-                                                child: Icon(
-                                                  Icons.favorite_outline_rounded,
-                                                  size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(left: 15),
-                                              ) :
-                                              InkWell(
-                                                  onTap: (){
-                                                    setState(() {
-                                                      index = 0;
-                                                    });
-                                                  },
-                                                  child: index == 1 ? Container(
-                                                    child: Icon(
-                                                      Icons.favorite,
-                                                      size: 29,
-                                                      color: Colors.red,
-                                                    ),
-                                                    margin: EdgeInsets.only(left: 15),
-                                                  ) : Container(
-                                                    child: Icon(
-                                                      Icons.favorite_outline_rounded,
-                                                      size: 29,
-                                                      color: Colors.white,
-                                                    ),
-                                                    margin: EdgeInsets.only(left: 15),
-                                                  )
-                                              ),
+                                              child: index == 0
+                                                  ? Container(
+                                                      child: Icon(
+                                                        Icons
+                                                            .favorite_outline_rounded,
+                                                        size: 29,
+                                                        color: Colors.white,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    )
+                                                  : InkWell(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          index = 0;
+                                                        });
+                                                      },
+                                                      child: index == 1
+                                                          ? Container(
+                                                              child: Icon(
+                                                                Icons.favorite,
+                                                                size: 29,
+                                                                color:
+                                                                    Colors.red,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )
+                                                          : Container(
+                                                              child: Icon(
+                                                                Icons
+                                                                    .favorite_outline_rounded,
+                                                                size: 29,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 15),
+                                                            )),
                                             ),
                                             Container(
-                                              child: Image.asset("assets/images/main_comment.png",color: Colors.white,fit: BoxFit.cover,),
+                                              child: Image.asset(
+                                                "assets/images/main_comment.png",
+                                                color: Colors.white,
+                                                fit: BoxFit.cover,
+                                              ),
                                               margin: EdgeInsets.only(left: 13),
                                             ),
                                             Container(
@@ -1083,41 +1312,49 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                          onTap: (){
+                                          onTap: () {
                                             setState(() {
-                                              bindex2=1;
+                                              bindex2 = 1;
                                             });
                                           },
-                                          child: bindex2 == 0 ? Container(
-                                            child: Icon(
-                                              Icons.bookmark_outline,
-                                              size: 29,
-                                              color: Colors.white,
-                                            ),
-                                            margin: EdgeInsets.only(right: 15),
-                                          ) : InkWell(
-                                            onTap: (){
-                                              setState(() {
-                                                bindex2 =0;
-                                              });
-                                            },
-                                            child: bindex2 == 1 ? Container(
-                                              child: Icon(
-                                                Icons.bookmark,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(right: 15),
-                                            ): Container(
-                                              child: Icon(
-                                                Icons.bookmark,
-                                                size: 29,
-                                                color: Colors.white,
-                                              ),
-                                              margin: EdgeInsets.only(right: 15),
-                                            ),
-                                          )
-                                      ),
+                                          child: bindex2 == 0
+                                              ? Container(
+                                                  child: Icon(
+                                                    Icons.bookmark_outline,
+                                                    size: 29,
+                                                    color: Colors.white,
+                                                  ),
+                                                  margin: EdgeInsets.only(
+                                                      right: 15),
+                                                )
+                                              : InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bindex2 = 0;
+                                                    });
+                                                  },
+                                                  child: bindex2 == 1
+                                                      ? Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        )
+                                                      : Container(
+                                                          child: Icon(
+                                                            Icons.bookmark,
+                                                            size: 29,
+                                                            color: Colors.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  right: 15),
+                                                        ),
+                                                )),
                                     ],
                                   ),
                                 ),
@@ -1138,18 +1375,21 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text: "dishant_8171..",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight: FontWeight.bold)),
-                                                    ])),
+                                                  TextSpan(
+                                                      text: "dishant_8171..",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ])),
                                           ),
                                           Container(
-                                              margin: EdgeInsets.only(top: 4, left: 16),
+                                              margin: EdgeInsets.only(
+                                                  top: 4, left: 16),
                                               child: Text(
                                                 "View all 100 comments",
-                                                style: TextStyle(color: Colors.white60),
+                                                style: TextStyle(
+                                                    color: Colors.white60),
                                               )),
                                         ],
                                       )
@@ -1159,8 +1399,10 @@ class _HomeState extends State<Home> {
                                 Container(
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -1183,7 +1425,8 @@ class _HomeState extends State<Home> {
                                               child: Text(
                                                 "Add a comment...",
                                                 style: TextStyle(
-                                                    color: Colors.white60, fontSize: 15),
+                                                    color: Colors.white60,
+                                                    fontSize: 15),
                                               ),
                                             ),
                                           ],
@@ -1220,7 +1463,8 @@ class _HomeState extends State<Home> {
                                   margin: EdgeInsets.only(right: 293, top: 3),
                                   child: Text(
                                     "2 hours ago",
-                                    style: TextStyle(color: Colors.white60, fontSize: 11),
+                                    style: TextStyle(
+                                        color: Colors.white60, fontSize: 11),
                                   ),
                                 ),
                               ],
@@ -1233,10 +1477,7 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
-          )
-
-
-      ),
+          )),
     );
   }
 }

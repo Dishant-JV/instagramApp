@@ -404,6 +404,7 @@ class _ProfileState extends State<Profile> {
                                       onTap: (){
                                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Images(
                                               img:"assets/images/demo3.jpg",
+                                          nimg: "",
                                         )));
                                       },
                                       child: Container(
@@ -452,44 +453,52 @@ class _ProfileState extends State<Profile> {
                                 ),
                                 margin: EdgeInsets.only(left: 5, right: 5),
                               ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Container(
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Images(
+                                    img: "assets/images/demo4.jpg",
+                                    nimg: "",
+                                  )));
+                                },
+                                child: Container(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                    "assets/images/demo4.jpg",
+                                                  ),
+                                                  fit: BoxFit.cover),
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: Colors.black, width: 3)),
+                                          height: 60,
+                                          width: 60,
+                                        ),
                                         decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo4.jpg",
-                                                ),
-                                                fit: BoxFit.cover),
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        height: 65,
+                                        width: 65,
                                       ),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors.grey,
+                                      Container(
+                                        margin: EdgeInsets.only(top: 4),
+                                        child: Text(
+                                          "Briti ce",
+                                          style: TextStyle(
+                                              color: Colors.white, fontSize: 12),
                                         ),
                                       ),
-                                      height: 65,
-                                      width: 65,
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 4),
-                                      child: Text(
-                                        "Briti ce",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 12),
-                                      ),
-                                    ),
-                                  ],
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                    ],
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                  ),
+                                  margin: EdgeInsets.only(left: 5, right: 5),
                                 ),
-                                margin: EdgeInsets.only(left: 5, right: 5),
                               ),
                               Container(
                                 child: Column(
