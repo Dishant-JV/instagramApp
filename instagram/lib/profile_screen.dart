@@ -5,6 +5,7 @@ import 'package:instagram/profile/mprofile.dart';
 import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
+import 'package:instagram/show_image.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -21,9 +22,7 @@ class _ProfileState extends State<Profile> {
     await Scrollable.ensureVisible(context,
         alignment: 0, duration: Duration(seconds: 1));
   }
-
   int currentindex = 0;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -401,28 +400,35 @@ class _ProfileState extends State<Profile> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Container(
+                                    InkWell(
+                                      onTap: (){
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Images(
+                                              img:"assets/images/demo3.jpg",
+                                        )));
+                                      },
                                       child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo3.jpg",
-                                                ),
-                                                fit: BoxFit.cover),
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: Colors.black, width: 3)),
-                                        height: 60,
-                                        width: 60,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors.grey,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                    "assets/images/demo3.jpg",
+                                                  ),
+                                                  fit: BoxFit.cover),
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: Colors.black, width: 3)),
+                                          height: 60,
+                                          width: 60,
                                         ),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        height: 65,
+                                        width: 65,
                                       ),
-                                      height: 65,
-                                      width: 65,
                                     ),
                                     Container(
                                         margin:

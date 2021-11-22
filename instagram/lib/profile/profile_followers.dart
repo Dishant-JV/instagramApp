@@ -12,9 +12,6 @@ class Followers extends StatefulWidget {
 
 class _FollowersState extends State<Followers> {
   int ?index ;
-
-  //int? index;
-
   @override
   void initState() {
     // TODO: implement initState
