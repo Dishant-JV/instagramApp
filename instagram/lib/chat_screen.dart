@@ -176,30 +176,22 @@ class _ChatState extends State<Chat> {
                              children: [
                                Container(
                                  margin:
-                                 EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 10),
+                                 EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 5),
                                  width: double.infinity,
                                  height: 35,
                                  decoration: BoxDecoration(
                                      borderRadius: BorderRadius.circular(7),
-                                     color: Colors.grey.shade800.withOpacity(0.6)),
-                                 child: Row(
-                                   children: [
-                                     Container(
-                                       child: Icon(
-                                         Icons.search,
-                                         color: Colors.white54,
-                                         size: 20,
-                                       ),
-                                       margin: EdgeInsets.only(left: 17),
+                                     color: Colors.white12),
+                                 child: Padding(
+                                   padding: EdgeInsets.only(left: 25),
+                                   child: TextField(
+                                     style: TextStyle(color: Colors.white),
+                                     decoration: InputDecoration(
+                                       hintText: 'Search',
+                                       hintStyle: TextStyle(color: Colors.white54),
+                                       border: InputBorder.none,
                                      ),
-                                     Container(
-                                       child: Text(
-                                         "Search",
-                                         style: TextStyle(color: Colors.white54, fontSize: 17),
-                                       ),
-                                       margin: EdgeInsets.only(left: 17),
-                                     )
-                                   ],
+                                   ),
                                  ),
                                ),
                                Container(

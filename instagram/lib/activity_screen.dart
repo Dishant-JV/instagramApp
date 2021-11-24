@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class Activity extends StatefulWidget {
@@ -8,6 +10,9 @@ class Activity extends StatefulWidget {
 }
 
 class _ActivityState extends State<Activity> {
+  bool confirm=true;
+  bool delete=true;
+  bool follow =true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -323,7 +328,7 @@ class _ActivityState extends State<Activity> {
                           ],
                         ),
                       ),
-                      Container(
+                      delete == true ?  Container(
                         margin: EdgeInsets.only(top: 30),
                         child: Row(
                           children: [
@@ -368,33 +373,75 @@ class _ActivityState extends State<Activity> {
                                 ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(right: 5),
-                              height: 28,
-                              width: 73,
+                            InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    confirm=false;
+                                  });
+                                },
+                                child: confirm == false ? InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      follow= !follow;
+                                    });
+                                  },
+                                  child: follow == true ? Container(
+                                    margin: EdgeInsets.only(right: 15),
+                                    height: 28,
+                                    width: 73,
+                                    alignment: Alignment.center,
+                                    child: Text("Follow",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Colors.blueAccent
+                                    ),
+                                  ) : Container(
+                                    margin: EdgeInsets.only(right: 15),
+                                    height: 28,
+                                    width: 85,
 
-                              alignment: Alignment.center,
-                              child: Text("Confirm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.blueAccent
-                              ),
+                                    alignment: Alignment.center,
+                                    child: Text("Requested",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        border: Border.all(color: Colors.white)
+                                    ),
+                                  ),
+                                ) : Container(
+                                  margin: EdgeInsets.only(right: 5),
+                                  height: 28,
+                                  width: 73,
+
+                                  alignment: Alignment.center,
+                                  child: Text("Confirm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: Colors.blueAccent
+                                  ),
+                                )
                             ),
-                            Container(
-                              margin: EdgeInsets.only(right: 15),
-                              height: 28,
-                              width: 73,
+                            confirm == false ? Container() :InkWell(
+                              onTap: (){
+                                setState(() {
+                                  delete=false;
+                                });
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                height: 28,
+                                width: 73,
 
-                              alignment: Alignment.center,
-                              child: Text("Delete",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(color: Colors.white)
+                                alignment: Alignment.center,
+                                child: Text("Delete",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    border: Border.all(color: Colors.white)
+                                ),
                               ),
                             )
                           ],
                         ),
-                      ),
+                      ) : Container(),
                       Container(
                         margin: EdgeInsets.only(top: 30),
                         child: Row(
