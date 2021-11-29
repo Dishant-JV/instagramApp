@@ -20,13 +20,8 @@ class _HomeState extends State<Home> {
     'assets/images/demo4.jpg',
     'assets/images/demo5.jpg'
   ];
-  @override
-  int index = 0;
-  int index1 = 0;
-  int index2 = 0;
-  int bindex = 0;
-  int bindex1 = 0;
-  int bindex2 = 0;
+  bool isLike=false;
+  bool isSave=false;
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -550,27 +545,21 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                InkWell(
-                                    onDoubleTap: () {
-                                      setState(() {
-                                        index1 = 1;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 380,
-                                      width: double.infinity,
-                                      child: PhotoView(
-                                        imageProvider: NetworkImage(
-                                          "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
-                                        ),
-                                        minScale:
-                                            PhotoViewComputedScale.contained *
-                                                0.8,
-                                        maxScale:
-                                            PhotoViewComputedScale.contained *
-                                                0.8,
-                                      ),
-                                    )),
+                                Container(
+                                  height: 380,
+                                  width: double.infinity,
+                                  child: PhotoView(
+                                    imageProvider: NetworkImage(
+                                      "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                    ),
+                                    minScale:
+                                        PhotoViewComputedScale.contained *
+                                            0.8,
+                                    maxScale:
+                                        PhotoViewComputedScale.contained *
+                                            0.8,
+                                  ),
+                                ),
                                 Container(
                                   margin: EdgeInsets.only(top: 5),
                                   height: 39,
@@ -584,52 +573,30 @@ class _HomeState extends State<Home> {
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: () {
+                                              onTap: (){
                                                 setState(() {
-                                                  index1 = 1;
+                                                  isLike=!isLike;
                                                 });
                                               },
-                                              child: index1 == 0
-                                                  ? Container(
-                                                      child: Icon(
-                                                        Icons
-                                                            .favorite_outline_rounded,
-                                                        size: 29,
-                                                        color: Colors.white,
-                                                      ),
-                                                      margin: EdgeInsets.only(
-                                                          left: 15),
-                                                    )
-                                                  : InkWell(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          index1 = 0;
-                                                        });
-                                                      },
-                                                      child: index1 == 1
-                                                          ? Container(
-                                                              child: Icon(
-                                                                Icons.favorite,
-                                                                size: 29,
-                                                                color:
-                                                                    Colors.red,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )
-                                                          : Container(
-                                                              child: Icon(
-                                                                Icons
-                                                                    .favorite_outline_rounded,
-                                                                size: 29,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )),
+                                              child: isLike == false ? Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite_outline_rounded,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ) : Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite,
+                                                  size: 29,
+                                                  color: Colors.red,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ),
                                             ),
                                             Container(
                                               child: Image.asset(
@@ -651,49 +618,53 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              bindex = 1;
-                                            });
-                                          },
-                                          child: bindex == 0
-                                              ? Container(
-                                                  child: Icon(
-                                                    Icons.bookmark_outline,
-                                                    size: 29,
-                                                    color: Colors.white,
+                                        onTap: (){
+                                          setState(() {
+                                            isSave=!isSave;
+                                            final snackBar=SnackBar(content: Container(
+                                              child: Row(
+                                                children: [
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(6),
+                                                      image: DecorationImage(image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg"),fit: BoxFit.cover)
+                                                    ),
+                                                    height:35,
+                                                    width: 35,
                                                   ),
-                                                  margin: EdgeInsets.only(
-                                                      right: 15),
-                                                )
-                                              : InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      bindex = 0;
-                                                    });
-                                                  },
-                                                  child: bindex == 1
-                                                      ? Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        )
-                                                      : Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        ),
-                                                )),
+                                                  Container(child: Text("Saved",style: TextStyle(fontWeight: FontWeight.w500),),
+                                                  margin: EdgeInsets.only(left: 10),),
+                                                ],
+                                              ),
+                                            ),
+                                              duration:Duration(seconds: 2),
+                                              action: SnackBarAction(
+                                                label: "Save to Collection",
+                                                onPressed: (){
+                                                },
+                                              ),
+                                            );
+                                            isSave == true ? ScaffoldMessenger.of(context).showSnackBar(snackBar): Container();
+                                          });
+                                        },
+                                        child: isSave == false ? Container(
+                                          child: Icon(
+                                            Icons.bookmark_outline,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ) : Container(
+                                          child: Icon(
+                                            Icons.bookmark,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -885,25 +856,18 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                InkWell(
-                                  onDoubleTap: () {
-                                    setState(() {
-                                      index2 = 1;
-                                    });
-                                  },
-                                  child: Container(
-                                      width: double.infinity,
-                                      height: 380,
-                                      child: PhotoViewGallery.builder(
-                                          itemCount: imageList.length,
-                                          builder: (context, index) {
-                                            return PhotoViewGalleryPageOptions(
-                                                imageProvider: AssetImage(
-                                                    imageList[index]),
-                                              minScale: PhotoViewComputedScale.contained * 0.8,
-                                              maxScale: PhotoViewComputedScale.covered * 0.8,);
-                                          })),
-                                ),
+                                Container(
+                                    width: double.infinity,
+                                    height: 380,
+                                    child: PhotoViewGallery.builder(
+                                        itemCount: imageList.length,
+                                        builder: (context, index) {
+                                          return PhotoViewGalleryPageOptions(
+                                              imageProvider: AssetImage(
+                                                  imageList[index]),
+                                            minScale: PhotoViewComputedScale.contained * 0.8,
+                                            maxScale: PhotoViewComputedScale.covered * 0.8,);
+                                        })),
                                 Container(
                                   margin: EdgeInsets.only(top: 6),
                                   height: 39,
@@ -917,52 +881,30 @@ class _HomeState extends State<Home> {
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: () {
+                                              onTap: (){
                                                 setState(() {
-                                                  index2 = 1;
+                                                  isLike=!isLike;
                                                 });
                                               },
-                                              child: index2 == 0
-                                                  ? Container(
-                                                      child: Icon(
-                                                        Icons
-                                                            .favorite_outline_rounded,
-                                                        size: 29,
-                                                        color: Colors.white,
-                                                      ),
-                                                      margin: EdgeInsets.only(
-                                                          left: 15),
-                                                    )
-                                                  : InkWell(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          index2 = 0;
-                                                        });
-                                                      },
-                                                      child: index2 == 1
-                                                          ? Container(
-                                                              child: Icon(
-                                                                Icons.favorite,
-                                                                size: 29,
-                                                                color:
-                                                                    Colors.red,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )
-                                                          : Container(
-                                                              child: Icon(
-                                                                Icons
-                                                                    .favorite_outline_rounded,
-                                                                size: 29,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )),
+                                              child: isLike == false ? Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite_outline_rounded,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ) : Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite,
+                                                  size: 29,
+                                                  color: Colors.red,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ),
                                             ),
                                             Container(
                                               child: Image.asset(
@@ -984,49 +926,29 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              bindex1 = 1;
-                                            });
-                                          },
-                                          child: bindex1 == 0
-                                              ? Container(
-                                                  child: Icon(
-                                                    Icons.bookmark_outline,
-                                                    size: 29,
-                                                    color: Colors.white,
-                                                  ),
-                                                  margin: EdgeInsets.only(
-                                                      right: 15),
-                                                )
-                                              : InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      bindex1 = 0;
-                                                    });
-                                                  },
-                                                  child: bindex1 == 1
-                                                      ? Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        )
-                                                      : Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        ),
-                                                )),
+                                        onTap: (){
+                                          setState(() {
+                                            isSave=!isSave;
+                                          });
+                                        },
+                                        child: isSave == false ? Container(
+                                          child: Icon(
+                                            Icons.bookmark_outline,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ) : Container(
+                                          child: Icon(
+                                            Icons.bookmark,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -1217,19 +1139,12 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                InkWell(
-                                  onDoubleTap: () {
-                                    setState(() {
-                                      index = 1;
-                                    });
-                                  },
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 380,
-                                    child: Image.asset(
-                                      "assets/images/demo5.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 380,
+                                  child: Image.asset(
+                                    "assets/images/demo5.jpg",
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                                 Container(
@@ -1245,52 +1160,30 @@ class _HomeState extends State<Home> {
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: () {
+                                              onTap: (){
                                                 setState(() {
-                                                  index = 1;
+                                                  isLike=!isLike;
                                                 });
                                               },
-                                              child: index == 0
-                                                  ? Container(
-                                                      child: Icon(
-                                                        Icons
-                                                            .favorite_outline_rounded,
-                                                        size: 29,
-                                                        color: Colors.white,
-                                                      ),
-                                                      margin: EdgeInsets.only(
-                                                          left: 15),
-                                                    )
-                                                  : InkWell(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          index = 0;
-                                                        });
-                                                      },
-                                                      child: index == 1
-                                                          ? Container(
-                                                              child: Icon(
-                                                                Icons.favorite,
-                                                                size: 29,
-                                                                color:
-                                                                    Colors.red,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )
-                                                          : Container(
-                                                              child: Icon(
-                                                                Icons
-                                                                    .favorite_outline_rounded,
-                                                                size: 29,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      left: 15),
-                                                            )),
+                                              child: isLike == false ? Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite_outline_rounded,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ) : Container(
+                                                child: Icon(
+                                                  Icons
+                                                      .favorite,
+                                                  size: 29,
+                                                  color: Colors.red,
+                                                ),
+                                                margin: EdgeInsets.only(
+                                                    left: 15),
+                                              ),
                                             ),
                                             Container(
                                               child: Image.asset(
@@ -1312,49 +1205,29 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              bindex2 = 1;
-                                            });
-                                          },
-                                          child: bindex2 == 0
-                                              ? Container(
-                                                  child: Icon(
-                                                    Icons.bookmark_outline,
-                                                    size: 29,
-                                                    color: Colors.white,
-                                                  ),
-                                                  margin: EdgeInsets.only(
-                                                      right: 15),
-                                                )
-                                              : InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      bindex2 = 0;
-                                                    });
-                                                  },
-                                                  child: bindex2 == 1
-                                                      ? Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        )
-                                                      : Container(
-                                                          child: Icon(
-                                                            Icons.bookmark,
-                                                            size: 29,
-                                                            color: Colors.white,
-                                                          ),
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 15),
-                                                        ),
-                                                )),
+                                        onTap: (){
+                                          setState(() {
+                                            isSave=!isSave;
+                                          });
+                                        },
+                                        child: isSave == false ? Container(
+                                          child: Icon(
+                                            Icons.bookmark_outline,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ) : Container(
+                                          child: Icon(
+                                            Icons.bookmark,
+                                            size: 29,
+                                            color: Colors.white,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                              right: 15),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
