@@ -12,15 +12,9 @@ class Images extends StatefulWidget {
 }
 
 class _ImagesState extends State<Images> {
-  String ? img;
-  String ? nimg;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    img=widget.img;
-    nimg=widget.nimg;
-  }
+  get img => widget.img;
+  get nimg => widget.nimg;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

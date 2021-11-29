@@ -12,17 +12,12 @@ class ProfileImages extends StatefulWidget {
 }
 
 class _ProfileImagesState extends State<ProfileImages> {
-  String ? pImage;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-   pImage=widget.pImage;
-  }
+
   @override
   int index1 =0;
   int bindex =0;
   int i=0;
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -119,7 +114,7 @@ class _ProfileImagesState extends State<ProfileImages> {
                           width: double.infinity,
                           child: PhotoView(
                             imageProvider:AssetImage(
-                                pImage!
+                                widget.pImage??""
                             ),
                             minScale:
                             PhotoViewComputedScale.contained *

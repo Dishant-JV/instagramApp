@@ -621,7 +621,7 @@ class _HomeState extends State<Home> {
                                         onTap: (){
                                           setState(() {
                                             isSave=!isSave;
-                                            final snackBar=SnackBar(content: Container(
+                                            final snackBar=SnackBar(backgroundColor: Colors.grey.shade900,margin: EdgeInsets.only(bottom: 280),behavior: SnackBarBehavior.floating,content: Container(
                                               child: Row(
                                                 children: [
                                                   Container(
