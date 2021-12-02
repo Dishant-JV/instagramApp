@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/main.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class Chat extends StatefulWidget {
   const Chat({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _ChatState extends State<Chat> {
                             children: [
                               Container(
                                 child: IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,size: 30),onPressed: (){
-                                  Navigator.pop(context,MaterialPageRoute(builder: (context) => Insta()));
+                                  Navigator.pop(context,SwipeablePageRoute(builder: (context) => Insta()));
                                 },),
                                 margin: EdgeInsets.only(left: 10),
                               ),

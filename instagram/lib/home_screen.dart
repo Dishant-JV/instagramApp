@@ -3,6 +3,7 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/show_image.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
@@ -69,11 +70,8 @@ class _HomeState extends State<Home> {
                       Stack(
                         children: [
                           InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Chat()));
+                            onTap: (){
+                              Navigator.push(context, SwipeablePageRoute(builder: (BuildContext context)=>Chat()));
                             },
                             child: Container(
                                 height: 26,
@@ -621,7 +619,7 @@ class _HomeState extends State<Home> {
                                         onTap: (){
                                           setState(() {
                                             isSave=!isSave;
-                                            final snackBar=SnackBar(backgroundColor: Colors.grey.shade900,margin: EdgeInsets.only(bottom: 280),behavior: SnackBarBehavior.floating,content: Container(
+                                            final snackBar=SnackBar(backgroundColor: Colors.grey.shade900,margin: EdgeInsets.only(bottom: 220),behavior: SnackBarBehavior.floating,content: Container(
                                               child: Row(
                                                 children: [
                                                   Container(
