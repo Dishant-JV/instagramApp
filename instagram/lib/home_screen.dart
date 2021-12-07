@@ -21,6 +21,14 @@ class _HomeState extends State<Home> {
     'assets/images/demo4.jpg',
     'assets/images/demo5.jpg'
   ];
+  final List<String> storyImages=[
+    "http://starsunfolded.com/wp-content/uploads/2014/05/Alia_Bhatt.jpg",
+    "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
+    "https://www.bollywoodhungama.com/wp-content/uploads/2021/10/salman-khan.jpg",
+    "https://lh3.googleusercontent.com/proxy/uR34igOaQj7pQEsDdcFWYIpvp-rUSJq9rr9ZF1u7dihPtEHfbP_b8QzEM--imcY2tvt9vKkrLFnvRxAwDzMPGvdqhwmFB7HqOGFWesLOHuOxtGjDuFTySYQ8kwZ_0Cw-cSqXqMIWybAon0FEnvR0RxAH0ZvsjY72Hvk2X6OZ",
+    "https://w0.peakpx.com/wallpaper/309/93/HD-wallpaper-aliabhatt-actress-alia-alia-bhat-alia-bhatt-bollywood.jpg"
+  ];
+  final List<String> storyName=['piyush_12','raj_9090','salman_2288','ketrina_921','alia_bhatt'];
   bool isLike=false;
   bool isSave=false;
 
@@ -172,301 +180,70 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Images(
-                                                          img: "",
-                                                          nimg:
-                                                              "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
-                                                        )));
-                                          },
-                                          child: Container(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
-                                                      ),
-                                                      fit: BoxFit.cover),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                      color: Colors.black,
-                                                      width: 3)),
-                                              height: 68,
-                                              width: 68,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              gradient: LinearGradient(colors: [
-                                                Colors.yellow,
-                                                Colors.red,
-                                              ]),
-                                              border: Border.all(
-                                                  color: Colors.white10,
-                                                  width: 2),
-                                            ),
-                                            height: 73,
-                                            width: 73,
+                                  ListView.builder(
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: storyName.length,
+                                      itemBuilder: (BuildContext context, index) {
+                                        return  Container(
+                                          child: Column(
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Images(
+                                                                img:"",
+                                                                nimg: storyImages[index],
+                                                              )));
+                                                },
+                                                child: Container(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        image: DecorationImage(
+                                                            image: NetworkImage(
+                                                              storyImages[index],
+                                                            ),
+                                                            fit: BoxFit.cover),
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                            color: Colors.black,
+                                                            width: 3)),
+                                                    height: 68,
+                                                    width: 68,
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    gradient: LinearGradient(colors: [
+                                                      Colors.yellow,
+                                                      Colors.red,
+                                                    ]),
+                                                    border: Border.all(
+                                                        color: Colors.white10,
+                                                        width: 2),
+                                                  ),
+                                                  height: 73,
+                                                  width: 73,
+                                                ),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(top: 4,),
+                                                child: Text(
+                                                  storyName[index],
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
+                                                ),
+                                              )
+                                            ],
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                           ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 4),
-                                          child: Text(
-                                            "piyush12_",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                    ),
-                                    margin: EdgeInsets.only(left: 14, top: 13),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Images(
-                                                          img:
-                                                              "assets/images/demo3.jpg",
-                                                          nimg: "",
-                                                        )));
-                                          },
-                                          child: Container(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                        "assets/images/demo3.jpg",
-                                                      ),
-                                                      fit: BoxFit.cover),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                      color: Colors.black,
-                                                      width: 3)),
-                                              height: 68,
-                                              width: 68,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              gradient: LinearGradient(colors: [
-                                                Colors.yellow,
-                                                Colors.red,
-                                              ]),
-                                              border: Border.all(
-                                                  color: Colors.white10,
-                                                  width: 2),
-                                            ),
-                                            height: 73,
-                                            width: 73,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 4,),
-                                          child: Text(
-                                            "Ayush561_.",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                    ),
-                                    margin: EdgeInsets.only(left: 11, top: 13),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Images(
-                                                          img:
-                                                              "assets/images/demo4.jpg",
-                                                          nimg: "",
-                                                        )));
-                                          },
-                                          child: Container(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                        "assets/images/demo4.jpg",
-                                                      ),
-                                                      fit: BoxFit.cover),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                      color: Colors.black,
-                                                      width: 3)),
-                                              height: 68,
-                                              width: 68,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              gradient: LinearGradient(colors: [
-                                                Colors.yellow,
-                                                Colors.red,
-                                              ]),
-                                              border: Border.all(
-                                                  color: Colors.white10,
-                                                  width: 2),
-                                            ),
-                                            height: 73,
-                                            width: 73,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 4),
-                                          child: Text(
-                                            "heena67@1",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                    ),
-                                    margin: EdgeInsets.only(left: 11, top: 13),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Images(
-                                                          img:
-                                                              "assets/images/demo5.jpg",
-                                                          nimg: "",
-                                                        )));
-                                          },
-                                          child: Container(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                        "assets/images/demo5.jpg",
-                                                      ),
-                                                      fit: BoxFit.cover),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                      color: Colors.black,
-                                                      width: 3)),
-                                              height: 68,
-                                              width: 68,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              gradient: LinearGradient(colors: [
-                                                Colors.yellow,
-                                                Colors.red,
-                                              ]),
-                                              border: Border.all(
-                                                  color: Colors.white10,
-                                                  width: 2),
-                                            ),
-                                            height: 73,
-                                            width: 73,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 4),
-                                          child: Text(
-                                            "jenil0909",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                    ),
-                                    margin: EdgeInsets.only(left: 11, top: 13),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Images(
-                                                          img:
-                                                              "assets/images/demo7.jpg",
-                                                          nimg: "",
-                                                        )));
-                                          },
-                                          child: Container(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                        "assets/images/demo7.jpg",
-                                                      ),
-                                                      fit: BoxFit.cover),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                      color: Colors.black,
-                                                      width: 3)),
-                                              height: 65,
-                                              width: 65,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              gradient: LinearGradient(colors: [
-                                                Colors.yellow,
-                                                Colors.red,
-                                              ]),
-                                              border: Border.all(
-                                                  color: Colors.white10,
-                                                  width: 2),
-                                            ),
-                                            height: 70,
-                                            width: 70,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 4),
-                                          child: Text(
-                                            "piyush12_",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          ),
-                                        )
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                    ),
-                                    margin: EdgeInsets.only(left: 11, top: 13),
-                                  ),
+                                          margin: EdgeInsets.only(left: 11, top: 13),
+                                        );
+                                      })
                                 ],
                               ),
                             ),
