@@ -1,16 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/chat_screen.dart';
+import 'package:instagram/demos/demo_screen.dart';
+import 'package:instagram/demos/listview_demo.dart';
+import 'package:instagram/demos/radio_button_demo.dart';
 import 'package:instagram/home_screen.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'activity_screen.dart';
 
+
 void main() {
   runApp(
     MaterialApp(
-      home: Insta(),
+      home:DemoScreen(),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
@@ -43,7 +48,7 @@ class _InstaState extends State<Insta> {
               child: pageList[currentIndex],
             ),
             Container(
-              height: 45,
+              height: 48,
               color: Colors.black,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -54,17 +59,16 @@ class _InstaState extends State<Insta> {
                         currentIndex=0;
                       });
                     },
-                    child: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                      size: 32,
-                    ),
+                    child: currentIndex == 0 ? Image.asset("assets/images/main_home.png",color: Colors.white,height: 36,width: 36,) :
+                        Container(
+                          child: Icon(Icons.home_outlined,color: Colors.white,size: 32,),
+                        )
                   ),
                   InkWell(
                     child: Icon(
                       Icons.search,
                       color: Colors.white,
-                      size: 32,
+                      size: 29,
                     ),
                     onTap: () {
                       setState(() {
@@ -78,11 +82,7 @@ class _InstaState extends State<Insta> {
                         currentIndex=2;
                       });
                     },
-                    child: Icon(
-                      Icons.play_circle,
-                      color: Colors.white,
-                      size: 32,
-                    ),
+                    child: Container(child: Image.asset("assets/images/home_reels.png",color: Colors.white,fit: BoxFit.cover,),height: 27,width: 27,)
                   ),
                   InkWell(
                     onTap: () {
@@ -90,10 +90,14 @@ class _InstaState extends State<Insta> {
                         currentIndex=3;
                       });
                     },
-                    child: Icon(
+                    child: currentIndex == 3 ? Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 30,
+                    ) : Icon(
                       Icons.favorite_outline_sharp,
                       color: Colors.white,
-                      size: 32,
+                      size: 30,
                     ),
                   ),
                   InkWell(
@@ -102,11 +106,23 @@ class _InstaState extends State<Insta> {
                         currentIndex=4;
                       });
                     },
-                    child: Container(
+                    child: currentIndex == 4 ? Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white,width: 2),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
+                  ),
+          fit: BoxFit.cover),
+      shape: BoxShape.circle,
+    ),
+    height: 30,
+    width: 30,
+    ) : Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage(
-                              "assets/images/demo.JPG",
+                            image: NetworkImage(
+                              "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
                             ),
                             fit: BoxFit.cover),
                         shape: BoxShape.circle,

@@ -356,13 +356,43 @@ class _SettingsState extends State<Settings> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Logout()));
+                        onTap: (){
+                          showDialog(context: context, builder:(cc)=>AlertDialog(
+                            backgroundColor: Colors.grey.shade800,
+                            content: Container(
+                                height: 25,
+                                alignment: Alignment.center,
+                                width: double.infinity,child: Text("Log out of Instagram",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 20),)),
+                            actions: [
+                              InkWell(
+                                onTap: (){
+                                  Navigator.pop(context);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Logout()));
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: 50,
+                                  width: double.infinity,
+                                  child: Text("Log Out",style: TextStyle(color: Colors.blue,fontSize: 17,fontWeight: FontWeight.w500),),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.pop(context, MaterialPageRoute(builder: (context)=>Settings()));
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: 50,
+                                  width: double.infinity,
+                                  child: Text("Cancel",style: TextStyle(color: Colors.blue,fontSize: 17,fontWeight: FontWeight.w500),),
+                                ),
+                              )
+                            ],
+                          )
+                          );
                         },
                         child: Container(
+
                           margin:
                               EdgeInsets.only(top: 30, left: 15, bottom: 15),
                           child: Text(

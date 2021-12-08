@@ -19,7 +19,10 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color:Colors.black,
+      decoration: BoxDecoration(
+          color: Colors.grey.shade900,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))
+      ),
       height: 350,
       width: double.infinity,
       padding: EdgeInsets.only(top:10 ),
