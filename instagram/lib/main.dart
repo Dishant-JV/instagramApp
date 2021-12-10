@@ -4,6 +4,7 @@ import 'package:instagram/chat_screen.dart';
 import 'package:instagram/demos/demo_screen.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/radio_button_demo.dart';
+import 'package:instagram/demos/stack_demo_screen.dart';
 import 'package:instagram/home_screen.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';

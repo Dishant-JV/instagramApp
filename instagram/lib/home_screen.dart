@@ -33,97 +33,6 @@ class _HomeState extends State<Home> {
   bool isSave=false;
 
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-        // foregroundColor: Colors.black26,
-        toolbarHeight: 50,
-        title:Image.asset("assets/images/insta_text.png",height: 60,width: 130,color: Colors.white,),
-        centerTitle: true,
-        leading: Icon(Icons.camera_alt),
-        actions: [
-          Container(
-            margin: EdgeInsets.only(right: 15),
-            child: InkWell(
-              child: Icon(Icons.message),
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Chat()));
-              },
-            ),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: (Column(
-          children: [
-<<<<<<< HEAD
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: (Column(
-                  children: [
-                    Container(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                              "assets/images/demo.JPG",
-                                            ),
-                                            fit: BoxFit.cover),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      height: 65,
-                                      width: 65,
-                                      margin: EdgeInsets.only(left: 10),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 7, left: 5),
-                                      child: Text(
-                                        "Your story",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 12),
-                                      ),
-=======
-            Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/images/demo.JPG",
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
-                                    ),
-                                    fit: BoxFit.cover),
-                                shape: BoxShape.circle,
-                              ),
-<<<<<<< HEAD
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo2.JPG",
-=======
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.black,
@@ -139,19 +48,19 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                           child: Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 5, left: 20),
-                            height: 38,
-                            width: 122,
-                            child: Image.asset(
-                              "assets/images/insta_text.png",
-                              color: Colors.white,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ],
-                      )),
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 5, left: 20),
+                                height: 38,
+                                width: 122,
+                                child: Image.asset(
+                                  "assets/images/insta_text.png",
+                                  color: Colors.white,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          )),
                       Container(
                         alignment: Alignment.center,
                         height: 23,
@@ -159,7 +68,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border:
-                                Border.all(color: Colors.white, width: 1.5)),
+                            Border.all(color: Colors.white, width: 1.5)),
                         child: Icon(
                           Icons.add,
                           color: Colors.white,
@@ -215,7 +124,7 @@ class _HomeState extends State<Home> {
                               color: Colors.black,
                               border: Border(
                                 bottom:
-                                    BorderSide(color: Colors.white24, width: 0),
+                                BorderSide(color: Colors.white24, width: 0),
                               ),
                             ),
                             child: SingleChildScrollView(
@@ -260,7 +169,7 @@ class _HomeState extends State<Home> {
                                         ),
                                         Container(
                                           margin:
-                                              EdgeInsets.only(top: 7, left: 5),
+                                          EdgeInsets.only(top: 7, left: 5),
                                           child: Text(
                                             "Your story",
                                             style: TextStyle(
@@ -366,7 +275,6 @@ class _HomeState extends State<Home> {
                                                           width: 2)),
                                                   height: 30,
                                                   width: 31,
->>>>>>> e04fc9e263dbc1b92466d4236f35e44e221be0d8
                                                 ),
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
@@ -383,18 +291,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                    EdgeInsets.only(left: 13),
+                                                EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                    EdgeInsets.only(left: 11),
+                                                EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                      FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -420,11 +328,11 @@ class _HomeState extends State<Home> {
                                       "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
                                     ),
                                     minScale:
-                                        PhotoViewComputedScale.contained *
-                                            0.8,
+                                    PhotoViewComputedScale.contained *
+                                        0.8,
                                     maxScale:
-                                        PhotoViewComputedScale.contained *
-                                            0.8,
+                                    PhotoViewComputedScale.contained *
+                                        0.8,
                                   ),
                                 ),
                                 Container(
@@ -434,7 +342,7 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -493,14 +401,14 @@ class _HomeState extends State<Home> {
                                                 children: [
                                                   Container(
                                                     decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(6),
-                                                      image: DecorationImage(image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg"),fit: BoxFit.cover)
+                                                        borderRadius: BorderRadius.circular(6),
+                                                        image: DecorationImage(image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg"),fit: BoxFit.cover)
                                                     ),
                                                     height:35,
                                                     width: 35,
                                                   ),
                                                   Container(child: Text("Saved",style: TextStyle(fontWeight: FontWeight.w500),),
-                                                  margin: EdgeInsets.only(left: 10),),
+                                                    margin: EdgeInsets.only(left: 10),),
                                                 ],
                                               ),
                                             ),
@@ -552,13 +460,13 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                  TextSpan(
-                                                      text: "dishant_8171..",
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight:
+                                                      TextSpan(
+                                                          text: "dishant_8171..",
+                                                          style: TextStyle(
+                                                              color: Colors.white,
+                                                              fontWeight:
                                                               FontWeight.bold)),
-                                                ])),
+                                                    ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -578,9 +486,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -694,18 +602,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                    EdgeInsets.only(left: 13),
+                                                EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                    EdgeInsets.only(left: 11),
+                                                EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "Sanjna_Ganeshan",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                      FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -730,8 +638,8 @@ class _HomeState extends State<Home> {
                                         itemCount: imageList.length,
                                         builder: (context, index) {
                                           return PhotoViewGalleryPageOptions(
-                                              imageProvider: AssetImage(
-                                                  imageList[index]),
+                                            imageProvider: AssetImage(
+                                                imageList[index]),
                                             minScale: PhotoViewComputedScale.contained * 0.8,
                                             maxScale: PhotoViewComputedScale.covered * 0.8,);
                                         })),
@@ -742,7 +650,7 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -827,7 +735,7 @@ class _HomeState extends State<Home> {
                                     children: [
                                       Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             margin: EdgeInsets.only(left: 18),
@@ -838,14 +746,14 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                  TextSpan(
-                                                      text:
+                                                      TextSpan(
+                                                          text:
                                                           "dishant_8171.. and thousand's of others",
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight:
+                                                          style: TextStyle(
+                                                              color: Colors.white,
+                                                              fontWeight:
                                                               FontWeight.bold)),
-                                                ])),
+                                                    ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -864,9 +772,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -912,109 +820,6 @@ class _HomeState extends State<Home> {
                                         ),
                                         margin: EdgeInsets.only(right: 10),
                                       ),
-<<<<<<< HEAD
-                                    ),
-                                  ],
-                                  mainAxisAlignment: MainAxisAlignment.center,
-=======
-                              height: 60,
-                              width: 60,
-                              margin: EdgeInsets.only(left: 10),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 7, left: 5),
-                              child: Text(
-                                "Your story",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo2.JPG",
-                                        ),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height: 60,
-                                width: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(colors: [
-                                  Colors.yellow,
-                                  Colors.red,
-                                ]),
-                                border: Border.all(
-                                    color: Colors.white10, width: 2),
-                              ),
-                              height: 65,
-                              width: 65,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "piyush12_",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo3.jpg",
-                                        ),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height: 60,
-                                width: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black,
-                                gradient: LinearGradient(
-                                  colors: [Colors.yellow, Colors.red],
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
-                                ),
-                                border: Border.all(
-                                    color: Colors.white10, width: 2),
-                              ),
-<<<<<<< HEAD
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo3.jpg",
-=======
                                       Container(
                                         child: Icon(
                                           Icons.download_done,
@@ -1064,7 +869,6 @@ class _HomeState extends State<Home> {
                                                           width: 2)),
                                                   height: 30,
                                                   width: 31,
->>>>>>> e04fc9e263dbc1b92466d4236f35e44e221be0d8
                                                 ),
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
@@ -1081,18 +885,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                    EdgeInsets.only(left: 13),
+                                                EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                    EdgeInsets.only(left: 11),
+                                                EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                      FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -1110,36 +914,6 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-<<<<<<< HEAD
-                                margin: EdgeInsets.only(left: 5, right: 5),
-=======
-                              height: 65,
-                              width: 65,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "dishant_8171",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo4.jpg",
-=======
                                 Container(
                                   width: double.infinity,
                                   height: 380,
@@ -1155,7 +929,7 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -1203,7 +977,6 @@ class _HomeState extends State<Home> {
                                               margin: EdgeInsets.only(left: 13),
                                             ),
                                           ],
->>>>>>> e04fc9e263dbc1b92466d4236f35e44e221be0d8
                                         ),
                                       ),
                                       InkWell(
@@ -1250,13 +1023,13 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                  TextSpan(
-                                                      text: "dishant_8171..",
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight:
+                                                      TextSpan(
+                                                          text: "dishant_8171..",
+                                                          style: TextStyle(
+                                                              color: Colors.white,
+                                                              fontWeight:
                                                               FontWeight.bold)),
-                                                ])),
+                                                    ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -1275,9 +1048,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
