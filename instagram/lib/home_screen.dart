@@ -33,7 +33,6 @@ class _HomeState extends State<Home> {
   bool isSave=false;
 
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -60,7 +59,6 @@ class _HomeState extends State<Home> {
         scrollDirection: Axis.vertical,
         child: (Column(
           children: [
-<<<<<<< HEAD
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -94,7 +92,6 @@ class _HomeState extends State<Home> {
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 12),
                                       ),
-=======
             Container(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -108,12 +105,10 @@ class _HomeState extends State<Home> {
                                 image: DecorationImage(
                                     image: AssetImage(
                                       "assets/images/demo.JPG",
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
                                     ),
                                     fit: BoxFit.cover),
                                 shape: BoxShape.circle,
                               ),
-<<<<<<< HEAD
                               Container(
                                 child: Column(
                                   children: [
@@ -123,7 +118,6 @@ class _HomeState extends State<Home> {
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                   "assets/images/demo2.JPG",
-=======
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.black,
@@ -912,11 +906,9 @@ class _HomeState extends State<Home> {
                                         ),
                                         margin: EdgeInsets.only(right: 10),
                                       ),
-<<<<<<< HEAD
                                     ),
                                   ],
                                   mainAxisAlignment: MainAxisAlignment.center,
-=======
                               height: 60,
                               width: 60,
                               margin: EdgeInsets.only(left: 10),
@@ -999,12 +991,10 @@ class _HomeState extends State<Home> {
                                 color: Colors.black,
                                 gradient: LinearGradient(
                                   colors: [Colors.yellow, Colors.red],
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
                                 ),
                                 border: Border.all(
                                     color: Colors.white10, width: 2),
                               ),
-<<<<<<< HEAD
                               Container(
                                 child: Column(
                                   children: [
@@ -1014,7 +1004,6 @@ class _HomeState extends State<Home> {
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                   "assets/images/demo3.jpg",
-=======
                                       Container(
                                         child: Icon(
                                           Icons.download_done,
@@ -1064,7 +1053,6 @@ class _HomeState extends State<Home> {
                                                           width: 2)),
                                                   height: 30,
                                                   width: 31,
->>>>>>> e04fc9e263dbc1b92466d4236f35e44e221be0d8
                                                 ),
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
@@ -1110,9 +1098,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-<<<<<<< HEAD
                                 margin: EdgeInsets.only(left: 5, right: 5),
-=======
                               height: 65,
                               width: 65,
                             ),
@@ -1122,7 +1108,6 @@ class _HomeState extends State<Home> {
                                 "dishant_8171",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 12),
->>>>>>> 7738b443a16aed9d2ca1d8f3b26e0dc9814d8b7a
                               ),
                             ),
                           ],
@@ -1139,7 +1124,6 @@ class _HomeState extends State<Home> {
                                     image: DecorationImage(
                                         image: AssetImage(
                                           "assets/images/demo4.jpg",
-=======
                                 Container(
                                   width: double.infinity,
                                   height: 380,
@@ -1203,7 +1187,6 @@ class _HomeState extends State<Home> {
                                               margin: EdgeInsets.only(left: 13),
                                             ),
                                           ],
->>>>>>> e04fc9e263dbc1b92466d4236f35e44e221be0d8
                                         ),
                                       ),
                                       InkWell(
