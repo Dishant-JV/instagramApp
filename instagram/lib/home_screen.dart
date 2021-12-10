@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
@@ -33,94 +34,6 @@ class _HomeState extends State<Home> {
   bool isSave=false;
 
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-        // foregroundColor: Colors.black26,
-        toolbarHeight: 50,
-        title:Image.asset("assets/images/insta_text.png",height: 60,width: 130,color: Colors.white,),
-        centerTitle: true,
-        leading: Icon(Icons.camera_alt),
-        actions: [
-          Container(
-            margin: EdgeInsets.only(right: 15),
-            child: InkWell(
-              child: Icon(Icons.message),
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Chat()));
-              },
-            ),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: (Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: (Column(
-                  children: [
-                    Container(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                              "assets/images/demo.JPG",
-                                            ),
-                                            fit: BoxFit.cover),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      height: 65,
-                                      width: 65,
-                                      margin: EdgeInsets.only(left: 10),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 7, left: 5),
-                                      child: Text(
-                                        "Your story",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 12),
-                                      ),
-            Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/images/demo.JPG",
-                                    ),
-                                    fit: BoxFit.cover),
-                                shape: BoxShape.circle,
-                              ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo2.JPG",
-=======
->>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.black,
@@ -908,107 +821,6 @@ class _HomeState extends State<Home> {
                                         ),
                                         margin: EdgeInsets.only(right: 10),
                                       ),
-<<<<<<< HEAD
-                                    ),
-                                  ],
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                              height: 60,
-                              width: 60,
-                              margin: EdgeInsets.only(left: 10),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 7, left: 5),
-                              child: Text(
-                                "Your story",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo2.JPG",
-                                        ),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height: 60,
-                                width: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(colors: [
-                                  Colors.yellow,
-                                  Colors.red,
-                                ]),
-                                border: Border.all(
-                                    color: Colors.white10, width: 2),
-                              ),
-                              height: 65,
-                              width: 65,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "piyush12_",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo3.jpg",
-                                        ),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height: 60,
-                                width: 60,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black,
-                                gradient: LinearGradient(
-                                  colors: [Colors.yellow, Colors.red],
-                                ),
-                                border: Border.all(
-                                    color: Colors.white10, width: 2),
-                              ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  "assets/images/demo3.jpg",
-=======
->>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
                                       Container(
                                         child: Icon(
                                           Icons.download_done,
@@ -1103,35 +915,6 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-<<<<<<< HEAD
-                                margin: EdgeInsets.only(left: 5, right: 5),
-                              height: 65,
-                              width: 65,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "dishant_8171",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        margin: EdgeInsets.only(left: 5, right: 5),
-                      ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/demo4.jpg",
-=======
->>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
                                 Container(
                                   width: double.infinity,
                                   height: 380,

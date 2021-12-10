@@ -41,7 +41,6 @@ class _ReelsState extends State<Reels> {
                 ),
               ),
               Container(
-<<<<<<< HEAD
                 margin: EdgeInsets.only(right: 13),
                 width: double.infinity,
                   height: 200,
@@ -129,7 +128,8 @@ class _ReelsState extends State<Reels> {
                      ),
                    ],
                  ),
-=======
+              ),
+              Container(
                   margin: EdgeInsets.only(right: 13),
                   width: double.infinity,
                   height: 200,
@@ -217,14 +217,12 @@ class _ReelsState extends State<Reels> {
                     ),
                   ],
                 ),
->>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
               ),
               Container(
                 margin: EdgeInsets.only(left: 15,bottom:10 ,top: 10),
                 child: Row(
                   children: [
                     Expanded(child: Text("clinton_857... Original Audio",style: TextStyle(color: Colors.white),)),
-<<<<<<< HEAD
           Container(
             margin: EdgeInsets.only(right: 13),
             decoration: BoxDecoration(
@@ -241,7 +239,6 @@ class _ReelsState extends State<Reels> {
             height: 30,
             width: 30,
           ),
-=======
                     Container(
                       margin: EdgeInsets.only(right: 13),
                       decoration: BoxDecoration(
@@ -258,8 +255,6 @@ class _ReelsState extends State<Reels> {
                       height: 30,
                       width: 30,
                     ),
->>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
-
                   ],
                 ),
               )
