@@ -41,6 +41,7 @@ class _ReelsState extends State<Reels> {
                 ),
               ),
               Container(
+<<<<<<< HEAD
                 margin: EdgeInsets.only(right: 13),
                 width: double.infinity,
                   height: 200,
@@ -128,12 +129,102 @@ class _ReelsState extends State<Reels> {
                      ),
                    ],
                  ),
+=======
+                  margin: EdgeInsets.only(right: 13),
+                  width: double.infinity,
+                  height: 200,
+                  //color: Colors.pink,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                          child: Column(
+                            children: [
+                              Icon(Icons.favorite_outline,color: Colors.white,size: 28,),
+                              Text("166k",style: TextStyle(color: Colors.white,fontSize: 11,fontWeight: FontWeight.w500),),
+                            ],
+                          )
+                      ),
+                      Container(
+                          child: Column(
+                            children: [
+                              Icon(Icons.chat_bubble_outline_rounded,color: Colors.white,size: 28,),
+                              Text("181",style: TextStyle(color: Colors.white,fontSize: 11,fontWeight: FontWeight.w500),)
+                            ],
+                          )
+                      ),
+                      Container(
+                        child: Icon(Icons.share,color: Colors.white,size: 28,),
+                      ),
+                      Container(
+                        child: Icon(Icons.restaurant_menu,color: Colors.white,size: 28,),
+                      ),
+                    ],
+                  )
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 15,),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo.JPG",
+                            ),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                      height: 38,
+                      width: 38,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text("Jigli Khajur ",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),
+                            ),
+                            margin: EdgeInsets.only(bottom: 2),
+                          ),
+                          Container(
+                            child: Text("See all remix ",
+                              style: TextStyle(color: Colors.white,fontSize: 13),
+                            ),),
+                        ],
+                      ),
+                    ),
+                    Container(
+                        margin: EdgeInsets.only(left: 5),
+                        child: RichText(
+                          text: TextSpan(
+                              children: [
+                                TextSpan(
+                                    text: "2w  ",
+                                    style: TextStyle(color: Colors.white54,fontWeight: FontWeight.normal,fontSize: 15)
+                                ),
+                                TextSpan(
+                                    text: "Follow",
+                                    style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15)
+                                ),
+                              ]
+                          ),
+                        )
+                    ),
+                  ],
+                ),
+>>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
               ),
               Container(
                 margin: EdgeInsets.only(left: 15,bottom:10 ,top: 10),
                 child: Row(
                   children: [
                     Expanded(child: Text("clinton_857... Original Audio",style: TextStyle(color: Colors.white),)),
+<<<<<<< HEAD
           Container(
             margin: EdgeInsets.only(right: 13),
             decoration: BoxDecoration(
@@ -150,6 +241,24 @@ class _ReelsState extends State<Reels> {
             height: 30,
             width: 30,
           ),
+=======
+                    Container(
+                      margin: EdgeInsets.only(right: 13),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/demo.JPG",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.white,width: 2)
+                      ),
+                      height: 30,
+                      width: 30,
+                    ),
+>>>>>>> 161fe9288f68aaa23f19ca79192573b7ea93382a
 
                   ],
                 ),
