@@ -10,12 +10,13 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'activity_screen.dart';
+import 'demos/demo_screen2.dart';
 
 
 void main() {
   runApp(
     MaterialApp(
-      home:DemoScreen(),
+      home:DemoScreen2(),
       debugShowCheckedModeBanner: false,
     ),
   );

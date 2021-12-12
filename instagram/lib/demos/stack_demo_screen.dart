@@ -11,27 +11,32 @@ class StackDemoScreen extends StatefulWidget {
 class _StackDemoScreenState extends State<StackDemoScreen> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).padding.top;
     double width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.only(top: height),
+        child: Center(
           child: Stack(
             children: [
               Positioned.fill(child: Container()),
               Container(
+                margin: EdgeInsets.only(left: 10),
+                color: Colors.orange,
+                height: 200,
+                width: 120,
+              ),
+              Container(
+                color: Colors.blueGrey,
+                height: 100,
+                width: 120,
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20),
                 color: Colors.pink,
-                margin: EdgeInsets.only(bottom: 50),
+                height: 200,
+                width: 120,
               ),
-              Positioned(
-                bottom: 0,
-                child: Container(
-                  color: Colors.orange,
-                  height: 100,
-                  width: 100,
-                ),
-              ),
-              Align(alignment: Alignment.center,child: Text("height : ${SizeUtils.height(context, 0.65)} \nwidth : ${SizeUtils.width(context, 100)}",))
             ],
           ),
         ),
