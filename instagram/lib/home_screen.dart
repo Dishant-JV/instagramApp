@@ -354,21 +354,14 @@ class _HomeState extends State<Home> {
                                                   isLike=!isLike;
                                                 });
                                               },
-                                              child: isLike == false ? Container(
+                                              child:AnimatedContainer(
+                                                
+                                                duration: Duration(seconds:5),
+                                                curve: Curves.fastOutSlowIn,
                                                 child: Icon(
-                                                  Icons
-                                                      .favorite_outline_rounded,
+                                                  isLike ? Icons.favorite : Icons.favorite_outline_rounded,
                                                   size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
-                                              ) : Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .favorite,
-                                                  size: 29,
-                                                  color: Colors.red,
+                                                  color: isLike ? Colors.red : Colors.white,
                                                 ),
                                                 margin: EdgeInsets.only(
                                                     left: 15),

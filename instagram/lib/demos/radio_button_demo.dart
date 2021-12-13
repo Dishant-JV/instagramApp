@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class RadioButtonDemo extends StatefulWidget {
@@ -73,6 +75,56 @@ class _RadioButtonDemoState extends State<RadioButtonDemo> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 100,
+              ),
+              Stack(
+                children: [
+
+                  Transform.rotate(
+                    angle:342*pi/360,
+                    child: Container(
+                      height: 200,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    ),
+                  ),
+                  Transform.rotate(
+                    angle: 8* pi /180,
+                    child: Container(
+                      height: 200,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Colors.orangeAccent,
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 200,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Transform(
+                transform: Matrix4.skewY(0.3)..rotateZ(pi/12.0),
+                child: Container(
+                  height:50,
+                  width: 50,
+                  color: Colors.grey,
+                  child: Icon(Icons.menu),
+                ),
+              )
             ],
           ),
         ),
