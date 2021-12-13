@@ -13,11 +13,10 @@ import 'package:instagram/search_screen.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
 
-
 void main() {
   runApp(
     MaterialApp(
-      home:SharedpreferenceDemo(),
+      home: DemoScreen(),
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -38,7 +37,7 @@ class _InstaState extends State<Insta> {
     Activity(),
     Profile(),
   ];
-  int currentIndex=0;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +56,25 @@ class _InstaState extends State<Insta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
-                    onTap:(){
-                      setState(() {
-                        currentIndex=0;
-                      });
-                    },
-                    child: currentIndex == 0 ? Image.asset("assets/images/main_home.png",color: Colors.white,height: 36,width: 36,) :
-                        Container(
-                          child: Icon(Icons.home_outlined,color: Colors.white,size: 32,),
-                        )
-                  ),
+                      onTap: () {
+                        setState(() {
+                          currentIndex = 0;
+                        });
+                      },
+                      child: currentIndex == 0
+                          ? Image.asset(
+                              "assets/images/main_home.png",
+                              color: Colors.white,
+                              height: 36,
+                              width: 36,
+                            )
+                          : Container(
+                              child: Icon(
+                                Icons.home_outlined,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                            )),
                   InkWell(
                     child: Icon(
                       Icons.search,
@@ -75,64 +83,75 @@ class _InstaState extends State<Insta> {
                     ),
                     onTap: () {
                       setState(() {
-                        currentIndex=1;
+                        currentIndex = 1;
                       });
                     },
                   ),
                   InkWell(
+                      onTap: () {
+                        setState(() {
+                          currentIndex = 2;
+                        });
+                      },
+                      child: Container(
+                        child: Image.asset(
+                          "assets/images/home_reels.png",
+                          color: Colors.white,
+                          fit: BoxFit.cover,
+                        ),
+                        height: 27,
+                        width: 27,
+                      )),
+                  InkWell(
                     onTap: () {
                       setState(() {
-                        currentIndex=2;
+                        currentIndex = 3;
                       });
                     },
-                    child: Container(child: Image.asset("assets/images/home_reels.png",color: Colors.white,fit: BoxFit.cover,),height: 27,width: 27,)
+                    child: currentIndex == 3
+                        ? Icon(
+                            Icons.favorite,
+                            color: Colors.white,
+                            size: 30,
+                          )
+                        : Icon(
+                            Icons.favorite_outline_sharp,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                   ),
                   InkWell(
                     onTap: () {
                       setState(() {
-                        currentIndex=3;
+                        currentIndex = 4;
                       });
                     },
-                    child: currentIndex == 3 ? Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 30,
-                    ) : Icon(
-                      Icons.favorite_outline_sharp,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        currentIndex=4;
-                      });
-                    },
-                    child: currentIndex == 4 ? Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white,width: 2),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                  ),
-          fit: BoxFit.cover),
-      shape: BoxShape.circle,
-    ),
-    height: 30,
-    width: 30,
-    ) : Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
+                    child: currentIndex == 4
+                        ? Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
+                                  ),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle,
                             ),
-                            fit: BoxFit.cover),
-                        shape: BoxShape.circle,
-                      ),
-                      height: 30,
-                      width: 30,
-                    ),
+                            height: 30,
+                            width: 30,
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
+                                  ),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 30,
+                            width: 30,
+                          ),
                   ),
                 ],
               ),

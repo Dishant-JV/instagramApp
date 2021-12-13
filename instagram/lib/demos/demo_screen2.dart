@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/utils/size_utils.dart';
@@ -10,6 +12,17 @@ class DemoScreen2 extends StatefulWidget {
 }
 
 class _DemoScreen2State extends State<DemoScreen2> {
+  bool isVisible=false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 5),(){
+      setState(() {
+        isVisible=true;
+      });
+    } );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,11 +195,14 @@ class _DemoScreen2State extends State<DemoScreen2> {
                         Positioned(
                           top: 0,
                           left: 0,
-                          child: Container(
-                            height: SizeUtils.width(context,36),
-                            width: SizeUtils.width(context, 36),
-                            decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage("assets/images/saladchicken.png"),fit: BoxFit.cover)
+                          child: Visibility(
+                            visible: isVisible,
+                            child: Container(
+                              height: SizeUtils.width(context,36),
+                              width: SizeUtils.width(context, 36),
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage("assets/images/saladchicken.png"),fit: BoxFit.cover)
+                              ),
                             ),
                           ),
                         ),

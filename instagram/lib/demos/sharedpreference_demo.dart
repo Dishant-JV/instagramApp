@@ -13,7 +13,7 @@ class SharedpreferenceDemo extends StatefulWidget {
 
 class _SharedpreferenceDemoState extends State<SharedpreferenceDemo> {
   //late SharedPreferences pref;
-  int i=10;
+  int i=0;
   void loadcounter() async{
     SharedPreferences pref=await SharedPreferences.getInstance();
     setState(() {
@@ -23,8 +23,8 @@ class _SharedpreferenceDemoState extends State<SharedpreferenceDemo> {
   void show() async{
     SharedPreferences pref=await SharedPreferences.getInstance();
     setState(() {
-      i=(pref.getInt('counter') ?? 0 + 1);
-      pref.setInt('counter', i);
+      i=pref.getInt('counter') ?? 0;
+      pref.setInt('counter', i+1);
     });
   }
   @override
@@ -57,22 +57,25 @@ class _SharedpreferenceDemoState extends State<SharedpreferenceDemo> {
                   child: Container(
                     height: 60,
                     width: 100,
-                    alignment: Alignment.center,
                     padding: EdgeInsets.all(30),
-                    child: Text("done",style: TextStyle(color: Colors.yellow),),
+                    child: Text("fas"),
                     color: Colors.red,
                   ),
                 ),
+
                 SizedBox(
                   height: 50,
                 ),
                 InkWell(
                   onTap: (){
+                    remove();
                   },
                   child: Container(
+                    alignment: Alignment.center,
                     height: 20,
-                    width: 40,
+                    width: 80,
                     color: Colors.yellow,
+                    child: Text("remove"),
                   ),
                 )
               ],

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/utils/size_utils.dart';
@@ -10,6 +12,17 @@ class DemoScreen extends StatefulWidget {
 }
 
 class _DemoScreenState extends State<DemoScreen> {
+  bool isVisible = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 10), (){
+      setState(() {
+        isVisible=true;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -349,7 +362,7 @@ class _DemoScreenState extends State<DemoScreen> {
                   margin: EdgeInsets.only(top: SizeUtils.width(context, 1.5),left: SizeUtils.width(context, 3.83),right: SizeUtils.width(context, 3.83)),
                   height: SizeUtils.width(context, 12.5),
                       child: Text("START YOUR JOURNEY",style: TextStyle(color: Colors.black,fontWeight:FontWeight.w900,fontFamily:'Custom',fontSize: 12,letterSpacing: 1.5,wordSpacing: 1)),
-                )
+                ),
               ],
             ),
           ),

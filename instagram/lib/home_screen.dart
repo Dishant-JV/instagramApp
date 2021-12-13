@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
@@ -22,16 +21,22 @@ class _HomeState extends State<Home> {
     'assets/images/demo4.jpg',
     'assets/images/demo5.jpg'
   ];
-  final List<String> storyImages=[
+  final List<String> storyImages = [
     "http://starsunfolded.com/wp-content/uploads/2014/05/Alia_Bhatt.jpg",
     "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
     "https://www.bollywoodhungama.com/wp-content/uploads/2021/10/salman-khan.jpg",
     "https://lh3.googleusercontent.com/proxy/uR34igOaQj7pQEsDdcFWYIpvp-rUSJq9rr9ZF1u7dihPtEHfbP_b8QzEM--imcY2tvt9vKkrLFnvRxAwDzMPGvdqhwmFB7HqOGFWesLOHuOxtGjDuFTySYQ8kwZ_0Cw-cSqXqMIWybAon0FEnvR0RxAH0ZvsjY72Hvk2X6OZ",
     "https://w0.peakpx.com/wallpaper/309/93/HD-wallpaper-aliabhatt-actress-alia-alia-bhat-alia-bhatt-bollywood.jpg"
   ];
-  final List<String> storyName=['piyush_12','raj_9090','salman_2288','ketrina_921','alia_bhatt'];
-  bool isLike=false;
-  bool isSave=false;
+  final List<String> storyName = [
+    'piyush_12',
+    'raj_9090',
+    'salman_2288',
+    'ketrina_921',
+    'alia_bhatt'
+  ];
+  bool isLike = false;
+  bool isSave = false;
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,19 +54,19 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                           child: Row(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(top: 5, left: 20),
-                                height: 38,
-                                width: 122,
-                                child: Image.asset(
-                                  "assets/images/insta_text.png",
-                                  color: Colors.white,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                          )),
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 5, left: 20),
+                            height: 38,
+                            width: 122,
+                            child: Image.asset(
+                              "assets/images/insta_text.png",
+                              color: Colors.white,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      )),
                       Container(
                         alignment: Alignment.center,
                         height: 23,
@@ -69,7 +74,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border:
-                            Border.all(color: Colors.white, width: 1.5)),
+                                Border.all(color: Colors.white, width: 1.5)),
                         child: Icon(
                           Icons.add,
                           color: Colors.white,
@@ -79,8 +84,12 @@ class _HomeState extends State<Home> {
                       Stack(
                         children: [
                           InkWell(
-                            onTap: (){
-                              Navigator.push(context, SwipeablePageRoute(builder: (BuildContext context)=>Chat()));
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  SwipeablePageRoute(
+                                      builder: (BuildContext context) =>
+                                          Chat()));
                             },
                             child: Container(
                                 height: 26,
@@ -125,7 +134,7 @@ class _HomeState extends State<Home> {
                               color: Colors.black,
                               border: Border(
                                 bottom:
-                                BorderSide(color: Colors.white24, width: 0),
+                                    BorderSide(color: Colors.white24, width: 0),
                               ),
                             ),
                             child: SingleChildScrollView(
@@ -170,7 +179,7 @@ class _HomeState extends State<Home> {
                                         ),
                                         Container(
                                           margin:
-                                          EdgeInsets.only(top: 7, left: 5),
+                                              EdgeInsets.only(top: 7, left: 5),
                                           child: Text(
                                             "Your story",
                                             style: TextStyle(
@@ -185,8 +194,9 @@ class _HomeState extends State<Home> {
                                       shrinkWrap: true,
                                       scrollDirection: Axis.horizontal,
                                       itemCount: storyName.length,
-                                      itemBuilder: (BuildContext context, index) {
-                                        return  Container(
+                                      itemBuilder:
+                                          (BuildContext context, index) {
+                                        return Container(
                                           child: Column(
                                             children: [
                                               InkWell(
@@ -196,8 +206,10 @@ class _HomeState extends State<Home> {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               Images(
-                                                                img:"",
-                                                                nimg: storyImages[index],
+                                                                img: "",
+                                                                nimg:
+                                                                    storyImages[
+                                                                        index],
                                                               )));
                                                 },
                                                 child: Container(
@@ -205,7 +217,8 @@ class _HomeState extends State<Home> {
                                                     decoration: BoxDecoration(
                                                         image: DecorationImage(
                                                             image: NetworkImage(
-                                                              storyImages[index],
+                                                              storyImages[
+                                                                  index],
                                                             ),
                                                             fit: BoxFit.cover),
                                                         shape: BoxShape.circle,
@@ -217,7 +230,8 @@ class _HomeState extends State<Home> {
                                                   ),
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                    gradient: LinearGradient(colors: [
+                                                    gradient:
+                                                        LinearGradient(colors: [
                                                       Colors.yellow,
                                                       Colors.red,
                                                     ]),
@@ -230,7 +244,9 @@ class _HomeState extends State<Home> {
                                                 ),
                                               ),
                                               Container(
-                                                margin: EdgeInsets.only(top: 4,),
+                                                margin: EdgeInsets.only(
+                                                  top: 4,
+                                                ),
                                                 child: Text(
                                                   storyName[index],
                                                   style: TextStyle(
@@ -240,9 +256,10 @@ class _HomeState extends State<Home> {
                                               )
                                             ],
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                           ),
-                                          margin: EdgeInsets.only(left: 11, top: 13),
+                                          margin: EdgeInsets.only(
+                                              left: 11, top: 13),
                                         );
                                       })
                                 ],
@@ -292,18 +309,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                EdgeInsets.only(left: 13),
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                EdgeInsets.only(left: 11),
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                      FontWeight.w500),
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -322,19 +339,19 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Container(
-                                  height: 380,
-                                  width: double.infinity,
-                                  child: PhotoView(
-                                    imageProvider: NetworkImage(
-                                      "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                  height: 360,
+                                    child: PhotoView(
+                                      imageProvider: NetworkImage(
+                                        "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                      ),
+                                      filterQuality: FilterQuality.medium,
+                                      minScale:
+                                      PhotoViewComputedScale.contained *
+                                          0.8,
+                                      maxScale:
+                                      PhotoViewComputedScale.contained *
+                                          0.8,
                                     ),
-                                    minScale:
-                                    PhotoViewComputedScale.contained *
-                                        0.8,
-                                    maxScale:
-                                    PhotoViewComputedScale.contained *
-                                        0.8,
-                                  ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(top: 5),
@@ -343,28 +360,32 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  isLike=!isLike;
+                                                  isLike = !isLike;
                                                 });
                                               },
-                                              child:AnimatedContainer(
-                                                
-                                                duration: Duration(seconds:5),
+                                              child: AnimatedContainer(
+                                                duration: Duration(seconds: 5),
                                                 curve: Curves.fastOutSlowIn,
                                                 child: Icon(
-                                                  isLike ? Icons.favorite : Icons.favorite_outline_rounded,
+                                                  isLike
+                                                      ? Icons.favorite
+                                                      : Icons
+                                                          .favorite_outline_rounded,
                                                   size: 29,
-                                                  color: isLike ? Colors.red : Colors.white,
+                                                  color: isLike
+                                                      ? Colors.red
+                                                      : Colors.white,
                                                 ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
+                                                margin:
+                                                    EdgeInsets.only(left: 15),
                                               ),
                                             ),
                                             Container(
@@ -387,52 +408,77 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: (){
+                                        onTap: () {
                                           setState(() {
-                                            isSave=!isSave;
-                                            final snackBar=SnackBar(backgroundColor: Colors.grey.shade900,margin: EdgeInsets.only(bottom: 220),behavior: SnackBarBehavior.floating,content: Container(
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(6),
-                                                        image: DecorationImage(image: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg"),fit: BoxFit.cover)
+                                            isSave = !isSave;
+                                            final snackBar = SnackBar(
+                                              backgroundColor:
+                                                  Colors.grey.shade900,
+                                              margin:
+                                                  EdgeInsets.only(bottom: 220),
+                                              behavior:
+                                                  SnackBarBehavior.floating,
+                                              content: Container(
+                                                child: Row(
+                                                  children: [
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(6),
+                                                          image: DecorationImage(
+                                                              image: NetworkImage(
+                                                                  "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg"),
+                                                              fit: BoxFit
+                                                                  .cover)),
+                                                      height: 35,
+                                                      width: 35,
                                                     ),
-                                                    height:35,
-                                                    width: 35,
-                                                  ),
-                                                  Container(child: Text("Saved",style: TextStyle(fontWeight: FontWeight.w500),),
-                                                    margin: EdgeInsets.only(left: 10),),
-                                                ],
+                                                    Container(
+                                                      child: Text(
+                                                        "Saved",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 10),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                              duration:Duration(seconds: 2),
+                                              duration: Duration(seconds: 2),
                                               action: SnackBarAction(
                                                 label: "Save to Collection",
-                                                onPressed: (){
-                                                },
+                                                onPressed: () {},
                                               ),
                                             );
-                                            isSave == true ? ScaffoldMessenger.of(context).showSnackBar(snackBar): Container();
+                                            isSave == true
+                                                ? ScaffoldMessenger.of(context)
+                                                    .showSnackBar(snackBar)
+                                                : Container();
                                           });
                                         },
-                                        child: isSave == false ? Container(
-                                          child: Icon(
-                                            Icons.bookmark_outline,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ) : Container(
-                                          child: Icon(
-                                            Icons.bookmark,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ),
+                                        child: isSave == false
+                                            ? Container(
+                                                child: Icon(
+                                                  Icons.bookmark_outline,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              )
+                                            : Container(
+                                                child: Icon(
+                                                  Icons.bookmark,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              ),
                                       )
                                     ],
                                   ),
@@ -454,13 +500,13 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text: "dishant_8171..",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight:
+                                                  TextSpan(
+                                                      text: "dishant_8171..",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
                                                               FontWeight.bold)),
-                                                    ])),
+                                                ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -480,9 +526,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -596,18 +642,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                EdgeInsets.only(left: 13),
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                EdgeInsets.only(left: 11),
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "Sanjna_Ganeshan",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                      FontWeight.w500),
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -632,10 +678,15 @@ class _HomeState extends State<Home> {
                                         itemCount: imageList.length,
                                         builder: (context, index) {
                                           return PhotoViewGalleryPageOptions(
-                                            imageProvider: AssetImage(
-                                                imageList[index]),
-                                            minScale: PhotoViewComputedScale.contained * 0.8,
-                                            maxScale: PhotoViewComputedScale.covered * 0.8,);
+                                            imageProvider:
+                                                AssetImage(imageList[index]),
+                                            minScale: PhotoViewComputedScale
+                                                    .contained *
+                                                0.8,
+                                            maxScale:
+                                                PhotoViewComputedScale.covered *
+                                                    0.8,
+                                          );
                                         })),
                                 Container(
                                   margin: EdgeInsets.only(top: 6),
@@ -644,36 +695,37 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  isLike=!isLike;
+                                                  isLike = !isLike;
                                                 });
                                               },
-                                              child: isLike == false ? Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .favorite_outline_rounded,
-                                                  size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
-                                              ) : Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .favorite,
-                                                  size: 29,
-                                                  color: Colors.red,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
-                                              ),
+                                              child: isLike == false
+                                                  ? Container(
+                                                      child: Icon(
+                                                        Icons
+                                                            .favorite_outline_rounded,
+                                                        size: 29,
+                                                        color: Colors.white,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    )
+                                                  : Container(
+                                                      child: Icon(
+                                                        Icons.favorite,
+                                                        size: 29,
+                                                        color: Colors.red,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    ),
                                             ),
                                             Container(
                                               child: Image.asset(
@@ -695,28 +747,30 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: (){
+                                        onTap: () {
                                           setState(() {
-                                            isSave=!isSave;
+                                            isSave = !isSave;
                                           });
                                         },
-                                        child: isSave == false ? Container(
-                                          child: Icon(
-                                            Icons.bookmark_outline,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ) : Container(
-                                          child: Icon(
-                                            Icons.bookmark,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ),
+                                        child: isSave == false
+                                            ? Container(
+                                                child: Icon(
+                                                  Icons.bookmark_outline,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              )
+                                            : Container(
+                                                child: Icon(
+                                                  Icons.bookmark,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              ),
                                       )
                                     ],
                                   ),
@@ -729,7 +783,7 @@ class _HomeState extends State<Home> {
                                     children: [
                                       Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             margin: EdgeInsets.only(left: 18),
@@ -740,14 +794,14 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text:
+                                                  TextSpan(
+                                                      text:
                                                           "dishant_8171.. and thousand's of others",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight:
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
                                                               FontWeight.bold)),
-                                                    ])),
+                                                ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -766,9 +820,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -879,18 +933,18 @@ class _HomeState extends State<Home> {
                                                 height: 35,
                                                 width: 35,
                                                 margin:
-                                                EdgeInsets.only(left: 13),
+                                                    EdgeInsets.only(left: 13),
                                               ),
                                               Container(
                                                 margin:
-                                                EdgeInsets.only(left: 11),
+                                                    EdgeInsets.only(left: 11),
                                                 child: Text(
                                                   "gamdiyo",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
-                                                      FontWeight.w500),
+                                                          FontWeight.w500),
                                                 ),
                                               )
                                             ],
@@ -923,36 +977,37 @@ class _HomeState extends State<Home> {
                                   width: double.infinity,
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             InkWell(
-                                              onTap: (){
+                                              onTap: () {
                                                 setState(() {
-                                                  isLike=!isLike;
+                                                  isLike = !isLike;
                                                 });
                                               },
-                                              child: isLike == false ? Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .favorite_outline_rounded,
-                                                  size: 29,
-                                                  color: Colors.white,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
-                                              ) : Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .favorite,
-                                                  size: 29,
-                                                  color: Colors.red,
-                                                ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15),
-                                              ),
+                                              child: isLike == false
+                                                  ? Container(
+                                                      child: Icon(
+                                                        Icons
+                                                            .favorite_outline_rounded,
+                                                        size: 29,
+                                                        color: Colors.white,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    )
+                                                  : Container(
+                                                      child: Icon(
+                                                        Icons.favorite,
+                                                        size: 29,
+                                                        color: Colors.red,
+                                                      ),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                    ),
                                             ),
                                             Container(
                                               child: Image.asset(
@@ -974,28 +1029,30 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: (){
+                                        onTap: () {
                                           setState(() {
-                                            isSave=!isSave;
+                                            isSave = !isSave;
                                           });
                                         },
-                                        child: isSave == false ? Container(
-                                          child: Icon(
-                                            Icons.bookmark_outline,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ) : Container(
-                                          child: Icon(
-                                            Icons.bookmark,
-                                            size: 29,
-                                            color: Colors.white,
-                                          ),
-                                          margin: EdgeInsets.only(
-                                              right: 15),
-                                        ),
+                                        child: isSave == false
+                                            ? Container(
+                                                child: Icon(
+                                                  Icons.bookmark_outline,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              )
+                                            : Container(
+                                                child: Icon(
+                                                  Icons.bookmark,
+                                                  size: 29,
+                                                  color: Colors.white,
+                                                ),
+                                                margin:
+                                                    EdgeInsets.only(right: 15),
+                                              ),
                                       )
                                     ],
                                   ),
@@ -1017,13 +1074,13 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                     ),
                                                     children: [
-                                                      TextSpan(
-                                                          text: "dishant_8171..",
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontWeight:
+                                                  TextSpan(
+                                                      text: "dishant_8171..",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
                                                               FontWeight.bold)),
-                                                    ])),
+                                                ])),
                                           ),
                                           Container(
                                               margin: EdgeInsets.only(
@@ -1042,9 +1099,9 @@ class _HomeState extends State<Home> {
                                   padding: EdgeInsets.only(top: 4, bottom: 4),
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         child: Row(
