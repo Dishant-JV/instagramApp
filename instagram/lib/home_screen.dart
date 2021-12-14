@@ -964,10 +964,13 @@ class _HomeState extends State<Home> {
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 380,
-                                  child: Image.asset(
-                                    "assets/images/demo5.jpg",
-                                    fit: BoxFit.cover,
+                                  // height: 380,
+                                  child: AspectRatio(
+                                    aspectRatio: 509/339,
+                                    child: Image.asset(
+                                      "assets/images/demo5.jpg",
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
                                 Container(
