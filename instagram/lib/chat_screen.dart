@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:instagram/chat_search_press.dart';
 import 'package:instagram/main.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class Chat extends StatefulWidget {
-  const Chat({Key? key}) : super(key: key);
+  const Chat({Key? key,}) : super(key: key);
 
   @override
   _ChatState createState() => _ChatState();
@@ -193,32 +194,7 @@ class _ChatState extends State<Chat> {
                                //     ),
                                //   ),
                                // ),
-                               Container(
-                                 height: 35,
-                                 margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
-                                 child: TextFormField(
-                                   onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatSearchPress()));
-                                   },
-                                   style: TextStyle(color: Colors.white),
-                                   decoration: InputDecoration(
-                                     isDense: true,
-                                     prefixIcon: Icon(Icons.search_sharp,color: Colors.white54,),
-                                     hintText: "Search",
-                                     hintStyle: TextStyle(color: Colors.white54,fontSize: 13),
-                                     filled: true,
-                                     fillColor: Colors.grey.shade800.withOpacity(0.6),
-                                     focusedBorder: OutlineInputBorder(
-                                       borderRadius: BorderRadius.circular(10),
-                                     ),
-                                     enabledBorder: OutlineInputBorder(
-                                       borderRadius: BorderRadius.circular(10)
-                                     ),
-                                     border: OutlineInputBorder(
-                                     )
-                                   ),
-                                 ),
-                               ),
+                               _textfield(text: 'Search'),
                                Container(
                                  margin: EdgeInsets.only(left:20,top: 12,bottom: 12),
                                  child: Row(
@@ -765,4 +741,42 @@ class _ChatState extends State<Chat> {
       ),
     );
   }
+  Widget _textfield({String ? text})
+  {
+    return  Container(
+      height: 35,
+      margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
+      child: Form(
+        child: TextFormField(
+          onTap: (){
+            setState(() {
+              FocusScope.of(context).unfocus();
+            });
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatSearchPress()));
+          },
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+              isDense: true,
+              prefixIcon: Icon(Icons.search_sharp,color: Colors.white54,),
+              hintText: text,
+              hintStyle: TextStyle(color: Colors.white54,fontSize: 13),
+              filled: true,
+              fillColor: Colors.grey.shade800.withOpacity(0.6),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              border: OutlineInputBorder(
+              )
+          ),
+        ),
+      ),
+    );
+
+  }
 }
+
+
+

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'chat_screen.dart';
+
 class ChatSearchPress extends StatefulWidget {
-  const ChatSearchPress({Key? key}) : super(key: key);
+
+  const ChatSearchPress({Key? key,}) : super(key: key);
 
   @override
   _ChatSearchPressState createState() => _ChatSearchPressState();
 }
 
 class _ChatSearchPressState extends State<ChatSearchPress> {
-  FocusNode chat=FocusNode();
   @override
   void initState() {
     // TODO: implement initState
@@ -18,18 +20,38 @@ class _ChatSearchPressState extends State<ChatSearchPress> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
-        body: TextField(
-          style: TextStyle(color: Colors.white),
-          focusNode: chat,
-          autofocus: true,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey)
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              onTap: (){
+                setState(() {
+                  FocusScope.of(context).unfocus();
+                });
+                Navigator.pop(context, MaterialPageRoute(builder: (context)=>Chat()));
+
+              },
+              child: Container(
+                child: Icon(Icons.arrow_back,color: Colors.white,size: 27,),
+              ),
+            ),
+            Container(
+              width: 350,
+              child: TextField(
+                style: TextStyle(color: Colors.white),
+                autofocus: true,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)
+                    )
+                ),
+              ),
             )
-          ),
-        ),
+          ],
+        )
       ),
     );
   }

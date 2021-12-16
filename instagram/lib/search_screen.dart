@@ -13,39 +13,37 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
               Container(
-                margin:
-                    EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 5),
-                width: double.infinity,
-                height: 33,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white12),
-                child: Row(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.white54,
-                        size: 20,
-                      ),
-                      margin: EdgeInsets.only(left: 17),
+            height: 35,
+            margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
+            child: Form(
+              child: TextFormField(
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    isDense: true,
+                    prefixIcon: Icon(Icons.search_sharp,color: Colors.white54,size: 20,),
+                    hintText:"Search",
+                    hintStyle: TextStyle(color: Colors.white54,fontSize: 13),
+                    filled: true,
+                    fillColor: Colors.grey.shade800.withOpacity(0.6),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    Container(
-                      child: Text(
-                        "Search",
-                        style: TextStyle(color: Colors.white54, fontSize: 17),
-                      ),
-                      margin: EdgeInsets.only(left: 17),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    border: OutlineInputBorder(
                     )
-                  ],
                 ),
               ),
+            ),
+          ),
               //Image.asset("assets/images/demo2.JPG")
               Row(
                 children: [
