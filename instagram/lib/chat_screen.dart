@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/chat_search_press.dart';
 import 'package:instagram/main.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
@@ -175,23 +176,46 @@ class _ChatState extends State<Chat> {
                          index == 0 ?  Container(
                            child: Column(
                              children: [
+                               // Container(
+                               //   margin:
+                               //   EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 5),
+                               //   width: double.infinity,
+                               //   height: 35,
+                               //   decoration: BoxDecoration(
+                               //       borderRadius: BorderRadius.circular(7),
+                               //       color: Colors.white12),
+                               //   child: TextField(
+                               //     style: TextStyle(color: Colors.white),
+                               //     decoration: InputDecoration(
+                               //       hintText: 'Search',
+                               //       hintStyle: TextStyle(color: Colors.white54),
+                               //       border: InputBorder.none,
+                               //     ),
+                               //   ),
+                               // ),
                                Container(
-                                 margin:
-                                 EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 5),
-                                 width: double.infinity,
                                  height: 35,
-                                 decoration: BoxDecoration(
-                                     borderRadius: BorderRadius.circular(7),
-                                     color: Colors.white12),
-                                 child: Padding(
-                                   padding: EdgeInsets.only(left: 25),
-                                   child: TextField(
-                                     style: TextStyle(color: Colors.white),
-                                     decoration: InputDecoration(
-                                       hintText: 'Search',
-                                       hintStyle: TextStyle(color: Colors.white54),
-                                       border: InputBorder.none,
+                                 margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
+                                 child: TextFormField(
+                                   onTap: (){
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatSearchPress()));
+                                   },
+                                   style: TextStyle(color: Colors.white),
+                                   decoration: InputDecoration(
+                                     isDense: true,
+                                     prefixIcon: Icon(Icons.search_sharp,color: Colors.white54,),
+                                     hintText: "Search",
+                                     hintStyle: TextStyle(color: Colors.white54,fontSize: 13),
+                                     filled: true,
+                                     fillColor: Colors.grey.shade800.withOpacity(0.6),
+                                     focusedBorder: OutlineInputBorder(
+                                       borderRadius: BorderRadius.circular(10),
                                      ),
+                                     enabledBorder: OutlineInputBorder(
+                                       borderRadius: BorderRadius.circular(10)
+                                     ),
+                                     border: OutlineInputBorder(
+                                     )
                                    ),
                                  ),
                                ),
