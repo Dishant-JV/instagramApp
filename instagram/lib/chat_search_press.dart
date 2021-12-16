@@ -27,9 +27,6 @@ class _ChatSearchPressState extends State<ChatSearchPress> {
           children: [
             InkWell(
               onTap: (){
-                setState(() {
-                  FocusScope.of(context).unfocus();
-                });
                 Navigator.pop(context, MaterialPageRoute(builder: (context)=>Chat()));
 
               },
