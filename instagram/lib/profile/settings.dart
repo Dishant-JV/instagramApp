@@ -55,35 +55,6 @@ class _SettingsState extends State<Settings> {
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Container(
-                      //   margin: EdgeInsets.only(
-                      //       top: 35, left: 17, right: 17, bottom: 25),
-                      //   width: double.infinity,
-                      //   height: 33,
-                      //   decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(7),
-                      //       color: Colors.white12),
-                      //   child: Row(
-                      //     children: [
-                      //       Container(
-                      //         child: Icon(
-                      //           Icons.search,
-                      //           color: Colors.white54,
-                      //           size: 20,
-                      //         ),
-                      //         margin: EdgeInsets.only(left: 17),
-                      //       ),
-                      //       Container(
-                      //         child: Text(
-                      //           "Search",
-                      //           style: TextStyle(
-                      //               color: Colors.white54, fontSize: 17),
-                      //         ),
-                      //         margin: EdgeInsets.only(left: 17),
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
                       Container(
                         height: 35,
                         margin: EdgeInsets.only(top: 35, left: 17, right: 17, bottom: 25),
