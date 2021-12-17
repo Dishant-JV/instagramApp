@@ -12,6 +12,7 @@ import 'package:instagram/demos/state_demo.dart';
 import 'package:instagram/demos/textformfield_demo.dart';
 import 'package:instagram/demos/willpop_demo.dart';
 import 'package:instagram/home_screen.dart';
+import 'package:instagram/profile/signup.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
@@ -23,7 +24,7 @@ import 'demos/textformfield_demo2.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: SplashScreen(),
+      home:Signup(),
       debugShowCheckedModeBanner: false,
     ),
   );

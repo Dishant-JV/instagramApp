@@ -8,6 +8,7 @@ class Images extends StatefulWidget {
 
   const Images({Key? key, this.img, this.nimg}) : super(key: key);
 
+
   @override
   _ImagesState createState() => _ImagesState();
 }
@@ -21,12 +22,7 @@ class _ImagesState extends State<Images> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: WillPopScope(
-        onWillPop: (){
-          Navigator.pop(context,MaterialPageRoute(builder: (context)=>Search(
-            isFocus: false,
-          )));
-          return Future(()=>true);
-        },
+        onWillPop:onwillpops,
         child: Scaffold(
           backgroundColor: Colors.black,
           body: widget.img == ""
@@ -51,4 +47,8 @@ class _ImagesState extends State<Images> {
       ),
     );
   }
+  Future<bool> onwillpops() async{
+      Navigator.pop(context,MaterialPageRoute(builder: (context)=>Search(isFocus: false,isName: 'dishant',)));
+      return Future(()=>true);
+      }
 }

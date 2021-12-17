@@ -3,7 +3,8 @@ import 'package:instagram/show_image.dart';
 
 class Search extends StatefulWidget {
   final bool ? isFocus;
-  const Search({Key? key, this.isFocus}) : super(key: key);
+  final String ? isName;
+  const Search({Key? key, this.isFocus, this.isName}) : super(key: key);
 
   @override
   _SearchState createState() => _SearchState();
@@ -16,9 +17,11 @@ class _SearchState extends State<Search> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    isFocus == false ? mmm.unfocus() : mmm.unfocus();
+
   }
   @override
-  FocusNode mmm=FocusNode();
+  FocusNode mmm= FocusNode();
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -33,13 +36,13 @@ class _SearchState extends State<Search> {
                  margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
                  child: Form(child: TextFormField(
                    focusNode: mmm,
-                onTap: (){
-                     setState(() {
-                       if(isFocus == false){
-                         return mmm.unfocus();
-                       }
-                     });
-                },
+                // onTap: (){
+                //      setState(() {
+                //        if(isFocus == false){
+                //          return mmm.unfocus();
+                //        }
+                //      });
+                // },
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     isDense: true,
