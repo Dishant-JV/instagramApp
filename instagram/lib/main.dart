@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/chat_screen.dart';
@@ -8,10 +10,12 @@ import 'package:instagram/demos/sharedpreference_demo.dart';
 import 'package:instagram/demos/stack_demo_screen.dart';
 import 'package:instagram/demos/state_demo.dart';
 import 'package:instagram/demos/textformfield_demo.dart';
+import 'package:instagram/demos/willpop_demo.dart';
 import 'package:instagram/home_screen.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
+import 'package:instagram/splash_screen.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/textformfield_demo2.dart';
@@ -19,7 +23,7 @@ import 'demos/textformfield_demo2.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Insta(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -41,7 +45,6 @@ class _InstaState extends State<Insta> {
     Profile(),
   ];
   int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
