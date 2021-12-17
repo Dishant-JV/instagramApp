@@ -748,10 +748,9 @@ class _ChatState extends State<Chat> {
       margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
       child: Form(
         child: TextFormField(
+          readOnly: true,
+          showCursor: true,
           onTap: (){
-            setState(() {
-              FocusScope.of(context).unfocus();
-            });
             Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatSearchPress()));
           },
           style: TextStyle(color: Colors.white),

@@ -52,10 +52,10 @@ class _InstaState extends State<Insta> {
       body: Container(
         child: Column(
           children: [
-            Expanded(
+              Expanded(
               child: pageList[currentIndex],
             ),
-            Container(
+            MediaQuery.of(context).viewInsets.bottom <=0 ? Container(
               height: 48,
               color: Colors.black,
               child: Row(
@@ -161,7 +161,7 @@ class _InstaState extends State<Insta> {
                   ),
                 ],
               ),
-            )
+            ) : Container()
           ],
         ),
       ),
