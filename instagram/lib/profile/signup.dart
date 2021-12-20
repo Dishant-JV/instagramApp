@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:instagram/profile/signup_passoword.dart';
 
 import '../main.dart';
@@ -13,12 +13,12 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  bool empty=true;
-  bool emptymail=true;
-  TextEditingController phone=TextEditingController();
-  TextEditingController email =TextEditingController();
+  bool empty = true;
+  bool emptymail = true;
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
   final isPhone = GlobalKey<FormState>();
-  final isEmail=GlobalKey<FormState>();
+  final isEmail = GlobalKey<FormState>();
   @override
   int index = 0;
 
@@ -120,161 +120,152 @@ class _SignupState extends State<Signup> {
                       ),
                       index == 0
                           ? Form(
-                            key: isPhone,
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 16),
-                                  padding: EdgeInsets.only(left: 20, right: 20),
-                                  child: TextFormField(
-                                    validator: (value){
-                                      if(value!.length != 10){
-                                        return 'plzz enter valid mobile number';
-                                      }
-                                    },
-                                    onChanged: (value){
-                                      setState(() {
-                                        phone.text.isEmpty == true ? empty =true : empty =false;
-                                      });
-                                    },
-                                    controller: phone,
-                                    keyboardType: TextInputType.number,
-                                    style: TextStyle(color: Colors.white),
-                                    decoration: InputDecoration(
-                                      hintText: "Phone",
-                                      hintStyle: TextStyle(
-                                          color: Colors.white54, fontSize: 16),
-                                      filled: true,
-                                      fillColor:
-                                      Colors.grey.shade800.withOpacity(0.6),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(7),
+                              key: isPhone,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 16),
+                                    padding:
+                                        EdgeInsets.only(left: 20, right: 20),
+                                    child: TextFormField(
+                                      validator: (value) {
+                                        if (value!.length != 10) {
+                                          return 'plzz enter valid mobile number';
+                                        }
+                                      },
+                                      onChanged: (value) {
+                                        setState(() {
+                                          phone.text.isEmpty == true
+                                              ? empty = true
+                                              : empty = false;
+                                        });
+                                      },
+                                      controller: phone,
+                                      keyboardType: TextInputType.number,
+                                      style: TextStyle(color: Colors.white),
+                                      decoration: InputDecoration(
+                                        hintText: "Phone",
+                                        hintStyle: TextStyle(
+                                            color: Colors.white54,
+                                            fontSize: 16),
+                                        filled: true,
+                                        fillColor: Colors.grey.shade800
+                                            .withOpacity(0.6),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(7)),
+                                        border:
+                                            OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
                                       ),
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(7)),
-                                      border:
-                                      OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
                                     ),
                                   ),
-                                ),
-                                empty == true ?
-                                Container(
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.only(top: 15),
-                                  height: 50,
-                                  width: 350,
-                                  decoration: BoxDecoration(
-                                      color:Colors.blue.shade900.withOpacity(0.5),
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Container(
-                                      child: Text(
-                                        "Next",
-                                        style: TextStyle(color: Colors.grey),
-                                      )),
-                                ) : InkWell(
-                                  onTap: (){
-                                    if(isPhone.currentState!.validate()){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupPassword()));
-                                    }
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    margin: EdgeInsets.only(top: 15),
-                                    height: 50,
-                                    width: 350,
-                                    decoration: BoxDecoration(
-                                        color:Colors.blue,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: Container(
-                                        child: Text(
-                                          "Next",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
-                                  ),
-                                )
-                              ],
-                            )
-                          )
+                                ],
+                              ))
                           : Form(
-                          key: isEmail,
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(top: 16),
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                child: TextFormField(
-                                  validator: (value){
-                                    bool emailValid = RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                        .hasMatch(value ?? "");
-                                    if (!emailValid) {
-                                      return "plzz enter valid email";
-                                    }
-                                  },
-                                  onChanged: (value){
-                                    setState(() {
-                                      email.text.isEmpty == true ? emptymail =true : emptymail =false;
-                                    });
-                                  },
-                                  controller: email,
-                                  keyboardType: TextInputType.emailAddress,
-                                  style: TextStyle(color: Colors.white),
-                                  decoration: InputDecoration(
-                                    hintText: "Email",
-                                    hintStyle: TextStyle(
-                                        color: Colors.white54, fontSize: 16),
-                                    filled: true,
-                                    fillColor:
-                                    Colors.grey.shade800.withOpacity(0.6),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(7),
+                              key: isEmail,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 16),
+                                    padding:
+                                        EdgeInsets.only(left: 20, right: 20),
+                                    child: TextFormField(
+                                      validator: (value) {
+                                        bool emailValid = RegExp(
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                            .hasMatch(value ?? "");
+                                        if (!emailValid) {
+                                          return "plzz enter valid email";
+                                        }
+                                      },
+                                      onChanged: (value) {
+                                        setState(() {
+                                          email.text.isEmpty == true
+                                              ? emptymail = true
+                                              : emptymail = false;
+                                        });
+                                      },
+                                      controller: email,
+                                      keyboardType: TextInputType.emailAddress,
+                                      style: TextStyle(color: Colors.white),
+                                      decoration: InputDecoration(
+                                        hintText: "Email",
+                                        hintStyle: TextStyle(
+                                            color: Colors.white54,
+                                            fontSize: 16),
+                                        filled: true,
+                                        fillColor: Colors.grey.shade800
+                                            .withOpacity(0.6),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(7)),
+                                        border:
+                                            OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
+                                      ),
                                     ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(7)),
-                                    border:
-                                    OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
                                   ),
-                                ),
-                              ),
-                              emptymail == true ?
-                              Container(
-                                alignment: Alignment.center,
-                                margin: EdgeInsets.only(top: 15),
-                                height: 50,
-                                width: 350,
-                                decoration: BoxDecoration(
-                                    color:Colors.blue.shade900.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(5)),
-                                child: Container(
-                                    child: Text(
-                                      "Next",
-                                      style: TextStyle(color: Colors.grey),
-                                    )),
-                              ) : InkWell(
-                                onTap: (){
-                                  if(isEmail.currentState!.validate()){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupPassword()));
-                                  }
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.only(top: 15),
-                                  height: 50,
-                                  width: 350,
-                                  decoration: BoxDecoration(
-                                      color:Colors.blue,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Container(
-                                      child: Text(
-                                        "Next",
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                ),
-                              )
-                            ],
-                          )
+                                ],
+                              )),
+                      InkWell(
+                        onTap: () {
+                          if (index == 1) {
+                            if (emptymail == false) {
+                              if (isEmail.currentState!.validate()) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SignupPassword()));
+                              }
+                            }
+                          } else {
+                            if (empty == false) {
+                              if (isPhone.currentState!.validate()) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SignupPassword()));
+                              }
+                            }
+                          }
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(top: 15),
+                          height: 50,
+                          width: 350,
+                          decoration: BoxDecoration(
+                              color: index == 1
+                                  ? emptymail == true
+                                      ? Colors.blue.shade900.withOpacity(0.5)
+                                      : Colors.blue
+                                  : empty == true
+                                      ? Colors.blue.shade900.withOpacity(0.5)
+                                      : Colors.blue,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Container(
+                              child: Text(
+                            "Next",
+                            style: TextStyle(
+                                color: index == 1
+                                    ? emptymail == true
+                                        ? Colors.grey
+                                        : Colors.white
+                                    : empty == true
+                                        ? Colors.grey
+                                        : Colors.white),
+                          )),
+                        ),
                       )
-
                     ],
                   ),
                 ),
