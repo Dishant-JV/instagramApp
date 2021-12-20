@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:instagram/profile/login_language.dart';
 import 'package:instagram/profile/signup.dart';
 
+import '../main.dart';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -11,10 +13,19 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool isemptymail=true;
+  bool isemptypass=true;
+  FocusNode pass=FocusNode();
+  final isemail=GlobalKey<FormState>();
+  final search=GlobalKey<FormState>();
+  bool ispassvisible=false;
+  TextEditingController email=TextEditingController();
+  TextEditingController passcontroller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Container(
           child: Center(
@@ -50,45 +61,139 @@ class _LoginState extends State<Login> {
                           width: 190,
                           child: Image.asset("assets/images/insta_text.png",color: Colors.white,),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 16),
-                          height: 50,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(5)
-                          ),
-                          child: Container(margin: EdgeInsets.only(top: 17,left: 20),child: Text("Phone number, email or username",style: TextStyle(color: Colors.grey.withOpacity(0.9)),)),
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(top:15),
-                            height: 50,
-                            width: 350,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(5)
-                            ),
-                            child:Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Form(
+                            key: isemail,
+                            child: Column(
                               children: [
-                                Container(margin: EdgeInsets.only(left: 20),child: Text("Password",style: TextStyle(color: Colors.grey.withOpacity(0.9)),)),
                                 Container(
-                                  margin: EdgeInsets.only(right: 10),
-                                  child: Icon(Icons.remove_red_eye,color: Colors.grey.withOpacity(0.9),),
+                                  margin: EdgeInsets.only(top: 16),
+                                  padding: EdgeInsets.only(left: 20, right: 20),
+                                  child: TextFormField(
+                                    onFieldSubmitted: (value){
+                                      setState(() {
+                                        FocusScope.of(context).requestFocus(pass);
+                                      });
+                                    },
+                                    onChanged: (value){
+                                      setState(() {
+                                        email.text.isEmpty == true ? isemptymail = true : isemptymail=false;
+                                      });
+                                    },
+                                    validator: (value){
+                                      if(value!.length != 10){
+                                        return 'plzz enter valid mobile number';
+                                      }
+                                    },
+                                    controller: email,
+                                    keyboardType: TextInputType.emailAddress,
+                                    style: TextStyle(color: Colors.white),
+                                    decoration: InputDecoration(
+                                      hintText: "Phone number, email or username",
+                                      hintStyle: TextStyle(
+                                          color: Colors.white54, fontSize: 16),
+                                      filled: true,
+                                      fillColor:
+                                      Colors.grey.shade800.withOpacity(0.6),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(7),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(7)),
+                                      border:
+                                      OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top:12 ),
+                                  padding: EdgeInsets.only(left: 20,right: 20),
+                                  child: TextFormField(
+                                    onChanged: (value){
+                                      setState(() {
+                                        passcontroller.text.isEmpty== true ? isemptypass=true :isemptypass=false;
+                                      });
+                                    },
+                                    onFieldSubmitted: (value){
+                                      setState(() {
+                                        if(isemail.currentState!.validate()){
+                                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Insta()), (route) => false);
+                                        }
+                                      });
+                                    },
+                                    style: TextStyle(color: Colors.white),
+                                    controller: passcontroller,
+                                    validator: (value){
+                                      bool passtrue=RegExp(r'^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(value ?? "");
+                                      if(value!.length < 8){
+                                        return "length must be at least 8 character";
+                                      } else if(!passtrue){
+                                        return "characte,word,num required";
+                                      }
+                                    },
+                                    focusNode: pass,
+                                    obscureText: ispassvisible== true ? false : true,
+                                    decoration: InputDecoration(
+                                        suffixIcon: IconButton(
+                                          onPressed: (){
+                                            setState(() {
+                                              ispassvisible =!ispassvisible;
+                                            });
+                                          },
+                                          icon:ispassvisible ? Icon(Icons.visibility,color: Colors.grey,) : Icon(Icons.visibility_off,color: Colors.grey,),
+                                        ),
+                                        hintText: "Password",
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                      filled: true,
+                                      fillColor:
+                                      Colors.grey.shade800.withOpacity(0.6),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(7),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(7)),
+                                      border:
+                                      OutlineInputBorder(),
+                                    ),
+                                  ),
+                                ),
+                                isemptymail == true || isemptypass == true ?
+                                Container(
+                                  alignment: Alignment.center,
+                                  margin: EdgeInsets.only(top: 15),
+                                  height: 50,
+                                  width: 350,
+                                  decoration: BoxDecoration(
+                                      color:Colors.blue.shade900.withOpacity(0.5),
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Container(
+                                      child: Text(
+                                        "Next",
+                                        style: TextStyle(color: Colors.grey),
+                                      )),
+                                ) : InkWell(
+                                  onTap: (){
+                                    if(isemail.currentState!.validate()){
+                                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Insta()), (route) => false);
+                                    }
+                                  },
+                                  child: Container(
+                                    key: search,
+                                    alignment: Alignment.center,
+                                    margin: EdgeInsets.only(top: 15),
+                                    height: 50,
+                                    width: 350,
+                                    decoration: BoxDecoration(
+                                        color:Colors.blue,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Container(
+                                        child: Text(
+                                          "Next",
+                                          style: TextStyle(color: Colors.white),
+                                        )),
+                                  ),
                                 )
                               ],
                             )
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.only(top: 15),
-                          height: 50,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.blue.shade900.withOpacity(0.5),
-                              borderRadius: BorderRadius.circular(5)
-                          ),
-                          child: Container(child: Text("Log In",style: TextStyle(color: Colors.grey),)),
                         ),
                         Container(
                             margin: EdgeInsets.only(top: 15),
@@ -109,16 +214,21 @@ class _LoginState extends State<Login> {
                           margin: EdgeInsets.only(top: 20),
                           child: Text("OR",style: TextStyle(color: Colors.grey.withOpacity(0.6),fontWeight: FontWeight.bold,fontSize: 17),),
                         ),
-                        Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.only(top: 15),
-                          height: 50,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(5)
+                        InkWell(
+                          onTap: (){
+                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Insta()), (route) => false);
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(top: 15),
+                            height: 50,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(5)
+                            ),
+                            child: Container(child: Text("Continue as Dishant Vaghasiya",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)),
                           ),
-                          child: Container(child: Text("Continue as Dishant Vaghasiya",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)),
                         ),
                       ],
                     ),

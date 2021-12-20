@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:instagram/profile/signup_passoword.dart';
 
+import '../main.dart';
 import 'login.dart';
 
 class Signup extends StatefulWidget {
@@ -12,9 +14,11 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   bool empty=true;
+  bool emptymail=true;
   TextEditingController phone=TextEditingController();
   TextEditingController email =TextEditingController();
   final isPhone = GlobalKey<FormState>();
+  final isEmail=GlobalKey<FormState>();
   @override
   int index = 0;
 
@@ -124,9 +128,9 @@ class _SignupState extends State<Signup> {
                                   padding: EdgeInsets.only(left: 20, right: 20),
                                   child: TextFormField(
                                     validator: (value){
-                                      setState(() {
-
-                                      });
+                                      if(value!.length != 10){
+                                        return 'plzz enter valid mobile number';
+                                      }
                                     },
                                     onChanged: (value){
                                       setState(() {
@@ -169,7 +173,9 @@ class _SignupState extends State<Signup> {
                                       )),
                                 ) : InkWell(
                                   onTap: (){
-                                    isPhone.currentState!.validate();
+                                    if(isPhone.currentState!.validate()){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupPassword()));
+                                    }
                                   },
                                   child: Container(
                                     alignment: Alignment.center,
@@ -189,21 +195,85 @@ class _SignupState extends State<Signup> {
                               ],
                             )
                           )
-                          : Container(
-                              margin: EdgeInsets.only(top: 16),
-                              height: 50,
-                              width: 350,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.3),
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Container(
-                                  margin: EdgeInsets.only(top: 17, left: 20),
-                                  child: Text(
-                                    "Email",
-                                    style: TextStyle(
-                                        color: Colors.grey.withOpacity(0.9)),
-                                  )),
-                            ),
+                          : Form(
+                          key: isEmail,
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 16),
+                                padding: EdgeInsets.only(left: 20, right: 20),
+                                child: TextFormField(
+                                  validator: (value){
+                                    bool emailValid = RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(value ?? "");
+                                    if (!emailValid) {
+                                      return "plzz enter valid email";
+                                    }
+                                  },
+                                  onChanged: (value){
+                                    setState(() {
+                                      email.text.isEmpty == true ? emptymail =true : emptymail =false;
+                                    });
+                                  },
+                                  controller: email,
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: TextStyle(color: Colors.white),
+                                  decoration: InputDecoration(
+                                    hintText: "Email",
+                                    hintStyle: TextStyle(
+                                        color: Colors.white54, fontSize: 16),
+                                    filled: true,
+                                    fillColor:
+                                    Colors.grey.shade800.withOpacity(0.6),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(7)),
+                                    border:
+                                    OutlineInputBorder(), //contentPadding: EdgeInsets.only(top: 6,bottom: 6,),
+                                  ),
+                                ),
+                              ),
+                              emptymail == true ?
+                              Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.only(top: 15),
+                                height: 50,
+                                width: 350,
+                                decoration: BoxDecoration(
+                                    color:Colors.blue.shade900.withOpacity(0.5),
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Container(
+                                    child: Text(
+                                      "Next",
+                                      style: TextStyle(color: Colors.grey),
+                                    )),
+                              ) : InkWell(
+                                onTap: (){
+                                  if(isEmail.currentState!.validate()){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupPassword()));
+                                  }
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  margin: EdgeInsets.only(top: 15),
+                                  height: 50,
+                                  width: 350,
+                                  decoration: BoxDecoration(
+                                      color:Colors.blue,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Container(
+                                      child: Text(
+                                        "Next",
+                                        style: TextStyle(color: Colors.white),
+                                      )),
+                                ),
+                              )
+                            ],
+                          )
+                      )
 
                     ],
                   ),
