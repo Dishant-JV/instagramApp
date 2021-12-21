@@ -8,6 +8,7 @@ import 'package:instagram/demos/demo_screen.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/radio_button_demo.dart';
 import 'package:instagram/demos/sharedpreference_demo.dart';
+import 'package:instagram/demos/slider_demo_screen.dart';
 import 'package:instagram/demos/stack_demo_screen.dart';
 import 'package:instagram/demos/state_demo.dart';
 import 'package:instagram/demos/textformfield_demo.dart';
