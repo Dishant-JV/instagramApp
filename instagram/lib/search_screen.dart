@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/show_image.dart';
+import 'package:instagram/utils/textfield.dart';
 
 class Search extends StatefulWidget {
   final bool ? isFocus;
@@ -422,7 +423,7 @@ class _SearchState extends State<Search> {
                     ],
                   )
                 ],
-              )
+              ),
             ],
           ),
         ),
