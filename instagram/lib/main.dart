@@ -14,6 +14,7 @@ import 'package:instagram/demos/state_demo.dart';
 import 'package:instagram/demos/textformfield_demo.dart';
 import 'package:instagram/demos/willpop_demo.dart';
 import 'package:instagram/home_screen.dart';
+import 'package:instagram/profile/change_profile.dart';
 import 'package:instagram/profile/login.dart';
 import 'package:instagram/profile/signup.dart';
 import 'package:instagram/profile_screen.dart';
@@ -32,7 +33,7 @@ void main() {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: Insta(),
+        home: SliderDemoScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

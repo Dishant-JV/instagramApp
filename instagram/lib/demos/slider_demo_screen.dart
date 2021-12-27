@@ -33,7 +33,6 @@ class _SliderDemoScreenState extends State<SliderDemoScreen> {
                   child: Container(
                     width: 300,
                     child: Slider(
-
                       value: selectedValue,
                       max: 100,
                       min: 0,
@@ -49,7 +48,6 @@ class _SliderDemoScreenState extends State<SliderDemoScreen> {
                 ),
               ),
               Text(selectedValue.toInt().toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-
             ],
           )
         ),

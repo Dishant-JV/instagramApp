@@ -6,8 +6,9 @@ import 'package:instagram/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Changeprofile extends StatefulWidget {
+  //late final String ?ids;
+  const Changeprofile({Key? key}) : super(key: key);
 
-  const Changeprofile({Key? key,}) : super(key: key);
 
   @override
   _ChangeprofileState createState() => _ChangeprofileState();
@@ -55,9 +56,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                           InkWell(
                             onTap: () {
                               Navigator.pop(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Profile()));
+                                  context,'dishant');
                             },
                             child: Container(
                               child: Icon(
@@ -85,6 +84,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                         saveImage(imgg);
                         Navigator.pop(context,
                             MaterialPageRoute(builder: (context) => Profile(
+                              ids: "hello",
                             )));
                       },
                       child: Container(
@@ -269,7 +269,8 @@ class _ChangeprofileState extends State<Changeprofile> {
   _openCamera(BuildContext context) async {
     var picture = await pickers.pickImage(source: ImageSource.gallery);
     setState(() {
-      imgg = picture?.path;
+      picture!.path!= null ? imgg=picture.path : loadImage();
+      //imgg = picture?.path;
     });
   }
 }

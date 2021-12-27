@@ -10,8 +10,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
 class Profile extends StatefulWidget {
+  final String ?ids;
   const Profile({
-    Key? key,
+    Key? key, this.ids,
   }) : super(key: key);
 
   @override
@@ -38,6 +39,7 @@ class _ProfileState extends State<Profile> {
     // TODO: implement initState
     super.initState();
     loadImage();
+    print(widget.ids);
   }
 
   int currentindex = 0;
