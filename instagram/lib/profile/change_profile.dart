@@ -1,14 +1,41 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:instagram/profile_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Changeprofile extends StatefulWidget {
-  const Changeprofile({Key? key}) : super(key: key);
+
+  const Changeprofile({Key? key,}) : super(key: key);
 
   @override
   _ChangeprofileState createState() => _ChangeprofileState();
 }
 
 class _ChangeprofileState extends State<Changeprofile> {
+  String? imgg;
+  final pickers = ImagePicker();
+
+  void saveImage(path) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      pref.setString('imagePath',path);
+    });
+  }
+  void loadImage()async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      imgg=pref.getString('imagePath');
+    });
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadImage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,8 +53,11 @@ class _ChangeprofileState extends State<Changeprofile> {
                       child: Row(
                         children: [
                           InkWell(
-                            onTap: (){
-                              Navigator.pop(context, MaterialPageRoute(builder: (context)=> Profile()));
+                            onTap: () {
+                              Navigator.pop(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile()));
                             },
                             child: Container(
                               child: Icon(
@@ -51,8 +81,11 @@ class _ChangeprofileState extends State<Changeprofile> {
                       ),
                     ),
                     InkWell(
-                      onTap: (){
-                        Navigator.pop(context, MaterialPageRoute(builder: (context)=> Profile()));
+                      onTap: () {
+                        saveImage(imgg);
+                        Navigator.pop(context,
+                            MaterialPageRoute(builder: (context) => Profile(
+                            )));
                       },
                       child: Container(
                         margin: EdgeInsets.only(right: 15),
@@ -67,24 +100,32 @@ class _ChangeprofileState extends State<Changeprofile> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 150, top: 20),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                      ),
-                      fit: BoxFit.cover),
-                  shape: BoxShape.circle,
-                ),
-                height: 95,
-                width: 95,
-                // margin: EdgeInsets.only(left: 10),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 115, top: 15),
-                child: Text(
-                  "Change Profile Photo",
-                  style: TextStyle(color: Colors.blue, fontSize: 18),
+                  margin: EdgeInsets.only(left: 150, top: 20),
+                  // decoration: BoxDecoration(
+                  //   image: DecorationImage(
+                  //       image: NetworkImage(
+                  //         "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
+                  //       ),
+                  //       fit: BoxFit.cover),
+                  //   shape: BoxShape.circle,
+                  // ),
+                  height: 95,
+                  width: 95,
+                  child: CircleAvatar(
+                    backgroundImage: FileImage(File(imgg ?? "")),
+                  )
+                  // margin: EdgeInsets.only(left: 10),
+                  ),
+              InkWell(
+                onTap: () {
+                  _openCamera(context);
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 115, top: 15),
+                  child: Text(
+                    "Change Profile Photo",
+                    style: TextStyle(color: Colors.blue, fontSize: 18),
+                  ),
                 ),
               ),
               Container(
@@ -97,17 +138,16 @@ class _ChangeprofileState extends State<Changeprofile> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.white))
-                ),
+                    border: Border(bottom: BorderSide(color: Colors.white))),
                 margin: EdgeInsets.only(left: 15, right: 15),
                 height: 35,
                 width: double.infinity,
                 child: Container(
-                  alignment: Alignment.centerLeft,
+                    alignment: Alignment.centerLeft,
                     child: Text(
-                  "Dishant Vaghasiya",
-                  style: TextStyle(color: Colors.white, fontSize: 16.5),
-                )),
+                      "Dishant Vaghasiya",
+                      style: TextStyle(color: Colors.white, fontSize: 16.5),
+                    )),
               ),
               Container(
                 margin: EdgeInsets.only(left: 15, top: 20),
@@ -119,8 +159,7 @@ class _ChangeprofileState extends State<Changeprofile> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.white))
-                ),
+                    border: Border(bottom: BorderSide(color: Colors.white))),
                 margin: EdgeInsets.only(left: 15, right: 15),
                 height: 35,
                 width: double.infinity,
@@ -141,8 +180,7 @@ class _ChangeprofileState extends State<Changeprofile> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.white))
-                ),
+                    border: Border(bottom: BorderSide(color: Colors.white))),
                 margin: EdgeInsets.only(left: 15, right: 15),
                 height: 35,
                 width: double.infinity,
@@ -163,8 +201,7 @@ class _ChangeprofileState extends State<Changeprofile> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.white))
-                ),
+                    border: Border(bottom: BorderSide(color: Colors.white))),
                 margin: EdgeInsets.only(left: 15, right: 15),
                 height: 35,
                 width: double.infinity,
@@ -183,27 +220,56 @@ class _ChangeprofileState extends State<Changeprofile> {
               Container(
                 margin: EdgeInsets.only(top: 30),
                 decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.5),width: 0),bottom: BorderSide(color: Colors.grey.withOpacity(0.5),width: 0))
-                ),
+                    border: Border(
+                        top: BorderSide(
+                            color: Colors.grey.withOpacity(0.5), width: 0),
+                        bottom: BorderSide(
+                            color: Colors.grey.withOpacity(0.5), width: 0))),
                 alignment: Alignment.centerLeft,
                 height: 45,
                 width: double.infinity,
-                child: Container(margin: EdgeInsets.only(left: 15),child: Text("Switch to Professional Account",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w500,fontSize:16),)),
+                child: Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Text(
+                      "Switch to Professional Account",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16),
+                    )),
               ),
               Container(
                 margin: EdgeInsets.only(top: 20),
                 decoration: BoxDecoration(
-                    border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.5),width: 0),bottom: BorderSide(color: Colors.grey.withOpacity(0.5),width: 0))
-                ),
+                    border: Border(
+                        top: BorderSide(
+                            color: Colors.grey.withOpacity(0.5), width: 0),
+                        bottom: BorderSide(
+                            color: Colors.grey.withOpacity(0.5), width: 0))),
                 alignment: Alignment.centerLeft,
                 height: 45,
                 width: double.infinity,
-                child: Container(margin: EdgeInsets.only(left: 15),child: Text("Personal information setting",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w500,fontSize:16),)),
+                child: Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Text(
+                      "Personal information setting",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16),
+                    )),
               )
             ],
           ),
         ),
       ),
     );
+  }
+
+  _openCamera(BuildContext context) async {
+    var picture = await pickers.pickImage(source: ImageSource.gallery);
+    setState(() {
+      imgg = picture?.path;
+    });
   }
 }

@@ -3,10 +3,12 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/show_image.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
+import 'dart:io';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,19 +18,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String ?profileImage;
+  loadImage()async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      profileImage=pref.getString('imagePath');
+    });
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadImage();
+  }
   final imageList = [
     'assets/images/demo3.jpg',
     'assets/images/demo4.jpg',
     'assets/images/demo5.jpg'
   ];
-  final List<String> storyImages = [
+  final storyImages = [
     "http://starsunfolded.com/wp-content/uploads/2014/05/Alia_Bhatt.jpg",
     "https://themumbaicity.com/wp-content/uploads/2021/06/anu.jpg",
     "https://www.bollywoodhungama.com/wp-content/uploads/2021/10/salman-khan.jpg",
     "https://lh3.googleusercontent.com/proxy/uR34igOaQj7pQEsDdcFWYIpvp-rUSJq9rr9ZF1u7dihPtEHfbP_b8QzEM--imcY2tvt9vKkrLFnvRxAwDzMPGvdqhwmFB7HqOGFWesLOHuOxtGjDuFTySYQ8kwZ_0Cw-cSqXqMIWybAon0FEnvR0RxAH0ZvsjY72Hvk2X6OZ",
     "https://w0.peakpx.com/wallpaper/309/93/HD-wallpaper-aliabhatt-actress-alia-alia-bhat-alia-bhatt-bollywood.jpg"
   ];
-  final List<String> storyName = [
+  final storyName = [
     'piyush_12',
     'raj_9090',
     'salman_2288',
@@ -148,17 +163,12 @@ class _HomeState extends State<Home> {
                                         Stack(
                                           children: [
                                             Container(
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: NetworkImage(
-                                                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                                                    ),
-                                                    fit: BoxFit.cover),
-                                                shape: BoxShape.circle,
-                                              ),
                                               height: 65,
                                               width: 65,
                                               margin: EdgeInsets.only(left: 10),
+                                              child: CircleAvatar(
+                                                backgroundImage: FileImage(File(profileImage ?? "")),
+                                              ),
                                             ),
                                             Container(
                                               margin: EdgeInsets.only(
@@ -206,6 +216,7 @@ class _HomeState extends State<Home> {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               Images(
+                                                                ind: storyName[index],
                                                                 img: "",
                                                                 nimg:
                                                                     storyImages[

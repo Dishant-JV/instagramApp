@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +20,7 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/splash_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/textformfield_demo2.dart';
@@ -46,6 +47,15 @@ class Insta extends StatefulWidget {
 }
 
 class _InstaState extends State<Insta> {
+  String? profileImage;
+
+  loadImage() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      profileImage = pref.getString('imagePath');
+    });
+  }
+
   List<Widget> pageList = [
     Home(),
     Search(),
@@ -54,6 +64,13 @@ class _InstaState extends State<Insta> {
     Profile(),
   ];
   int currentIndex = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadImage();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -150,24 +167,22 @@ class _InstaState extends State<Insta> {
                           child: currentIndex == 4
                               ? Container(
                                   decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 2),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                                        ),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                  ),
+                                    border: Border.all(color: Colors.white,width: 2.5),
+                              image: DecorationImage(
+                                  image:
+                                  FileImage(File(profileImage ?? "")),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle,
+                            ),
                                   height: 30,
                                   width: 30,
+
                                 )
                               : Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: NetworkImage(
-                                          "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                                        ),
+                                        image:
+                                            FileImage(File(profileImage ?? "")),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                   ),

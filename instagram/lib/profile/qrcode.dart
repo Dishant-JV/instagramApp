@@ -12,43 +12,43 @@ class Qrcode extends StatefulWidget {
 }
 
 class _QrcodeState extends State<Qrcode> {
-   String? imageFile;
-   final picker = ImagePicker();
+  String? imageFile;
+  final picker = ImagePicker();
 
   _openCamera(BuildContext context) async {
     var picture = await picker.pickImage(source: ImageSource.camera);
     setState(() {
-      imageFile=picture?.path;
+      imageFile = picture?.path;
     });
     // Navigator.of(context).pop();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Column(
-            children:[
-              imageWidget(),
-              InkWell(
-                  onTap: (){
-                    _openCamera(context);
-                  },
-                  child: Text("Open camera")),
-            ],
-          )
-        ),
+            child: Column(
+          children: [
+            imageWidget(),
+            InkWell(
+                onTap: () {
+                  _openCamera(context);
+                },
+                child: Text("Open camera")),
+          ],
+        )),
       ),
     );
-
   }
-  Widget imageWidget(){
-    return imageFile!=null?Container(
-        width: 200,height: 200,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-            child: Image.file(File(imageFile??""),fit: BoxFit.cover,)):Text("no image selected");
+
+  Widget imageWidget() {
+    return imageFile != null
+        ? CircleAvatar(
+            radius: 60,
+            backgroundImage: FileImage(File(imageFile??"",)),
+          )
+        : Text("no image selected");
     // if(imagefile == null){
     //   return Text("no image selected");
     // }
@@ -56,7 +56,4 @@ class _QrcodeState extends State<Qrcode> {
     //   Image.file(imagefile,width: 200,height: 300,);
     // }
   }
-
 }
-
-

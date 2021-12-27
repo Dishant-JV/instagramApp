@@ -5,8 +5,8 @@ import 'package:photo_view/photo_view.dart';
 class Images extends StatefulWidget {
   final String? img;
   final String? nimg;
-
-  const Images({Key? key, this.img, this.nimg}) : super(key: key);
+  final String? ind;
+  const Images({Key? key, this.img, this.nimg, this.ind}) : super(key: key);
 
 
   @override
@@ -21,34 +21,27 @@ class _ImagesState extends State<Images> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: WillPopScope(
-        onWillPop:onwillpops,
-        child: Scaffold(
-          backgroundColor: Colors.black,
-          body: widget.img == ""
-              ? Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: PhotoView(
-                    imageProvider: NetworkImage(nimg!),
-                    minScale: PhotoViewComputedScale.contained * 0.8,
-                    maxScale: PhotoViewComputedScale.contained * 0.8,
-                  ),
-                )
-              : Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: PhotoView(
-                    imageProvider: AssetImage(img!),
-                    minScale: PhotoViewComputedScale.contained * 0.8,
-                    maxScale: PhotoViewComputedScale.contained * 0.8,
-                  )),
-        ),
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: widget.img == ""
+            ? Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: PhotoView(
+            imageProvider: NetworkImage(nimg!),
+            minScale: PhotoViewComputedScale.contained * 0.8,
+            maxScale: PhotoViewComputedScale.contained * 0.8,
+          ),
+        )
+            : Container(
+            height: double.infinity,
+            width: double.infinity,
+            child: PhotoView(
+              imageProvider: AssetImage(img!),
+              minScale: PhotoViewComputedScale.contained * 0.8,
+              maxScale: PhotoViewComputedScale.contained * 0.8,
+            ))
       ),
     );
   }
-  Future<bool> onwillpops() async{
-      Navigator.pop(context,MaterialPageRoute(builder: (context)=>Search(isFocus: false,isName: 'dishant',)));
-      return Future(()=>true);
-      }
 }

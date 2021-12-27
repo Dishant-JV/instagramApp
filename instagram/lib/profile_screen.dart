@@ -6,15 +6,20 @@ import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
 import 'package:instagram/show_image.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  String ?profileImage;
   final itemKey = GlobalKey();
 
   Future scrollToItem() async {
@@ -22,7 +27,21 @@ class _ProfileState extends State<Profile> {
     await Scrollable.ensureVisible(context,
         alignment: 0, duration: Duration(seconds: 1));
   }
+    loadImage()async{
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      setState(() {
+        profileImage=pref.getString('imagePath');
+      });
+    }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadImage();
+  }
+
   int currentindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,68 +61,91 @@ class _ProfileState extends State<Profile> {
                           InkWell(
                             onTap: () {
                               showModalBottomSheet(
-                                backgroundColor: Colors.transparent,
+                                  backgroundColor: Colors.transparent,
                                   context: context,
                                   builder: (BuildContext context) {
                                     return Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.grey.shade900,
-                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))
-                                      ),
+                                          color: Colors.grey.shade900,
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(15),
+                                              topRight: Radius.circular(15))),
                                       height: 180,
                                       width: double.infinity,
                                       child: Container(
                                         child: Column(
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.only(top: 25,left: 20,right: 20),
+                                              margin: EdgeInsets.only(
+                                                  top: 25, left: 20, right: 20),
                                               child: Row(
                                                 children: [
                                                   Expanded(
                                                     child: Row(
                                                       children: [
                                                         Container(
-                                                          decoration: BoxDecoration(
-                                                            image: DecorationImage(
-                                                                image: NetworkImage(
-                                                                  "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
-                                                                ),
-                                                                fit: BoxFit.cover),
-                                                            shape: BoxShape.circle,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            image:
+                                                                DecorationImage(
+                                                                    image:
+                                                                        NetworkImage(
+                                                                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
+                                                                    ),
+                                                                    fit: BoxFit
+                                                                        .cover),
+                                                            shape:
+                                                                BoxShape.circle,
                                                           ),
                                                           height: 55,
                                                           width: 55,
                                                         ),
                                                         Container(
-                                                          margin: EdgeInsets.only(left: 15),
-                                                          child: Text("dishant_8171",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.5),),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  left: 15),
+                                                          child: Text(
+                                                            "dishant_8171",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontSize: 15.5),
+                                                          ),
                                                         )
                                                       ],
                                                     ),
                                                   ),
                                                   Container(
-                                                    alignment: Alignment.center,
-                                                    height: 25,
-                                                    width: 25,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      color: Colors.blue
-                                                    ),
-                                                    child: Container(
-                                                      height: 7,
-                                                      width: 7,
+                                                      alignment:
+                                                          Alignment.center,
+                                                      height: 25,
+                                                      width: 25,
                                                       decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color: Colors.black,
-                                                      ),
-                                                    )
-                                                  )
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          color: Colors.blue),
+                                                      child: Container(
+                                                        height: 7,
+                                                        width: 7,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ))
                                                 ],
                                               ),
                                             ),
                                             Container(
                                               child: Container(
-                                                margin: EdgeInsets.only(top: 15,left: 20,right: 20),
+                                                margin: EdgeInsets.only(
+                                                    top: 15,
+                                                    left: 20,
+                                                    right: 20),
                                                 child: Row(
                                                   children: [
                                                     Row(
@@ -112,16 +154,32 @@ class _ProfileState extends State<Profile> {
                                                           height: 55,
                                                           width: 55,
                                                           decoration: BoxDecoration(
-                                                              shape: BoxShape.circle,
-                                                              border: Border.all(color: Colors.grey.withOpacity(0.5))
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .grey
+                                                                      .withOpacity(
+                                                                          0.5))),
+                                                          child: Icon(
+                                                            Icons.add,
+                                                            color: Colors.white,
+                                                            size: 45,
                                                           ),
-                                                          child: Icon(Icons.add,color: Colors.white,size: 45,),
                                                         ),
                                                       ],
                                                     ),
                                                     Container(
-                                                      margin: EdgeInsets.only(left: 15),
-                                                      child: Text("Add Account",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15.5),),
+                                                      margin: EdgeInsets.only(
+                                                          left: 15),
+                                                      child: Text(
+                                                        "Add Account",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontSize: 15.5),
+                                                      ),
                                                     )
                                                   ],
                                                 ),
@@ -191,16 +249,19 @@ class _ProfileState extends State<Profile> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                      "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
-                                    ),
-                                    fit: BoxFit.cover),
-                                shape: BoxShape.circle,
-                              ),
+                              // decoration: BoxDecoration(
+                              //   image: DecorationImage(
+                              //       image: NetworkImage(
+                              //         "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
+                              //       ),
+                              //       fit: BoxFit.cover),
+                              //   shape: BoxShape.circle,
+                              // ),
                               height: 85,
                               width: 85,
+                              child: CircleAvatar(
+                                backgroundImage: FileImage(File(profileImage ?? "")),
+                              ),
                             ),
                             InkWell(
                               onTap: () {
@@ -401,11 +462,15 @@ class _ProfileState extends State<Profile> {
                                 child: Column(
                                   children: [
                                     InkWell(
-                                      onTap: (){
-                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Images(
-                                              img:"assets/images/demo3.jpg",
-                                          nimg: "",
-                                        )));
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Images(
+                                                      img:
+                                                          "assets/images/demo3.jpg",
+                                                      nimg: "",
+                                                    )));
                                       },
                                       child: Container(
                                         child: Container(
@@ -417,7 +482,8 @@ class _ProfileState extends State<Profile> {
                                                   fit: BoxFit.cover),
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                  color: Colors.black, width: 3)),
+                                                  color: Colors.black,
+                                                  width: 3)),
                                           height: 60,
                                           width: 60,
                                         ),
@@ -454,11 +520,14 @@ class _ProfileState extends State<Profile> {
                                 margin: EdgeInsets.only(left: 5, right: 5),
                               ),
                               InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Images(
-                                    img: "assets/images/demo4.jpg",
-                                    nimg: "",
-                                  )));
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Images(
+                                                img: "assets/images/demo4.jpg",
+                                                nimg: "",
+                                              )));
                                 },
                                 child: Container(
                                   child: Column(
@@ -473,7 +542,8 @@ class _ProfileState extends State<Profile> {
                                                   fit: BoxFit.cover),
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                  color: Colors.black, width: 3)),
+                                                  color: Colors.black,
+                                                  width: 3)),
                                           height: 60,
                                           width: 60,
                                         ),
@@ -491,7 +561,8 @@ class _ProfileState extends State<Profile> {
                                         child: Text(
                                           "Briti ce",
                                           style: TextStyle(
-                                              color: Colors.white, fontSize: 12),
+                                              color: Colors.white,
+                                              fontSize: 12),
                                         ),
                                       ),
                                     ],
