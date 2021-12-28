@@ -33,7 +33,7 @@ void main() {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: SliderDemoScreen(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
