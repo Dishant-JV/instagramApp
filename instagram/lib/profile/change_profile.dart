@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram/profile_screen.dart';
@@ -15,7 +15,6 @@ class Changeprofile extends StatefulWidget {
 }
 
 class _ChangeprofileState extends State<Changeprofile> {
-  String? imgg;
   final pickers = ImagePicker();
 
   void saveImage(path) async {
@@ -27,7 +26,7 @@ class _ChangeprofileState extends State<Changeprofile> {
   void loadImage()async{
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      imgg=pref.getString('imagePath');
+      globals.imggs=pref.getString('imagePath');
     });
   }
   @override
@@ -81,7 +80,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                     ),
                     InkWell(
                       onTap: () {
-                        saveImage(imgg);
+                        saveImage(globals.imggs);
                         Navigator.pop(context,
                             MaterialPageRoute(builder: (context) => Profile(
                               ids: "hello",
@@ -112,7 +111,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                   height: 95,
                   width: 95,
                   child: CircleAvatar(
-                    backgroundImage: FileImage(File(imgg ?? "")),
+                    backgroundImage: FileImage(File(globals.imggs ?? "")),
                   )
                   // margin: EdgeInsets.only(left: 10),
                   ),
@@ -269,7 +268,7 @@ class _ChangeprofileState extends State<Changeprofile> {
   _openCamera(BuildContext context) async {
     var picture = await pickers.pickImage(source: ImageSource.gallery);
     setState(() {
-      picture!.path!= null ? imgg=picture.path : loadImage();
+      picture!.path!= null ? globals.imggs=picture.path : loadImage();
       //imgg = picture?.path;
     });
   }

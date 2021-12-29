@@ -6,8 +6,10 @@ import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
 import 'package:instagram/show_image.dart';
+import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
+import 'package:instagram/utils/globals.dart' as globals;
 
 class Profile extends StatefulWidget {
   final String ?ids;
@@ -28,18 +30,11 @@ class _ProfileState extends State<Profile> {
     await Scrollable.ensureVisible(context,
         alignment: 0, duration: Duration(seconds: 1));
   }
-    loadImage()async{
-      SharedPreferences pref = await SharedPreferences.getInstance();
-      setState(() {
-        profileImage=pref.getString('imagePath');
-      });
-    }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadImage();
-    print(widget.ids);
   }
 
   int currentindex = 0;
@@ -262,11 +257,12 @@ class _ProfileState extends State<Profile> {
                               height: 85,
                               width: 85,
                               child: CircleAvatar(
-                                backgroundImage: FileImage(File(profileImage ?? "")),
+                                backgroundImage: FileImage(File(globals.imggs ?? "")),
                               ),
                             ),
                             InkWell(
                               onTap: () {
+                                print(globals.imggs);
                                 scrollToItem();
                               },
                               child: Container(

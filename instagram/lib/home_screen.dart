@@ -9,6 +9,7 @@ import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:io';
+import 'package:instagram/utils/globals.dart' as globals;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,18 +19,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String ?profileImage;
-  loadImage()async{
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    setState(() {
-      profileImage=pref.getString('imagePath');
-    });
-  }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadImage();
   }
   final imageList = [
     'assets/images/demo3.jpg',
@@ -167,7 +160,7 @@ class _HomeState extends State<Home> {
                                               width: 65,
                                               margin: EdgeInsets.only(left: 10),
                                               child: CircleAvatar(
-                                                backgroundImage: FileImage(File(profileImage ?? "")),
+                                                backgroundImage: FileImage(File(globals.imggs ?? "")),
                                               ),
                                             ),
                                             Container(

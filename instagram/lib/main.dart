@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,7 @@ void main() {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: SplashScreen(),
+        home: Insta(),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -50,12 +51,6 @@ class Insta extends StatefulWidget {
 class _InstaState extends State<Insta> {
   String? profileImage;
 
-  loadImage() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    setState(() {
-      profileImage = pref.getString('imagePath');
-    });
-  }
 
   List<Widget> pageList = [
     Home(),
@@ -70,7 +65,7 @@ class _InstaState extends State<Insta> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadImage();
+    globals.loadImage();
   }
 
   @override
@@ -171,7 +166,7 @@ class _InstaState extends State<Insta> {
                                     border: Border.all(color: Colors.white,width: 2.5),
                               image: DecorationImage(
                                   image:
-                                  FileImage(File(profileImage ?? "")),
+                                  FileImage(File(globals.imggs ?? "")),
                                   fit: BoxFit.cover),
                               shape: BoxShape.circle,
                             ),
@@ -183,7 +178,7 @@ class _InstaState extends State<Insta> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image:
-                                            FileImage(File(profileImage ?? "")),
+                                            FileImage(File(globals.imggs ?? "")),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                   ),
