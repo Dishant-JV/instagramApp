@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram/chat_screen.dart';
 import 'package:instagram/demos/demo_screen.dart';
-import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/radio_button_demo.dart';
 import 'package:instagram/demos/sharedpreference_demo.dart';
 import 'package:instagram/demos/slider_demo_screen.dart';
@@ -34,7 +34,7 @@ void main() {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: Insta(),
+        home:DialogDemo(),
         debugShowCheckedModeBanner: false,
       ),
     );
