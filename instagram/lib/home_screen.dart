@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/show_image.dart';
@@ -1121,7 +1122,7 @@ class _HomeState extends State<Home> {
                                                     ),
                                                     fit: BoxFit.cover),
                                                 shape: BoxShape.circle,
-                                              ),
+                                             ),
                                               height: 30,
                                               width: 30,
                                               margin: EdgeInsets.only(left: 19),
