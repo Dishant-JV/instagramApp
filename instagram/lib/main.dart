@@ -50,8 +50,6 @@ class Insta extends StatefulWidget {
 
 class _InstaState extends State<Insta> {
   String? profileImage;
-
-
   List<Widget> pageList = [
     Home(),
     Search(),
