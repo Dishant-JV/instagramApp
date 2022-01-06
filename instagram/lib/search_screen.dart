@@ -35,13 +35,6 @@ class _SearchState extends State<Search> {
                  margin: EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 5),
                  child: Form(child: TextFormField(
                    focusNode: mmm,
-                // onTap: (){
-                //      setState(() {
-                //        if(isFocus == false){
-                //          return mmm.unfocus();
-                //        }
-                //      });
-                // },
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     isDense: true,
@@ -77,21 +70,31 @@ class _SearchState extends State<Search> {
                                 nimg: "",
                               )));
                             },
-                            child: Container(
-                              child: Image.asset(
-                                "assets/images/demo3.jpg",
-                                fit: BoxFit.cover,
+                            child: Draggable(
+                              feedback: Container(
+                                child: Image.asset(
+                                  "assets/images/demo3.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                                height: 135,
+                                width: 130,
                               ),
-                              height: 135,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                    left:
-                                    BorderSide(width: 2.5, color: Colors.black),
-                                    right: BorderSide(
-                                        width: 2.5, color: Colors.black),
-                                    bottom: BorderSide(
-                                        width: 2.5, color: Colors.black),)),
+                              child: Container(
+                                child: Image.asset(
+                                  "assets/images/demo3.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                                height: 135,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                      left:
+                                      BorderSide(width: 2.5, color: Colors.black),
+                                      right: BorderSide(
+                                          width: 2.5, color: Colors.black),
+                                      bottom: BorderSide(
+                                          width: 2.5, color: Colors.black),)),
+                              ),
                             ),
                           ),
                           InkWell(

@@ -349,19 +349,25 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      height: 360,
-                                      child: PhotoView(
-                                        imageProvider: NetworkImage(
-                                          "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                    Draggable(
+                                      feedback: Container(
+                                        height: 360,
+                                        color: Colors.grey,
+                                      ),
+                                      child: Container(
+                                        height: 360,
+                                        child: PhotoView(
+                                          imageProvider: NetworkImage(
+                                            "https://upload.wikimedia.org/wikipedia/commons/6/66/Narendra_Modi_2021_%28cropped%29.jpg",
+                                          ),
+                                          filterQuality: FilterQuality.medium,
+                                          minScale:
+                                          PhotoViewComputedScale.contained *
+                                              0.8,
+                                          maxScale:
+                                          PhotoViewComputedScale.contained *
+                                              0.8,
                                         ),
-                                        filterQuality: FilterQuality.medium,
-                                        minScale:
-                                        PhotoViewComputedScale.contained *
-                                            0.8,
-                                        maxScale:
-                                        PhotoViewComputedScale.contained *
-                                            0.8,
                                       ),
                                     ),
                                     Container(
