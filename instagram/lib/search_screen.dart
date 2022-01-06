@@ -71,6 +71,11 @@ class _SearchState extends State<Search> {
                               )));
                             },
                             child: Draggable(
+                              childWhenDragging: Container(
+                                height: 135,
+                                width: 130,
+                                color: Colors.black,
+                              ),
                               feedback: Container(
                                 child: Image.asset(
                                   "assets/images/demo3.jpg",

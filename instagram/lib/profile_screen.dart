@@ -46,6 +46,7 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Colors.black,
         body: Container(
           child: Column(
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
@@ -238,6 +239,7 @@ class _ProfileState extends State<Profile> {
               ),
               Expanded(
                 child: SingleChildScrollView(
+                  // scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
                       Container(
@@ -246,14 +248,6 @@ class _ProfileState extends State<Profile> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              // decoration: BoxDecoration(
-                              //   image: DecorationImage(
-                              //       image: NetworkImage(
-                              //         "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096.",
-                              //       ),
-                              //       fit: BoxFit.cover),
-                              //   shape: BoxShape.circle,
-                              // ),
                               height: 85,
                               width: 85,
                               child: CircleAvatar(
