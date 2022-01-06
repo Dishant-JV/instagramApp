@@ -34,7 +34,7 @@ void main() {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home:DialogDemo(),
+        home:Insta(),
         debugShowCheckedModeBanner: false,
       ),
     );
