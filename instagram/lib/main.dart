@@ -40,7 +40,7 @@ void main()async{
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home:DownloadingScreen(),
+        home:Insta(),
         debugShowCheckedModeBanner: false,
       ),
     );
