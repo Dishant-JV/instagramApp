@@ -25,16 +25,22 @@ import 'package:instagram/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
+import 'demos/downloading_screen.dart';
 import 'demos/textformfield_demo2.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 
-void main() {
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterDownloader.initialize(
+      debug: true // optional: set false to disable printing logs to console
+  );
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home:Insta(),
+        home:DownloadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
