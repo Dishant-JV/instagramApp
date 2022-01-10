@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:instagram/demos/dialog_demo.dart';
+import 'package:instagram/demos/model_demo.dart';
 import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ void main()async{
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home:DownloadingScreen(),
+        home:ModelDemo(),
         debugShowCheckedModeBanner: false,
       ),
     );
