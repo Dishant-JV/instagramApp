@@ -22,12 +22,6 @@ class _ModelDemoState extends State<ModelDemo> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: employee.list?.length,
-                  itemBuilder: (BuildContext context, index) {
-                    return Text(employee.list![index]);
-                  }),
               Text(employee.name ?? ""),
               Text((employee.salary ?? "").toString()),
               Row(
