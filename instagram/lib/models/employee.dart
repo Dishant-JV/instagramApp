@@ -5,4 +5,5 @@ class Employee {
   List<String>? list;
 
   Employee({this.name, this.salary, this.married,this.list});
+
 }

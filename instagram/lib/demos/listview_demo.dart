@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/constants/app_array_list.dart';
 import 'package:instagram/models/employee.dart';
 
 class ListviewDemo extends StatelessWidget {
@@ -6,50 +7,43 @@ class ListviewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> nameList = ["Piyush", "Dishant", "Rakesh", "Ayushi"];
+    Employee emp = Employee();
 
-    List<Employee> employeeList = [
-      Employee(
-        name: "piyush",
-        married: true,
-        salary: 12333,
-      ),
-      Employee(name: "Dishant", married: true, salary: 12333),
-      Employee(name: "Rakesh", married: true, salary: 12333),
-      Employee(name: "Ayushi", married: true, salary: 12333),
-      Employee(name: "Ayushi", married: true, salary: 12333),
-      Employee(name: "Ayushi", married: true, salary: 12333),
-      Employee(name: "Ayushi", married: true, salary: 12333),
-    ];
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: 300,
-          height: 150,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
+          child: ListView.builder(
+            // scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            children: List.generate(
-              employeeList.length,
-              (index) {
-                return Container(
-                  height: 150,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.red,shape: BoxShape.circle
+            itemCount: AppArrayList.employeeList.length,
+            itemBuilder: (context, index) {
+              Employee model = AppArrayList.employeeList[index];
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.red, shape: BoxShape.circle),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: Column(
+                      children: [
+                        Text(model.name ?? ""),
+                        Text(model.salary.toString()),
+                        Text("married : ${model.married}"),
+                      ],
+                    ),
                   ),
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: Column(
-                    children: [
-                      Text(employeeList[index].name ?? ""),
-                      Text(employeeList[index].salary.toString()),
-                      Text("married : ${employeeList[index].married}"),
-                    ],
-                  ),
-                );
-              }
-            ),
+                  SizedBox(height: 5),
+                  Container(
+                    color: Colors.black,
+                    height: 2,
+                  )
+                ],
+              );
+            },
           ),
         ),
       ),

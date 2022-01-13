@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:instagram/demos/dialog_demo.dart';
+import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
 import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/cupertino.dart';
@@ -30,18 +31,18 @@ import 'demos/downloading_screen.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterDownloader.initialize(
       debug: true // optional: set false to disable printing logs to console
-  );
+      );
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home:ModelDemo(),
+        home: Insta(),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -168,22 +169,22 @@ class _InstaState extends State<Insta> {
                           child: currentIndex == 4
                               ? Container(
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.white,width: 2.5),
-                              image: DecorationImage(
-                                  image:
-                                  FileImage(File(globals.imggs ?? "")),
-                                  fit: BoxFit.cover),
-                              shape: BoxShape.circle,
-                            ),
+                                    border: Border.all(
+                                        color: Colors.white, width: 2.5),
+                                    image: DecorationImage(
+                                        image: FileImage(
+                                            File(globals.imggs ?? "")),
+                                        fit: BoxFit.cover),
+                                    shape: BoxShape.circle,
+                                  ),
                                   height: 30,
                                   width: 30,
-
                                 )
                               : Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image:
-                                            FileImage(File(globals.imggs ?? "")),
+                                        image: FileImage(
+                                            File(globals.imggs ?? "")),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                   ),
