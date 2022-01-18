@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:instagram/Whatsapp/wp_home.dart';
 import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
@@ -44,7 +45,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: Ghome(),
+        home: WpHome(),
         debugShowCheckedModeBanner: false,
       ),
     );

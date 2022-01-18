@@ -123,8 +123,8 @@ class _GhomeState extends State<Ghome> {
                   SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Container(
-                        margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.279),
+                        // margin: EdgeInsets.only(
+                        //     top: MediaQuery.of(context).size.height * 0.279),
                         decoration: BoxDecoration(
                             color: Colors.grey.shade800,
                             borderRadius: BorderRadius.only(
@@ -157,20 +157,6 @@ class _GhomeState extends State<Ghome> {
                               margin: EdgeInsets.all(20),
                               color: Colors.red,
                             ),
-                            Container(
-                              height: 200,
-                              width: 300,
-                              margin: EdgeInsets.all(20),
-                              color: Colors.red,
-                            ),
-                            Container(
-                              height: 200,
-                              width: 300,
-                              margin: EdgeInsets.all(20),
-                              color: Colors.red,
-                            ),
-
-
                           ],
                         )
                     ),
