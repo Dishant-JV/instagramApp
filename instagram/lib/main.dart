@@ -31,6 +31,8 @@ import 'demos/downloading_screen.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
+import 'google pay/home.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterDownloader.initialize(
@@ -42,7 +44,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: Insta(),
+        home: Ghome(),
         debugShowCheckedModeBanner: false,
       ),
     );

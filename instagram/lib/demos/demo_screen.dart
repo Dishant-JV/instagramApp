@@ -81,10 +81,7 @@ class _DemoScreenState extends State<DemoScreen> {
                 Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
-                      Positioned.fill(
-                        child: Container(
-                        ),
-                      ),
+
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Container(

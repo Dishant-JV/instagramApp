@@ -293,7 +293,7 @@ class _HomeState extends State<Home> {
                                 ),
                               ), //[story container finish]
                               ListView.builder(
-                                shrinkWrap: true,
+                                  shrinkWrap: true,
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: listPost.length,
                                   itemBuilder: (context, index) {
@@ -312,23 +312,20 @@ class _HomeState extends State<Home> {
                                                       children: [
                                                         Container(
                                                           child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                                    image:
-                                                                        DecorationImage(
-                                                                            image:
-                                                                                NetworkImage(
-                                                                              listPost[index].profileImage.toString()
-                                                                            ),
-                                                                            fit: BoxFit
-                                                                                .cover),
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    border: Border.all(
-                                                                        color: Colors
-                                                                            .black,
-                                                                        width:
-                                                                            2)),
+                                                            decoration: BoxDecoration(
+                                                                image: DecorationImage(
+                                                                    image: NetworkImage(listPost[
+                                                                            index]
+                                                                        .profileImage
+                                                                        .toString()),
+                                                                    fit: BoxFit
+                                                                        .cover),
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                border: Border.all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 2)),
                                                             height: 30,
                                                             width: 31,
                                                           ),
@@ -359,7 +356,9 @@ class _HomeState extends State<Home> {
                                                               EdgeInsets.only(
                                                                   left: 11),
                                                           child: Text(
-                                    listPost[index].pName.toString(),
+                                                            listPost[index]
+                                                                .pName
+                                                                .toString(),
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -389,7 +388,9 @@ class _HomeState extends State<Home> {
                                             height: 360,
                                             child: PhotoView(
                                               imageProvider: NetworkImage(
-                                                listPost[index].pImage.toString(),
+                                                listPost[index]
+                                                    .pImage
+                                                    .toString(),
                                               ),
                                               filterQuality:
                                                   FilterQuality.medium,
@@ -485,8 +486,9 @@ class _HomeState extends State<Home> {
                                                                             .circular(
                                                                                 6),
                                                                     image: DecorationImage(
-                                                                        image: NetworkImage(
-                                                                            listPost[index].pImage.toString()),
+                                                                        image: NetworkImage(listPost[index]
+                                                                            .pImage
+                                                                            .toString()),
                                                                         fit: BoxFit
                                                                             .cover)),
                                                                 height: 35,
@@ -557,7 +559,8 @@ class _HomeState extends State<Home> {
                                             child: Row(
                                               children: [
                                                 Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Container(
                                                       margin: EdgeInsets.only(
@@ -571,8 +574,10 @@ class _HomeState extends State<Home> {
                                                               ),
                                                               children: [
                                                             TextSpan(
-                                                                text:
-                                                                listPost[index].pLikePerson.toString(),
+                                                                text: listPost[
+                                                                        index]
+                                                                    .pLikePerson
+                                                                    .toString(),
                                                                 style: TextStyle(
                                                                     color: Colors
                                                                         .white,
@@ -612,14 +617,13 @@ class _HomeState extends State<Home> {
                                                       Container(
                                                         decoration:
                                                             BoxDecoration(
-                                                          image:
-                                                              DecorationImage(
-                                                                  image:
-                                                                  FileImage(
-                                                                      File(globals.imggs ??
-                                                                          "")),
-                                                                  fit: BoxFit
-                                                                      .cover),
+                                                          image: DecorationImage(
+                                                              image: FileImage(
+                                                                  File(globals
+                                                                          .imggs ??
+                                                                      "")),
+                                                              fit:
+                                                                  BoxFit.cover),
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
