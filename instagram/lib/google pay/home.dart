@@ -169,8 +169,6 @@ class _GhomeState extends State<Ghome> {
                               margin: EdgeInsets.all(20),
                               color: Colors.red,
                             ),
-
-
                           ],
                         )
                     ),
