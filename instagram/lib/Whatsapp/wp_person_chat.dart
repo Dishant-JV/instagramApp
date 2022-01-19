@@ -1,6 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/constants/wpperson_chat_list.dart';
+import 'package:instagram/models/wpperson_chat.dart';
 
 class WpPersonChat extends StatefulWidget {
   const WpPersonChat({Key? key}) : super(key: key);
@@ -111,40 +112,32 @@ class _WpPersonChatState extends State<WpPersonChat> {
               ),
             ),
             Expanded(
-              child: Container(
-                color: Color(0XFF015c4b),
+              child: SingleChildScrollView(
+                reverse: true,
+                scrollDirection: Axis.vertical,
                 child: Container(
-                  width: double.infinity,
-                  child: Column(
-                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width:MediaQuery.of(context).size.width*0.18,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                            itemCount: 10,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                margin: EdgeInsets.only(
-                                    top: MediaQuery.of(context).size.width * 0.03,
-                                    left: MediaQuery.of(context).size.width * 0.04),
-                                height: MediaQuery.of(context).size.width * 0.08,
+                    color: Color(0XFF015c4b),
+                    child: Container(
+                      child: ListView.builder(
+                         physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                          itemCount: WpPersonChatList.personChatList.length,
+                          itemBuilder: (context, index) {
+                            WpPersonChatModel model=WpPersonChatList.personChatList[index];
+                            return Container(
+                              margin: EdgeInsets.only(bottom: 5,top: 10,left: model.id == 1 ? 10 : 0,right: model.id == 2 ? 10 : 0),
+                              alignment: model.id ==1 ? Alignment.centerLeft : Alignment.centerRight,
+                              child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: model.id == 1 ? Color(0XFF171f25) :Colors.green,
                                 ),
-                                child: Container(
-                                   alignment: Alignment.center,
-                                    child: Text(
-                                      "Hyyy",
-                                      style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 15),
-                                    )),
-                              );
-                            }),
-                      ),
-                    ],
-                  ),
-                ),
+                                padding: EdgeInsets.symmetric(horizontal: 12,vertical: 8),
+                                child: Text(model.chat.toString(),style: TextStyle(fontSize: 17,color: Colors.white),),
+                              ),
+                            );
+                          }),
+                    )),
               ),
             ),
             Container(

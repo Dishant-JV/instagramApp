@@ -76,6 +76,9 @@ class _WpHomeState extends State<WpHome> {
                             });
                           },
                           child: Container(
+                            decoration: BoxDecoration(
+                              border: index == 0 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                            ),
                             alignment: Alignment.center,
                             child: Text(
                               "CHATS",
@@ -94,6 +97,9 @@ class _WpHomeState extends State<WpHome> {
                             });
                           },
                           child: Container(
+                            decoration: BoxDecoration(
+                                border: index == 1 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                            ),
                             alignment: Alignment.center,
                             child: Text(
                               "STATUS",
@@ -112,6 +118,9 @@ class _WpHomeState extends State<WpHome> {
                             });
                           },
                           child: Container(
+                            decoration: BoxDecoration(
+                                border: index == 2 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                            ),
                             alignment: Alignment.center,
                             child: Text(
                               "CALLS",
