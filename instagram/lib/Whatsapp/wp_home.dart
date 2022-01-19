@@ -17,6 +17,7 @@ class _WpHomeState extends State<WpHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFF0b1316),
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Color(0XFF171f25),
@@ -124,10 +125,10 @@ class _WpHomeState extends State<WpHome> {
                       ],
                     ),
                   ),
-                  Expanded(child: WpChat())
                 ],
               ),
-            )
+            ),
+            Expanded(child: pages[index])
           ],
         ),
       ),

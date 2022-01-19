@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:instagram/Whatsapp/wp_home.dart';
+import 'package:instagram/Whatsapp/wp_person_chat.dart';
 import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
@@ -32,7 +33,6 @@ import 'demos/downloading_screen.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
-import 'google pay/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +45,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: WpHome(),
+        home: WpPersonChat(),
         debugShowCheckedModeBanner: false,
       ),
     );
