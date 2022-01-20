@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class WpCalls{
+class WpCallsModel{
   String? img;
   String? name;
   IconData? rIcons;
   String? time;
   IconData? vIcons;
-  WpCalls({this.img,this.name,this.rIcons,this.time,this.vIcons});
+  WpCallsModel({this.img,this.name,this.rIcons,this.time,this.vIcons});
 }

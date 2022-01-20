@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/constants/wpcalls_list.dart';
+import 'package:instagram/models/wpcalls.dart';
+
 
 class WpCalls extends StatefulWidget {
   const WpCalls({Key? key}) : super(key: key);
@@ -12,14 +14,21 @@ class _WpCallsState extends State<WpCalls> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_call,color: Colors.white,),
+        backgroundColor: Color(0XFF128C7E),
+        onPressed: (){},
+      ),
       backgroundColor: Color(0XFF0b1316),
       body: Container(
         child: Column(
           children: [
             ListView.builder(
-              shrinkWrap: true,
+                shrinkWrap: true,
                 itemCount: WpCallsList.callsList.length,
                 itemBuilder: (context, index) {
+             WpCallsModel model=WpCallsList.callsList[index];
                   return Container(
                     margin: EdgeInsets.only(
                         bottom: MediaQuery.of(context).size.width * 0.02,
@@ -51,7 +60,7 @@ class _WpCallsState extends State<WpCalls> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      WpCallsList.callsList[index].name.toString(),
+                                      model.name.toString(),
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           color: Colors.white,
@@ -66,8 +75,8 @@ class _WpCallsState extends State<WpCalls> {
                                       children: [
                                         Container(
                                           child: Icon(
-                                            WpCallsList.callsList[index].rIcons,
-                                            color:  WpCallsList.callsList[index].rIcons == Icons.call_made ? Colors.green : Colors.red,
+                                            model.rIcons,
+                                            color:  model.rIcons == Icons.call_made ? Colors.green : Colors.red,
                                             size: 18,
                                           ),
                                         ),
@@ -76,7 +85,7 @@ class _WpCallsState extends State<WpCalls> {
                                         ),
                                         Container(
                                           child: Text(
-                                            WpCallsList.callsList[index].time.toString(),
+                                            model.time.toString(),
                                             style: TextStyle(
                                                 color: Color(0XFF5e696f),
                                                 fontSize: 15.5),
@@ -92,7 +101,7 @@ class _WpCallsState extends State<WpCalls> {
                         ),
                         Container(
                           child: Icon(
-                            WpCallsList.callsList[index].vIcons,
+                            model.vIcons,
                             color: Color(0XFF128C7E),
                           ),
                         )

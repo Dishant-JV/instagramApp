@@ -13,6 +13,33 @@ class _WpStatusState extends State<WpStatus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            height: 40,
+            width: 40,
+            child: FloatingActionButton(
+              onPressed: () {},
+              child: Icon(
+                Icons.edit,
+                color: Colors.white,
+              ),
+              backgroundColor:Color(0XFF171f25)
+            ),
+          ),
+          SizedBox(height: 8,),
+          FloatingActionButton(
+            onPressed: () {},
+            child: Icon(
+              Icons.camera_alt_rounded,
+              color: Colors.white,
+            ),
+            backgroundColor: Color(0XFF128C7E),
+          ),
+        ],
+      ),
       backgroundColor: Color(0XFF0b1316),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -99,8 +126,8 @@ class _WpStatusState extends State<WpStatus> {
                 ),
               ),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: WpRecentStatusList.recentStatusList.length,
                   itemBuilder: (context, index) {
                     WpRecentStatusModel model =
@@ -116,20 +143,22 @@ class _WpStatusState extends State<WpStatus> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            model.sImage.toString()),
+                                        image:
+                                            AssetImage(model.sImage.toString()),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                         color: Colors.black, width: 3)),
-                                height: MediaQuery.of(context).size.width * 0.138,
-                                width: MediaQuery.of(context).size.width * 0.138,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.138,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.138,
                               ),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.green,
-                                border:
-                                    Border.all(color: Colors.white10, width: 1.8),
+                                border: Border.all(
+                                    color: Colors.white10, width: 1.8),
                               ),
                               height: MediaQuery.of(context).size.width * 0.144,
                               width: MediaQuery.of(context).size.width * 0.144,
@@ -183,12 +212,12 @@ class _WpStatusState extends State<WpStatus> {
                 ),
               ),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: WpViewedStatusList.viewedStatusList.length,
                   itemBuilder: (context, index) {
                     WpViewedStatusModel model =
-                    WpViewedStatusList.viewedStatusList[index];
+                        WpViewedStatusList.viewedStatusList[index];
                     return Container(
                       margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.width * 0.05,
@@ -200,20 +229,22 @@ class _WpStatusState extends State<WpStatus> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            model.sImage.toString()),
+                                        image:
+                                            AssetImage(model.sImage.toString()),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                         color: Colors.black, width: 3)),
-                                height: MediaQuery.of(context).size.width * 0.138,
-                                width: MediaQuery.of(context).size.width * 0.138,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.138,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.138,
                               ),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.grey,
-                                border:
-                                Border.all(color: Colors.white10, width: 1.8),
+                                border: Border.all(
+                                    color: Colors.white10, width: 1.8),
                               ),
                               height: MediaQuery.of(context).size.width * 0.144,
                               width: MediaQuery.of(context).size.width * 0.144,
@@ -227,7 +258,7 @@ class _WpStatusState extends State<WpStatus> {
                               children: [
                                 Container(
                                   width:
-                                  MediaQuery.of(context).size.width * 0.745,
+                                      MediaQuery.of(context).size.width * 0.745,
                                   child: Text(
                                     model.name.toString(),
                                     style: TextStyle(
@@ -238,7 +269,7 @@ class _WpStatusState extends State<WpStatus> {
                                 ),
                                 SizedBox(
                                   height:
-                                  MediaQuery.of(context).size.width * 0.01,
+                                      MediaQuery.of(context).size.width * 0.01,
                                 ),
                                 Container(
                                   child: Text(
@@ -254,7 +285,6 @@ class _WpStatusState extends State<WpStatus> {
                       ),
                     );
                   }),
-
             ],
           ),
         ),

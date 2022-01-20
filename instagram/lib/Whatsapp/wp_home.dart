@@ -32,6 +32,7 @@ class _WpHomeState extends State<WpHome> {
               child: Column(
                 children: [
                   Container(
+                    // color: Colors.red,
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.width * 0.06,
                         left: MediaQuery.of(context).size.width * 0.04,
@@ -52,11 +53,27 @@ class _WpHomeState extends State<WpHome> {
                         Container(
                           child: Icon(Icons.search, color: Color(0XFF5e696f)),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.035),
-                          child:
-                              Icon(Icons.more_vert, color: Color(0XFF5e696f)),
+                        SizedBox(
+                          height: 24,
+                          width: 35,
+                          child: Container(
+                            // color: Colors.red,
+                            margin: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.035),
+                            child:
+                            PopupMenuButton(padding: EdgeInsets.all(0),
+                             color: Color(0XFF171f25),
+                             icon: Icon(Icons.more_vert, color: Color(0XFF5e696f)),
+                              itemBuilder: (context)=>[
+                                PopupMenuItem(child: Text("New Group",style: TextStyle(color: Colors.white),)),
+                                PopupMenuItem(child: Text("New broadcast",style: TextStyle(color: Colors.white))),
+                                PopupMenuItem(child: Text("Linked devices",style: TextStyle(color: Colors.white))),
+                                PopupMenuItem(child: Text("Starred message",style: TextStyle(color: Colors.white))),
+                                PopupMenuItem(child: Text("Payments",style: TextStyle(color: Colors.white))),
+                                PopupMenuItem(child: Text("Settings",style: TextStyle(color: Colors.white))),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
