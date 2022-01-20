@@ -4,13 +4,18 @@ import 'package:instagram/constants/wpperson_chat_list.dart';
 import 'package:instagram/models/wpperson_chat.dart';
 
 class WpPersonChat extends StatefulWidget {
-  const WpPersonChat({Key? key}) : super(key: key);
+  final String? name;
+  final String? img;
+  const WpPersonChat({Key? key,this.name,this.img}) : super(key: key);
 
   @override
   _WpPersonChatState createState() => _WpPersonChatState();
 }
 
 class _WpPersonChatState extends State<WpPersonChat> {
+  String _value="";
+  bool isEmpty=true;
+  TextEditingController getText=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,30 +25,38 @@ class _WpPersonChatState extends State<WpPersonChat> {
       ),
       backgroundColor: Colors.white,
       body: Container(
-        color: Color(0XFF015c4b),
+        decoration: BoxDecoration(
+            image: DecorationImage(fit: BoxFit.cover,image: NetworkImage("https://wallpaperaccess.com/full/2224368.png",),)
+        ),
+
         child: Column(
           children: [
             Container(
               height: MediaQuery.of(context).size.width * 0.145,
-              color: Color(0XFF171f25),
+               color: Color(0XFF171f25),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Row(
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.015),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
+                        InkWell(
+                          onTap: (){
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.015),
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                         Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("assets/images/demo3.jpg"),
+                                image: NetworkImage(widget.img.toString()),
                                 fit: BoxFit.cover),
                             shape: BoxShape.circle,
                           ),
@@ -59,7 +72,7 @@ class _WpPersonChatState extends State<WpPersonChat> {
                             children: [
                               Container(
                                 child: Text(
-                                  "Clg Smit Sheta",
+                                  widget.name.toString(),
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white,
@@ -116,7 +129,7 @@ class _WpPersonChatState extends State<WpPersonChat> {
                 reverse: true,
                 scrollDirection: Axis.vertical,
                 child: Container(
-                    color: Color(0XFF015c4b),
+                    // color: Color(0XFF015c4b),
                     child: Container(
                       child: ListView.builder(
                          physics: NeverScrollableScrollPhysics(),
@@ -125,12 +138,12 @@ class _WpPersonChatState extends State<WpPersonChat> {
                           itemBuilder: (context, index) {
                             WpPersonChatModel model=WpPersonChatList.personChatList[index];
                             return Container(
-                              margin: EdgeInsets.only(bottom: 5,top: 10,left: model.id == 1 ? 10 : 0,right: model.id == 2 ? 10 : 0),
+                              margin: EdgeInsets.only(bottom: 5 ,top: 10,left: model.id == 1 ? 10 : 0,right: model.id == 2 ? 10 : 0),
                               alignment: model.id ==1 ? Alignment.centerLeft : Alignment.centerRight,
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: model.id == 1 ? Color(0XFF171f25) :Colors.green,
+                                  color: model.id == 1 ? Color(0XFF171f25) :Color(0XFF075E54),
                                 ),
                                 padding: EdgeInsets.symmetric(horizontal: 12,vertical: 8),
                                 child: Text(model.chat.toString(),style: TextStyle(fontSize: 17,color: Colors.white),),
@@ -141,7 +154,7 @@ class _WpPersonChatState extends State<WpPersonChat> {
               ),
             ),
             Container(
-              color: Color(0XFF015c4b),
+
               margin: EdgeInsets.only(
                   bottom: MediaQuery.of(context).size.width * 0.011),
               child: Row(
@@ -154,16 +167,34 @@ class _WpPersonChatState extends State<WpPersonChat> {
                       height: MediaQuery.of(context).size.width * 0.119,
                       child: Form(
                         child: TextFormField(
+                          onChanged: (value){
+                            setState(() {
+                              getText.text.isEmpty== true ? isEmpty=true : isEmpty=false;
+                            });
+                          },
+                          controller: getText,
+                          onFieldSubmitted: (value){
+                            setState(() {
+                              _value=value;
+                              WpPersonChatList.personChatList.add(WpPersonChatModel(id: 2,chat: _value));
+                              getText.clear();
+                            });
+                          },
+                          cursorColor: Color(0XFF075E54),
+
+                          cursorHeight: 20,
                           showCursor: true,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(top: 2),
+                            suffixIcon: Icon(Icons.camera_alt,color: Colors.white54,),
                               prefixIcon: Icon(
                                 Icons.search_sharp,
                                 color: Colors.white54,
                               ),
                               hintText: "Message",
                               hintStyle: TextStyle(
-                                  color: Colors.white54, fontSize: 13),
+                                  color: Colors.white54, fontSize: 17),
                               filled: true,
                               fillColor: Color(0XFF0b1316),
                               focusedBorder: OutlineInputBorder(
@@ -176,7 +207,7 @@ class _WpPersonChatState extends State<WpPersonChat> {
                       ),
                     ),
                   ),
-                  Container(
+                  isEmpty== true ?Container(
                     margin: EdgeInsets.only(
                         right: MediaQuery.of(context).size.width * 0.008),
                     child: Icon(
@@ -186,7 +217,29 @@ class _WpPersonChatState extends State<WpPersonChat> {
                     height: MediaQuery.of(context).size.width * 0.118,
                     width: MediaQuery.of(context).size.width * 0.118,
                     decoration: BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle),
+                        color: Color(0XFF128C7E), shape: BoxShape.circle),
+                  ):InkWell(
+                    onTap: (){
+                      setState(() {
+                        _value=getText.text.toString();
+                        if(_value.isNotEmpty){
+                          WpPersonChatList.personChatList.add(WpPersonChatModel(id: 2,chat: _value));
+                        }
+                        getText.clear();
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          right: MediaQuery.of(context).size.width * 0.008),
+                      child: Icon(
+                        Icons.send,
+                        color: Colors.white,
+                      ),
+                      height: MediaQuery.of(context).size.width * 0.118,
+                      width: MediaQuery.of(context).size.width * 0.118,
+                      decoration: BoxDecoration(
+                          color: Color(0XFF128C7E), shape: BoxShape.circle),
+                    ),
                   )
                 ],
               ),

@@ -18,7 +18,7 @@ class _WpChatState extends State<WpChat> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
        child: Icon(Icons.chat,color: Colors.white,),
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0XFF128C7E),
         onPressed: (){},
       ),
       backgroundColor: Color(0XFF0b1316),
@@ -36,7 +36,7 @@ class _WpChatState extends State<WpChat> {
                     WpChatModel model = ChatList.chatList[index];
                     return InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>WpPersonChat()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>WpPersonChat(name:model.name,img: model.pImage,)));
                       },
                       child: Container(
                         margin: EdgeInsets.only(

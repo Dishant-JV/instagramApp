@@ -77,13 +77,13 @@ class _WpHomeState extends State<WpHome> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              border: index == 0 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                              border: index == 0 ? Border(bottom: BorderSide(color: Color(0XFF128C7E),width: 3)) :Border(bottom: BorderSide(color: Color(0XFF171f25)))
                             ),
                             alignment: Alignment.center,
                             child: Text(
                               "CHATS",
                               style: TextStyle(
-                                  color: Color(0XFF5e696f),
+                                  color: index == 0 ? Color(0XFF128C7E) : Color(0XFF5e696f),
                                   fontSize: 15,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -98,13 +98,13 @@ class _WpHomeState extends State<WpHome> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                border: index == 1 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                                border: index == 1 ? Border(bottom: BorderSide(color:Color(0XFF128C7E),width: 3)) :Border(bottom: BorderSide(color: Color(0XFF171f25)))
                             ),
                             alignment: Alignment.center,
                             child: Text(
                               "STATUS",
                               style: TextStyle(
-                                  color: Color(0XFF5e696f),
+                                  color: index == 1 ? Color(0XFF128C7E) : Color(0XFF5e696f),
                                   fontSize: 15,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -119,13 +119,13 @@ class _WpHomeState extends State<WpHome> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                border: index == 2 ? Border(bottom: BorderSide(color: Colors.green,width: 2)) :Border()
+                                border: index == 2 ? Border(bottom: BorderSide(color: Color(0XFF128C7E),width: 3)) :Border(bottom: BorderSide(color: Color(0XFF171f25)))
                             ),
                             alignment: Alignment.center,
                             child: Text(
                               "CALLS",
                               style: TextStyle(
-                                  color: Color(0XFF5e696f),
+                                  color: index == 2 ? Color(0XFF128C7E) : Color(0XFF5e696f),
                                   fontSize: 15,
                                   fontWeight: FontWeight.w700),
                             ),
