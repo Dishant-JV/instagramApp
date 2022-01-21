@@ -45,7 +45,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: Insta(),
+        home: WpHome(),
         debugShowCheckedModeBanner: false,
       ),
     );

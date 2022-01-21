@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/Whatsapp/wpstatus_img.dart';
 import 'package:instagram/constants/wpstatuslist.dart';
 import 'package:instagram/models/wpstatusmodel.dart';
 
 class WpStatus extends StatefulWidget {
-  const WpStatus({Key? key}) : super(key: key);
+
+  const WpStatus({Key? key,}) : super(key: key);
 
   @override
   _WpStatusState createState() => _WpStatusState();
@@ -132,70 +134,79 @@ class _WpStatusState extends State<WpStatus> {
                   itemBuilder: (context, index) {
                     WpRecentStatusModel model =
                         WpRecentStatusList.recentStatusList[index];
-                    return Container(
-                      margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Container(
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>WpStatusImg(
+                          img: model.sImage,
+                          time: model.time,
+                          name: model.name,
+                        )));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
                               child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image:
-                                            AssetImage(model.sImage.toString()),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height:
-                                    MediaQuery.of(context).size.width * 0.138,
-                                width:
-                                    MediaQuery.of(context).size.width * 0.138,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.green,
-                                border: Border.all(
-                                    color: Colors.white10, width: 1.8),
-                              ),
-                              height: MediaQuery.of(context).size.width * 0.144,
-                              width: MediaQuery.of(context).size.width * 0.144,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.03),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.745,
-                                  child: Text(
-                                    model.name.toString(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white,
-                                        fontSize: 16.5),
-                                  ),
-                                ),
-                                SizedBox(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage(model.sImage.toString()),
+                                          fit: BoxFit.cover),
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.black, width: 3)),
                                   height:
-                                      MediaQuery.of(context).size.width * 0.01,
+                                      MediaQuery.of(context).size.width * 0.138,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.138,
                                 ),
-                                Container(
-                                  child: Text(
-                                    model.time.toString(),
-                                    style: TextStyle(
-                                        color: Color(0XFF5e696f), fontSize: 15),
-                                  ),
-                                )
-                              ],
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.green,
+                                  border: Border.all(
+                                      color: Colors.white10, width: 1.8),
+                                ),
+                                height: MediaQuery.of(context).size.width * 0.144,
+                                width: MediaQuery.of(context).size.width * 0.144,
+                              ),
                             ),
-                          )
-                        ],
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * 0.03),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.745,
+                                    child: Text(
+                                      model.name.toString(),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                          fontSize: 16.5),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.width * 0.01,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      model.time.toString(),
+                                      style: TextStyle(
+                                          color: Color(0XFF5e696f), fontSize: 15),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),
@@ -218,70 +229,79 @@ class _WpStatusState extends State<WpStatus> {
                   itemBuilder: (context, index) {
                     WpViewedStatusModel model =
                         WpViewedStatusList.viewedStatusList[index];
-                    return Container(
-                      margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Container(
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>WpStatusImg(
+                          img: model.sImage,
+                          time: model.time,
+                          name: model.name,
+                        )));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
                               child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image:
-                                            AssetImage(model.sImage.toString()),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.black, width: 3)),
-                                height:
-                                    MediaQuery.of(context).size.width * 0.138,
-                                width:
-                                    MediaQuery.of(context).size.width * 0.138,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                                border: Border.all(
-                                    color: Colors.white10, width: 1.8),
-                              ),
-                              height: MediaQuery.of(context).size.width * 0.144,
-                              width: MediaQuery.of(context).size.width * 0.144,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.03),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.745,
-                                  child: Text(
-                                    model.name.toString(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white,
-                                        fontSize: 16.5),
-                                  ),
-                                ),
-                                SizedBox(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage(model.sImage.toString()),
+                                          fit: BoxFit.cover),
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.black, width: 3)),
                                   height:
-                                      MediaQuery.of(context).size.width * 0.01,
+                                      MediaQuery.of(context).size.width * 0.138,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.138,
                                 ),
-                                Container(
-                                  child: Text(
-                                    model.time.toString(),
-                                    style: TextStyle(
-                                        color: Color(0XFF5e696f), fontSize: 15),
-                                  ),
-                                )
-                              ],
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey,
+                                  border: Border.all(
+                                      color: Colors.white10, width: 1.8),
+                                ),
+                                height: MediaQuery.of(context).size.width * 0.144,
+                                width: MediaQuery.of(context).size.width * 0.144,
+                              ),
                             ),
-                          )
-                        ],
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * 0.03),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.745,
+                                    child: Text(
+                                      model.name.toString(),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                          fontSize: 16.5),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.width * 0.01,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      model.time.toString(),
+                                      style: TextStyle(
+                                          color: Color(0XFF5e696f), fontSize: 15),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),
