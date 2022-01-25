@@ -15,7 +15,7 @@ class WpStatusImg extends StatefulWidget {
 }
 
 class _WpStatusImgState extends State<WpStatusImg> {
-  double press = 0;
+  // double press = 0;
   Timer? timer;
   double _value = 0;
 
@@ -56,13 +56,11 @@ class _WpStatusImgState extends State<WpStatusImg> {
       onLongPress: () {
         setState(() {
           timer?.cancel();
+          print(_value);
         });
       },
       onLongPressEnd: (details) {
         startTimer(_value);
-      },
-      onLongPressUp: () {
-        setState(() {});
       },
       child: SafeArea(
         child: Scaffold(
@@ -75,7 +73,7 @@ class _WpStatusImgState extends State<WpStatusImg> {
               LinearProgressIndicator(
                   minHeight: 2,
                   backgroundColor: Colors.grey,
-                  value: (_value) / 15,
+                  value: (_value)/15,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
               Container(
                 margin: EdgeInsets.only(top: 5),
@@ -177,10 +175,10 @@ class _WpStatusImgState extends State<WpStatusImg> {
   }
 
   void startTimer(double value) {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (_value < 15) {
+    timer = Timer.periodic(Duration(seconds:1), (timer) {
+      if (_value <15) {
         setState(() {
-          _value = _value + 1;
+          _value = _value +1;
         });
       } else {
         Navigator.maybePop(context);
