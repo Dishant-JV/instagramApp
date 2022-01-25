@@ -73,7 +73,7 @@ class _WpStatusImgState extends State<WpStatusImg> {
               LinearProgressIndicator(
                   minHeight: 2,
                   backgroundColor: Colors.grey,
-                  value: (_value)/15,
+                  value: (_value),
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
               Container(
                 margin: EdgeInsets.only(top: 5),
@@ -175,10 +175,10 @@ class _WpStatusImgState extends State<WpStatusImg> {
   }
 
   void startTimer(double value) {
-    timer = Timer.periodic(Duration(seconds:1), (timer) {
-      if (_value <15) {
+    timer = Timer.periodic(Duration(milliseconds:10), (timer) {
+      if (_value <1) {
         setState(() {
-          _value = _value +1;
+          _value = _value+0.00067;
         });
       } else {
         Navigator.maybePop(context);
