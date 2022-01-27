@@ -5,6 +5,7 @@ import 'package:instagram/Whatsapp/wp_person_chat.dart';
 import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
+import 'package:instagram/demos/pageview_demo.dart';
 import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: WpHome(),
+        home: PageViewDemo(),
         debugShowCheckedModeBanner: false,
       ),
     );

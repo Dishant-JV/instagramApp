@@ -11,8 +11,8 @@ class WpHome extends StatefulWidget {
 }
 
 class _WpHomeState extends State<WpHome> {
-  List<Widget> pages = [WpChat(), WpStatus(), WpCalls()];
-  int index = 0;
+  PageController pageController=PageController();
+  int index =0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +32,10 @@ class _WpHomeState extends State<WpHome> {
               child: Column(
                 children: [
                   Container(
-                    // color: Colors.red,
+                    height:MediaQuery.of(context).size.width * 0.15,
+                     // color: Colors.red,
                     margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.width * 0.06,
+
                         left: MediaQuery.of(context).size.width * 0.04,
                         right: MediaQuery.of(context).size.width * 0.04),
                     child: Row(
@@ -79,8 +80,6 @@ class _WpHomeState extends State<WpHome> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.width * 0.0288),
                     height: MediaQuery.of(context).size.width * 0.12,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -89,7 +88,7 @@ class _WpHomeState extends State<WpHome> {
                             child: InkWell(
                           onTap: () {
                             setState(() {
-                              index = 0;
+                              pageController.animateToPage(0, duration: Duration(milliseconds: 20), curve:Curves.easeOut);
                             });
                           },
                           child: Container(
@@ -110,7 +109,7 @@ class _WpHomeState extends State<WpHome> {
                             child: InkWell(
                           onTap: () {
                             setState(() {
-                              index = 1;
+                              pageController.animateToPage(1, duration: Duration(milliseconds: 20), curve:Curves.easeOut);
                             });
                           },
                           child: Container(
@@ -131,7 +130,7 @@ class _WpHomeState extends State<WpHome> {
                             child: InkWell(
                           onTap: () {
                             setState(() {
-                              index = 2;
+                              pageController.animateToPage(2, duration: Duration(milliseconds: 20), curve:Curves.easeOut);
                             });
                           },
                           child: Container(
@@ -154,7 +153,22 @@ class _WpHomeState extends State<WpHome> {
                 ],
               ),
             ),
-            Expanded(child: pages[index])
+            Expanded(
+              child: PageView(
+                controller: pageController,
+                onPageChanged: (value){
+                  setState(() {
+                    index=value;
+                  });
+                },
+                children: [
+                  WpChat(),
+                  WpStatus(),
+                  WpCalls()
+                  // Expanded(child: pages[index])
+                ],
+              ),
+            )
           ],
         ),
       ),

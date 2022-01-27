@@ -56,7 +56,6 @@ class _WpStatusImgState extends State<WpStatusImg> {
       onLongPress: () {
         setState(() {
           timer?.cancel();
-          print(_value);
         });
       },
       onLongPressEnd: (details) {
