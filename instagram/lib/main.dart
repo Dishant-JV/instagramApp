@@ -6,8 +6,8 @@ import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
 import 'package:instagram/demos/pageview_demo.dart';
+import 'package:instagram/demos/pageview_demo2.dart';
 import 'package:instagram/utils/globals.dart' as globals;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram/chat_screen.dart';
@@ -31,10 +31,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
-import 'demos/pageview_demo2.dart';
+import 'demos/dropdown_button_demo.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +46,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: PageViewDemo2(),
+        home: DropdownButtonDemo(),
         debugShowCheckedModeBanner: false,
       ),
     );
