@@ -34,7 +34,12 @@ dependencies:
   path_provider: ^2.0.8
   permission_handler: ^8.3.0
   flutter_downloader: ^1.7.1
+  dots_indicator: ^2.0.0
+  lottie: ^1.2.1
   cached_network_image: ^3.2.0
+
+
+
 
 dev_dependencies:
   flutter_test:

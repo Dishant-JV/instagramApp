@@ -1,5 +1,9 @@
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+import '../main.dart';
 
 class PageViewDemo2 extends StatefulWidget {
   const PageViewDemo2({Key? key}) : super(key: key);
@@ -9,19 +13,21 @@ class PageViewDemo2 extends StatefulWidget {
 }
 
 class _PageViewDemo2State extends State<PageViewDemo2> {
-  List<IconData> img = [
-    Icons.motion_photos_pause,
-    Icons.map,
-    Icons.favorite,
-    Icons.more
+  List<String> img = [
+    "assets/images/lotti1.json",
+    "assets/images/lotti2.json",
+    "assets/images/lotti3.json",
+    "assets/images/lotti4.json",
+    "assets/images/letsgo.json",
   ];
-  List<String> content = ["Dishant", "Rakesh", "Piyush", "Ayushi"];
+  List<String> content = ["Dishant", "Rakesh", "Piyush", "Ayushi","Finish"];
   PageController controller = PageController();
   int curIndex=0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow.shade100,
       body: Container(
           child: Column(
         children: [
@@ -34,6 +40,7 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
+                    color: Colors.yellow.shade100,
                     width: MediaQuery.of(context).size.width*0.2,
                   ),
                   Container(
@@ -46,7 +53,7 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
               Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),),
+                        bottomLeft: Radius.circular(60),),
                     color: Colors.yellow,
                   ),
                   height: MediaQuery.of(context).size.height * 0.6,
@@ -55,13 +62,13 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
                   ),
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.red,
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(50))
+                    color:Colors.yellow.shade100,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(60))
                 ),
 
-                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.65),
+                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.6),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height*0.3,
+                height: MediaQuery.of(context).size.height*0.32,
               ),
               Container(
                  // color: Colors.pink,
@@ -76,9 +83,15 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.1),
-                        child: Icon(img[index],size: 200,),
+                      Container(
+                        height:curIndex==4 ? MediaQuery.of(context).size.height*0.3 : MediaQuery.of(context).size.height*0.4,
+                        child: Container(
+                          margin: curIndex==4 ? EdgeInsets.only(top: 120):null,
+                          child: Padding(
+                            padding:  EdgeInsets.only(top: curIndex== 4 ? MediaQuery.of(context).size.height*0.05 :MediaQuery.of(context).size.height*0.1),
+                            child: Lottie.asset(img[curIndex],fit: BoxFit.cover)
+                          ),
+                        ),
                       ),
                       Text(content[index],style: TextStyle(fontWeight: FontWeight.w700,fontSize: 29),)
                     ],
@@ -87,7 +100,7 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
               ),
             ],
           ),
-          Row(
+         curIndex!=4 ? Row(
             children: [
               InkWell(
                   onTap: (){
@@ -98,7 +111,7 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
                   child: Padding(padding: EdgeInsets.only(left: 10),child: Icon(Icons.arrow_back,size: 28,))),
               Expanded(
                 child: DotsIndicator(
-                  dotsCount: content.length,
+                  dotsCount: 4,
                   position: curIndex.toDouble(),
                   onTap: (value){
                     setState(() {
@@ -126,7 +139,16 @@ class _PageViewDemo2State extends State<PageViewDemo2> {
                 ),
               ),
             ],
-          )
+          ) : InkWell(
+           onTap: (){
+             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Insta()));
+           },
+            child: Container(
+             height: 55,
+             width: 55,
+             child: Lottie.asset("assets/images/next.json",fit: BoxFit.fill)
+         ),
+         )
         ],
       )),
     );
