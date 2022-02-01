@@ -4,7 +4,8 @@
 //   SharedPreferences pref = await SharedPreferences.getInstance();
 //   imggs=pref.getString('imagePath')!;
 // }
-class Globals{
+import 'package:flutter/cupertino.dart';
+
+class Globals {
   static String? pImage;
-  static int? indexS;
 }

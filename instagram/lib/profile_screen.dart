@@ -20,7 +20,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String ?profileImage;
+  final image = ValueNotifier<String>(Globals.pImage ?? "");
+  String? profileImage;
   final itemKey = GlobalKey();
 
   Future scrollToItem() async {
@@ -37,6 +38,7 @@ class _ProfileState extends State<Profile> {
   }
 
   int currentindex = 0;
+  List change = [Globals.pImage];
 
   @override
   Widget build(BuildContext context) {
@@ -246,12 +248,18 @@ class _ProfileState extends State<Profile> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Container(
-                              height: 85,
-                              width: 85,
-                              child: CircleAvatar(
-                                backgroundImage: FileImage(File(Globals.pImage??"")),
-                              ),
+                            ValueListenableBuilder(
+                              valueListenable: image,
+                              builder: (BuildContext context, String value, Widget? child) {
+                                return Container(
+                                  height: 85,
+                                  width: 85,
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                    FileImage(File(value)),
+                                  ),
+                                );
+                              },
                             ),
                             InkWell(
                               onTap: () {
