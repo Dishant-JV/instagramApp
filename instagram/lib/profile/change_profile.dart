@@ -1,9 +1,12 @@
 import 'dart:io';
-import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram/profile_screen.dart';
+import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../home_screen.dart';
+import '../main.dart';
 
 class Changeprofile extends StatefulWidget {
   //late final String ?ids;
@@ -17,23 +20,23 @@ class Changeprofile extends StatefulWidget {
 class _ChangeprofileState extends State<Changeprofile> {
   final pickers = ImagePicker();
 
-  void saveImage(path) async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    setState(() {
-      pref.setString('imagePath',path);
-    });
-  }
-  void loadImage()async{
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    setState(() {
-      globals.imggs=pref.getString('imagePath');
-    });
-  }
+  // void saveImage(path) async {
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     pref.setString('imagePath',path);
+  //   });
+  // }
+  // void loadImage()async{
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     globals.imggs=pref.getString('imagePath');
+  //   });
+  // }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadImage();
+    // loadImage();
   }
 
   @override
@@ -80,11 +83,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                     ),
                     InkWell(
                       onTap: () {
-                        saveImage(globals.imggs);
-                        Navigator.pop(context,
-                            MaterialPageRoute(builder: (context) => Profile(
-                              ids: "hello",
-                            )));
+                        Navigator.pop(context);
                       },
                       child: Container(
                         margin: EdgeInsets.only(right: 15),
@@ -111,7 +110,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                   height: 95,
                   width: 95,
                   child: CircleAvatar(
-                    backgroundImage: FileImage(File(globals.imggs ?? "")),
+                    backgroundImage: FileImage(File(Globals.pImage??""))
                   )
                   // margin: EdgeInsets.only(left: 10),
                   ),
@@ -268,8 +267,9 @@ class _ChangeprofileState extends State<Changeprofile> {
   _openCamera(BuildContext context) async {
     var picture = await pickers.pickImage(source: ImageSource.gallery);
     setState(() {
-      picture!.path!= null ? globals.imggs=picture.path : loadImage();
+      // picture!.path!= null ? globals.imggs=picture.path : loadImage();
       //imgg = picture?.path;
+      Globals.pImage=picture!.path;
     });
   }
 }

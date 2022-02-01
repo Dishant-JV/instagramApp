@@ -4,6 +4,7 @@ import 'package:instagram/demos/slider_demo_screen.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/show_image.dart';
+import 'package:instagram/utils/globals.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
@@ -11,7 +12,6 @@ import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:io';
-import 'package:instagram/utils/globals.dart' as globals;
 import 'models/insta_post.dart';
 
 class Home extends StatefulWidget {
@@ -171,8 +171,8 @@ class _HomeState extends State<Home> {
                                                       EdgeInsets.only(left: 10),
                                                   child: CircleAvatar(
                                                     backgroundImage: FileImage(
-                                                        File(globals.imggs ??
-                                                            "")),
+                                                        File(Globals.pImage??""
+                                                            )),
                                                   ),
                                                 ),
                                                 Container(
@@ -619,9 +619,8 @@ class _HomeState extends State<Home> {
                                                             BoxDecoration(
                                                           image: DecorationImage(
                                                               image: FileImage(
-                                                                  File(globals
-                                                                          .imggs ??
-                                                                      "")),
+                                                                  File(Globals.pImage??""
+                                                                      )),
                                                               fit:
                                                                   BoxFit.cover),
                                                           shape:

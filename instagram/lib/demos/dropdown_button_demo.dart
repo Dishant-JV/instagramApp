@@ -9,19 +9,54 @@ class DropdownButtonDemo extends StatefulWidget {
 }
 
 class _DropdownButtonDemoState extends State<DropdownButtonDemo> {
-  List nameList = ["dishant", "rajnik", "Denyy", "Fenil"];
+  List nameList = [
+    {'label':'apple'},
+    {'label':'banana'},
+    {'label':'kiwi'},
+    {'label':'grape'},
+    {'label':'mkm',},
+    {'label':'plp',},
+  ];
   String? selectedValue;
-
+  List get=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child:CoolDropdown(
+            dropdownBD :BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.pink.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: Offset(0, 1),
+                ),
+              ],
+            ),
+          resultPadding:  EdgeInsets.only(left: 15, right: 15),
+         resultTS: TextStyle(color: Colors.blue,fontSize: 22),
+          resultBD: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.pink.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          gap:20,
+           dropdownItemAlign: Alignment.bottomCenter,
+          placeholder: "select",
           dropdownList: nameList,
-          onChange: (value){
-            setState(() {
-              selectedValue=value;
-            });
+          onChange: (a){
+            get.add(a);
+            print(get);
           },
         )
         // child: Container(

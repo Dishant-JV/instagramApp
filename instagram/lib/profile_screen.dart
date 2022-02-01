@@ -9,12 +9,10 @@ import 'package:instagram/show_image.dart';
 import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
-import 'package:instagram/utils/globals.dart' as globals;
 
 class Profile extends StatefulWidget {
-  final String ?ids;
   const Profile({
-    Key? key, this.ids,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -35,6 +33,7 @@ class _ProfileState extends State<Profile> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    print("profile page called");
   }
 
   int currentindex = 0;
@@ -251,12 +250,11 @@ class _ProfileState extends State<Profile> {
                               height: 85,
                               width: 85,
                               child: CircleAvatar(
-                                backgroundImage: FileImage(File(globals.imggs ?? "")),
+                                backgroundImage: FileImage(File(Globals.pImage??"")),
                               ),
                             ),
                             InkWell(
                               onTap: () {
-                                print(globals.imggs);
                                 scrollToItem();
                               },
                               child: Container(

@@ -7,7 +7,6 @@ import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
 import 'package:instagram/demos/pageview_demo.dart';
 import 'package:instagram/demos/pageview_demo2.dart';
-import 'package:instagram/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram/chat_screen.dart';
@@ -27,6 +26,7 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/splash_screen.dart';
+import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
@@ -46,7 +46,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       MaterialApp(
-        home: DropdownButtonDemo(),
+        home: Insta(),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -75,7 +75,6 @@ class _InstaState extends State<Insta> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    globals.loadImage();
   }
 
   @override
@@ -90,7 +89,7 @@ class _InstaState extends State<Insta> {
         child: Column(
           children: [
             Expanded(
-              child: pageList[currentIndex],
+              child:pageList[currentIndex]
             ),
             MediaQuery.of(context).viewInsets.bottom <= 0
                 ? Container(
@@ -177,7 +176,7 @@ class _InstaState extends State<Insta> {
                                         color: Colors.white, width: 2.5),
                                     image: DecorationImage(
                                         image: FileImage(
-                                            File(globals.imggs ?? "")),
+                                            File(Globals.pImage??"")),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                   ),
@@ -188,7 +187,7 @@ class _InstaState extends State<Insta> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: FileImage(
-                                            File(globals.imggs ?? "")),
+                                            File(Globals.pImage??"")),
                                         fit: BoxFit.cover),
                                     shape: BoxShape.circle,
                                   ),
