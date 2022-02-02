@@ -19,7 +19,6 @@ class Changeprofile extends StatefulWidget {
 
 class _ChangeprofileState extends State<Changeprofile> {
   final pickers = ImagePicker();
-
   // void saveImage(path) async {
   //   SharedPreferences pref = await SharedPreferences.getInstance();
   //   setState(() {

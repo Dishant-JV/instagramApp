@@ -13,6 +13,7 @@ import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:io';
 import 'models/insta_post.dart';
+import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -99,11 +100,12 @@ class _HomeState extends State<Home> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      SwipeablePageRoute(
-                                          builder: (BuildContext context) =>
-                                              Chat()));
+                                  Get.to(Chat());
+                                  // Navigator.push(
+                                  //     context,
+                                  //     SwipeablePageRoute(
+                                  //         builder: (BuildContext context) =>
+                                  //             Chat()));
                                 },
                                 child: Container(
                                     height: 26,
