@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:instagram/profile/change_profile.dart';
 import 'package:instagram/profile/mprofile.dart';
 import 'package:instagram/profile/profile_followers.dart';
 import 'package:instagram/profile/setting.dart';
 import 'package:instagram/profile/tprofile.dart';
 import 'package:instagram/show_image.dart';
-import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
@@ -20,7 +22,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final image = ValueNotifier<String>(Globals.pImage ?? "");
+  UpdatePhoto updatePhoto = Get.find();
   String? profileImage;
   final itemKey = GlobalKey();
 
@@ -30,15 +32,7 @@ class _ProfileState extends State<Profile> {
         alignment: 0, duration: Duration(seconds: 1));
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    print("profile page called");
-  }
-
   int currentindex = 0;
-  List change = [Globals.pImage];
 
   @override
   Widget build(BuildContext context) {
@@ -248,18 +242,15 @@ class _ProfileState extends State<Profile> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            ValueListenableBuilder(
-                              valueListenable: image,
-                              builder: (BuildContext context, String value, Widget? child) {
-                                return Container(
-                                  height: 85,
-                                  width: 85,
-                                  child: CircleAvatar(
-                                    backgroundImage:
-                                    FileImage(File(value)),
-                                  ),
-                                );
-                              },
+                            Obx(
+                              () => Container(
+                                height: 85,
+                                width: 85,
+                                child: CircleAvatar(
+                                  backgroundImage: FileImage(
+                                      File(updatePhoto.photo.value.toString())),
+                                ),
+                              ),
                             ),
                             InkWell(
                               onTap: () {

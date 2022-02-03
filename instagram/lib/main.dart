@@ -1,9 +1,13 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:instagram/Whatsapp/wp_home.dart';
 import 'package:instagram/Whatsapp/wp_person_chat.dart';
 import 'package:instagram/demos/dialog_demo.dart';
+import 'package:instagram/demos/get_counter.dart';
 import 'package:instagram/demos/listview_demo.dart';
 import 'package:instagram/demos/model_demo.dart';
 import 'package:instagram/demos/pageview_demo.dart';
@@ -27,7 +31,6 @@ import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/splash_screen.dart';
-import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
@@ -62,6 +65,7 @@ class Insta extends StatefulWidget {
 }
 
 class _InstaState extends State<Insta> {
+  UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
   String? profileImage;
   List<Widget> pageList = [
     Home(),
@@ -89,9 +93,7 @@ class _InstaState extends State<Insta> {
       body: Container(
         child: Column(
           children: [
-            Expanded(
-              child:pageList[currentIndex]
-            ),
+            Expanded(child: pageList[currentIndex]),
             MediaQuery.of(context).viewInsets.bottom <= 0
                 ? Container(
                     height: 48,
@@ -171,30 +173,32 @@ class _InstaState extends State<Insta> {
                             });
                           },
                           child: currentIndex == 4
-                              ? Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 2.5),
-                                    image: DecorationImage(
-                                        image: FileImage(
-                                            File(Globals.pImage??"")),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 30,
-                                  width: 30,
-                                )
-                              : Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: FileImage(
-                                            File(Globals.pImage??"")),
-                                        fit: BoxFit.cover),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 30,
-                                  width: 30,
-                                ),
+                              ? Obx(() => Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.white, width: 2.5),
+                                      image: DecorationImage(
+                                          image: FileImage(File(updatePhoto
+                                              .photo.value
+                                              .toString())),
+                                          fit: BoxFit.cover),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    height: 30,
+                                    width: 30,
+                                  ))
+                              : Obx(() => Container(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: FileImage(File(updatePhoto
+                                              .photo.value
+                                              .toString())),
+                                          fit: BoxFit.cover),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    height: 30,
+                                    width: 30,
+                                  )),
                         ),
                       ],
                     ),

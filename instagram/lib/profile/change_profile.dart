@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram/profile_screen.dart';
-import 'package:instagram/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home_screen.dart';
@@ -12,13 +12,14 @@ class Changeprofile extends StatefulWidget {
   //late final String ?ids;
   const Changeprofile({Key? key}) : super(key: key);
 
-
   @override
   _ChangeprofileState createState() => _ChangeprofileState();
 }
 
 class _ChangeprofileState extends State<Changeprofile> {
+  UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
   final pickers = ImagePicker();
+
   // void saveImage(path) async {
   //   SharedPreferences pref = await SharedPreferences.getInstance();
   //   setState(() {
@@ -56,8 +57,7 @@ class _ChangeprofileState extends State<Changeprofile> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.pop(
-                                  context,'dishant');
+                              Navigator.pop(context, 'dishant');
                             },
                             child: Container(
                               child: Icon(
@@ -98,21 +98,16 @@ class _ChangeprofileState extends State<Changeprofile> {
               ),
               Container(
                   margin: EdgeInsets.only(left: 150, top: 20),
-                  // decoration: BoxDecoration(
-                  //   image: DecorationImage(
-                  //       image: NetworkImage(
-                  //         "https://img.indiaforums.com/person/640x480/1/0280-jannat-zubair-rahmani.jpg?c=5kU096",
-                  //       ),
-                  //       fit: BoxFit.cover),
-                  //   shape: BoxShape.circle,
-                  // ),
                   height: 95,
                   width: 95,
-                  child: CircleAvatar(
-                    backgroundImage: FileImage(File(Globals.pImage??""))
-                  )
-                  // margin: EdgeInsets.only(left: 10),
+                  child: GetBuilder<UpdatePhoto>(
+                    builder: (e){
+                      return CircleAvatar(
+                          backgroundImage: FileImage(
+                              File(e.photo.value)));
+                    },
                   ),
+              ),
               InkWell(
                 onTap: () {
                   _openCamera(context);
@@ -265,10 +260,10 @@ class _ChangeprofileState extends State<Changeprofile> {
 
   _openCamera(BuildContext context) async {
     var picture = await pickers.pickImage(source: ImageSource.gallery);
-    setState(() {
-      // picture!.path!= null ? globals.imggs=picture.path : loadImage();
-      //imgg = picture?.path;
-      Globals.pImage=picture!.path;
-    });
+    updatePhoto.photo.value = picture!.path;
   }
+}
+
+class UpdatePhoto extends GetxController {
+  final photo = ''.obs;
 }
