@@ -36,6 +36,7 @@ import 'activity_screen.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
 import 'demos/dropdown_button_demo.dart';
+import 'demos/gridview_demo.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
@@ -50,7 +51,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       GetMaterialApp(
-        home: Insta(),
+        home: GridViewDemo(),
         debugShowCheckedModeBanner: false,
       ),
     );
