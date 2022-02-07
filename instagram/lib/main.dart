@@ -51,7 +51,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       GetMaterialApp(
-        home: GridViewDemo(),
+        home: DownloadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
