@@ -20,23 +20,10 @@ class _ChangeprofileState extends State<Changeprofile> {
   UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
   final pickers = ImagePicker();
 
-  // void saveImage(path) async {
-  //   SharedPreferences pref = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     pref.setString('imagePath',path);
-  //   });
-  // }
-  // void loadImage()async{
-  //   SharedPreferences pref = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     globals.imggs=pref.getString('imagePath');
-  //   });
-  // }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // loadImage();
   }
 
   @override
@@ -97,16 +84,12 @@ class _ChangeprofileState extends State<Changeprofile> {
                 ),
               ),
               Container(
-                  margin: EdgeInsets.only(left: 150, top: 20),
-                  height: 95,
-                  width: 95,
-                  child: GetBuilder<UpdatePhoto>(
-                    builder: (e){
-                      return CircleAvatar(
-                          backgroundImage: FileImage(
-                              File(e.photo.value)));
-                    },
-                  ),
+                margin: EdgeInsets.only(left: 150, top: 20),
+                height: 95,
+                width: 95,
+                child: Obx(() => CircleAvatar(
+                    backgroundImage:
+                        FileImage(File(updatePhoto.photo.value.toString())))),
               ),
               InkWell(
                 onTap: () {
