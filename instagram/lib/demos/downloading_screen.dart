@@ -44,14 +44,9 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
             ),
             InkWell(
               onTap: () async {
-                final result =
-                    await FilePicker.platform.pickFiles();
-                if (result == null) {
-                  print("failed");
-                } else {
-                  print("success");
-                  await Share.shareFiles(["${result.paths}"], text: "photo");
-                }
+
+                   Share.share("POPPPPPPPPPPPPP");
+
               },
               child: Container(
                 child: Text("Share Image"),
