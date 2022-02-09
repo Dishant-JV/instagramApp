@@ -44,9 +44,7 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
             ),
             InkWell(
               onTap: () async {
-
-                   Share.share("POPPPPPPPPPPPPP");
-
+                Share.share("POPPPPPPPPPPPPP");
               },
               child: Container(
                 child: Text("Share Image"),
