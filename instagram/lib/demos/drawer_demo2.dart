@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class DrawerDemo2 extends StatefulWidget {
@@ -14,38 +15,63 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 0,
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+      ),
       drawer: Container(
         child: Container(
           margin: EdgeInsets.only(left: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 70,),
-              Icon(Icons.cancel,color: Colors.blue,size: 35,),
-              SizedBox(height: 70,),
+              SizedBox(
+                height: 70,
+              ),
+              InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.cancel,
+                    color: Colors.blue,
+                    size: 35,
+                  )),
+              SizedBox(
+                height: 70,
+              ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                     height: 150,
                     width: 150,
-                    child: Image.asset(
-                        'assets/images/demo6.jpg',
+                    child: Image.asset('assets/images/demo6.jpg',
                         fit: BoxFit.cover)),
               ),
-              SizedBox(height: 80,),
+              SizedBox(
+                height: 80,
+              ),
               Container(
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       child: Container(
                         margin: EdgeInsets.only(right: 20),
-                        child: Icon(Icons.menu,color: Colors.grey,),
+                        child: Icon(
+                          Icons.menu,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
-                    Text("Menu Option",style: TextStyle(color: Colors.grey,fontSize: 19),)
+                    Text(
+                      "Menu Option",
+                      style: TextStyle(color: Colors.grey, fontSize: 19),
+                    )
                   ],
                 ),
               ),
@@ -55,9 +81,15 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(right: 20),
-                      child: Icon(Icons.downloading,color: Colors.grey,),
+                      child: Icon(
+                        Icons.downloading,
+                        color: Colors.grey,
+                      ),
                     ),
-                    Text("Refunds",style: TextStyle(color: Colors.grey,fontSize: 19),)
+                    Text(
+                      "Refunds",
+                      style: TextStyle(color: Colors.grey, fontSize: 19),
+                    )
                   ],
                 ),
               ),
@@ -67,9 +99,15 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(right: 20),
-                      child: Icon(Icons.translate_rounded,color: Colors.grey,),
+                      child: Icon(
+                        Icons.translate_rounded,
+                        color: Colors.grey,
+                      ),
                     ),
-                    Text("Transactions",style: TextStyle(color: Colors.grey,fontSize: 19),)
+                    Text(
+                      "Transactions",
+                      style: TextStyle(color: Colors.grey, fontSize: 19),
+                    )
                   ],
                 ),
               ),
@@ -79,13 +117,18 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(right: 20),
-                      child: Icon(Icons.settings,color: Colors.grey,),
+                      child: Icon(
+                        Icons.settings,
+                        color: Colors.grey,
+                      ),
                     ),
-                    Text("Settings",style: TextStyle(color: Colors.grey,fontSize: 19),)
+                    Text(
+                      "Settings",
+                      style: TextStyle(color: Colors.grey, fontSize: 19),
+                    )
                   ],
                 ),
               )
-
             ],
           ),
         ),
@@ -100,8 +143,9 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
       body: Stack(
         children: [
           Container(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.01 +
+                    MediaQuery.of(context).padding.top),
             color: Colors.blue,
             height: MediaQuery.of(context).size.height * 0.35,
             child: Column(
@@ -231,33 +275,34 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                                               'assets/images/demo3.jpg',
                                               fit: BoxFit.cover)),
                                     ),
-                                    Container(
-                                      margin:
-                                          EdgeInsets.only(left: 10, right: 12),
-                                      width: 185,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Basket Set",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 19,
-                                                color: Colors.grey),
-                                          ),
-                                          Text(
-                                            "Seven stylish shower baskets with handels",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                color: Colors.grey
-                                                    .withOpacity(0.7)
-                                                    .withOpacity(0.4)),
-                                          )
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        margin:
+                                            EdgeInsets.only(left: 10, right: 12),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Basket Set",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: 19,
+                                                  color: Colors.grey),
+                                            ),
+                                            Text(
+                                              "Seven stylish shower baskets with handels",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  color: Colors.grey
+                                                      .withOpacity(0.7)
+                                                      .withOpacity(0.4)),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -343,8 +388,8 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(35),
                     topRight: Radius.circular(35))),
-            margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.27),
+            margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.24),
             height: MediaQuery.of(context).size.height * 0.75,
             width: double.infinity,
           )

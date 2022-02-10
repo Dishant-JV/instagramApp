@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'dart:async';
 import 'dart:io';
 import 'package:get/get_core/src/get_main.dart';
@@ -34,6 +35,7 @@ import 'package:instagram/search_screen.dart';
 import 'package:instagram/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
+import 'demos/animated_drawer.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
 import 'demos/drawer_demo2.dart';
@@ -53,7 +55,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.red);
     runApp(
       GetMaterialApp(
-        home: DrawerDemo2(),
+        home: Animatedrawers(),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -61,7 +63,7 @@ void main() async {
 }
 
 class Insta extends StatefulWidget {
-  const Insta({Key? key}) : super(key: key);
+  const Insta({Key key}) : super(key: key);
 
   @override
   _InstaState createState() => _InstaState();
@@ -69,7 +71,7 @@ class Insta extends StatefulWidget {
 
 class _InstaState extends State<Insta> {
   UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
-  String? profileImage;
+  String profileImage;
   List<Widget> pageList = [
     Home(),
     Search(),
