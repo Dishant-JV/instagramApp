@@ -52,10 +52,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) async {
-    SystemUiOverlayStyle(statusBarColor: Colors.red);
+    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     runApp(
       GetMaterialApp(
-        home: Animatedrawers(),
+        home: DrawerDemo2(),
         debugShowCheckedModeBanner: false,
       ),
     );

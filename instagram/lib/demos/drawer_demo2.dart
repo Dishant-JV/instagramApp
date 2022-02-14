@@ -15,12 +15,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 0,
-        systemOverlayStyle:
-            SystemUiOverlayStyle(statusBarColor: Colors.transparent),
-      ),
+       backgroundColor: Colors.blue,
       drawer: Container(
         child: Container(
           margin: EdgeInsets.only(left: 25),
@@ -65,6 +60,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                         child: Icon(
                           Icons.menu,
                           color: Colors.grey,
+                          size: 30,
                         ),
                       ),
                     ),
@@ -84,6 +80,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                       child: Icon(
                         Icons.downloading,
                         color: Colors.grey,
+                        size: 30,
                       ),
                     ),
                     Text(
@@ -102,6 +99,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                       child: Icon(
                         Icons.translate_rounded,
                         color: Colors.grey,
+                        size: 30,
                       ),
                     ),
                     Text(
@@ -120,6 +118,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                       child: Icon(
                         Icons.settings,
                         color: Colors.grey,
+                        size: 30,
                       ),
                     ),
                     Text(
@@ -142,93 +141,95 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
       key: _keys,
       body: Stack(
         children: [
-          Container(
-            padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.01 +
-                    MediaQuery.of(context).padding.top),
-            color: Colors.blue,
-            height: MediaQuery.of(context).size.height * 0.35,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              _keys.currentState?.openDrawer();
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(left: 25),
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Icon(
-                                Icons.menu,
-                                color: Colors.blue,
-                                size: 30,
+          SafeArea(
+            child: Container(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.01 +
+                      MediaQuery.of(context).padding.top),
+              color: Colors.blue,
+              height: MediaQuery.of(context).size.height * 0.35,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                _keys.currentState?.openDrawer();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(left: 25),
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Icon(
+                                  Icons.menu,
+                                  color: Colors.blue,
+                                  size: 30,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 10, right: 25),
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Icon(
-                        Icons.qr_code_scanner_outlined,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                    )
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Row(
-                    children: [
                       Container(
-                          margin: EdgeInsets.only(left: 20, right: 20),
-                          child: Icon(
-                            Icons.search,
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
                             color: Colors.white,
-                          )),
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.blue,
+                          size: 30,
+                        ),
+                      ),
                       Container(
-                        child: Text(
-                          "Search",
-                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        margin: EdgeInsets.only(left: 10, right: 25),
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Icon(
+                          Icons.qr_code_scanner_outlined,
+                          color: Colors.blue,
+                          size: 30,
                         ),
                       )
                     ],
                   ),
-                  margin: EdgeInsets.all(25),
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.purple.shade500.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(5)),
-                )
-              ],
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      children: [
+                        Container(
+                            margin: EdgeInsets.only(left: 20, right: 20),
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.white,
+                            )),
+                        Container(
+                          child: Text(
+                            "Search",
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        )
+                      ],
+                    ),
+                    margin: EdgeInsets.all(25),
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.purple.shade500.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(5)),
+                  )
+                ],
+              ),
             ),
           ),
           Container(
@@ -277,8 +278,8 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                                     ),
                                     Expanded(
                                       child: Container(
-                                        margin:
-                                            EdgeInsets.only(left: 10, right: 12),
+                                        margin: EdgeInsets.only(
+                                            left: 10, right: 12),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
@@ -388,8 +389,8 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(35),
                     topRight: Radius.circular(35))),
-            margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.24),
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.24),
             height: MediaQuery.of(context).size.height * 0.75,
             width: double.infinity,
           )
