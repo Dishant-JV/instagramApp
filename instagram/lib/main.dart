@@ -39,6 +39,7 @@ import 'demos/animated_drawer.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
 import 'demos/drawer_demo2.dart';
+import 'demos/drawer_demo3.dart';
 import 'demos/dropdown_button_demo.dart';
 import 'demos/gridview_demo.dart';
 import 'demos/textformfield_demo2.dart';
@@ -55,7 +56,7 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     runApp(
       GetMaterialApp(
-        home: DrawerDemo2(),
+        home: DrawerDemo3(),
         debugShowCheckedModeBanner: false,
       ),
     );

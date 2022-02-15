@@ -43,6 +43,8 @@ dependencies:
   share_plus: ^3.0.4
   file_picker: ^4.3.3
   animated_drawer: ^0.0.4
+  dio: ^4.0.4
+  flutter_advanced_drawer: ^1.3.0
 
 
 
@@ -71,6 +73,9 @@ flutter:
        fonts:
          - asset: assets/fonts/Bold.ttf
          - asset: assets/fonts/BoldItalic.ttf
+     - family: RyeFonts
+       fonts:
+         - asset: assets/fonts/Rye.ttf
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
