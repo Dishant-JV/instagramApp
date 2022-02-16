@@ -1,4 +1,4 @@
-
+import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 
@@ -18,7 +18,6 @@ class DownloadingScreen extends StatefulWidget {
 }
 
 class _DownloadingScreenState extends State<DownloadingScreen> {
-  bool isOpen=false;
   double? progress;
   bool isDownload = false;
   final imgPath =
@@ -33,25 +32,22 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
   Future<void> downloadingg() async {
     try {
       Dio dio = Dio();
-      var paths = await getExternalStorageDirectory();
 
-      print(paths?.path);
-      dio.download(imgPath, "${paths?.path}/minion.jpg",
-          onReceiveProgress: (rec, total) {
+      var mm =
+          await getExternalStorageDirectories(type: StorageDirectory.downloads);
+
+      print(mm);
+      dio.download(imgPath, "$mm/minion.jpg", onReceiveProgress: (rec, total) {
         print("receive $rec total $total");
         setState(() {
           progress = ((rec / total * 100).toDouble());
           print(progress);
-        });
-        setState(() {
-          mmm=paths?.path;
         });
       });
     } catch (e) {
       print(e);
     }
     setState(() {
-      isOpen=true;
       isDownload = false;
     });
   }
@@ -60,18 +56,17 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: isDownload
-          ? Center(
-              child: Text(progress.toString()),
-            )
-          : isOpen==false ?Center(
-              child: InkWell(
-                  onTap: () {
-                    isDownload = true;
-                    downloadingg();
-                  },
-                  child: Text("Download")),
-            ) : Center(child: Image.file(mmm),),
-    ));
+            body: isDownload
+                ? Center(
+                    child: Text(progress.toString()),
+                  )
+                : Center(
+                    child: InkWell(
+                        onTap: () {
+                          isDownload = true;
+                          downloadingg();
+                        },
+                        child: Text("Download")),
+                  )));
   }
 }

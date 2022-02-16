@@ -15,7 +15,11 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.blue,
+      // appBar: AppBar(
+      //   toolbarHeight: 0,
+      //   elevation: 0,
+      //   systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.blue),
+      // ),
       drawer: Container(
         child: Container(
           margin: EdgeInsets.only(left: 25),
@@ -143,11 +147,8 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
         children: [
           SafeArea(
             child: Container(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.01 +
-                      MediaQuery.of(context).padding.top),
               color: Colors.blue,
-              height: MediaQuery.of(context).size.height * 0.35,
+              height: MediaQuery.of(context).size.height * 0.30,
               child: Column(
                 children: [
                   Row(
@@ -391,7 +392,7 @@ class _DrawerDemo2State extends State<DrawerDemo2> {
                     topRight: Radius.circular(35))),
             margin:
                 EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.24),
-            height: MediaQuery.of(context).size.height * 0.75,
+            height: MediaQuery.of(context).size.height * 0.78,
             width: double.infinity,
           )
         ],
