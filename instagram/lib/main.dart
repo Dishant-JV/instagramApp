@@ -51,16 +51,14 @@ void main() async {
       debug: true // optional: set false to disable printing logs to console
       );
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) async {
-    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+
+
     runApp(
       GetMaterialApp(
         home: DrawerDemo3(),
         debugShowCheckedModeBanner: false,
       ),
     );
-  });
 }
 
 class Insta extends StatefulWidget {

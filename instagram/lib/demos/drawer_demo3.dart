@@ -19,7 +19,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
     Drawer3Model(
         img: "assets/images/demo4.jpg",
         pName: "Burger",
-        pDescription: "Burger is a savour dish of Italian origin food",
+        pDescription: "Burger is a savour dish of Italian origin food ",
         price: "RM 129.0"),
     Drawer3Model(
         img: "assets/images/demo5.jpg",
@@ -61,84 +61,117 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.grey,
+            leading:   IconButton(
+                onPressed: () {
+                  _advancedDrawerController.showDrawer();
+                },
+                icon: ValueListenableBuilder<AdvancedDrawerValue>(
+                  valueListenable: _advancedDrawerController,
+                  builder: (_, value, __) {
+                    return AnimatedSwitcher(
+                        child: Icon(
+                          value.visible ? Icons.clear : Icons.menu,
+                          size: 28,
+                        ),
+                        duration: Duration(milliseconds: 250));
+                  },
+                )),
+            title:  Text(
+              "Home",
+              style: TextStyle(
+                  fontFamily: 'RyeFonts',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 19),
+            ),
+          ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding:
-                    EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-                color: Colors.grey,
-                height: 80,
-                width: double.infinity,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.01,
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          _advancedDrawerController.showDrawer();
-                        },
-                        icon: ValueListenableBuilder<AdvancedDrawerValue>(
-                          valueListenable: _advancedDrawerController,
-                          builder: (ss, value,k) {
-                            return AnimatedSwitcher(
-                                child: Icon(
-                                  value.visible ? Icons.clear : Icons.menu,
-                                  size: 28,
-                                ),
-                                duration: Duration(milliseconds: 250));
-                          },
-                        )),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.28,
-                    ),
-                    Text(
-                      "Home",
-                      style: TextStyle(
-                          fontFamily: 'RyeFonts',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 19),
-                    ),
-                  ],
-                ),
-              ),
+              // SafeArea(
+              //   child: Container(
+              //     padding: EdgeInsets.zero,
+              //     color: Colors.grey,
+              //     height: 50,
+              //     width: double.infinity,
+              //     child: Row(
+              //       children: [
+              //         SizedBox(
+              //           width: MediaQuery.of(context).size.width * 0.01,
+              //         ),
+              //         IconButton(
+              //             onPressed: () {
+              //               _advancedDrawerController.showDrawer();
+              //             },
+              //             icon: ValueListenableBuilder<AdvancedDrawerValue>(
+              //               valueListenable: _advancedDrawerController,
+              //               builder: (_, value, __) {
+              //                 return AnimatedSwitcher(
+              //                     child: Icon(
+              //                       value.visible ? Icons.clear : Icons.menu,
+              //                       size: 28,
+              //                     ),
+              //                     duration: Duration(milliseconds: 250));
+              //               },
+              //             )),
+              //         SizedBox(
+              //           width: MediaQuery.of(context).size.width * 0.28,
+              //         ),
+              //         Text(
+              //           "Home",
+              //           style: TextStyle(
+              //               fontFamily: 'RyeFonts',
+              //               fontWeight: FontWeight.w500,
+              //               fontSize: 19),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: 20,
               ),
               Container(
-                margin: EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 20),
                 width: 250,
                 height: 45,
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      lstMainProduct = lstProduct.where((e) {
-                        lowerSearchText = value.toLowerCase();
-                        lowerOrgText = e.pName!.toLowerCase();
-                        return lowerOrgText.contains(lowerSearchText);
-                      }).toList();
-                    });
-                  },
-                  cursorColor: Colors.black,
-                  cursorHeight: 20,
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 2, left: 10),
-                      suffixIcon: Icon(Icons.search),
-                      suffixIconColor: Colors.black,
-                      hintText: "search",
-                      hintStyle: TextStyle(fontFamily: "RyeFonts"),
-                      isDense: true,
-                      filled: true,
-                      fillColor: Colors.grey.withOpacity(0.2),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.white)),
-                      disabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.white))),
+                child: Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        lstMainProduct = lstProduct.where((e) {
+                          lowerSearchText = value.toLowerCase();
+                          lowerOrgText = e.pName!.toLowerCase();
+                          return lowerOrgText.contains(lowerSearchText);
+                        }).toList();
+                      });
+                    },
+                    cursorColor: Colors.black,
+                    cursorHeight: 20,
+                    decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 2, left: 10),
+                        suffixIcon: Icon(Icons.search),
+                        suffixIconColor: Colors.black,
+                        hintText: "search",
+                        hintStyle: TextStyle(fontFamily: "RyeFonts"),
+                        isDense: true,
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.white)),
+                        disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.white))),
+                  ),
                 ),
               ),
               SizedBox(
@@ -151,7 +184,8 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                       height: 500,
                       child: Text(
                         "No Data Found",
-                        style: TextStyle(fontSize: 20,
+                        style: TextStyle(
+                            fontSize: 20,
                             fontFamily: "RyeFonts",
                             fontWeight: FontWeight.w500),
                       ),
@@ -164,15 +198,16 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                           itemCount: lstMainProduct.length,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 220,
+                                  mainAxisExtent: 235,
                                   mainAxisSpacing: 10,
                                   crossAxisSpacing: 10,
                                   crossAxisCount: 2),
                           itemBuilder: (BuildContext context, index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15)),
+                            return Card(
+                              elevation: 2,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -185,10 +220,10 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                                                 lstMainProduct[index]
                                                     .img
                                                     .toString()),
-                                            fit: BoxFit.fill),
+                                            fit: BoxFit.cover),
                                         borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(15),
-                                            topLeft: Radius.circular(15))),
+                                            topRight: Radius.circular(10),
+                                            topLeft: Radius.circular(10))),
                                   ),
                                   Container(
                                     margin: EdgeInsets.only(top: 10, left: 8),
@@ -206,9 +241,12 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                                       lstMainProduct[index]
                                           .pDescription
                                           .toString(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           color: Colors.grey.withOpacity(0.8),
                                           fontFamily: "RyeFonts",
+
                                           fontSize: 11),
                                     ),
                                   ),
@@ -230,137 +268,135 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
             ],
           ),
         ),
-        drawer: SafeArea(
-          child: Container(
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 20,
+        drawer: Container(
+          child: Row(
+            children: [
+              SizedBox(
+                width: 25,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/demo3.jpg"),
+                    radius: 40,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Dishant Vaghasiya",
+                    style: TextStyle(fontFamily: "RyeFonts", fontSize: 13),
+                  ),
+                  Text(
+                    "dihsantvaghsiya8171@gmail.com",
+                    style: TextStyle(fontFamily: "RyeFonts", fontSize: 13),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.63,
+                    padding: EdgeInsets.only(bottom: 10, top: 10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(color: Colors.grey, width: 0))),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.person_rounded,
+                          size: 32,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          "Profile",
+                          style:
+                              TextStyle(fontFamily: "RyeFonts", fontSize: 15),
+                        ),
+                      ],
                     ),
-                    CircleAvatar(
-                      backgroundImage: AssetImage("assets/images/demo3.jpg"),
-                      radius: 40,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.63,
+                    padding: EdgeInsets.only(bottom: 10, top: 10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(color: Colors.grey, width: 0))),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.home_filled,
+                          size: 32,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          "Home",
+                          style:
+                              TextStyle(fontFamily: "RyeFonts", fontSize: 15),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 5,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.63,
+                    padding: EdgeInsets.only(bottom: 10, top: 10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(color: Colors.grey, width: 0))),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.shopping_cart,
+                          size: 32,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          "Cart",
+                          style:
+                              TextStyle(fontFamily: "RyeFonts", fontSize: 15),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "Dishant Vaghasiya",
-                      style: TextStyle(fontFamily: "RyeFonts", fontSize: 13),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.63,
+                    padding: EdgeInsets.only(bottom: 10, top: 10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(color: Colors.grey, width: 0))),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.logout,
+                          size: 32,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          "Logout",
+                          style:
+                              TextStyle(fontFamily: "RyeFonts", fontSize: 15),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "dihsantvaghsiya8171@gmail.com",
-                      style: TextStyle(fontFamily: "RyeFonts", fontSize: 13),
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.63,
-                      padding: EdgeInsets.only(bottom: 10, top: 10),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.grey, width: 0))),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.person_rounded,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "Profile",
-                            style:
-                                TextStyle(fontFamily: "RyeFonts", fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.63,
-                      padding: EdgeInsets.only(bottom: 10, top: 10),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.grey, width: 0))),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.home_filled,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "Home",
-                            style:
-                                TextStyle(fontFamily: "RyeFonts", fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.63,
-                      padding: EdgeInsets.only(bottom: 10, top: 10),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.grey, width: 0))),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "Cart",
-                            style:
-                                TextStyle(fontFamily: "RyeFonts", fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.63,
-                      padding: EdgeInsets.only(bottom: 10, top: 10),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.grey, width: 0))),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.logout,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "Logout",
-                            style:
-                                TextStyle(fontFamily: "RyeFonts", fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+                  )
+                ],
+              )
+            ],
           ),
         ));
   }
