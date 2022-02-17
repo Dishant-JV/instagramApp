@@ -49,7 +49,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
   @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
-        backdropColor: Colors.white.withOpacity(0.9),
+        backdropColor: Color(0xffEEEEEE),
         controller: _advancedDrawerController,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),
@@ -61,75 +61,49 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.grey,
-            leading:   IconButton(
-                onPressed: () {
-                  _advancedDrawerController.showDrawer();
-                },
-                icon: ValueListenableBuilder<AdvancedDrawerValue>(
-                  valueListenable: _advancedDrawerController,
-                  builder: (_, value, __) {
-                    return AnimatedSwitcher(
-                        child: Icon(
-                          value.visible ? Icons.clear : Icons.menu,
-                          size: 28,
-                        ),
-                        duration: Duration(milliseconds: 250));
-                  },
-                )),
-            title:  Text(
-              "Home",
-              style: TextStyle(
-                  fontFamily: 'RyeFonts',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 19),
-            ),
-          ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SafeArea(
-              //   child: Container(
-              //     padding: EdgeInsets.zero,
-              //     color: Colors.grey,
-              //     height: 50,
-              //     width: double.infinity,
-              //     child: Row(
-              //       children: [
-              //         SizedBox(
-              //           width: MediaQuery.of(context).size.width * 0.01,
-              //         ),
-              //         IconButton(
-              //             onPressed: () {
-              //               _advancedDrawerController.showDrawer();
-              //             },
-              //             icon: ValueListenableBuilder<AdvancedDrawerValue>(
-              //               valueListenable: _advancedDrawerController,
-              //               builder: (_, value, __) {
-              //                 return AnimatedSwitcher(
-              //                     child: Icon(
-              //                       value.visible ? Icons.clear : Icons.menu,
-              //                       size: 28,
-              //                     ),
-              //                     duration: Duration(milliseconds: 250));
-              //               },
-              //             )),
-              //         SizedBox(
-              //           width: MediaQuery.of(context).size.width * 0.28,
-              //         ),
-              //         Text(
-              //           "Home",
-              //           style: TextStyle(
-              //               fontFamily: 'RyeFonts',
-              //               fontWeight: FontWeight.w500,
-              //               fontSize: 19),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+              Container(
+                color: Color(0xff4C3F35),
+                height: 50+MediaQuery.of(context).padding.top,
+                padding: EdgeInsets.only(top:MediaQuery.of(context).padding.top ),
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.01,
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          _advancedDrawerController.showDrawer();
+                        },
+                        icon: ValueListenableBuilder<AdvancedDrawerValue>(
+                          valueListenable: _advancedDrawerController,
+                          builder: (_, value, __) {
+                            return AnimatedSwitcher(
+                                child: Icon(
+                                  value.visible ? Icons.clear : Icons.menu,
+                                  size: 28,
+                                  color: Colors.white,
+                                ),
+                                duration: Duration(milliseconds: 250));
+                          },
+                        )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.28,
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(
+                          fontFamily: 'RyeFonts',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 19),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -138,9 +112,9 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                 width: 250,
                 height: 45,
                 child: Card(
-                  elevation: 5,
+                  elevation: 3,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(5)
                   ),
                   child: TextField(
                     onChanged: (value) {
@@ -156,10 +130,9 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                     cursorHeight: 20,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 2, left: 10),
-                        suffixIcon: Icon(Icons.search),
-                        suffixIconColor: Colors.black,
+                        suffixIcon: Icon(Icons.search,color: Colors.grey,),
                         hintText: "search",
-                        hintStyle: TextStyle(fontFamily: "RyeFonts"),
+                        hintStyle: TextStyle(fontFamily: "RyeFonts",fontSize: 14),
                         isDense: true,
                         filled: true,
                         fillColor: Colors.white,
@@ -198,7 +171,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                           itemCount: lstMainProduct.length,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 235,
+                                  mainAxisExtent: 230,
                                   mainAxisSpacing: 10,
                                   crossAxisSpacing: 10,
                                   crossAxisCount: 2),
@@ -278,7 +251,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 20,
+                    height: 60,
                   ),
                   CircleAvatar(
                     backgroundImage: AssetImage("assets/images/demo3.jpg"),
