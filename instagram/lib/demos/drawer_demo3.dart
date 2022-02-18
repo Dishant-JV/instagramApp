@@ -17,22 +17,22 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
   String lowerOrgText = "";
   List<Drawer3Model> lstProduct = [
     Drawer3Model(
-        img: "assets/images/demo4.jpg",
+        img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80",
         pName: "Burger",
         pDescription: "Burger is a savour dish of Italian origin food ",
         price: "RM 129.0"),
     Drawer3Model(
-        img: "assets/images/demo5.jpg",
+        img: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg",
         pName: "Pizza",
         pDescription: "Pizza is a savour dish of Italian origin food",
         price: "RM 135.0"),
     Drawer3Model(
-        img: "assets/images/demo6.jpg",
+        img: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F06%2F15%2Fmozzarella-pizza-margherita-FT-RECIPE0621.jpg&q=60",
         pName: "Italian Pizza",
         pDescription: "Italian Pizz is a savour dish of Italian origin food",
         price: "RM 145.0"),
     Drawer3Model(
-        img: "assets/images/demo7.jpg",
+        img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/05/club-sandwich-recipe.jpg",
         pName: "Sandwich",
         pDescription: "Sandwich is a savour dish of Italian origin food",
         price: "RM 100.0"),
@@ -189,7 +189,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                                     width: 200,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(
+                                            image: NetworkImage(
                                                 lstMainProduct[index]
                                                     .img
                                                     .toString()),

@@ -35,12 +35,16 @@ import 'package:instagram/search_screen.dart';
 import 'package:instagram/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
+import 'demos/SharedPreference/shared_login.dart';
+import 'demos/SharedPreference/sharedhome.dart';
+import 'demos/SharedPreference/splash_shardpreference.dart';
 import 'demos/animated_drawer.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
 import 'demos/drawer_demo2.dart';
 import 'demos/drawer_demo3.dart';
 import 'demos/dropdown_button_demo.dart';
+import 'demos/expansion_tile_card_demo.dart';
 import 'demos/gridview_demo.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -50,7 +54,7 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(
     GetMaterialApp(
-      home: DrawerDemo3(),
+      home: SpalshSharedPreference(),
       debugShowCheckedModeBanner: false,
     ),
   );
