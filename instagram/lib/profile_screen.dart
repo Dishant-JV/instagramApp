@@ -243,12 +243,15 @@ class _ProfileState extends State<Profile> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Obx(
-                              () => Container(
-                                height: 85,
-                                width: 85,
-                                child: CircleAvatar(
-                                  backgroundImage: FileImage(
-                                      File(updatePhoto.photo.value.toString())),
+                              () => Hero(
+                                tag: "img1",
+                                child: Container(
+                                  height: 85,
+                                  width: 85,
+                                  child: CircleAvatar(
+                                    backgroundImage: FileImage(File(
+                                        updatePhoto.photo.value.toString())),
+                                  ),
                                 ),
                               ),
                             ),
@@ -421,8 +424,10 @@ class _ProfileState extends State<Profile> {
                               onTap: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Changeprofile()));
+                                    PageRouteBuilder(
+                                      transitionDuration: Duration(milliseconds: 500),
+                                        pageBuilder: (_, __,___) =>
+                                            Changeprofile()));
                               },
                             ),
                             Container(

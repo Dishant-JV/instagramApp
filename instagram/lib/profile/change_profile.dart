@@ -87,9 +87,12 @@ class _ChangeprofileState extends State<Changeprofile> {
                 margin: EdgeInsets.only(left: 150, top: 20),
                 height: 95,
                 width: 95,
-                child: Obx(() => CircleAvatar(
-                    backgroundImage:
-                        FileImage(File(updatePhoto.photo.value.toString())))),
+                child: Obx(() => Hero(
+                  tag: "img1",
+                  child: CircleAvatar(
+                      backgroundImage:
+                          FileImage(File(updatePhoto.photo.value.toString()))),
+                )),
               ),
               InkWell(
                 onTap: () {

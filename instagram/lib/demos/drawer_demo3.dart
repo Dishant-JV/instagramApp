@@ -17,22 +17,22 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
   String lowerOrgText = "";
   List<Drawer3Model> lstProduct = [
     Drawer3Model(
-        img: "assets/images/demo4.jpg",
+        img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80",
         pName: "Burger",
         pDescription: "Burger is a savour dish of Italian origin food ",
         price: "RM 129.0"),
     Drawer3Model(
-        img: "assets/images/demo5.jpg",
+        img: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg",
         pName: "Pizza",
         pDescription: "Pizza is a savour dish of Italian origin food",
         price: "RM 135.0"),
     Drawer3Model(
-        img: "assets/images/demo6.jpg",
+        img: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F06%2F15%2Fmozzarella-pizza-margherita-FT-RECIPE0621.jpg&q=60",
         pName: "Italian Pizza",
         pDescription: "Italian Pizz is a savour dish of Italian origin food",
         price: "RM 145.0"),
     Drawer3Model(
-        img: "assets/images/demo7.jpg",
+        img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/05/club-sandwich-recipe.jpg",
         pName: "Sandwich",
         pDescription: "Sandwich is a savour dish of Italian origin food",
         price: "RM 100.0"),
@@ -49,7 +49,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
   @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
-        backdropColor: Colors.white.withOpacity(0.9),
+        backdropColor: Color(0xffEEEEEE),
         controller: _advancedDrawerController,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),
@@ -61,75 +61,49 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.grey,
-            leading:   IconButton(
-                onPressed: () {
-                  _advancedDrawerController.showDrawer();
-                },
-                icon: ValueListenableBuilder<AdvancedDrawerValue>(
-                  valueListenable: _advancedDrawerController,
-                  builder: (_, value, __) {
-                    return AnimatedSwitcher(
-                        child: Icon(
-                          value.visible ? Icons.clear : Icons.menu,
-                          size: 28,
-                        ),
-                        duration: Duration(milliseconds: 250));
-                  },
-                )),
-            title:  Text(
-              "Home",
-              style: TextStyle(
-                  fontFamily: 'RyeFonts',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 19),
-            ),
-          ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SafeArea(
-              //   child: Container(
-              //     padding: EdgeInsets.zero,
-              //     color: Colors.grey,
-              //     height: 50,
-              //     width: double.infinity,
-              //     child: Row(
-              //       children: [
-              //         SizedBox(
-              //           width: MediaQuery.of(context).size.width * 0.01,
-              //         ),
-              //         IconButton(
-              //             onPressed: () {
-              //               _advancedDrawerController.showDrawer();
-              //             },
-              //             icon: ValueListenableBuilder<AdvancedDrawerValue>(
-              //               valueListenable: _advancedDrawerController,
-              //               builder: (_, value, __) {
-              //                 return AnimatedSwitcher(
-              //                     child: Icon(
-              //                       value.visible ? Icons.clear : Icons.menu,
-              //                       size: 28,
-              //                     ),
-              //                     duration: Duration(milliseconds: 250));
-              //               },
-              //             )),
-              //         SizedBox(
-              //           width: MediaQuery.of(context).size.width * 0.28,
-              //         ),
-              //         Text(
-              //           "Home",
-              //           style: TextStyle(
-              //               fontFamily: 'RyeFonts',
-              //               fontWeight: FontWeight.w500,
-              //               fontSize: 19),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+              Container(
+                color: Color(0xff4C3F35),
+                height: 50+MediaQuery.of(context).padding.top,
+                padding: EdgeInsets.only(top:MediaQuery.of(context).padding.top ),
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.01,
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          _advancedDrawerController.showDrawer();
+                        },
+                        icon: ValueListenableBuilder<AdvancedDrawerValue>(
+                          valueListenable: _advancedDrawerController,
+                          builder: (_, value, __) {
+                            return AnimatedSwitcher(
+                                child: Icon(
+                                  value.visible ? Icons.clear : Icons.menu,
+                                  size: 28,
+                                  color: Colors.white,
+                                ),
+                                duration: Duration(milliseconds: 250));
+                          },
+                        )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.28,
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(
+                          fontFamily: 'RyeFonts',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 19),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -138,9 +112,9 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                 width: 250,
                 height: 45,
                 child: Card(
-                  elevation: 5,
+                  elevation: 3,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(5)
                   ),
                   child: TextField(
                     onChanged: (value) {
@@ -156,10 +130,9 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                     cursorHeight: 20,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 2, left: 10),
-                        suffixIcon: Icon(Icons.search),
-                        suffixIconColor: Colors.black,
+                        suffixIcon: Icon(Icons.search,color: Colors.grey,),
                         hintText: "search",
-                        hintStyle: TextStyle(fontFamily: "RyeFonts"),
+                        hintStyle: TextStyle(fontFamily: "RyeFonts",fontSize: 14),
                         isDense: true,
                         filled: true,
                         fillColor: Colors.white,
@@ -198,7 +171,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                           itemCount: lstMainProduct.length,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 235,
+                                  mainAxisExtent: 230,
                                   mainAxisSpacing: 10,
                                   crossAxisSpacing: 10,
                                   crossAxisCount: 2),
@@ -216,7 +189,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                                     width: 200,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(
+                                            image: NetworkImage(
                                                 lstMainProduct[index]
                                                     .img
                                                     .toString()),
@@ -278,7 +251,7 @@ class _DrawerDemo3State extends State<DrawerDemo3> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 20,
+                    height: 60,
                   ),
                   CircleAvatar(
                     backgroundImage: AssetImage("assets/images/demo3.jpg"),
