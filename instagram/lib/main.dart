@@ -55,7 +55,7 @@ void main() async {
 
     runApp(
       GetMaterialApp(
-        home: DrawerDemo3(),
+        home: DownloadingScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
