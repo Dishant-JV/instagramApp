@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:instagram/demos/SharedPreference/login.dart';
 import 'package:instagram/demos/SharedPreference/shared_login.dart';
 import 'package:instagram/demos/SharedPreference/sharedhome.dart';
 import 'package:instagram/demos/sharedpreference_demo.dart';

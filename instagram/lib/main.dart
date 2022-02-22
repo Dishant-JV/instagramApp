@@ -46,35 +46,28 @@ import 'demos/drawer_demo3.dart';
 import 'demos/dropdown_button_demo.dart';
 import 'demos/expansion_tile_card_demo.dart';
 import 'demos/gridview_demo.dart';
+import 'demos/photo_gallery/photo_gallery.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-<<<<<<< HEAD
+
   await FlutterDownloader.initialize(
       debug: true // optional: set false to disable printing logs to console
       );
   WidgetsFlutterBinding.ensureInitialized();
 
-
-    runApp(
-      GetMaterialApp(
-        home: DownloadingScreen(),
-        debugShowCheckedModeBanner: false,
-      ),
-    );
-=======
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(
     GetMaterialApp(
-      home: SpalshSharedPreference(),
+      home: PhotoGallery(),
       debugShowCheckedModeBanner: false,
     ),
   );
->>>>>>> 58840a618c937184d1d526c7530bd3c6349e1dec
-}
 
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+}
 
 class Insta extends StatefulWidget {
   const Insta({Key key}) : super(key: key);
@@ -103,7 +96,6 @@ class _InstaState extends State<Insta> {
   static const centerColor = Color(0xff710792);
   static const startColor = Color(0xff980694);
   static const Color grey_box_color = Color(0xffEEEEEE);
-
 
   UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
   String profileImage;

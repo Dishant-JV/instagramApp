@@ -19,6 +19,13 @@ class _SharedHomeState extends State<SharedHome> {
     super.initState();
     load();
   }
+  void remove()async {
+    SharedPreferences pref=await SharedPreferences.getInstance();
+    setState(() {
+      pref.remove('email');
+      pref.remove('pass');
+    });
+  }
   void load()async{
     SharedPreferences pref=await SharedPreferences.getInstance();
     setState(() {
@@ -44,11 +51,13 @@ class _SharedHomeState extends State<SharedHome> {
     );
   }
 
-  void remove()async {
-    SharedPreferences pref=await SharedPreferences.getInstance();
-    setState(() {
-      pref.remove('email');
-      pref.remove('pass');
-    });
+  
+}
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
+
 }

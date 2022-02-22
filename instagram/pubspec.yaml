@@ -49,6 +49,8 @@ dependencies:
   gallery_saver: ^2.3.2
   image_gallery_saver: ^1.7.1
   open_file: ^3.2.1
+  pinch_zoom: ^1.0.0
+
 
 
 
