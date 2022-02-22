@@ -66,7 +66,6 @@ class _PageViewDemoState extends State<PageViewDemo> {
                     child: Text("previuos")),
                 ElevatedButton(
                     onPressed: () {
-
                       pageController.animateToPage(pageindex + 1,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.easeIn);

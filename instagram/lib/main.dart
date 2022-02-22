@@ -51,6 +51,20 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+<<<<<<< HEAD
+  await FlutterDownloader.initialize(
+      debug: true // optional: set false to disable printing logs to console
+      );
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+    runApp(
+      GetMaterialApp(
+        home: DownloadingScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+=======
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(
     GetMaterialApp(
@@ -58,6 +72,7 @@ void main() async {
       debugShowCheckedModeBanner: false,
     ),
   );
+>>>>>>> 58840a618c937184d1d526c7530bd3c6349e1dec
 }
 
 

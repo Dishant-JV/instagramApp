@@ -1,14 +1,10 @@
-import 'dart:io';
-import 'dart:isolate';
-import 'dart:ui';
 
+import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:open_file/open_file.dart';
 
 class DownloadingScreen extends StatefulWidget {
   const DownloadingScreen({Key? key}) : super(key: key);
@@ -18,55 +14,46 @@ class DownloadingScreen extends StatefulWidget {
 }
 
 class _DownloadingScreenState extends State<DownloadingScreen> {
-  double? progress;
-  bool isDownload = false;
-  final imgPath =
-      "https://onlinejpgtools.com/images/examples-onlinejpgtools/sunflower.jpg";
-  var mmm;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  Future<void> downloadingg() async {
-    try {
-      Dio dio = Dio();
-
-      var mm =
-          await getExternalStorageDirectories(type: StorageDirectory.downloads);
-
-      print(mm);
-      dio.download(imgPath, "$mm/minion.jpg", onReceiveProgress: (rec, total) {
-        print("receive $rec total $total");
-        setState(() {
-          progress = ((rec / total * 100).toDouble());
-          print(progress);
-        });
-      });
-    } catch (e) {
-      print(e);
-    }
-    setState(() {
-      isDownload = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            body: isDownload
-                ? Center(
-                    child: Text(progress.toString()),
-                  )
-                : Center(
-                    child: InkWell(
-                        onTap: () {
-                          isDownload = true;
-                          downloadingg();
-                        },
-                        child: Text("Download")),
-                  )));
+    return Scaffold(
+      body: Center(
+        child: InkWell(
+          onTap: (){
+            _openfile(url:"http://www.africau.edu/images/default/sample.pdf",fileName:'sample.pdf');
+          },
+          child: Container(
+            height:40,
+            width: 120,
+            color: Colors.red,
+            child: Text("Download"),
+
+          ),
+        ),
+      ),
+
+    );
   }
+}
+
+Future _openfile({required String url,required String fileName})async{
+  final file=await download(url,fileName);
+  if(fileName == null) return;
+  print('path: ${file!.path}');
+  OpenFile.open(file.path);
+
+
+}
+Future<File?> download(String url,String fileName) async{
+  final appStorage=await getExternalStorageDirectory();
+  final file=File('${appStorage!.path}/$fileName');
+  final response=await Dio().get(url,options: Options(
+    responseType: ResponseType.bytes,
+    followRedirects: false,
+    receiveTimeout: 0
+  ));
+  final raf=file.openSync(mode: FileMode.write);
+  raf.writeFromSync(response.data);
+  await raf.close();
+  return file;
 }
