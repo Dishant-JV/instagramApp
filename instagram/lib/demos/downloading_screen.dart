@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
 
@@ -19,10 +21,7 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
       body: Center(
         child: InkWell(
           onTap: () {
-            _openfile(
-                url:
-                    "https://filmfare.wwmindia.com/content/2020/dec/kiaraadvani21606907531.jpg",
-                fileName: 'KyaraMams.jpg');
+            downlod();
           },
           child: Container(
             height: 40,
@@ -34,25 +33,13 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
       ),
     );
   }
-}
 
-Future _openfile({required String url, required String fileName}) async {
-  final file = await download(url, fileName);
-  if (fileName == null) return;
-  print('path: ${file!.path}');
-  OpenFile.open(file.path);
-}
-
-Future<File?> download(String url, String fileName) async {
-  Directory appStorage = Directory('/storage/emulated/0/Download');
-  final file = File('${appStorage.path}/$fileName');
-  final response = await Dio().get(url,
-      options: Options(
-          responseType: ResponseType.bytes,
-          followRedirects: false,
-          receiveTimeout: 0));
-  final raf = file.openSync(mode: FileMode.write);
-  raf.writeFromSync(response.data);
-  await raf.close();
-  return file;
+  void downlod() {
+    Directory appStorage = Directory('/storage/emulated/0/Download');
+    String paths = appStorage.path + "/Mamss.jpg";
+    Dio().download(
+        "https://thescoopbeats.com/wp-content/uploads/2021/11/Kiara-Advani.jpg",
+        paths);
+    OpenFile.open(paths);
+  }
 }

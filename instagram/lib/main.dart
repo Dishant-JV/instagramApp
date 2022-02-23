@@ -60,7 +60,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      home: PhotoGallery(),
+      home: DownloadingScreen(),
       debugShowCheckedModeBanner: false,
     ),
   );

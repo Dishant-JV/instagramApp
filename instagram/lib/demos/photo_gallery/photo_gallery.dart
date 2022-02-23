@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinch_zoom/pinch_zoom.dart';
+import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
+import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
+import 'package:zoom_widget/zoom_widget.dart';
 
 class PhotoGallery extends StatefulWidget {
   const PhotoGallery({Key? key}) : super(key: key);
@@ -10,6 +13,8 @@ class PhotoGallery extends StatefulWidget {
 }
 
 class _PhotoGalleryState extends State<PhotoGallery> {
+  final imageProvider =
+      Image.network("https://picsum.photos/id/1001/5616/3744").image;
   int curIndex = 0;
   PageController _pageController = PageController();
   List imgList = [
@@ -17,7 +22,8 @@ class _PhotoGalleryState extends State<PhotoGallery> {
     'assets/images/demo4.jpg',
     'assets/images/demo5.jpg',
   ];
-  controller _cc=Get.put(controller());
+  controller _cc = Get.put(controller());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,23 +43,18 @@ class _PhotoGalleryState extends State<PhotoGallery> {
             width: double.infinity,
             child: PageView.builder(
                 onPageChanged: (index) {
-                setState(() {
-                  curIndex=index;
-                });
+                  setState(() {
+                    curIndex = index;
+                  });
                 },
                 controller: _pageController,
                 scrollDirection: Axis.horizontal,
                 itemCount: imgList.length,
                 itemBuilder: (context, index) {
-                  return PinchZoom(
-                    child: Container(
-                      child: Padding(
-                          padding: EdgeInsets.all(25),
-                          child: Image.asset(
-                            imgList[index],
-                            fit: BoxFit.cover,
-                          )),
-                    ),
+                  return Container(
+                    child: Padding(
+                        padding: EdgeInsets.all(25),
+                        child: Image.asset(imgList[index])),
                   );
                 }),
           ),
@@ -76,12 +77,14 @@ class _PhotoGalleryState extends State<PhotoGallery> {
                                 fit: BoxFit.cover)),
                       )
                     : InkWell(
-                  onTap: (){
-                    setState(() {
-                      _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeIn);
-                    });
-                  },
-                      child: Container(
+                        onTap: () {
+                          setState(() {
+                            _pageController.animateToPage(index,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
+                          });
+                        },
+                        child: Container(
                           height: MediaQuery.of(context).size.width * 0.2,
                           margin: EdgeInsets.all(10),
                           width: MediaQuery.of(context).size.width * 0.2,
@@ -91,13 +94,14 @@ class _PhotoGalleryState extends State<PhotoGallery> {
                                   image: AssetImage(imgList[index]),
                                   fit: BoxFit.cover)),
                         ),
-                    )),
+                      )),
           )
         ],
       ),
     );
   }
 }
-class controller extends GetxController{
-  RxInt indexS=0.obs;
+
+class controller extends GetxController {
+  RxInt indexS = 0.obs;
 }

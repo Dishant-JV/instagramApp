@@ -50,6 +50,10 @@ dependencies:
   image_gallery_saver: ^1.7.1
   open_file: ^3.2.1
   pinch_zoom: ^1.0.0
+  zoom_widget: ^0.2.1
+  pinch_zoom_image_last: ^0.4.1
+  zoom_pinch_overlay: ^1.1.2
+  easy_image_viewer: ^1.0.3
 
 
 
