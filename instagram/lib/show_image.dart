@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gesture_zoom_box/gesture_zoom_box.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:pinch_zoom/pinch_zoom.dart';
+import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 
 class Images extends StatefulWidget {
   final String? img;
@@ -27,20 +30,13 @@ class _ImagesState extends State<Images> {
             ? Container(
           height: double.infinity,
           width: double.infinity,
-          child: PhotoView(
-            imageProvider: NetworkImage(nimg!),
-            minScale: PhotoViewComputedScale.contained * 0.8,
-            maxScale: PhotoViewComputedScale.contained * 0.8,
-          ),
+          child: GestureZoomBox(child: PinchZoom(child: Image.network(nimg)))
         )
-            : Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: PhotoView(
-              imageProvider: AssetImage(img!),
-              minScale: PhotoViewComputedScale.contained * 0.8,
-              maxScale: PhotoViewComputedScale.contained * 0.8,
-            ))
+            : 
+        GestureZoomBox(
+          child: PinchZoom(
+              child: Image.asset(img)),
+        )
       ),
     );
   }

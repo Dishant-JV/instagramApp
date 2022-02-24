@@ -46,6 +46,7 @@ import 'demos/drawer_demo3.dart';
 import 'demos/dropdown_button_demo.dart';
 import 'demos/expansion_tile_card_demo.dart';
 import 'demos/gridview_demo.dart';
+import 'demos/image_picker_demo.dart';
 import 'demos/photo_gallery/photo_gallery.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';

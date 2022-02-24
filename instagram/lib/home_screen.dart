@@ -8,6 +8,7 @@ import 'package:instagram/show_image.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
+import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
@@ -23,7 +24,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  UpdatePhoto updatePhoto=Get.put(UpdatePhoto());
+  UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
   Post _post = Post();
 
   @override
@@ -174,8 +175,9 @@ class _HomeState extends State<Home> {
                                                       EdgeInsets.only(left: 10),
                                                   child: CircleAvatar(
                                                     backgroundImage: FileImage(
-                                                        File(updatePhoto.photo.value.toString()
-                                                            )),
+                                                        File(updatePhoto
+                                                            .photo.value
+                                                            .toString())),
                                                   ),
                                                 ),
                                                 Container(
@@ -389,20 +391,12 @@ class _HomeState extends State<Home> {
                                           ),
                                           Container(
                                             height: 360,
-                                            child: PhotoView(
-                                              imageProvider: NetworkImage(
+                                            child: ZoomOverlay(
+                                              child: Image.network(
                                                 listPost[index]
                                                     .pImage
                                                     .toString(),
                                               ),
-                                              filterQuality:
-                                                  FilterQuality.medium,
-                                              minScale: PhotoViewComputedScale
-                                                      .contained *
-                                                  0.8,
-                                              maxScale: PhotoViewComputedScale
-                                                      .contained *
-                                                  0.8,
                                             ),
                                           ),
                                           Container(
@@ -622,8 +616,10 @@ class _HomeState extends State<Home> {
                                                             BoxDecoration(
                                                           image: DecorationImage(
                                                               image: FileImage(
-                                                                  File(updatePhoto.photo.value.toString()
-                                                                      )),
+                                                                  File(updatePhoto
+                                                                      .photo
+                                                                      .value
+                                                                      .toString())),
                                                               fit:
                                                                   BoxFit.cover),
                                                           shape:

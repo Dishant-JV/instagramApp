@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gesture_zoom_box/gesture_zoom_box.dart';
 import 'package:get/get.dart';
 import 'package:pinch_zoom/pinch_zoom.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
@@ -51,10 +52,24 @@ class _PhotoGalleryState extends State<PhotoGallery> {
                 scrollDirection: Axis.horizontal,
                 itemCount: imgList.length,
                 itemBuilder: (context, index) {
+                  // // return Container(
+                  // //   child: Padding(
+                  // //       padding: EdgeInsets.all(25),
+                  // //       child: ZoomOverlay(
+                  // //           minScale: 3.0,
+                  // //           maxScale: 1.2,
+                  // //           twoTouchOnly: true,
+                  // //           child: Image.asset(imgList[index]))),
+                  // );
                   return Container(
                     child: Padding(
-                        padding: EdgeInsets.all(25),
-                        child: Image.asset(imgList[index])),
+                      padding: EdgeInsets.all(25),
+                      child: GestureZoomBox(
+                        doubleTapScale: 2.0,
+                        maxScale: 5,
+                        child: Image.asset(imgList[index]),
+                      ),
+                    ),
                   );
                 }),
           ),
