@@ -6,16 +6,22 @@ class ModelSaveSharedpreference {
 
   ModelSaveSharedpreference({this.photo, this.name, this.email, this.password});
 
-  factory ModelSaveSharedpreference.fromJson(Map<String, dynamic> json) {
-    return ModelSaveSharedpreference(
-      photo: json['photo'],
-      name: json['name'],
-      email: json['email'],
-      password: json['password'],
-    );
+  // factory ModelSaveSharedpreference.fromJson(Map<String, dynamic> json) {
+  //   return ModelSaveSharedpreference(
+  //     photo: json['photo'],
+  //     name: json['name'],
+  //     email: json['email'],
+  //     password: json['password'],
+  //   );
+  // }
+
+  ModelSaveSharedpreference.fromJson(Map<String, dynamic> json) {
+    photo = json['photo'];
+    name = json['name'];
+    email = json['email'];
+    password = json['password'];
   }
 
-  // Map<String, dynamic> toJson() =>
-  //     {'photo': photo, 'name': name, 'email': email, 'password': password};
+  Map<String, dynamic> toJson() =>
+      {'photo': photo, 'name': name, 'email': email, 'password': password};
 }
-

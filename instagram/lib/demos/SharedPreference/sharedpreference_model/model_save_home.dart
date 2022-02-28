@@ -29,17 +29,18 @@ class _ModelSaveHomeState extends State<ModelSaveHome> {
   FocusNode pass = FocusNode();
   bool ispassvisible = false;
 
-  void storeUserData() async {
-    ModelSaveSharedpreference user1 = ModelSaveSharedpreference(
-        photo: image,
-        name: namecontroller.text,
-        email: emailcontroller.text,
-        password: passcontroller.text);
-    String user = jsonEncode(user1);
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    print("page 1${user.toString()}");
-    preferences.setString('userdata', user);
-  }
+  // void storeUserData() async {
+  //   print("function called before");
+  //   ModelSaveSharedpreference user1 =ModelSaveSharedpreference( photo: image,
+  //       name: namecontroller.text,
+  //       email: emailcontroller.text,
+  //       password: passcontroller.text);
+  //   String user = jsonEncode(user1.toJson());
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   print("function called after");
+  //   print("page 1${user.toString()}");
+  //   preferences.setString('userdata', user);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +278,7 @@ class _ModelSaveHomeState extends State<ModelSaveHome> {
                           if (demos.currentState!.validate()) {
                             FocusScope.of(context).unfocus();
                           }
-                          storeUserData();
+                         StoreGetData.storeUserData(image??"", namecontroller.text, emailcontroller.text, passcontroller.text);
                           StoreGetData.logIn(true);
                           Get.to(ModelSaveHome2());
                         },

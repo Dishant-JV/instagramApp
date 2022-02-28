@@ -11,7 +11,6 @@ class StoreGetData {
     preferences.setBool('isLogIn', isLogIn);
   }
 
-
   static void storeUserData(
       String image, String name, String email, String password) async {
     ModelSaveSharedpreference user1 = ModelSaveSharedpreference(
@@ -21,5 +20,12 @@ class StoreGetData {
     preferences.setString('userdata', user);
   }
 
-
+  static Future<ModelSaveSharedpreference> getUserData() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    Map<String, dynamic> jsonData =
+        jsonDecode(preferences.getString('userdata') ?? "");
+    ModelSaveSharedpreference user =
+        ModelSaveSharedpreference.fromJson(jsonData);
+    return user;
+  }
 }
