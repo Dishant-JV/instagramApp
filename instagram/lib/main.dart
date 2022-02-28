@@ -37,6 +37,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/SharedPreference/shared_login.dart';
 import 'demos/SharedPreference/sharedhome.dart';
+import 'demos/SharedPreference/sharedpreference_model/model_save_home.dart';
+import 'demos/SharedPreference/sharedpreference_model/model_save_splash.dart';
 import 'demos/SharedPreference/splash_shardpreference.dart';
 import 'demos/animated_drawer.dart';
 import 'demos/demo_screen2.dart';
@@ -62,7 +64,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      home: ImagePickerDemo1(),
+      home: ModelSaveSplash(),
       debugShowCheckedModeBanner: false,
     ),
   );
