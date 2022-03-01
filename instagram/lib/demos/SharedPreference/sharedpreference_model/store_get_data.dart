@@ -15,7 +15,7 @@ class StoreGetData {
       String image, String name, String email, String password) async {
     ModelSaveSharedpreference user1 = ModelSaveSharedpreference(
         photo: image, name: name, email: email, password: password);
-    String user = jsonEncode(user1);
+    String user = jsonEncode(user1.toJson());
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('userdata', user);
   }
