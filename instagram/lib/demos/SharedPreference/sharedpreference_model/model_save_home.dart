@@ -147,13 +147,15 @@ class _ModelSaveHomeState extends State<ModelSaveHome> {
                   radius: 55,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(55),
-                    child: Image.file(
-                      File(
-                        image ?? "",
-                      ),
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
+                    child: image == null
+                        ? Image.asset("assets/images/demo3.jpg")
+                        : Image.file(
+                            File(
+                              image ?? "",
+                            ),
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
                   )),
             ),
             Container(
@@ -278,7 +280,11 @@ class _ModelSaveHomeState extends State<ModelSaveHome> {
                           if (demos.currentState!.validate()) {
                             FocusScope.of(context).unfocus();
                           }
-                         StoreGetData.storeUserData(image??"", namecontroller.text, emailcontroller.text, passcontroller.text);
+                          StoreGetData.storeUserData(
+                              image ?? "",
+                              namecontroller.text,
+                              emailcontroller.text,
+                              passcontroller.text);
                           StoreGetData.logIn(true);
                           Get.to(ModelSaveHome2());
                         },

@@ -5,11 +5,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gallery_saver/files.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
+import 'package:share_extend/share_extend.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:http/http.dart' as http;
 
 class DownloadingScreen extends StatefulWidget {
   const DownloadingScreen({Key? key}) : super(key: key);
@@ -22,7 +25,6 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
   // // String image =
   //      "https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg";
   GlobalKey _globalKey = GlobalKey();
-
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +64,5 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
     Dio().download(
         "https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg",
         paths);
-
   }
 }
