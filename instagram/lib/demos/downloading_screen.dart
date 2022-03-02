@@ -10,7 +10,6 @@ import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
-import 'package:share_extend/share_extend.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:http/http.dart' as http;
 
@@ -58,11 +57,13 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
   // }
 
   void downlod() {
+    final url="https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg";
     Directory appStorage = Directory('/storage/emulated/0/Download/insta');
     String paths = appStorage.path + "/Faire.jpg";
     print(paths);
     Dio().download(
         "https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg",
         paths);
+    Share.shareFiles([paths]);
   }
 }
