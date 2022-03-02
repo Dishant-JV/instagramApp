@@ -55,6 +55,9 @@ dependencies:
   zoom_pinch_overlay: ^1.1.2
   easy_image_viewer: ^1.0.3
   gesture_zoom_box: ^0.0.3
+  http: ^0.13.4
+  share_extend: ^2.0.0
+  multi_image_picker: ^4.8.01
 
 
 
