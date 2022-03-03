@@ -55,14 +55,12 @@ dependencies:
   zoom_pinch_overlay: ^1.1.2
   easy_image_viewer: ^1.0.3
   gesture_zoom_box: ^0.0.3
-<<<<<<< HEAD
   http: ^0.13.4
   share_extend: ^2.0.0
   multi_image_picker: ^4.8.01
-=======
   motion_toast: ^2.1.1
 
->>>>>>> 4619a858d26dcb04a944e9fa78c9d48335995c82
+
 
 
 

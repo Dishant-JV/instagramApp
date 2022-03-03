@@ -37,6 +37,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'activity_screen.dart';
 import 'demos/SharedPreference/shared_login.dart';
 import 'demos/SharedPreference/sharedhome.dart';
+import 'demos/SharedPreference/sharedpreference _list/SaveList.dart';
 import 'demos/SharedPreference/sharedpreference_model/model_save_home.dart';
 import 'demos/SharedPreference/sharedpreference_model/model_save_splash.dart';
 import 'demos/SharedPreference/splash_shardpreference.dart';
@@ -65,7 +66,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      home: DownloadingScreen(),
+      home: SaveList(),
       debugShowCheckedModeBanner: false,
     ),
   );
