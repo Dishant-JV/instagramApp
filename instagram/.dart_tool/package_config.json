@@ -182,6 +182,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_share",
+      "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_share-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_staggered_grid_view",
       "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_staggered_grid_view-0.6.1",
       "packageUri": "lib/",
@@ -428,8 +434,8 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "share_extend",
-      "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/share_extend-2.0.0",
+      "name": "screenshot",
+      "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/screenshot-1.2.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -680,7 +686,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-03-02T03:10:17.221828Z",
+  "generated": "2022-03-05T06:50:21.924574Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

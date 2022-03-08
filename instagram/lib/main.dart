@@ -66,7 +66,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      home: SaveList(),
+      home: DownloadingScreen(),
       debugShowCheckedModeBanner: false,
     ),
   );

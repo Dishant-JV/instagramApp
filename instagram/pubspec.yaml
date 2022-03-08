@@ -56,9 +56,12 @@ dependencies:
   easy_image_viewer: ^1.0.3
   gesture_zoom_box: ^0.0.3
   http: ^0.13.4
-  share_extend: ^2.0.0
   multi_image_picker: ^4.8.01
   motion_toast: ^2.1.1
+  flutter_share: ^2.0.0
+  screenshot: ^1.2.3
+
+
 
 
 
