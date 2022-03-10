@@ -1,15 +1,10 @@
 import 'dart:async';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:instagram/demos/sqflite/sqflite_home.dart';
+
 import 'package:path/path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SqfliteDatabase {
-  DataList dataList = Get.put(DataList());
   Database? _database;
 
   Future<Database?> get database async {
@@ -38,26 +33,30 @@ class SqfliteDatabase {
         .whenComplete(() => print("data inserted"));
     final data = await db?.rawQuery("SELECT * FROM STUDENT");
     print(data);
-    dataList.obxListData.value= data as List<Map<String,Object>>;
   }
 
   dbSelect() async {
     Database? db = await database;
-    var userData = await db
-        ?.rawQuery('SELECT * FROM STUDENT')
-        .whenComplete(() => print("selected"));
-    return userData;
+    List<Student> studentList = [];
+    final result = await db?.rawQuery('SELECT * FROM STUDENT');
+    print(result);
+    if (result != null && result.isNotEmpty) {
+      result.forEach((element) {
+        studentList.add(Student.fromJson(element));
+      });
+    }
+    return studentList;
   }
 
-  dbDelete() async {
+  dbDelete(var id) async {
     Database? db = await database;
-    final id = await db?.rawDelete('DELETE FROM STUDENT');
-    print(id);
+    await db?.rawQuery('DELETE FROM STUDENT WHERE id=$id');
   }
 
 // dbUpdate() async {
 //   Database? db = await database;
-//   db?.update('STUDENT', _student.toJson(), where: 'id=1');
+//   db?.update('STUDENT', Student(name: 'Jenil', age: 25, std: 8).toJson(),
+//       where: 'id=?', whereArgs: [3]);
 //   // db?.rawUpdate("UPDATE STUDENT SET NAME='Dishant' WHERE id=1");
 // }
 }
@@ -66,6 +65,7 @@ class Student {
   String? name;
   int? age;
   int? std;
+  int? id;
 
   Student({this.name, this.age, this.std});
 
@@ -73,7 +73,9 @@ class Student {
     name = json['name'];
     age = json['age'];
     std = json['std'];
+    id = json['id'];
   }
 
-  Map<String, dynamic> toJson() => {'name': name, 'age': age, 'std': std};
+  Map<String, dynamic> toJson() =>
+      {'name': name, 'age': age, 'std': std, 'id': id};
 }

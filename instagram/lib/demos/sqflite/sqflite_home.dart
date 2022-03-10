@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:instagram/demos/sqflite/sqflite_database.dart';
+import 'package:swipedetector/swipedetector.dart';
 
 class SqFliteHome extends StatefulWidget {
   const SqFliteHome({Key? key}) : super(key: key);
@@ -11,8 +11,7 @@ class SqFliteHome extends StatefulWidget {
 }
 
 class _SqFliteHomeState extends State<SqFliteHome> {
-  // List userData = [];
-  DataList dataList = Get.put(DataList());
+  List<Student> userData = [];
   final keys = GlobalKey<FormState>();
   String nameError = "";
   String ageError = "";
@@ -26,7 +25,8 @@ class _SqFliteHomeState extends State<SqFliteHome> {
   }
 
   getData() async {
-    dataList.obxListData.value = await database.dbSelect();
+    userData = await database.dbSelect();
+    setState(() {});
   }
 
   SqfliteDatabase database = SqfliteDatabase();
@@ -214,22 +214,24 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                       height: 10,
                     ),
                     InkWell(
-                      onTap: () {
-                        setState(() {
-                          if (keys.currentState!.validate()) {
-                            database.dbInsert(Student(
-                                name: nameController.text,
-                                age: int.parse(ageController.text),
-                                std: int.parse(stdController.text)));
-                            nameController.clear();
-                            ageController.clear();
-                            stdController.clear();
-                            nameError = "";
-                            ageError = "";
-                            stdError = "";
-                            Navigator.pop(context);
-                          }
-                        });
+                      onTap: () async {
+                        if (keys.currentState!.validate()) {
+                          Student student = Student(
+                              name: nameController.text,
+                              age: int.parse(ageController.text),
+                              std: int.parse(stdController.text));
+                          await database.dbInsert(student);
+                          nameController.clear();
+                          ageController.clear();
+                          stdController.clear();
+                          nameError = "";
+                          ageError = "";
+                          stdError = "";
+                          setState(() {
+                            userData.add(student);
+                          });
+                          Navigator.pop(context);
+                        }
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -310,8 +312,11 @@ class _SqFliteHomeState extends State<SqFliteHome> {
             height: 20,
           ),
           Container(
+            margin: EdgeInsets.symmetric(horizontal: 5),
             height: 50,
-            color: Color(0xffAEABA6),
+            decoration: BoxDecoration(
+                color: Color(0xffAEABA6),
+                borderRadius: BorderRadius.circular(20)),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -349,56 +354,65 @@ class _SqFliteHomeState extends State<SqFliteHome> {
             height: 15,
           ),
           Expanded(
-            child: Obx(() => ListView.builder(
-                scrollDirection: Axis.vertical,
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                itemCount: dataList.obxListData.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                      padding: EdgeInsets.only(bottom: 8),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Container(
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  itemCount: userData.length,
+                  itemBuilder: (context, index) {
+                    Student student = userData[index];
+                    return InkWell(
+                      onTap: ()async {
+                        await database.dbDelete(student.id);
+                        setState(()  {
+                          getData();
+                        });
+
+                      },
+                      child: Container(
+                        height: 60,
+                        color: index % 2 == 0
+                            ? Colors.grey.shade200
+                            : Colors.white,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    student.name ?? "",
+                                    style: TextStyle(
+                                        fontSize: 17, fontFamily: 'RyeFonts'),
+                                  )),
+                            ),
+                            Expanded(
+                              child: Container(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "${dataList.obxListData[index]['name']}",
+                                  student.age.toString(),
                                   style: TextStyle(
                                       fontSize: 17, fontFamily: 'RyeFonts'),
-                                )),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "${dataList.obxListData[index]['age']}",
-                                style: TextStyle(
-                                    fontSize: 17, fontFamily: 'RyeFonts'),
+                                ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "${dataList.obxListData[index]['std']}",
-                                style: TextStyle(
-                                    fontSize: 17, fontFamily: 'RyeFonts'),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  student.std.toString(),
+                                  style: TextStyle(
+                                      fontSize: 17, fontFamily: 'RyeFonts'),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ));
-                })),
-          )
+                          ],
+                        ),
+                      ),
+                    );
+                  }))
         ],
       ),
     );
   }
-}
-
-class DataList extends GetxController {
-  var obxListData = [].obs;
 }

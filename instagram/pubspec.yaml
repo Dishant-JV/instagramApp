@@ -61,6 +61,7 @@ dependencies:
   flutter_share: ^2.0.0
   screenshot: ^1.2.3
   sqflite: ^2.0.2
+  swipedetector: ^1.2.0
 
 
 
