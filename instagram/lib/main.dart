@@ -53,6 +53,7 @@ import 'demos/gridview_demo.dart';
 import 'demos/image_picker_demo.dart';
 import 'demos/photo_gallery/photo_gallery.dart';
 import 'demos/sliver_appbar.dart';
+import 'demos/sqflite/sqflite_home.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
@@ -66,7 +67,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      home: DownloadingScreen(),
+      home: SqFliteHome(),
       debugShowCheckedModeBanner: false,
     ),
   );

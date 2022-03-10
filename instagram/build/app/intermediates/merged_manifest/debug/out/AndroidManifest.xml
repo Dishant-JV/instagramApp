@@ -39,17 +39,8 @@
         android:label="instagram"
         android:requestLegacyExternalStorage="true" >
         <provider
-            android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"
-            android:authorities="com.example.instagram.flutter_downloader.provider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-        <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.instagram.fileProvider"
+            android:authorities="com.example.instagram.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

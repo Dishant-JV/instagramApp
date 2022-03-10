@@ -303,7 +303,7 @@
     },
     {
       "name": "motion_toast",
-      "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/motion_toast-2.1.2",
+      "rootUri": "file:///C:/Users/DISHANT/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/motion_toast-2.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -686,7 +686,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-03-05T06:50:21.924574Z",
+  "generated": "2022-03-08T13:16:26.108914Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }
