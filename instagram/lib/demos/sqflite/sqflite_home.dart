@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/demos/sqflite/sqflite_database.dart';
+import 'package:instagram/demos/sqflite/sqflite_update_screen.dart';
 import 'package:swipedetector/swipedetector.dart';
 
 class SqFliteHome extends StatefulWidget {
@@ -361,13 +362,12 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                   itemCount: userData.length,
                   itemBuilder: (context, index) {
                     Student student = userData[index];
-                    return InkWell(
-                      onTap: ()async {
+                    return SwipeDetector(
+                      onSwipeRight: () async {
                         await database.dbDelete(student.id);
-                        setState(()  {
+                        setState(() {
                           getData();
                         });
-
                       },
                       child: Container(
                         height: 60,
@@ -406,6 +406,21 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                                 ),
                               ),
                             ),
+                            InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              SqfliteUpdateScreen(id: student.id,)));
+                                },
+                                child: Icon(
+                                  Icons.system_update,
+                                  size: 28,
+                                )),
+                            SizedBox(
+                              width: 8,
+                            )
                           ],
                         ),
                       ),

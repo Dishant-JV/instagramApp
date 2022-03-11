@@ -53,6 +53,18 @@ class SqfliteDatabase {
     await db?.rawQuery('DELETE FROM STUDENT WHERE id=$id');
   }
 
+  dbselect_id_data(int id) async {
+    Database? db = await database;
+    List<Student> studentList = [];
+    final result = await db?.rawQuery('SELECT * FROM STUDENT WHERE id=$id');
+    if (result != null) {
+      result.forEach((element) {
+        studentList.add(Student.fromJson(element));
+      });
+    }
+    return studentList;
+  }
+
 // dbUpdate() async {
 //   Database? db = await database;
 //   db?.update('STUDENT', Student(name: 'Jenil', age: 25, std: 8).toJson(),
