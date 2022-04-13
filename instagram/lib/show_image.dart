@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gesture_zoom_box/gesture_zoom_box.dart';
+import 'package:instagram/imageModel.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:pinch_zoom/pinch_zoom.dart';
@@ -17,25 +18,25 @@ class Images extends StatefulWidget {
 }
 
 class _ImagesState extends State<Images> {
-  get img => widget.img;
 
-  get nimg => widget.nimg;
 
   @override
   Widget build(BuildContext context) {
+
+    final args=ModalRoute.of(context)?.settings.arguments as ImageModel;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: widget.img == ""
+        body: args.img == ""
             ? Container(
           height: double.infinity,
           width: double.infinity,
-          child: GestureZoomBox(child: PinchZoom(child: Image.network(nimg)))
+          child: GestureZoomBox(child: PinchZoom(child: Image.network(args.nimg.toString())))
         )
             : 
         GestureZoomBox(
           child: PinchZoom(
-              child: Image.asset(img)),
+              child: Image.asset(args.img.toString())),
         )
       ),
     );

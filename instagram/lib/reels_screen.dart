@@ -563,7 +563,6 @@ class _ReelsState extends State<Reels> {
                       ],
                     ),
                   ),
-
                   Container(
                     margin: EdgeInsets.only(left: 15, bottom: 10, top: 10),
                     child: Row(

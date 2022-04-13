@@ -1,19 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:instagram/demos/dialog_demo.dart';
 import 'package:instagram/demos/slider_demo_screen.dart';
+import 'package:instagram/models/post_model.dart';
+import 'package:instagram/post_database_list.dart';
 import 'package:instagram/profile/change_profile.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/search_screen.dart';
 import 'package:instagram/show_image.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import 'activity_screen.dart';
 import 'chat_screen.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:io';
-import 'models/insta_post.dart';
 import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
@@ -24,13 +28,35 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<PostModel> lstDatabasePost = [];
   UpdatePhoto updatePhoto = Get.put(UpdatePhoto());
-  Post _post = Post();
+  PostDatabaseList databaseList = PostDatabaseList();
+  Timer? _time;
+
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _time?.cancel();
+  }
   void initState() {
     // TODO: implement initState
     super.initState();
+    print("hello");
+    getData();
+    _time=Timer.periodic(Duration(seconds: 5), (timer) {
+      setState(() {
+        _enable=false;
+      });
+    });
+  }
+
+   getData() async {
+    var lst = await databaseList.dbSelect();
+    setState(() {
+      lstDatabasePost=lst;
+    });
   }
 
   final storyImages = [
@@ -49,6 +75,7 @@ class _HomeState extends State<Home> {
   ];
   bool isLike = false;
   bool isSave = false;
+  bool _enable=true;
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -72,14 +99,20 @@ class _HomeState extends State<Home> {
                           Expanded(
                               child: Row(
                             children: [
-                              Container(
-                                margin: EdgeInsets.only(top: 5, left: 20),
-                                height: 38,
-                                width: 122,
-                                child: Image.asset(
-                                  "assets/images/insta_text.png",
-                                  color: Colors.white,
-                                  fit: BoxFit.cover,
+                              Shimmer.fromColors(
+                                baseColor: Colors.grey.shade300,
+                                highlightColor: Colors.grey.shade500,
+                                period: Duration(seconds: 2),
+                                enabled: _enable,
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 5, left: 20),
+                                  height: 38,
+                                  width: 122,
+                                  child: Image.asset(
+                                    "assets/images/insta_text.png",
+                                    color: Colors.white,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ],
@@ -102,7 +135,7 @@ class _HomeState extends State<Home> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Get.to(Chat());
+                                  Navigator.pushNamed(context, 'chat');
                                   // Navigator.push(
                                   //     context,
                                   //     SwipeablePageRoute(
@@ -211,97 +244,142 @@ class _HomeState extends State<Home> {
                                           ],
                                         ),
                                       ),
-                                      ListView.builder(
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount: storyName.length,
-                                          itemBuilder:
-                                              (BuildContext context, index) {
-                                            return Container(
-                                              child: Column(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder:
-                                                                  (context) =>
-                                                                      Images(
-                                                                        ind: storyName[
-                                                                            index],
-                                                                        img: "",
-                                                                        nimg: storyImages[
-                                                                            index],
-                                                                      )));
-                                                    },
-                                                    child: Container(
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                                image:
-                                                                    DecorationImage(
-                                                                        image:
-                                                                            NetworkImage(
-                                                                          storyImages[
-                                                                              index],
-                                                                        ),
-                                                                        fit: BoxFit
-                                                                            .cover),
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                border: Border.all(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    width: 3)),
-                                                        height: 68,
-                                                        width: 68,
-                                                      ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        gradient:
-                                                            LinearGradient(
-                                                                colors: [
-                                                              Colors.yellow,
-                                                              Colors.red,
-                                                            ]),
-                                                        border: Border.all(
-                                                            color:
-                                                                Colors.white10,
-                                                            width: 2),
-                                                      ),
-                                                      height: 73,
-                                                      width: 73,
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                      top: 4,
-                                                    ),
-                                                    child: Text(
-                                                      storyName[index],
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  )
-                                                ],
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                              ),
-                                              margin: EdgeInsets.only(
-                                                  left: 11, top: 13),
-                                            );
-                                          })
+                                      _enable==true ?
+                                     ListView.builder(
+                                         shrinkWrap: true,
+                                         scrollDirection: Axis.horizontal,
+                                         itemCount: storyName.length,
+                                         itemBuilder:
+                                             (BuildContext context, index) {
+                                           return Shimmer.fromColors(
+                                             baseColor: Colors.grey.shade200,
+                                             highlightColor: Colors.grey.shade600,
+                                             period: Duration(seconds: 2),
+                                             enabled: _enable,
+                                             child: Container(
+                                               child: Column(
+                                                 children: [
+                                                   Container(
+                                                     decoration: BoxDecoration(
+                                                       shape: BoxShape.circle,
+                                                       color: Colors.red,
+                                                     ),
+                                                     height: 73,
+                                                     width: 73,
+                                                   ),
+                                                   Container(
+                                                     margin: EdgeInsets.only(
+                                                       top: 4,
+                                                     ),
+                                                     decoration: BoxDecoration(
+                                                       borderRadius: BorderRadius.circular(10),
+                                                       color: Colors.red,
+                                                     ),
+                                                     height: 8,
+                                                     width: 40,
+                                                   )
+                                                 ],
+                                                 mainAxisAlignment:
+                                                 MainAxisAlignment.center,
+                                               ),
+                                               margin: EdgeInsets.only(
+                                                   left: 11, top: 13),
+                                             ),
+                                           );
+                                         })
+                                          :
+                                  ListView.builder(
+                                         shrinkWrap: true,
+                                         scrollDirection: Axis.horizontal,
+                                         itemCount: storyName.length,
+                                         itemBuilder:
+                                             (BuildContext context, index) {
+                                           return Container(
+                                             child: Column(
+                                               children: [
+                                                 InkWell(
+                                                   onTap: () {
+                                                     Navigator.push(
+                                                         context,
+                                                         MaterialPageRoute(
+                                                             builder:
+                                                                 (context) =>
+                                                                 Images(
+                                                                   ind: storyName[
+                                                                   index],
+                                                                   img: "",
+                                                                   nimg: storyImages[
+                                                                   index],
+                                                                 )));
+                                                   },
+                                                   child: Container(
+                                                     child: Container(
+                                                       decoration:
+                                                       BoxDecoration(
+                                                           image:
+                                                           DecorationImage(
+                                                               image:
+                                                               NetworkImage(
+                                                                 storyImages[
+                                                                 index],
+                                                               ),
+                                                               fit: BoxFit
+                                                                   .cover),
+                                                           shape: BoxShape
+                                                               .circle,
+                                                           border: Border.all(
+                                                               color: Colors
+                                                                   .black,
+                                                               width: 3)),
+                                                       height: 68,
+                                                       width: 68,
+                                                     ),
+                                                     decoration: BoxDecoration(
+                                                       shape: BoxShape.circle,
+                                                       gradient:
+                                                       LinearGradient(
+                                                           colors: [
+                                                             Colors.yellow,
+                                                             Colors.red,
+                                                           ]),
+                                                       border: Border.all(
+                                                           color:
+                                                           Colors.white10,
+                                                           width: 2),
+                                                     ),
+                                                     height: 73,
+                                                     width: 73,
+                                                   ),
+                                                 ),
+                                                 Container(
+                                                   margin: EdgeInsets.only(
+                                                     top: 4,
+                                                   ),
+                                                   child: Text(
+                                                     storyName[index],
+                                                     style: TextStyle(
+                                                         color: Colors.white,
+                                                         fontSize: 12),
+                                                   ),
+                                                 )
+                                               ],
+                                               mainAxisAlignment:
+                                               MainAxisAlignment.center,
+                                             ),
+                                             margin: EdgeInsets.only(
+                                                 left: 11, top: 13),
+                                           );
+                                         })
                                     ],
                                   ),
                                 ),
-                              ), //[story container finish]
+                              ), //story container finish
                               ListView.builder(
                                   shrinkWrap: true,
                                   physics: NeverScrollableScrollPhysics(),
-                                  itemCount: listPost.length,
+                                  itemCount: lstDatabasePost.length,
                                   itemBuilder: (context, index) {
+                                    PostModel data = lstDatabasePost[index];
                                     return Container(
                                       child: Column(
                                         children: [
@@ -319,9 +397,8 @@ class _HomeState extends State<Home> {
                                                           child: Container(
                                                             decoration: BoxDecoration(
                                                                 image: DecorationImage(
-                                                                    image: NetworkImage(listPost[
-                                                                            index]
-                                                                        .profileImage
+                                                                    image: NetworkImage(data
+                                                                        .image
                                                                         .toString()),
                                                                     fit: BoxFit
                                                                         .cover),
@@ -361,8 +438,7 @@ class _HomeState extends State<Home> {
                                                               EdgeInsets.only(
                                                                   left: 11),
                                                           child: Text(
-                                                            listPost[index]
-                                                                .pName
+                                                            data.name
                                                                 .toString(),
                                                             style: TextStyle(
                                                                 color: Colors
@@ -393,9 +469,7 @@ class _HomeState extends State<Home> {
                                             height: 360,
                                             child: ZoomOverlay(
                                               child: Image.network(
-                                                listPost[index]
-                                                    .pImage
-                                                    .toString(),
+                                                data.image.toString(),
                                               ),
                                             ),
                                           ),
@@ -483,8 +557,8 @@ class _HomeState extends State<Home> {
                                                                             .circular(
                                                                                 6),
                                                                     image: DecorationImage(
-                                                                        image: NetworkImage(listPost[index]
-                                                                            .pImage
+                                                                        image: NetworkImage(data
+                                                                            .image
                                                                             .toString()),
                                                                         fit: BoxFit
                                                                             .cover)),
@@ -571,9 +645,16 @@ class _HomeState extends State<Home> {
                                                               ),
                                                               children: [
                                                             TextSpan(
-                                                                text: listPost[
-                                                                        index]
-                                                                    .pLikePerson
+                                                                text:
+                                                                    "dishant_8171 and ",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold)),
+                                                            TextSpan(
+                                                                text: data.likes
                                                                     .toString(),
                                                                 style: TextStyle(
                                                                     color: Colors
@@ -581,6 +662,14 @@ class _HomeState extends State<Home> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold)),
+                                                            TextSpan(
+                                                                text: " others",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))
                                                           ])),
                                                     ),
                                                     Container(
@@ -680,7 +769,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.black,
                                             padding: EdgeInsets.only(left: 20),
                                             child: Text(
-                                              listPost[index].pHour.toString(),
+                                              data.hour.toString(),
                                               style: TextStyle(
                                                   color: Colors.white60,
                                                   fontSize: 11),
@@ -689,7 +778,7 @@ class _HomeState extends State<Home> {
                                         ],
                                       ),
                                     );
-                                  })
+                                  }) //post container
                             ],
                           ),
                         ),

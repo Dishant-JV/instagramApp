@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:instagram/demos/sqflite/sqflite_database.dart';
+import 'package:instagram/demos/sqflite/sqflite_home.dart';
 
 class SqfliteUpdateScreen extends StatefulWidget {
   final int? id;
@@ -11,6 +14,7 @@ class SqfliteUpdateScreen extends StatefulWidget {
 }
 
 class _SqfliteUpdateScreenState extends State<SqfliteUpdateScreen> {
+  Student student = Student();
   List<Student> studentList = [];
   SqfliteDatabase sqfliteDatabase = SqfliteDatabase();
   FocusNode nameNode = FocusNode();
@@ -25,17 +29,16 @@ class _SqfliteUpdateScreenState extends State<SqfliteUpdateScreen> {
     // TODO: implement initState
     super.initState();
     int? a = widget.id;
-    getData(a!);
+    print(a);
+    if (a != null) getData(a);
   }
 
   getData(int id) async {
     studentList = await sqfliteDatabase.dbselect_id_data(id);
-    nameController.value =
-        TextEditingValue(text: "${studentList.map((e) => e.name)}");
-    ageController.value =
-        TextEditingValue(text: "${studentList.map((e) => e.age)}");
-    stdController.value =
-        TextEditingValue(text: "${studentList.map((e) => e.std)}");
+    student = studentList[0];
+    nameController.value = TextEditingValue(text: "${student.name}");
+    ageController.value = TextEditingValue(text: "${student.age}");
+    stdController.value = TextEditingValue(text: "${student.std}");
   }
 
   @override
@@ -180,25 +183,36 @@ class _SqfliteUpdateScreenState extends State<SqfliteUpdateScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  elevation: 5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff524F4A),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center,
-                    height: 45,
-                    width: 100,
-                    child: Text(
-                      "Update",
-                      style: TextStyle(
-                          fontFamily: "RyeFonts",
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                InkWell(
+                  onTap: () async {
+                    Navigator.pop(context);
+                    Student student = Student(
+                        age: int.parse(ageController.text),
+                        id: widget.id,
+                        std: int.parse(stdController.text),
+                        name: nameController.text);
+                    await sqfliteDatabase.dbUpdate(student, widget.id??0);
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    elevation: 5,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff524F4A),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      height: 45,
+                      width: 100,
+                      child: Text(
+                        "Update",
+                        style: TextStyle(
+                            fontFamily: "RyeFonts",
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 )

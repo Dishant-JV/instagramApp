@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:instagram/demos/sqflite/sqflite_home.dart';
 import 'package:path/path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
@@ -45,6 +48,7 @@ class SqfliteDatabase {
         studentList.add(Student.fromJson(element));
       });
     }
+    print(studentList);
     return studentList;
   }
 
@@ -65,29 +69,44 @@ class SqfliteDatabase {
     return studentList;
   }
 
-// dbUpdate() async {
-//   Database? db = await database;
-//   db?.update('STUDENT', Student(name: 'Jenil', age: 25, std: 8).toJson(),
-//       where: 'id=?', whereArgs: [3]);
-//   // db?.rawUpdate("UPDATE STUDENT SET NAME='Dishant' WHERE id=1");
-// }
+  // dbUpdate(String name, int age, int std, int id) async {
+  //   print(std);
+  //   print(id);
+  //   Database? db = await database;
+  //   int? a = await db?.rawUpdate(
+  //       "UPDATE STUDENT SET name=$name,std=$std,age=$age WHERE id=$id");
+  //   print(a);
+  // }
+  dbUpdate(Student student,int id)async{
+    print(id);
+    print(student.id);
+    Database? db = await database;
+   int? a= await db?.update("STUDENT", student.toJson(),where:"id=?",whereArgs: ['$id']);
+   print(a);
+  }
+
+  update(String name, int age, int std, int id) async {
+    Database? db = await database;
+    await db?.rawUpdate(
+        "UPDATE STUDENT SET age='$age',std='$std' ,name='$name' WHERE id='$id'");
+  }
 }
 
 class Student {
+  int? id;
   String? name;
   int? age;
   int? std;
-  int? id;
 
-  Student({this.name, this.age, this.std});
+  Student({this.name, this.age, this.std,this.id});
 
   Student.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
     age = json['age'];
     std = json['std'];
-    id = json['id'];
   }
 
   Map<String, dynamic> toJson() =>
-      {'name': name, 'age': age, 'std': std, 'id': id};
+      {'id': id, 'name': name, 'age': age, 'std': std};
 }

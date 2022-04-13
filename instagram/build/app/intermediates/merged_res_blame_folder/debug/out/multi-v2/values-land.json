@@ -4,7 +4,17 @@
             "outputFile": "D:\\flutter\\main\\instagramApp\\instagram\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DISHANT\\.gradle\\caches\\transforms-2\\files-2.1\\f9fffcd81cbe8acbd7f51804fefee451\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\DISHANT\\.gradle\\caches\\transforms-2\\files-2.1\\8eaf89a15e03c4a0b61cb75405393ff1\\appcompat-1.0.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\DISHANT\\.gradle\\caches\\transforms-2\\files-2.1\\f87006ec7466512a46c3ab42ebba7ba7\\material-1.0.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "8",
                         "endColumns": "10",
                         "endOffsets": "431"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\DISHANT\\.gradle\\caches\\transforms-2\\files-2.1\\4baa41ae969e39d9320c43f68af4b761\\appcompat-1.0.0\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
                     }
                 }
             ]

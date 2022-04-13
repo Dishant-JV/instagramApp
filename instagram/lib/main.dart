@@ -32,15 +32,20 @@ import 'package:instagram/profile/signup.dart';
 import 'package:instagram/profile_screen.dart';
 import 'package:instagram/reels_screen.dart';
 import 'package:instagram/search_screen.dart';
+import 'package:instagram/show_image.dart';
 import 'package:instagram/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Firebase/firebase_otp.dart';
 import 'activity_screen.dart';
+import 'demos/API/api_demo_screen.dart';
+import 'demos/API/recipe_api_testing/recipe_home.dart';
 import 'demos/SharedPreference/shared_login.dart';
 import 'demos/SharedPreference/sharedhome.dart';
 import 'demos/SharedPreference/sharedpreference _list/SaveList.dart';
 import 'demos/SharedPreference/sharedpreference_model/model_save_home.dart';
 import 'demos/SharedPreference/sharedpreference_model/model_save_splash.dart';
 import 'demos/SharedPreference/splash_shardpreference.dart';
+import 'demos/all_counry_name.dart';
 import 'demos/animated_drawer.dart';
 import 'demos/demo_screen2.dart';
 import 'demos/downloading_screen.dart';
@@ -50,24 +55,31 @@ import 'demos/dropdown_button_demo.dart';
 import 'demos/expansion_tile_card_demo.dart';
 import 'demos/form_image_picker.dart';
 import 'demos/gridview_demo.dart';
+import 'demos/gridview_selection_demo.dart';
 import 'demos/image_picker_demo.dart';
 import 'demos/photo_gallery/photo_gallery.dart';
 import 'demos/sliver_appbar.dart';
+import 'demos/sqflite/check and Update Quantity/chek_update_home.dart';
 import 'demos/sqflite/sqflite_home.dart';
+import 'demos/sqflite/wishlist/main_product_page.dart';
 import 'demos/textformfield_demo2.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'news/category_news.dart';
+import 'news/news_home.dart';
+import 'package:firebase_core/firebase_core.dart';
 //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
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await FlutterDownloader.initialize(
-      debug: true // optional: set false to disable printing logs to console
-      );
-  WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp();
   runApp(
     GetMaterialApp(
-      home: SqFliteHome(),
+      routes: {
+        'newsCategory': (context) => CategoryNews(),
+        'chat': (context) => Chat(),
+        'images': (context) => Images(),
+      },
+      home: FirebaseOtp(),
       debugShowCheckedModeBanner: false,
     ),
   );

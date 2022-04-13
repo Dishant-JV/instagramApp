@@ -6,12 +6,15 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:gallery_saver/files.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
+import 'package:share_extend/share_extend.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:http/http.dart' as http;
 
@@ -64,11 +67,11 @@ class _DownloadingScreenState extends State<DownloadingScreen> {
         "https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg";
     Directory appStorage = Directory('/storage/emulated/0/Download/insta');
     String paths = appStorage.path + "/Faire.jpg";
-    File file=File(paths);
+    // AssetImage file=AssetImage(paths);
     print(paths);
     Dio().download(
         "https://static.toiimg.com/thumb/msid-85859270,width-400,resizemode-4/85859270.jpg",
         paths);
-      Share.shareFiles([file.path]);
+    ShareExtend.share(paths, "image");
   }
 }

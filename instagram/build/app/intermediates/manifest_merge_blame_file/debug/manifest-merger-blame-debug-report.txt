@@ -41,413 +41,606 @@
 26        </intent>
 27    </queries>
 28
-29    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-29-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-83
-29-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-80
-30    <uses-permission android:name="android.permission.WAKE_LOCK" />
-30-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:25:5-68
-30-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:25:22-65
-31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-31-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:26:5-79
-31-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:26:22-76
-32    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-32-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:27:5-81
-32-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:27:22-78
-33    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-33-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:28:5-77
-33-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:28:22-74
-34
-35    <application
-35-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:8:4-56:19
-36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-36-->[androidx.core:core:1.7.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b9a960218f5163997c0fdfa3d3078c0e\core-1.7.0\AndroidManifest.xml:24:18-86
-37        android:debuggable="true"
-38        android:icon="@mipmap/ic_launcher"
-38-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:11:9-43
-39        android:label="instagram"
-39-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:9:9-34
-40        android:requestLegacyExternalStorage="true" >
-40-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:10:9-52
-41        <provider
-42            android:name="androidx.core.content.FileProvider"
-43            android:authorities="com.example.instagram.provider"
-44            android:exported="false"
-45            android:grantUriPermissions="true" >
-46            <meta-data
-46-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
-47                android:name="android.support.FILE_PROVIDER_PATHS"
-47-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
-48                android:resource="@xml/filepaths" />
-48-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
-49        </provider>
-50
-51        <activity
-51-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:22:9-50:20
-52            android:name="com.example.instagram.MainActivity"
-52-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:23:13-41
-53            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-53-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:26:13-163
-54            android:hardwareAccelerated="true"
-54-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:27:13-47
-55            android:launchMode="singleTop"
-55-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:24:13-43
-56            android:theme="@style/LaunchTheme"
-56-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:25:13-47
-57            android:windowSoftInputMode="adjustResize" >
-57-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:28:13-55
-58
-59            <!--
-60                 Specifies an Android theme to apply to this Activity as soon as
-61                 the Android process has started. This theme is visible to the user
-62                 while the Flutter UI initializes. After that, this theme continues
-63                 to determine the Window background behind the Flutter UI.
-64            -->
-65            <meta-data
-65-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:33:13-36:17
-66                android:name="io.flutter.embedding.android.NormalTheme"
-66-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:34:15-70
-67                android:resource="@style/NormalTheme" />
-67-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:35:15-52
-68            <!--
-69                 Displays an Android View that continues showing the launch screen
-70                 Drawable until Flutter paints its first frame, then this splash
-71                 screen fades out. A splash screen is useful to avoid any visual
-72                 gap between the end of Android's launch screen and the painting of
-73                 Flutter's first frame.
-74            -->
-75            <meta-data
-75-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:42:13-45:17
-76                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-76-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:43:15-79
-77                android:resource="@drawable/launch_background" />
-77-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:44:15-61
-78
-79            <intent-filter>
-79-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:46:13-49:29
-80                <action android:name="android.intent.action.MAIN" />
-80-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:47:17-68
-80-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:47:25-66
-81
-82                <category android:name="android.intent.category.LAUNCHER" />
-82-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:48:17-76
-82-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:48:27-74
-83            </intent-filter>
-84        </activity>
-85        <!--
-86             Don't delete the meta-data below.
-87             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-88        -->
-89        <meta-data
-89-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:53:9-55:33
-90            android:name="flutterEmbedding"
-90-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:54:13-44
-91            android:value="2" />
-91-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:55:13-30
-92
-93        <provider
-93-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
-94            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-94-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
-95            android:authorities="com.example.instagram.flutter.image_provider"
-95-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
-96            android:exported="false"
-96-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
-97            android:grantUriPermissions="true" >
-97-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
-98            <meta-data
-98-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
-99                android:name="android.support.FILE_PROVIDER_PATHS"
-99-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
-100                android:resource="@xml/flutter_image_picker_file_paths" />
-100-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
-101        </provider>
-102
-103        <activity
-103-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
-104            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-104-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
-105            android:exported="false"
-105-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
-106            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-106-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
-107
-108        <provider
-108-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-21:20
-109            android:name="com.crazecoder.openfile.FileProvider"
-109-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-64
-110            android:authorities="com.example.instagram.fileProvider.com.crazecoder.openfile"
-110-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-88
-111            android:exported="false"
-111-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
-112            android:grantUriPermissions="true" >
-112-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
-113            <meta-data
-113-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
-114                android:name="android.support.FILE_PROVIDER_PATHS"
-114-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
-115                android:resource="@xml/filepaths" />
-115-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
-116        </provider>
-117        <provider
-117-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
-118            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
-118-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-77
-119            android:authorities="com.example.instagram.flutter.share_provider"
-119-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
-120            android:exported="false"
-120-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
-121            android:grantUriPermissions="true" >
-121-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
-122            <meta-data
-122-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
-123                android:name="android.support.FILE_PROVIDER_PATHS"
-123-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
-124                android:resource="@xml/flutter_share_file_paths" />
-124-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
-125        </provider>
-126        <provider
-126-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:12:9-20:20
-127            android:name="com.sangcomz.fishbun.FishBunFileProvider"
-127-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:13:13-68
-128            android:authorities="com.example.instagram.fishbunfileprovider"
-128-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:14:13-71
-129            android:exported="false"
-129-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:15:13-37
-130            android:grantUriPermissions="true" >
-130-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:16:13-47
-131            <meta-data
-131-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
-132                android:name="android.support.FILE_PROVIDER_PATHS"
-132-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
-133                android:resource="@xml/provider_paths" />
-133-->[:image_picker] D:\flutter\main\instagramApp\instagram\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
-134        </provider>
-135
-136        <activity
-136-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:22:9-25:51
-137            android:name="com.sangcomz.fishbun.ui.album.AlbumActivity"
-137-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:23:13-71
-138            android:label="@string/album"
-138-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:24:13-42
-139            android:theme="@style/FishBunTheme" />
-139-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:25:13-48
-140        <activity
-140-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:26:9-28:51
-141            android:name="com.sangcomz.fishbun.ui.picker.PickerActivity"
-141-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:27:13-73
-142            android:theme="@style/FishBunTheme" />
-142-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:28:13-48
-143        <activity
-143-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:29:9-31:54
-144            android:name="com.sangcomz.fishbun.ui.detail.DetailActivity"
-144-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:30:13-73
-145            android:theme="@style/DetailViewTheme" />
-145-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d19340af098f452af07b5ca045ba3409\jetified-FishBun-0.11.2\AndroidManifest.xml:31:13-51
-146
-147        <provider
-147-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:31:9-39:20
-148            android:name="androidx.startup.InitializationProvider"
-148-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:32:13-67
-149            android:authorities="com.example.instagram.androidx-startup"
-149-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:33:13-68
-150            android:exported="false" >
-150-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:34:13-37
+29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+29-->[:connectivity_plus] D:\flutter\main\instagramApp\instagram\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+29-->[:connectivity_plus] D:\flutter\main\instagramApp\instagram\build\connectivity_plus\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+30    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+30-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-83
+30-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-80
+31    <uses-permission android:name="android.permission.WAKE_LOCK" />
+31-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:24:5-68
+31-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:24:22-65
+32    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+32-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:25:5-79
+32-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:25:22-76
+33    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+33-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:26:5-110
+33-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:26:22-107
+34    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+34-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:27:5-81
+34-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:27:22-78
+35    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+35-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:28:5-77
+35-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:28:22-74
+36
+37    <application
+37-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:8:4-56:19
+38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+38-->[androidx.core:core:1.7.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\3f6d9ef3b65bfee01861f2e5d3bab0bd\core-1.7.0\AndroidManifest.xml:24:18-86
+39        android:debuggable="true"
+40        android:icon="@mipmap/launcher_icon"
+40-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:11:9-45
+41        android:label="instagram"
+41-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:9:9-34
+42        android:requestLegacyExternalStorage="true" >
+42-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:10:9-52
+43        <provider
+44            android:name="androidx.core.content.FileProvider"
+45            android:authorities="com.example.instagram.provider"
+46            android:exported="false"
+47            android:grantUriPermissions="true" >
+48            <meta-data
+48-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+49                android:name="android.support.FILE_PROVIDER_PATHS"
+49-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+50                android:resource="@xml/filepaths" />
+50-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+51        </provider>
+52
+53        <activity
+53-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:22:9-50:20
+54            android:name="com.example.instagram.MainActivity"
+54-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:23:13-41
+55            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+55-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:26:13-163
+56            android:hardwareAccelerated="true"
+56-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:27:13-47
+57            android:launchMode="singleTop"
+57-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:24:13-43
+58            android:theme="@style/LaunchTheme"
+58-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:25:13-47
+59            android:windowSoftInputMode="adjustResize" >
+59-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:28:13-55
+60
+61            <!--
+62                 Specifies an Android theme to apply to this Activity as soon as
+63                 the Android process has started. This theme is visible to the user
+64                 while the Flutter UI initializes. After that, this theme continues
+65                 to determine the Window background behind the Flutter UI.
+66            -->
+67            <meta-data
+67-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:33:13-36:17
+68                android:name="io.flutter.embedding.android.NormalTheme"
+68-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:34:15-70
+69                android:resource="@style/NormalTheme" />
+69-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:35:15-52
+70            <!--
+71                 Displays an Android View that continues showing the launch screen
+72                 Drawable until Flutter paints its first frame, then this splash
+73                 screen fades out. A splash screen is useful to avoid any visual
+74                 gap between the end of Android's launch screen and the painting of
+75                 Flutter's first frame.
+76            -->
+77            <meta-data
+77-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:42:13-45:17
+78                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+78-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:43:15-79
+79                android:resource="@drawable/launch_background" />
+79-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:44:15-61
+80
+81            <intent-filter>
+81-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:46:13-49:29
+82                <action android:name="android.intent.action.MAIN" />
+82-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:47:17-68
+82-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:47:25-66
+83
+84                <category android:name="android.intent.category.LAUNCHER" />
+84-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:48:17-76
+84-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:48:27-74
+85            </intent-filter>
+86        </activity>
+87        <!--
+88             Don't delete the meta-data below.
+89             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+90        -->
+91        <meta-data
+91-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:53:9-55:33
+92            android:name="flutterEmbedding"
+92-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:54:13-44
+93            android:value="2" />
+93-->D:\flutter\main\instagramApp\instagram\android\app\src\main\AndroidManifest.xml:55:13-30
+94
+95        <service
+95-->[:firebase_auth] D:\flutter\main\instagramApp\instagram\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+96            android:name="com.google.firebase.components.ComponentDiscoveryService"
+96-->[:firebase_auth] D:\flutter\main\instagramApp\instagram\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+97            android:directBootAware="true"
+97-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:35:13-43
+98            android:exported="false" >
+98-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:66:13-37
+99            <meta-data
+99-->[:firebase_auth] D:\flutter\main\instagramApp\instagram\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+100                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+100-->[:firebase_auth] D:\flutter\main\instagramApp\instagram\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+101                android:value="com.google.firebase.components.ComponentRegistrar" />
+101-->[:firebase_auth] D:\flutter\main\instagramApp\instagram\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+102            <meta-data
+102-->[:firebase_core] D:\flutter\main\instagramApp\instagram\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+103                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+103-->[:firebase_core] D:\flutter\main\instagramApp\instagram\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+104                android:value="com.google.firebase.components.ComponentRegistrar" />
+104-->[:firebase_core] D:\flutter\main\instagramApp\instagram\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+105            <meta-data
+105-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:67:13-69:85
+106                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+106-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:68:17-109
+107                android:value="com.google.firebase.components.ComponentRegistrar" />
+107-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:69:17-82
+108            <meta-data
+108-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:31:13-33:85
+109                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+109-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:32:17-139
+110                android:value="com.google.firebase.components.ComponentRegistrar" />
+110-->[com.google.android.gms:play-services-measurement-api:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c2afdd64ca750e4dbd9b2ae4acc88fc5\jetified-play-services-measurement-api-20.1.2\AndroidManifest.xml:33:17-82
+111            <meta-data
+111-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5c0bcaf225cb7771e65a14163b1c7474\jetified-firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
+112                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+112-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5c0bcaf225cb7771e65a14163b1c7474\jetified-firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
+113                android:value="com.google.firebase.components.ComponentRegistrar" />
+113-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5c0bcaf225cb7771e65a14163b1c7474\jetified-firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
+114        </service>
+115
+116        <provider
+116-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+117            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+117-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
+118            android:authorities="com.example.instagram.flutter.image_provider"
+118-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+119            android:exported="false"
+119-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+120            android:grantUriPermissions="true" >
+120-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+121            <meta-data
+121-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+122                android:name="android.support.FILE_PROVIDER_PATHS"
+122-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+123                android:resource="@xml/flutter_image_picker_file_paths" />
+123-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+124        </provider>
+125
+126        <activity
+126-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+127            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+127-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
+128            android:exported="false"
+128-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+129            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+129-->[:url_launcher_android] D:\flutter\main\instagramApp\instagram\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+130
+131        <provider
+131-->[:share_extend] D:\flutter\main\instagramApp\instagram\build\share_extend\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-13:20
+132            android:name="com.zt.shareextend.ShareExtendProvider"
+132-->[:share_extend] D:\flutter\main\instagramApp\instagram\build\share_extend\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-66
+133            android:authorities="com.example.instagram.shareextend.fileprovider"
+133-->[:share_extend] D:\flutter\main\instagramApp\instagram\build\share_extend\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-76
+134            android:exported="false"
+134-->[:share_extend] D:\flutter\main\instagramApp\instagram\build\share_extend\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+135            android:grantUriPermissions="true" >
+135-->[:share_extend] D:\flutter\main\instagramApp\instagram\build\share_extend\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+136        </provider>
+137        <provider
+137-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-21:20
+138            android:name="com.crazecoder.openfile.FileProvider"
+138-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-64
+139            android:authorities="com.example.instagram.fileProvider.com.crazecoder.openfile"
+139-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-88
+140            android:exported="false"
+140-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+141            android:grantUriPermissions="true" >
+141-->[:open_file] D:\flutter\main\instagramApp\instagram\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+142            <meta-data
+142-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+143                android:name="android.support.FILE_PROVIDER_PATHS"
+143-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+144                android:resource="@xml/filepaths" />
+144-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+145        </provider>
+146        <provider
+146-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+147            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+147-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-77
+148            android:authorities="com.example.instagram.flutter.share_provider"
+148-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+149            android:exported="false"
+149-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+150            android:grantUriPermissions="true" >
+150-->[:share_plus] D:\flutter\main\instagramApp\instagram\build\share_plus\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
 151            <meta-data
-151-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:36:13-38:52
-152                android:name="androidx.work.WorkManagerInitializer"
-152-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:37:17-68
-153                android:value="androidx.startup" />
-153-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:38:17-49
+151-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+152                android:name="android.support.FILE_PROVIDER_PATHS"
+152-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+153                android:resource="@xml/flutter_share_file_paths" />
+153-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
 154        </provider>
-155
-156        <service
-156-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:41:9-46:35
-157            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-157-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:42:13-88
-158            android:directBootAware="false"
-158-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:43:13-44
-159            android:enabled="@bool/enable_system_alarm_service_default"
-159-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:44:13-72
-160            android:exported="false" />
-160-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:45:13-37
-161        <service
-161-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:47:9-53:35
-162            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-162-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:48:13-84
-163            android:directBootAware="false"
-163-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:49:13-44
-164            android:enabled="@bool/enable_system_job_service_default"
-164-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:50:13-70
-165            android:exported="true"
-165-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:51:13-36
-166            android:permission="android.permission.BIND_JOB_SERVICE" />
-166-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:52:13-69
-167        <service
-167-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:54:9-59:35
-168            android:name="androidx.work.impl.foreground.SystemForegroundService"
-168-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:55:13-81
-169            android:directBootAware="false"
-169-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:56:13-44
-170            android:enabled="@bool/enable_system_foreground_service_default"
-170-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:57:13-77
-171            android:exported="false" />
-171-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:58:13-37
-172
-173        <receiver
-173-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:61:9-66:35
-174            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-174-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:62:13-88
-175            android:directBootAware="false"
-175-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:63:13-44
-176            android:enabled="true"
-176-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:64:13-35
-177            android:exported="false" />
-177-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:65:13-37
-178        <receiver
-178-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:67:9-77:20
-179            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-179-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:68:13-106
-180            android:directBootAware="false"
-180-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:69:13-44
-181            android:enabled="false"
-181-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:70:13-36
-182            android:exported="false" >
-182-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:71:13-37
-183            <intent-filter>
-183-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:73:13-76:29
-184                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-184-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:74:17-87
-184-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:74:25-84
-185                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-185-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:75:17-90
-185-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:75:25-87
-186            </intent-filter>
-187        </receiver>
-188        <receiver
-188-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:78:9-88:20
-189            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-189-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:79:13-104
-190            android:directBootAware="false"
-190-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:80:13-44
-191            android:enabled="false"
-191-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:81:13-36
-192            android:exported="false" >
-192-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:82:13-37
-193            <intent-filter>
-193-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:84:13-87:29
-194                <action android:name="android.intent.action.BATTERY_OKAY" />
-194-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:85:17-77
-194-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:85:25-74
-195                <action android:name="android.intent.action.BATTERY_LOW" />
-195-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:86:17-76
-195-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:86:25-73
-196            </intent-filter>
-197        </receiver>
-198        <receiver
-198-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:89:9-99:20
-199            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-199-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:90:13-104
-200            android:directBootAware="false"
-200-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:91:13-44
-201            android:enabled="false"
-201-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:92:13-36
-202            android:exported="false" >
-202-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:93:13-37
-203            <intent-filter>
-203-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:95:13-98:29
-204                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-204-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:96:17-83
-204-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:96:25-80
-205                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-205-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:97:17-82
-205-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:97:25-79
-206            </intent-filter>
-207        </receiver>
-208        <receiver
-208-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:100:9-109:20
-209            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-209-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:101:13-103
-210            android:directBootAware="false"
-210-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:102:13-44
-211            android:enabled="false"
-211-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:103:13-36
-212            android:exported="false" >
-212-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:104:13-37
-213            <intent-filter>
-213-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:106:13-108:29
-214                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-214-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:107:17-79
-214-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:107:25-76
-215            </intent-filter>
-216        </receiver>
-217        <receiver
-217-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:110:9-121:20
-218            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-218-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:111:13-88
-219            android:directBootAware="false"
-219-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:112:13-44
-220            android:enabled="false"
-220-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:113:13-36
-221            android:exported="false" >
-221-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:114:13-37
-222            <intent-filter>
-222-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:116:13-120:29
-223                <action android:name="android.intent.action.BOOT_COMPLETED" />
-223-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:117:17-79
-223-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:117:25-76
-224                <action android:name="android.intent.action.TIME_SET" />
-224-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:118:17-73
-224-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:118:25-70
-225                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-225-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:119:17-81
-225-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:119:25-78
-226            </intent-filter>
-227        </receiver>
-228        <receiver
-228-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:122:9-131:20
-229            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-229-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:123:13-99
-230            android:directBootAware="false"
-230-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:124:13-44
-231            android:enabled="@bool/enable_system_alarm_service_default"
-231-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:125:13-72
-232            android:exported="false" >
-232-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:126:13-37
-233            <intent-filter>
-233-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:128:13-130:29
-234                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-234-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:129:17-98
-234-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:129:25-95
-235            </intent-filter>
-236        </receiver>
-237        <receiver
-237-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:132:9-142:20
-238            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
-238-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:133:13-78
-239            android:directBootAware="false"
-239-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:134:13-44
-240            android:enabled="true"
-240-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:135:13-35
-241            android:exported="true"
-241-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:136:13-36
-242            android:permission="android.permission.DUMP" >
-242-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:137:13-57
-243            <intent-filter>
-243-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:139:13-141:29
-244                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
-244-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:140:17-88
-244-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\54150d832f66966ca3fadb99fface133\work-runtime-2.7.1\AndroidManifest.xml:140:25-85
-245            </intent-filter>
-246        </receiver>
+155        <provider
+155-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:12:9-20:20
+156            android:name="com.sangcomz.fishbun.FishBunFileProvider"
+156-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:13:13-68
+157            android:authorities="com.example.instagram.fishbunfileprovider"
+157-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:14:13-71
+158            android:exported="false"
+158-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:15:13-37
+159            android:grantUriPermissions="true" >
+159-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:16:13-47
+160            <meta-data
+160-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+161                android:name="android.support.FILE_PROVIDER_PATHS"
+161-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+162                android:resource="@xml/provider_paths" />
+162-->[:image_picker_android] D:\flutter\main\instagramApp\instagram\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+163        </provider>
+164
+165        <activity
+165-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:22:9-25:51
+166            android:name="com.sangcomz.fishbun.ui.album.AlbumActivity"
+166-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:23:13-71
+167            android:label="@string/album"
+167-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:24:13-42
+168            android:theme="@style/FishBunTheme" />
+168-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:25:13-48
+169        <activity
+169-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:26:9-28:51
+170            android:name="com.sangcomz.fishbun.ui.picker.PickerActivity"
+170-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:27:13-73
+171            android:theme="@style/FishBunTheme" />
+171-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:28:13-48
+172        <activity
+172-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:29:9-31:54
+173            android:name="com.sangcomz.fishbun.ui.detail.DetailActivity"
+173-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:30:13-73
+174            android:theme="@style/DetailViewTheme" />
+174-->[com.sangcomz:FishBun:0.11.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\c31fc20cf7e004566096bb04f6f4212e\jetified-FishBun-0.11.2\AndroidManifest.xml:31:13-51
+175
+176        <uses-library
+176-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+177            android:name="androidx.window.extensions"
+177-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+178            android:required="false" />
+178-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+179        <uses-library
+179-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+180            android:name="androidx.window.sidecar"
+180-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+181            android:required="false" />
+181-->[androidx.window:window:1.0.0-beta04] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\cea45e25bbe77c9713c39e234ccfd7bd\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+182
+183        <activity
+183-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:27:9-44:20
+184            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+184-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:28:13-80
+185            android:excludeFromRecents="true"
+185-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:29:13-46
+186            android:exported="true"
+186-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:30:13-36
+187            android:launchMode="singleTask"
+187-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:31:13-44
+188            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+188-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:32:13-72
+189            <intent-filter>
+189-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:33:13-43:29
+190                <action android:name="android.intent.action.VIEW" />
+190-->[:flutter_downloader] D:\flutter\main\instagramApp\instagram\build\flutter_downloader\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-65
+190-->[:flutter_downloader] D:\flutter\main\instagramApp\instagram\build\flutter_downloader\intermediates\library_manifest\debug\AndroidManifest.xml:10:21-62
+191
+192                <category android:name="android.intent.category.DEFAULT" />
+192-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:36:17-76
+192-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:36:27-73
+193                <category android:name="android.intent.category.BROWSABLE" />
+193-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:37:17-78
+193-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:37:27-75
+194
+195                <data
+195-->[:file_picker] D:\flutter\main\instagramApp\instagram\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-44
+196                    android:host="firebase.auth"
+197                    android:path="/"
+198                    android:scheme="genericidp" />
+199            </intent-filter>
+200        </activity>
+201        <activity
+201-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:45:9-62:20
+202            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+202-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:46:13-79
+203            android:excludeFromRecents="true"
+203-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:47:13-46
+204            android:exported="true"
+204-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:48:13-36
+205            android:launchMode="singleTask"
+205-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:49:13-44
+206            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+206-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:50:13-72
+207            <intent-filter>
+207-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:51:13-61:29
+208                <action android:name="android.intent.action.VIEW" />
+208-->[:flutter_downloader] D:\flutter\main\instagramApp\instagram\build\flutter_downloader\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-65
+208-->[:flutter_downloader] D:\flutter\main\instagramApp\instagram\build\flutter_downloader\intermediates\library_manifest\debug\AndroidManifest.xml:10:21-62
+209
+210                <category android:name="android.intent.category.DEFAULT" />
+210-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:36:17-76
+210-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:36:27-73
+211                <category android:name="android.intent.category.BROWSABLE" />
+211-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:37:17-78
+211-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\0cd31a8007b82ec10dce55ca37be1d81\jetified-firebase-auth-21.0.3\AndroidManifest.xml:37:27-75
+212
+213                <data
+213-->[:file_picker] D:\flutter\main\instagramApp\instagram\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-44
+214                    android:host="firebase.auth"
+215                    android:path="/"
+216                    android:scheme="recaptcha" />
+217            </intent-filter>
+218        </activity>
+219
+220        <provider
+220-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:26:9-31:39
+221            android:name="com.google.firebase.provider.FirebaseInitProvider"
+221-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:27:13-77
+222            android:authorities="com.example.instagram.firebaseinitprovider"
+222-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:28:13-72
+223            android:directBootAware="true"
+223-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:29:13-43
+224            android:exported="false"
+224-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:30:13-37
+225            android:initOrder="100" />
+225-->[com.google.firebase:firebase-common:20.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\b25e52f5739b5665d39d607baa2467f6\jetified-firebase-common-20.1.0\AndroidManifest.xml:31:13-36
+226
+227        <receiver
+227-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:29:9-33:20
+228            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+228-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:30:13-85
+229            android:enabled="true"
+229-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:31:13-35
+230            android:exported="false" >
+230-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:32:13-37
+231        </receiver>
+232
+233        <service
+233-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:35:9-38:40
+234            android:name="com.google.android.gms.measurement.AppMeasurementService"
+234-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:36:13-84
+235            android:enabled="true"
+235-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:37:13-35
+236            android:exported="false" />
+236-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:38:13-37
+237        <service
+237-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:39:9-43:72
+238            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+238-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:40:13-87
+239            android:enabled="true"
+239-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:41:13-35
+240            android:exported="false"
+240-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:42:13-37
+241            android:permission="android.permission.BIND_JOB_SERVICE" />
+241-->[com.google.android.gms:play-services-measurement:20.1.2] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\d5fb8286ca99d937eba34d3367438dd1\jetified-play-services-measurement-20.1.2\AndroidManifest.xml:43:13-69
+242
+243        <activity
+243-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\6627ebe7ef94065a47e7e8e9d66c6a9d\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+244            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+244-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\6627ebe7ef94065a47e7e8e9d66c6a9d\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+245            android:exported="false"
+245-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\6627ebe7ef94065a47e7e8e9d66c6a9d\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+246            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+246-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\6627ebe7ef94065a47e7e8e9d66c6a9d\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
 247
-248        <service
-248-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5a9abbd9b8f0f835c4fddb4cf7ae6694\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
-249            android:name="androidx.room.MultiInstanceInvalidationService"
-249-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5a9abbd9b8f0f835c4fddb4cf7ae6694\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
-250            android:directBootAware="true"
-250-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5a9abbd9b8f0f835c4fddb4cf7ae6694\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
-251            android:exported="false" />
-251-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\5a9abbd9b8f0f835c4fddb4cf7ae6694\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
-252    </application>
-253
-254</manifest>
+248        <meta-data
+248-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\4a1e8147c3db656939cfc830651ce63e\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+249            android:name="com.google.android.gms.version"
+249-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\4a1e8147c3db656939cfc830651ce63e\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+250            android:value="@integer/google_play_services_version" />
+250-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\4a1e8147c3db656939cfc830651ce63e\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+251
+252        <provider
+252-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:31:9-39:20
+253            android:name="androidx.startup.InitializationProvider"
+253-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:32:13-67
+254            android:authorities="com.example.instagram.androidx-startup"
+254-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:33:13-68
+255            android:exported="false" >
+255-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:34:13-37
+256            <meta-data
+256-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:36:13-38:52
+257                android:name="androidx.work.WorkManagerInitializer"
+257-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:37:17-68
+258                android:value="androidx.startup" />
+258-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:38:17-49
+259        </provider>
+260
+261        <service
+261-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:41:9-46:35
+262            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+262-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:42:13-88
+263            android:directBootAware="false"
+263-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:43:13-44
+264            android:enabled="@bool/enable_system_alarm_service_default"
+264-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:44:13-72
+265            android:exported="false" />
+265-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:45:13-37
+266        <service
+266-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:47:9-53:35
+267            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+267-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:48:13-84
+268            android:directBootAware="false"
+268-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:49:13-44
+269            android:enabled="@bool/enable_system_job_service_default"
+269-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:50:13-70
+270            android:exported="true"
+270-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:51:13-36
+271            android:permission="android.permission.BIND_JOB_SERVICE" />
+271-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:52:13-69
+272        <service
+272-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:54:9-59:35
+273            android:name="androidx.work.impl.foreground.SystemForegroundService"
+273-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:55:13-81
+274            android:directBootAware="false"
+274-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:56:13-44
+275            android:enabled="@bool/enable_system_foreground_service_default"
+275-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:57:13-77
+276            android:exported="false" />
+276-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:58:13-37
+277
+278        <receiver
+278-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:61:9-66:35
+279            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+279-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:62:13-88
+280            android:directBootAware="false"
+280-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:63:13-44
+281            android:enabled="true"
+281-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:64:13-35
+282            android:exported="false" />
+282-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:65:13-37
+283        <receiver
+283-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:67:9-77:20
+284            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+284-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:68:13-106
+285            android:directBootAware="false"
+285-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:69:13-44
+286            android:enabled="false"
+286-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:70:13-36
+287            android:exported="false" >
+287-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:71:13-37
+288            <intent-filter>
+288-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:73:13-76:29
+289                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+289-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:74:17-87
+289-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:74:25-84
+290                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+290-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:75:17-90
+290-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:75:25-87
+291            </intent-filter>
+292        </receiver>
+293        <receiver
+293-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:78:9-88:20
+294            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+294-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:79:13-104
+295            android:directBootAware="false"
+295-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:80:13-44
+296            android:enabled="false"
+296-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:81:13-36
+297            android:exported="false" >
+297-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:82:13-37
+298            <intent-filter>
+298-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:84:13-87:29
+299                <action android:name="android.intent.action.BATTERY_OKAY" />
+299-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:85:17-77
+299-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:85:25-74
+300                <action android:name="android.intent.action.BATTERY_LOW" />
+300-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:86:17-76
+300-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:86:25-73
+301            </intent-filter>
+302        </receiver>
+303        <receiver
+303-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:89:9-99:20
+304            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+304-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:90:13-104
+305            android:directBootAware="false"
+305-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:91:13-44
+306            android:enabled="false"
+306-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:92:13-36
+307            android:exported="false" >
+307-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:93:13-37
+308            <intent-filter>
+308-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:95:13-98:29
+309                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+309-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:96:17-83
+309-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:96:25-80
+310                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+310-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:97:17-82
+310-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:97:25-79
+311            </intent-filter>
+312        </receiver>
+313        <receiver
+313-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:100:9-109:20
+314            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+314-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:101:13-103
+315            android:directBootAware="false"
+315-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:102:13-44
+316            android:enabled="false"
+316-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:103:13-36
+317            android:exported="false" >
+317-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:104:13-37
+318            <intent-filter>
+318-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:106:13-108:29
+319                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+319-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:107:17-79
+319-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:107:25-76
+320            </intent-filter>
+321        </receiver>
+322        <receiver
+322-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:110:9-121:20
+323            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+323-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:111:13-88
+324            android:directBootAware="false"
+324-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:112:13-44
+325            android:enabled="false"
+325-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:113:13-36
+326            android:exported="false" >
+326-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:114:13-37
+327            <intent-filter>
+327-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:116:13-120:29
+328                <action android:name="android.intent.action.BOOT_COMPLETED" />
+328-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:117:17-79
+328-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:117:25-76
+329                <action android:name="android.intent.action.TIME_SET" />
+329-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:118:17-73
+329-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:118:25-70
+330                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+330-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:119:17-81
+330-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:119:25-78
+331            </intent-filter>
+332        </receiver>
+333        <receiver
+333-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:122:9-131:20
+334            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+334-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:123:13-99
+335            android:directBootAware="false"
+335-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:124:13-44
+336            android:enabled="@bool/enable_system_alarm_service_default"
+336-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:125:13-72
+337            android:exported="false" >
+337-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:126:13-37
+338            <intent-filter>
+338-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:128:13-130:29
+339                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+339-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:129:17-98
+339-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:129:25-95
+340            </intent-filter>
+341        </receiver>
+342        <receiver
+342-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:132:9-142:20
+343            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+343-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:133:13-78
+344            android:directBootAware="false"
+344-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:134:13-44
+345            android:enabled="true"
+345-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:135:13-35
+346            android:exported="true"
+346-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:136:13-36
+347            android:permission="android.permission.DUMP" >
+347-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:137:13-57
+348            <intent-filter>
+348-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:139:13-141:29
+349                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+349-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:140:17-88
+349-->[androidx.work:work-runtime:2.7.1] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\7dbe88f7b6e9827bdd9ac54c043689c6\work-runtime-2.7.1\AndroidManifest.xml:140:25-85
+350            </intent-filter>
+351        </receiver>
+352
+353        <service
+353-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\20ab9516f5f592df29683e213cda0be8\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
+354            android:name="androidx.room.MultiInstanceInvalidationService"
+354-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\20ab9516f5f592df29683e213cda0be8\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
+355            android:directBootAware="true"
+355-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\20ab9516f5f592df29683e213cda0be8\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
+356            android:exported="false" />
+356-->[androidx.room:room-runtime:2.2.5] C:\Users\DISHANT\.gradle\caches\transforms-2\files-2.1\20ab9516f5f592df29683e213cda0be8\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
+357    </application>
+358
+359</manifest>

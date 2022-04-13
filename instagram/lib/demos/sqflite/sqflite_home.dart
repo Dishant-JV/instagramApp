@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get.dart';
 import 'package:instagram/demos/sqflite/sqflite_database.dart';
 import 'package:instagram/demos/sqflite/sqflite_update_screen.dart';
 import 'package:swipedetector/swipedetector.dart';
@@ -28,6 +30,7 @@ class _SqFliteHomeState extends State<SqFliteHome> {
   getData() async {
     userData = await database.dbSelect();
     setState(() {});
+    print("data");
   }
 
   SqfliteDatabase database = SqfliteDatabase();
@@ -217,21 +220,20 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                     InkWell(
                       onTap: () async {
                         if (keys.currentState!.validate()) {
+                          Navigator.pop(context);
                           Student student = Student(
                               name: nameController.text,
                               age: int.parse(ageController.text),
                               std: int.parse(stdController.text));
                           await database.dbInsert(student);
+                          userData = await database.dbSelect();
+                          setState(() {});
                           nameController.clear();
                           ageController.clear();
                           stdController.clear();
-                          nameError = "";
-                          ageError = "";
-                          stdError = "";
-                          setState(() {
-                            userData.add(student);
-                          });
-                          Navigator.pop(context);
+                          // setState(() {
+                          //   userData.add(student);
+                          // });
                         }
                       },
                       child: Card(
@@ -362,13 +364,16 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                   itemCount: userData.length,
                   itemBuilder: (context, index) {
                     Student student = userData[index];
-                    return SwipeDetector(
-                      onSwipeRight: () async {
+                    return Dismissible(
+                      background: Container(
+                        color: Colors.red,
+                      ),
+                      onDismissed: (DismissDirection direction) async {
                         await database.dbDelete(student.id);
-                        setState(() {
-                          getData();
-                        });
+                        userData = await database.dbSelect();
+                        setState(() {});
                       },
+                      key: UniqueKey(),
                       child: Container(
                         height: 60,
                         color: index % 2 == 0
@@ -409,10 +414,15 @@ class _SqFliteHomeState extends State<SqFliteHome> {
                             InkWell(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              SqfliteUpdateScreen(id: student.id,)));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SqfliteUpdateScreen(
+                                        id: student.id,
+                                      ),
+                                    ),
+                                  ).then((value) {
+                                    getData();
+                                  });
                                 },
                                 child: Icon(
                                   Icons.system_update,
